@@ -1,0 +1,375 @@
+display: "iadl_IADLData_display.xml"
+description: "INSTRUMENTAL ACTIVITIES OF DAILY LIVING SCALE (IADLs)"
+
+display_versions:
+  dump:
+    description: "Fields referenced by DisplayVersion versionName=\"dump\"."
+
+# source_schema_element: iadl:IADLData
+
+display_field_annotations:
+  DATE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Date"
+    definition: "Date when the IADL assessment was performed."
+    source:
+      schema_element: "iadl:IADLData.date"
+      display_field_elements:
+        Field1: "iadl:IADLData.date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "iadl"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "date"
+      synonyms:
+        - "Date"
+        - "date"
+        - "DATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AGE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Age"
+    definition: "Participant age at the time of the IADL assessment."
+    source:
+      schema_element: "iadl:IADLData.date"
+      display_field_elements:
+        Field1: "iadl:IADLData.date"
+        Field2: "xnat:demographicData.dob"
+        Field3: "xnat:demographicData.yob"
+    derivation:
+      kind: "sql"
+      input: "CAST(COALESCE(FLOOR(CAST((CAST(((@Field1) - (@Field2))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @Field1)) - (@Field3))) AS numeric)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "iadl"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "age"
+      synonyms:
+        - "Age"
+        - "age"
+        - "AGE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TELEPHONE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "telephone"
+    definition: "IADL item score for ability to use the telephone."
+    source:
+      schema_element: "iadl:IADLData/telephone"
+      display_field_elements:
+        Field1: "iadl:IADLData/telephone"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "iadl"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "telephone"
+      synonyms:
+        - "telephone"
+        - "TELEPHONE"
+        - "Telephone"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  SHOPPING:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "shopping"
+    definition: "IADL item score for shopping."
+    source:
+      schema_element: "iadl:IADLData/shopping"
+      display_field_elements:
+        Field1: "iadl:IADLData/shopping"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "iadl"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "shopping"
+      synonyms:
+        - "shopping"
+        - "SHOPPING"
+        - "Shopping"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  FOOD:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "food"
+    definition: "IADL item score for food preparation."
+    source:
+      schema_element: "iadl:IADLData/food"
+      display_field_elements:
+        Field1: "iadl:IADLData/food"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "iadl"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "food"
+      synonyms:
+        - "food"
+        - "FOOD"
+        - "Food"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  HOUSEKEEPING:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "housekeeping"
+    definition: "IADL item score for housekeeping."
+    source:
+      schema_element: "iadl:IADLData/housekeeping"
+      display_field_elements:
+        Field1: "iadl:IADLData/housekeeping"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "iadl"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "housekeeping"
+      synonyms:
+        - "housekeeping"
+        - "HOUSEKEEPING"
+        - "Housekeeping"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  LAUNDRY:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "laundry"
+    definition: "IADL item score for laundry."
+    source:
+      schema_element: "iadl:IADLData/laundry"
+      display_field_elements:
+        Field1: "iadl:IADLData/laundry"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "iadl"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "laundry"
+      synonyms:
+        - "laundry"
+        - "LAUNDRY"
+        - "Laundry"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TRANSPORTATION:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "transportation"
+    definition: "IADL item score for transportation."
+    source:
+      schema_element: "iadl:IADLData/transportation"
+      display_field_elements:
+        Field1: "iadl:IADLData/transportation"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "iadl"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "transportation"
+      synonyms:
+        - "transportation"
+        - "TRANSPORTATION"
+        - "Transportation"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MEDICATIONS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "medications"
+    definition: "IADL item score for responsibility for medications."
+    source:
+      schema_element: "iadl:IADLData/medications"
+      display_field_elements:
+        Field1: "iadl:IADLData/medications"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "iadl"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "medications"
+      synonyms:
+        - "medications"
+        - "MEDICATIONS"
+        - "Medications"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  FINANCES:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "finances"
+    definition: "IADL item score for handling finances."
+    source:
+      schema_element: "iadl:IADLData/finances"
+      display_field_elements:
+        Field1: "iadl:IADLData/finances"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "iadl"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "finances"
+      synonyms:
+        - "finances"
+        - "FINANCES"
+        - "Finances"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IADL_SCORE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "iadl_score"
+    definition: "Total IADL score."
+    source:
+      schema_element: "iadl:IADLData/iadl_score"
+      display_field_elements:
+        Field1: "iadl:IADLData/iadl_score"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "iadl"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "iadl_score"
+      synonyms:
+        - "iadl_score"
+        - "iadl score"
+        - "IADL_SCORE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null

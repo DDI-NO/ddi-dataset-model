@@ -1,0 +1,428 @@
+display: "dem_ddiDemographicData_display.xml"
+description: "DDI base demographic data"
+
+display_versions:
+  dump:
+    description: "Fields referenced by DisplayVersion versionName=\"dump\"."
+
+# source_schema_element: dem:ddiDemographicData
+
+display_field_annotations:
+  SUBJ_GROUP:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Subject group"
+    definition: "Group classification assigned to the participant."
+    source:
+      schema_element: "dem:ddiDemographicData/subj_group"
+      display_field_elements:
+        Field1: "dem:ddiDemographicData/subj_group"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "dem"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "subj_group"
+      synonyms:
+        - "Subject group"
+        - "subject group"
+        - "SUBJ_GROUP"
+        - "subj_group"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  SUBJ_GROUP_TEXT:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Subject group text"
+    definition: "Label representation derived from coded values."
+    source:
+      schema_element: "dem:ddiDemographicData/subj_group"
+      display_field_elements:
+        Field1: "dem:ddiDemographicData/subj_group"
+    derivation:
+      kind: "sql_case"
+      input: |-
+        CASE @Field1
+                when 0 then 'Cognitive symptom group'
+                when 1 then 'Parkinsonism symptom group'
+                when 2 then 'Spouse control group'
+                when 3 then 'Ordinary control group'
+                when 4 then 'Orthopedic control group'
+                when 5 then 'Family history "control" group'
+                when 6 then 'Cognitive symptom - extension from previous study group'
+                when 7 then 'Neuropsychiatric symptoms group'
+                when 8 then 'Skogholts disease'
+              	ELSE NULL
+              END
+      mapping:
+        "0": "Cognitive symptom group"
+        "1": "Parkinsonism symptom group"
+        "2": "Spouse control group"
+        "3": "Ordinary control group"
+        "4": "Orthopedic control group"
+        "5": "Family history \"control\" group"
+        "6": "Cognitive symptom - extension from previous study group"
+        "7": "Neuropsychiatric symptoms group"
+        "8": "Skogholts disease"
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "dem"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "subj_group_text"
+      synonyms:
+        - "Subject group text"
+        - "subject group text"
+        - "SUBJ_GROUP_TEXT"
+        - "subj_group_text"
+    allowed_values:
+      - "Cognitive symptom group"
+      - "Parkinsonism symptom group"
+      - "Spouse control group"
+      - "Ordinary control group"
+      - "Orthopedic control group"
+      - "Family history \"control\" group"
+      - "Cognitive symptom - extension from previous study group"
+      - "Neuropsychiatric symptoms group"
+      - "Skogholts disease"
+    sensitivity: "none"
+    quality:
+      notes: null
+  NATION:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Nation"
+    definition: "Nation recorded for the participant."
+    source:
+      schema_element: "dem:ddiDemographicData/nation"
+      display_field_elements:
+        Field1: "dem:ddiDemographicData/nation"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "dem"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "nation"
+      synonyms:
+        - "Nation"
+        - "nation"
+        - "NATION"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  NATION_OTHER:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Nation Other"
+    definition: "Free-text specification of nation when \"Other\" is selected."
+    source:
+      schema_element: "dem:ddiDemographicData/nation_other"
+      display_field_elements:
+        Field1: "dem:ddiDemographicData/nation_other"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "dem"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "nation_other"
+      synonyms:
+        - "Nation Other"
+        - "nation other"
+        - "NATION_OTHER"
+        - "nation_other"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  LANGUAGE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Language"
+    definition: "Primary language recorded for the participant."
+    source:
+      schema_element: "dem:ddiDemographicData/language"
+      display_field_elements:
+        Field1: "dem:ddiDemographicData/language"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "dem"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "language"
+      synonyms:
+        - "Language"
+        - "language"
+        - "LANGUAGE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  LANGUAGE_OTHER:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Language Other"
+    definition: "Free-text specification of language when \"Other\" is selected."
+    source:
+      schema_element: "dem:ddiDemographicData/language_other"
+      display_field_elements:
+        Field1: "dem:ddiDemographicData/language_other"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "dem"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "language_other"
+      synonyms:
+        - "Language Other"
+        - "language other"
+        - "LANGUAGE_OTHER"
+        - "language_other"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  RECRUIT:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Recruitment"
+    definition: "Recruitment source or pathway recorded for the participant."
+    source:
+      schema_element: "dem:ddiDemographicData/recruit"
+      display_field_elements:
+        Field1: "dem:ddiDemographicData/recruit"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "dem"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recruit"
+      synonyms:
+        - "Recruitment"
+        - "recruitment"
+        - "RECRUIT"
+        - "recruit"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  RECRUIT_TEXT:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Recruitment Text"
+    definition: "Label representation derived from coded values."
+    source:
+      schema_element: "dem:ddiDemographicData/recruit"
+      display_field_elements:
+        Field1: "dem:ddiDemographicData/recruit"
+    derivation:
+      kind: "sql_case"
+      input: |-
+        CASE @Field1
+            WHEN 0 THEN 'Advertisement'
+        WHEN 1 THEN 'Referral to memory clinic'
+        WHEN 2 THEN 'Continuation from another study'
+        WHEN 3 THEN 'Cohabitant/spouse'
+        WHEN 4 THEN 'Other'
+        ELSE NULL
+        END
+      mapping:
+        "0": "Advertisement"
+        "1": "Referral to memory clinic"
+        "2": "Continuation from another study"
+        "3": "Cohabitant/spouse"
+        "4": "Other"
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "dem"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recruit_text"
+      synonyms:
+        - "Recruitment Text"
+        - "recruitment text"
+        - "RECRUIT_TEXT"
+        - "recruit_text"
+    allowed_values:
+      - "Advertisement"
+      - "Referral to memory clinic"
+      - "Continuation from another study"
+      - "Cohabitant/spouse"
+      - "Other"
+    sensitivity: "none"
+    quality:
+      notes: null
+  RECRUIT_OTHER:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Recruit Other"
+    definition: "Free-text specification of recruitment when \"Other\" is selected."
+    source:
+      schema_element: "dem:ddiDemographicData/recruit_other"
+      display_field_elements:
+        Field1: "dem:ddiDemographicData/recruit_other"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "dem"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recruit_other"
+      synonyms:
+        - "Recruit Other"
+        - "recruit other"
+        - "RECRUIT_OTHER"
+        - "recruit_other"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  EDU_YEARS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Education Years"
+    definition: "Number of years of formal education completed."
+    source:
+      schema_element: "dem:ddiDemographicData/edu_years"
+      display_field_elements:
+        Field1: "dem:ddiDemographicData/edu_years"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "dem"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "edu_years"
+      synonyms:
+        - "Education Years"
+        - "education years"
+        - "EDU_YEARS"
+        - "edu_years"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  EDU_LEVEL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Education Level"
+    definition: "Highest education level completed."
+    source:
+      schema_element: "dem:ddiDemographicData/edu_level"
+      display_field_elements:
+        Field1: "dem:ddiDemographicData/edu_level"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "dem"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "edu_level"
+      synonyms:
+        - "Education Level"
+        - "education level"
+        - "EDU_LEVEL"
+        - "edu_level"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null

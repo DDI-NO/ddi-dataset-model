@@ -1,0 +1,451 @@
+display: "mrrep_MRIReportData_display.xml"
+description: "MRI report"
+
+display_versions:
+  dump:
+    description: "Fields referenced by DisplayVersion versionName=\"dump\"."
+
+# source_schema_element: mrrep:MRIReportData
+
+display_field_annotations:
+  DATE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Date"
+    definition: "Date when the MRI session was performed."
+    source:
+      schema_element: "mrrep:MRIReportData.date"
+      display_field_elements:
+        Field1: "mrrep:MRIReportData.date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mrrep"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "date"
+      synonyms:
+        - "Date"
+        - "date"
+        - "DATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AGE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Age"
+    definition: "Participant age at the time of the MRI session."
+    source:
+      schema_element: "mrrep:MRIReportData.date"
+      display_field_elements:
+        Field1: "mrrep:MRIReportData.date"
+        Field2: "xnat:demographicData.dob"
+        Field3: "xnat:demographicData.yob"
+    derivation:
+      kind: "sql"
+      input: "CAST(COALESCE(FLOOR(CAST((CAST(((@Field1) - (@Field2))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @Field1)) - (@Field3))) AS numeric)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mrrep"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "age"
+      synonyms:
+        - "Age"
+        - "age"
+        - "AGE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MRI_DATE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Session Date"
+    definition: "Date when the MRI session was performed."
+    source:
+      schema_element: "mrrep:MRIReportData/mri_date"
+      display_field_elements:
+        Field1: "mrrep:MRIReportData/mri_date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mrrep"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mri_date"
+      synonyms:
+        - "Session Date"
+        - "session date"
+        - "MRI_DATE"
+        - "mri_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MRI_READER:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Reader"
+    definition: "Reader or interpreter of the MRI study."
+    source:
+      schema_element: "mrrep:MRIReportData/mri_reader"
+      display_field_elements:
+        Field1: "mrrep:MRIReportData/mri_reader"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mrrep"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mri_reader"
+      synonyms:
+        - "Reader"
+        - "reader"
+        - "MRI_READER"
+        - "mri_reader"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MRI_TECH:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Technique"
+    definition: "MRI acquisition technique described in the report."
+    source:
+      schema_element: "mrrep:MRIReportData/mri_tech"
+      display_field_elements:
+        Field1: "mrrep:MRIReportData/mri_tech"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mrrep"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mri_tech"
+      synonyms:
+        - "Technique"
+        - "technique"
+        - "MRI_TECH"
+        - "mri_tech"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MRI_PREV_DATE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Date of previous MRI"
+    definition: "Date of the previous MRI study used for comparison, if available."
+    source:
+      schema_element: "mrrep:MRIReportData/mri_prev_date"
+      display_field_elements:
+        Field1: "mrrep:MRIReportData/mri_prev_date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mrrep"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mri_prev_date"
+      synonyms:
+        - "Date of previous MRI"
+        - "date of previous mri"
+        - "MRI_PREV_DATE"
+        - "mri_prev_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MRI_CONCLU:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Conclusion"
+    definition: "Overall interpretation of the MRI study."
+    source:
+      schema_element: "mrrep:MRIReportData/mri_conclu"
+      display_field_elements:
+        Field1: "mrrep:MRIReportData/mri_conclu"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mrrep"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mri_conclu"
+      synonyms:
+        - "Conclusion"
+        - "conclusion"
+        - "MRI_CONCLU"
+        - "mri_conclu"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MRI_FAZEKAS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Fazekas"
+    definition: "Fazekas score recorded in the MRI report."
+    source:
+      schema_element: "mrrep:MRIReportData/mri_fazekas"
+      display_field_elements:
+        Field1: "mrrep:MRIReportData/mri_fazekas"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mrrep"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mri_fazekas"
+      synonyms:
+        - "Fazekas"
+        - "fazekas"
+        - "MRI_FAZEKAS"
+        - "mri_fazekas"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MRI_GLOB_CEREB_ATRO:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Global cerebral atrophy"
+    definition: "MRI visual rating for global cerebral atrophy."
+    source:
+      schema_element: "mrrep:MRIReportData/mri_glob_cereb_atro"
+      display_field_elements:
+        Field1: "mrrep:MRIReportData/mri_glob_cereb_atro"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mrrep"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mri_glob_cereb_atro"
+      synonyms:
+        - "Global cerebral atrophy"
+        - "global cerebral atrophy"
+        - "MRI_GLOB_CEREB_ATRO"
+        - "mri_glob_cereb_atro"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MRI_MTA_RIGHT:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Medial temporal atrophy - Right"
+    definition: "MRI visual rating for right medial temporal atrophy."
+    source:
+      schema_element: "mrrep:MRIReportData/mri_mta_right"
+      display_field_elements:
+        Field1: "mrrep:MRIReportData/mri_mta_right"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mrrep"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mri_mta_right"
+      synonyms:
+        - "Medial temporal atrophy - Right"
+        - "medial temporal atrophy - right"
+        - "MRI_MTA_RIGHT"
+        - "mri_mta_right"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MRI_MTA_LEFT:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Medial temporal atrophy - Left"
+    definition: "MRI visual rating for left medial temporal atrophy."
+    source:
+      schema_element: "mrrep:MRIReportData/mri_mta_left"
+      display_field_elements:
+        Field1: "mrrep:MRIReportData/mri_mta_left"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mrrep"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mri_mta_left"
+      synonyms:
+        - "Medial temporal atrophy - Left"
+        - "medial temporal atrophy - left"
+        - "MRI_MTA_LEFT"
+        - "mri_mta_left"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MRI_STATUS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Status"
+    definition: "Status classification recorded for the MRI report."
+    source:
+      schema_element: "mrrep:MRIReportData/mri_status"
+      display_field_elements:
+        Field1: "mrrep:MRIReportData/mri_status"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mrrep"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mri_status"
+      synonyms:
+        - "Status"
+        - "status"
+        - "MRI_STATUS"
+        - "mri_status"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  koedam_pa_score:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Koedam PA Score"
+    definition: "Koedam posterior atrophy score recorded in the MRI report."
+    source:
+      schema_element: "mrrep:MRIReportData/koedam_pa_score"
+      display_field_elements:
+        Field1: "mrrep:MRIReportData/koedam_pa_score"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mrrep"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "koedam_pa_score"
+      synonyms:
+        - "Status"
+        - "status"
+        - "koedam_pa_score"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null

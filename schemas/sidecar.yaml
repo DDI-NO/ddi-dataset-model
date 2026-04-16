@@ -1,0 +1,37 @@
+display: "<xml_filename>"
+description: "<one-paragraph, retrieved from the complex element of the source schema, or manually curated>"
+
+display_versions:
+  dump:
+    description: "<optional>"
+
+display_field_annotations:
+  <DISPLAY_FIELD_ID>:
+    export:
+      column: "<lower_snake_case or null>"
+      included_via_display_version: "dump"   # or null / absent if not in dump
+    label: "<DisplayField/@header>"
+    definition: "<one-paragraph, curated>"
+    source:
+      schema_element: "<DisplayFieldElement/@schema-element or null>"
+      display_field_elements:
+        <ElementName>: "<schema-element>"
+    derivation:                                # only if computed, e.g. SQL CASE
+      kind: "sql" | "sql_case" | "concat" | "none"
+      input: "<@Field1 etc, optional>"
+      mapping: { }
+      else: null
+      depends_on_display_fields: [ ]
+    semantics:
+      level: "subject" | "visit" | "sample" | "experiment"
+      domain: "<diagnosis|csf|cognition|demographics|...>"
+      value_type: "categorical" | "numeric" | "date" | "text" | "boolean"
+      units: "<unit or null>"
+      preferred_representation: "code" | "label" | "raw"
+    resolution:
+      canonical_name: "<stable conceptual name>"
+      synonyms: [ ]
+    allowed_values: [ ]
+    sensitivity: "clinical" | "pii" | "none"
+    quality:
+      notes: "<optional>"

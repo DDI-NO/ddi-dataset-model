@@ -1,0 +1,29 @@
+# ddi-dataset-model
+
+This repository contains:
+
+- Python tooling for generating and curating extractor-friendly metadata (YAML sidecars) from XNAT display definitions.
+- The generated/curated sidecars themselves (authoritative copy).
+
+## Inputs
+
+The authoritative XSD schemas and display XMLs currently live in the XNAT plugin repository (e.g. `xnat-apgem-plugin`).
+This repo reads those inputs via local filesystem paths configured in `config/source_repos.yaml`.
+
+## Output layout
+
+Sidecars are written to:
+
+- `sidecars/<domain>/<display_xml_basename>.meta.yaml`
+
+Example:
+
+- `sidecars/diag/diag_DiagnosisData_display.meta.yaml`
+
+## Commands
+
+- Generate sidecars: `python scripts/generate_display_sidecars.py --config config/source_repos.yaml`
+- Curate important fields: `python scripts/curate_sidecars_repo_wide.py --config config/source_repos.yaml`
+- Validate sidecars: `python scripts/validate_display_sidecars.py`
+
+All tools support `--dry-run`.

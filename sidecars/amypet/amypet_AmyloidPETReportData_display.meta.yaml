@@ -1,0 +1,214 @@
+display: "amypet_AmyloidPETReportData_display.xml"
+description: "Amyloid-PET report"
+
+display_versions:
+  dump:
+    description: "Fields referenced by DisplayVersion versionName=\"dump\"."
+
+# source_schema_element: amypet:AmyloidPETReportData
+
+display_field_annotations:
+  DATE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Date Amyloid-PET"
+    definition: "Date when the Amyloid-PET session was performed."
+    source:
+      schema_element: "amypet:AmyloidPETReportData.date"
+      display_field_elements:
+        Field1: "amypet:AmyloidPETReportData.date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "amypet"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "date"
+      synonyms:
+        - "Date"
+        - "date"
+        - "DATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AGE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Age"
+    definition: "Participant age at the time of the Amyloid-PET session."
+    source:
+      schema_element: "amypet:AmyloidPETReportData.date"
+      display_field_elements:
+        Field1: "amypet:AmyloidPETReportData.date"
+        Field2: "xnat:demographicData.dob"
+        Field3: "xnat:demographicData.yob"
+    derivation:
+      kind: "sql"
+      input: "CAST(COALESCE(FLOOR(CAST((CAST(((@Field1) - (@Field2))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @Field1)) - (@Field3))) AS numeric)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "amypet"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "age"
+      synonyms:
+        - "Age"
+        - "age"
+        - "AGE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AMYPET_TRACER:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Tracer"
+    definition: "Radiotracer used for the Amyloid-PET scan."
+    source:
+      schema_element: "amypet:AmyloidPETReportData/amypet_tracer"
+      display_field_elements:
+        Field1: "amypet:AmyloidPETReportData/amypet_tracer"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "amypet"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "amypet_tracer"
+      synonyms:
+        - "Tracer"
+        - "tracer"
+        - "AMYPET_TRACER"
+        - "amypet_tracer"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AMYPET_TRACER_OTHER:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Tracer Other"
+    definition: "Free-text specification of the tracer when 'Other' is selected."
+    source:
+      schema_element: "amypet:AmyloidPETReportData/amypet_tracer_other"
+      display_field_elements:
+        Field1: "amypet:AmyloidPETReportData/amypet_tracer_other"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "amypet"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "amypet_tracer_other"
+      synonyms:
+        - "Tracer Other"
+        - "tracer other"
+        - "AMYPET_TRACER_OTHER"
+        - "amypet_tracer_other"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AMYPET_PREV_DATE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Previous Date"
+    definition: "Date of the previous PET study used for comparison, if available."
+    source:
+      schema_element: "amypet:AmyloidPETReportData/amypet_prev_date"
+      display_field_elements:
+        Field1: "amypet:AmyloidPETReportData/amypet_prev_date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "amypet"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "amypet_prev_date"
+      synonyms:
+        - "Previous Date"
+        - "previous date"
+        - "AMYPET_PREV_DATE"
+        - "amypet_prev_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AMYPET_CONCLU:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Conclusion"
+    definition: "Overall interpretation of the Amyloid-PET result, such as negative, positive, or uncertain."
+    source:
+      schema_element: "amypet:AmyloidPETReportData/amypet_conclu"
+      display_field_elements:
+        Field1: "amypet:AmyloidPETReportData/amypet_conclu"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "amypet"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "amypet_conclu"
+      synonyms:
+        - "Conclusion"
+        - "conclusion"
+        - "AMYPET_CONCLU"
+        - "amypet_conclu"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null

@@ -1,0 +1,475 @@
+display: "madrs_MADRSData_display.xml"
+description: "Montgomery-Asberg Depression Scale (MADRS)"
+
+display_versions:
+  dump:
+    description: "Fields referenced by DisplayVersion versionName=\"dump\"."
+
+# source_schema_element: madrs:MADRSData
+
+display_field_annotations:
+  LABEL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Label"
+    definition: "Label identifying the MADRS record."
+    source:
+      schema_element: "madrs:MADRSData.ID"
+      display_field_elements:
+        Field1: "madrs:MADRSData.ID"
+        Field2: "madrs:MADRSData.label"
+    derivation:
+      kind: "sql"
+      input: "COALESCE(@Field2, @Field1)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "madrs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "label"
+      synonyms:
+        - "Label"
+        - "label"
+        - "LABEL"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  DATE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Date"
+    definition: "Date when the MADRS assessment was performed."
+    source:
+      schema_element: "madrs:MADRSData.date"
+      display_field_elements:
+        Field1: "madrs:MADRSData.date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "madrs"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "date"
+      synonyms:
+        - "Date"
+        - "date"
+        - "DATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AGE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Age"
+    definition: "Participant age at the time of the MADRS assessment."
+    source:
+      schema_element: "madrs:MADRSData.date"
+      display_field_elements:
+        Field1: "madrs:MADRSData.date"
+        Field2: "xnat:demographicData.dob"
+        Field3: "xnat:demographicData.yob"
+    derivation:
+      kind: "sql"
+      input: "CAST(COALESCE(FLOOR(CAST((CAST(((@Field1) - (@Field2))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @Field1)) - (@Field3))) AS numeric)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "madrs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "age"
+      synonyms:
+        - "Age"
+        - "age"
+        - "AGE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  APPARENT_SADNESS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "apparent_sadness"
+    definition: "MADRS item score for apparent sadness."
+    source:
+      schema_element: "madrs:MADRSData/apparent_sadness"
+      display_field_elements:
+        Field1: "madrs:MADRSData/apparent_sadness"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "madrs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "apparent_sadness"
+      synonyms:
+        - "apparent_sadness"
+        - "apparent sadness"
+        - "APPARENT_SADNESS"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  REPORTED_SADNESS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "reported_sadness"
+    definition: "MADRS item score for reported sadness."
+    source:
+      schema_element: "madrs:MADRSData/reported_sadness"
+      display_field_elements:
+        Field1: "madrs:MADRSData/reported_sadness"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "madrs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "reported_sadness"
+      synonyms:
+        - "reported_sadness"
+        - "reported sadness"
+        - "REPORTED_SADNESS"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  INNER_TENSION:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "inner_tension"
+    definition: "MADRS item score for inner tension."
+    source:
+      schema_element: "madrs:MADRSData/inner_tension"
+      display_field_elements:
+        Field1: "madrs:MADRSData/inner_tension"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "madrs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "inner_tension"
+      synonyms:
+        - "inner_tension"
+        - "inner tension"
+        - "INNER_TENSION"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  REDUCED_SLEEP:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "reduced_sleep"
+    definition: "MADRS item score for reduced sleep."
+    source:
+      schema_element: "madrs:MADRSData/reduced_sleep"
+      display_field_elements:
+        Field1: "madrs:MADRSData/reduced_sleep"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "madrs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "reduced_sleep"
+      synonyms:
+        - "reduced_sleep"
+        - "reduced sleep"
+        - "REDUCED_SLEEP"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  REDUCED_APPETITE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "reduced_appetite"
+    definition: "MADRS item score for reduced appetite."
+    source:
+      schema_element: "madrs:MADRSData/reduced_appetite"
+      display_field_elements:
+        Field1: "madrs:MADRSData/reduced_appetite"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "madrs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "reduced_appetite"
+      synonyms:
+        - "reduced_appetite"
+        - "reduced appetite"
+        - "REDUCED_APPETITE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CONCENTRATION_DIFFICULTIES:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "concentration_difficulties"
+    definition: "MADRS item score for concentration difficulties."
+    source:
+      schema_element: "madrs:MADRSData/concentration_difficulties"
+      display_field_elements:
+        Field1: "madrs:MADRSData/concentration_difficulties"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "madrs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "concentration_difficulties"
+      synonyms:
+        - "concentration_difficulties"
+        - "concentration difficulties"
+        - "CONCENTRATION_DIFFICULTIES"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  LASSITUDE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "lassitude"
+    definition: "MADRS item score for lassitude."
+    source:
+      schema_element: "madrs:MADRSData/lassitude"
+      display_field_elements:
+        Field1: "madrs:MADRSData/lassitude"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "madrs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "lassitude"
+      synonyms:
+        - "lassitude"
+        - "LASSITUDE"
+        - "Lassitude"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  INABILITY_FEEL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "inability_feel"
+    definition: "MADRS item score for inability feel."
+    source:
+      schema_element: "madrs:MADRSData/inability_feel"
+      display_field_elements:
+        Field1: "madrs:MADRSData/inability_feel"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "madrs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "inability_feel"
+      synonyms:
+        - "inability_feel"
+        - "inability feel"
+        - "INABILITY_FEEL"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PESSIMISTIC_THOUGHTS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "pessimistic_thoughts"
+    definition: "MADRS item score for pessimistic thoughts."
+    source:
+      schema_element: "madrs:MADRSData/pessimistic_thoughts"
+      display_field_elements:
+        Field1: "madrs:MADRSData/pessimistic_thoughts"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "madrs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "pessimistic_thoughts"
+      synonyms:
+        - "pessimistic_thoughts"
+        - "pessimistic thoughts"
+        - "PESSIMISTIC_THOUGHTS"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  SUICIDAL_THOUGHTS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "suicidal_thoughts"
+    definition: "MADRS item score for suicidal thoughts."
+    source:
+      schema_element: "madrs:MADRSData/suicidal_thoughts"
+      display_field_elements:
+        Field1: "madrs:MADRSData/suicidal_thoughts"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "madrs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "suicidal_thoughts"
+      synonyms:
+        - "suicidal_thoughts"
+        - "suicidal thoughts"
+        - "SUICIDAL_THOUGHTS"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MADRS_SCORE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "madrs_score"
+    definition: "Total MADRS score."
+    source:
+      schema_element: "madrs:MADRSData/madrs_score"
+      display_field_elements:
+        Field1: "madrs:MADRSData/madrs_score"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "madrs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "madrs_score"
+      synonyms:
+        - "madrs_score"
+        - "madrs score"
+        - "MADRS_SCORE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null

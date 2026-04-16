@@ -1,0 +1,3654 @@
+display: "bioch_BiochemistryData_display.xml"
+description: "Blood Biochemistry data"
+
+display_versions:
+  dump:
+    description: "Fields referenced by DisplayVersion versionName=\"dump\"."
+
+# source_schema_element: bioch:BiochemistryData
+
+display_field_annotations:
+  LABEL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Label"
+    definition: "Label identifying the biochemistry record."
+    source:
+      schema_element: "bioch:BiochemistryData.ID"
+      display_field_elements:
+        Field1: "bioch:BiochemistryData.ID"
+        Field2: "bioch:BiochemistryData.label"
+    derivation:
+      kind: "sql"
+      input: "COALESCE(@Field2, @Field1)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "label"
+      synonyms:
+        - "Label"
+        - "label"
+        - "LABEL"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  DATE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Date"
+    definition: "Date when the biochemistry assessment was performed."
+    source:
+      schema_element: "bioch:BiochemistryData.date"
+      display_field_elements:
+        Field1: "bioch:BiochemistryData.date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "date"
+      synonyms:
+        - "Date"
+        - "date"
+        - "DATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AGE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Age"
+    definition: "Participant age at the time of the biochemistry assessment."
+    source:
+      schema_element: "bioch:BiochemistryData.date"
+      display_field_elements:
+        Field1: "bioch:BiochemistryData.date"
+        Field2: "xnat:demographicData.dob"
+        Field3: "xnat:demographicData.yob"
+    derivation:
+      kind: "sql"
+      input: |-
+        CAST(COALESCE(FLOOR(CAST((CAST(((@Field1) - (@Field2))AS FLOAT4)/365) AS
+                 numeric)),FLOOR((EXTRACT(YEAR FROM @Field1)) - (@Field3))) AS numeric)
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "age"
+      synonyms:
+        - "Age"
+        - "age"
+        - "AGE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_Hb:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "B-Hemoglobin g/dL"
+    definition: "Measured biochemistry value for B-Hemoglobin g/dL."
+    source:
+      schema_element: "bioch:blData/Bl_Hb"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_Hb"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_hb"
+      synonyms:
+        - "B-Hemoglobin g/dL"
+        - "b-hemoglobin g/dl"
+        - "Bl_Hb"
+        - "bl_hb"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_HbNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "B-Hemoglobin within normal value"
+    definition: "Indicator of whether B-Hemoglobin was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_HbNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_HbNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_hbnorm"
+      synonyms:
+        - "B-Hemoglobin within normal value"
+        - "b-hemoglobin within normal value"
+        - "Bl_HbNorm"
+        - "bl_hbnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_Hct:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "B-Hematocrit"
+    definition: "Measured biochemistry value for B-Hematocrit."
+    source:
+      schema_element: "bioch:blData/Bl_Hct"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_Hct"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_hct"
+      synonyms:
+        - "B-Hematocrit"
+        - "b-hematocrit"
+        - "Bl_Hct"
+        - "bl_hct"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_HctNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "B-Hematocrit within normal value"
+    definition: "Indicator of whether B-Hematocrit was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_HctNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_HctNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_hctnorm"
+      synonyms:
+        - "B-Hematocrit within normal value"
+        - "b-hematocrit within normal value"
+        - "Bl_HctNorm"
+        - "bl_hctnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_SR:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "B-SR mm/hour"
+    definition: "Measured biochemistry value for B-SR mm/hour."
+    source:
+      schema_element: "bioch:blData/Bl_SR"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_SR"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_sr"
+      synonyms:
+        - "B-SR mm/hour"
+        - "b-sr mm/hour"
+        - "Bl_SR"
+        - "bl_sr"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_SRNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "B-SR mm/hour within normal value"
+    definition: "Indicator of whether B-SR mm/hour was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_SRNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_SRNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_srnorm"
+      synonyms:
+        - "B-SR mm/hour within normal value"
+        - "b-sr mm/hour within normal value"
+        - "Bl_SRNorm"
+        - "bl_srnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_Leukoc:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "B-Leukocytes"
+    definition: "Measured biochemistry value for B-Leukocytes."
+    source:
+      schema_element: "bioch:blData/Bl_Leukoc"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_Leukoc"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_leukoc"
+      synonyms:
+        - "B-Leukocytes"
+        - "b-leukocytes"
+        - "Bl_Leukoc"
+        - "bl_leukoc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_LeukocNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "B-Leukocytes within normal value"
+    definition: "Indicator of whether B-Leukocytes was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_LeukocNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_LeukocNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_leukocnorm"
+      synonyms:
+        - "B-Leukocytes within normal value"
+        - "b-leukocytes within normal value"
+        - "Bl_LeukocNorm"
+        - "bl_leukocnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_DiffNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "B-Diff.count within normal value"
+    definition: "Indicator of whether B-Diff.count was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_DiffNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_DiffNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_diffnorm"
+      synonyms:
+        - "B-Diff.count within normal value"
+        - "b-diff.count within normal value"
+        - "Bl_DiffNorm"
+        - "bl_diffnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_Ferritin:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Ferritin"
+    definition: "Measured biochemistry value for S-Ferritin."
+    source:
+      schema_element: "bioch:blData/Bl_Ferritin"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_Ferritin"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_ferritin"
+      synonyms:
+        - "S-Ferritin"
+        - "s-ferritin"
+        - "Bl_Ferritin"
+        - "bl_ferritin"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_FerritinNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Ferritin within normal value"
+    definition: "Indicator of whether S-Ferritin was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_FerritinNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_FerritinNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_ferritinnorm"
+      synonyms:
+        - "S-Ferritin within normal value"
+        - "s-ferritin within normal value"
+        - "Bl_FerritinNorm"
+        - "bl_ferritinnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_CRP:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-CRP (mg/L)"
+    definition: "Measured biochemistry value for S-CRP (mg/L)."
+    source:
+      schema_element: "bioch:blData/Bl_CRP"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_CRP"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_crp"
+      synonyms:
+        - "S-CRP (mg/L)"
+        - "s-crp (mg/l)"
+        - "Bl_CRP"
+        - "bl_crp"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_CRPNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-CRP (mg/L) within normal value"
+    definition: "Indicator of whether S-CRP (mg/L) was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_CRPNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_CRPNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_crpnorm"
+      synonyms:
+        - "S-CRP (mg/L) within normal value"
+        - "s-crp (mg/l) within normal value"
+        - "Bl_CRPNorm"
+        - "bl_crpnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_VitB12:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Vitamin B12 (pmol/L)"
+    definition: "Measured biochemistry value for S-Vitamin B12 (pmol/L)."
+    source:
+      schema_element: "bioch:blData/Bl_VitB12"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_VitB12"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_vitb12"
+      synonyms:
+        - "S-Vitamin B12 (pmol/L)"
+        - "s-vitamin b12 (pmol/l)"
+        - "Bl_VitB12"
+        - "bl_vitb12"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_VitB12Norm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Vitamin B12 (pmol/L) within normal value"
+    definition: "Indicator of whether S-Vitamin B12 (pmol/L) was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_VitB12Norm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_VitB12Norm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_vitb12norm"
+      synonyms:
+        - "S-Vitamin B12 (pmol/L) within normal value"
+        - "s-vitamin b12 (pmol/l) within normal value"
+        - "Bl_VitB12Norm"
+        - "bl_vitb12norm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_Folat:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Folat nmol/L"
+    definition: "Measured biochemistry value for S-Folat nmol/L."
+    source:
+      schema_element: "bioch:blData/Bl_Folat"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_Folat"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_folat"
+      synonyms:
+        - "S-Folat nmol/L"
+        - "s-folat nmol/l"
+        - "Bl_Folat"
+        - "bl_folat"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_FolatNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Folat nmol/L within normal value"
+    definition: "Indicator of whether S-Folat nmol/L was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_FolatNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_FolatNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_folatnorm"
+      synonyms:
+        - "S-Folat nmol/L within normal value"
+        - "s-folat nmol/l within normal value"
+        - "Bl_FolatNorm"
+        - "bl_folatnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_Homocyst:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Homocystein"
+    definition: "Measured biochemistry value for S-Homocystein."
+    source:
+      schema_element: "bioch:blData/Bl_Homocyst"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_Homocyst"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_homocyst"
+      synonyms:
+        - "S-Homocystein"
+        - "s-homocystein"
+        - "Bl_Homocyst"
+        - "bl_homocyst"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_HomocystNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Homocystein within normal value"
+    definition: "Indicator of whether S-Homocystein was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_HomocystNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_HomocystNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_homocystnorm"
+      synonyms:
+        - "S-Homocystein within normal value"
+        - "s-homocystein within normal value"
+        - "Bl_HomocystNorm"
+        - "bl_homocystnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_MMA:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-MMA"
+    definition: "Measured biochemistry value for S-MMA."
+    source:
+      schema_element: "bioch:blData/Bl_MMA"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_MMA"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_mma"
+      synonyms:
+        - "S-MMA"
+        - "s-mma"
+        - "Bl_MMA"
+        - "bl_mma"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_MMANorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-MMA within normal value"
+    definition: "Indicator of whether S-MMA was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_MMANorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_MMANorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_mmanorm"
+      synonyms:
+        - "S-MMA within normal value"
+        - "s-mma within normal value"
+        - "Bl_MMANorm"
+        - "bl_mmanorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_Glu:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Glucose mmol/L"
+    definition: "Measured biochemistry value for S-Glucose mmol/L."
+    source:
+      schema_element: "bioch:blData/Bl_Glu"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_Glu"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_glu"
+      synonyms:
+        - "S-Glucose mmol/L"
+        - "s-glucose mmol/l"
+        - "Bl_Glu"
+        - "bl_glu"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_GluNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Glucose mmol/L within normal value"
+    definition: "Indicator of whether S-Glucose mmol/L was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_GluNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_GluNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_glunorm"
+      synonyms:
+        - "S-Glucose mmol/L within normal value"
+        - "s-glucose mmol/l within normal value"
+        - "Bl_GluNorm"
+        - "bl_glunorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_HbA1c:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "B-HbA1C percentage"
+    definition: "Measured biochemistry value for B-Hb A1 C percentage."
+    source:
+      schema_element: "bioch:blData/Bl_HbA1c"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_HbA1c"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_hba1c"
+      synonyms:
+        - "B-HbA1C percentage"
+        - "b-hba1c percentage"
+        - "Bl_HbA1c"
+        - "bl_hba1c"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_HbA1cNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "B-HbA1C within normal value"
+    definition: "Indicator of whether B-Hb A1 C was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_HbA1cNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_HbA1cNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_hba1cnorm"
+      synonyms:
+        - "B-HbA1C within normal value"
+        - "b-hba1c within normal value"
+        - "Bl_HbA1cNorm"
+        - "bl_hba1cnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_Na:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Na"
+    definition: "Measured biochemistry value for S-Na."
+    source:
+      schema_element: "bioch:blData/Bl_Na"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_Na"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_na"
+      synonyms:
+        - "S-Na"
+        - "s-na"
+        - "Bl_Na"
+        - "bl_na"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_NaNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Na within normal value"
+    definition: "Indicator of whether S-Na was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_NaNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_NaNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_nanorm"
+      synonyms:
+        - "S-Na within normal value"
+        - "s-na within normal value"
+        - "Bl_NaNorm"
+        - "bl_nanorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_K:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-K"
+    definition: "Measured biochemistry value for S-K."
+    source:
+      schema_element: "bioch:blData/Bl_K"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_K"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_k"
+      synonyms:
+        - "S-K"
+        - "s-k"
+        - "Bl_K"
+        - "bl_k"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_KNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-K within normal value"
+    definition: "Indicator of whether S-K was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_KNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_KNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_knorm"
+      synonyms:
+        - "S-K within normal value"
+        - "s-k within normal value"
+        - "Bl_KNorm"
+        - "bl_knorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_TotalCa:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Ca, total"
+    definition: "Measured biochemistry value for S-Ca, total."
+    source:
+      schema_element: "bioch:blData/Bl_TotalCa"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_TotalCa"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_totalca"
+      synonyms:
+        - "S-Ca, total"
+        - "s-ca, total"
+        - "Bl_TotalCa"
+        - "bl_totalca"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_TotalCaNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Ca, total within normal value"
+    definition: "Indicator of whether S-Ca, total was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_TotalCaNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_TotalCaNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_totalcanorm"
+      synonyms:
+        - "S-Ca, total within normal value"
+        - "s-ca, total within normal value"
+        - "Bl_TotalCaNorm"
+        - "bl_totalcanorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_AlbcorrCa:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Ca, albumin corrected"
+    definition: "Measured biochemistry value for S-Ca, albumin corrected."
+    source:
+      schema_element: "bioch:blData/Bl_AlbcorrCa"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_AlbcorrCa"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_albcorrca"
+      synonyms:
+        - "S-Ca, albumin corrected"
+        - "s-ca, albumin corrected"
+        - "Bl_AlbcorrCa"
+        - "bl_albcorrca"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_AlbcorrCaNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Ca, albumin corrected within normal value"
+    definition: "Indicator of whether S-Ca, albumin corrected was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_AlbcorrCaNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_AlbcorrCaNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_albcorrcanorm"
+      synonyms:
+        - "S-Ca, albumin corrected within normal value"
+        - "s-ca, albumin corrected within normal value"
+        - "Bl_AlbcorrCaNorm"
+        - "bl_albcorrcanorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_Kreatinin:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Kreatinin"
+    definition: "Measured biochemistry value for S-Kreatinin."
+    source:
+      schema_element: "bioch:blData/Bl_Kreatinin"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_Kreatinin"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_kreatinin"
+      synonyms:
+        - "S-Kreatinin"
+        - "s-kreatinin"
+        - "Bl_Kreatinin"
+        - "bl_kreatinin"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_KreatininNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Kreatinin within normal value"
+    definition: "Indicator of whether S-Kreatinin was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_KreatininNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_KreatininNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_kreatininnorm"
+      synonyms:
+        - "S-Kreatinin within normal value"
+        - "s-kreatinin within normal value"
+        - "Bl_KreatininNorm"
+        - "bl_kreatininnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_GFR:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "GFR"
+    definition: "Measured biochemistry value for GFR."
+    source:
+      schema_element: "bioch:blData/Bl_GFR"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_GFR"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_gfr"
+      synonyms:
+        - "GFR"
+        - "gfr"
+        - "Bl_GFR"
+        - "bl_gfr"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_GFRNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "GFR within normal value"
+    definition: "Indicator of whether GFR was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_GFRNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_GFRNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_gfrnorm"
+      synonyms:
+        - "GFR within normal value"
+        - "gfr within normal value"
+        - "Bl_GFRNorm"
+        - "bl_gfrnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_ALAT:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-ALAT"
+    definition: "Measured biochemistry value for S-ALAT."
+    source:
+      schema_element: "bioch:blData/Bl_ALAT"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_ALAT"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_alat"
+      synonyms:
+        - "S-ALAT"
+        - "s-alat"
+        - "Bl_ALAT"
+        - "bl_alat"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_ALATNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-ALAT within normal value"
+    definition: "Indicator of whether S-ALAT was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_ALATNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_ALATNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_alatnorm"
+      synonyms:
+        - "S-ALAT within normal value"
+        - "s-alat within normal value"
+        - "Bl_ALATNorm"
+        - "bl_alatnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_ALP:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-ALP"
+    definition: "Measured biochemistry value for S-ALP."
+    source:
+      schema_element: "bioch:blData/Bl_ALP"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_ALP"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_alp"
+      synonyms:
+        - "S-ALP"
+        - "s-alp"
+        - "Bl_ALP"
+        - "bl_alp"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_ALPNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-ALP within normal value"
+    definition: "Indicator of whether S-ALP was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_ALPNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_ALPNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_alpnorm"
+      synonyms:
+        - "S-ALP within normal value"
+        - "s-alp within normal value"
+        - "Bl_ALPNorm"
+        - "bl_alpnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_proBNP:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-proBNP"
+    definition: "Measured biochemistry value for S-pro BNP."
+    source:
+      schema_element: "bioch:blData/Bl_proBNP"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_proBNP"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_probnp"
+      synonyms:
+        - "S-proBNP"
+        - "s-probnp"
+        - "Bl_proBNP"
+        - "bl_probnp"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_proBNPNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-proBNP within normal value"
+    definition: "Indicator of whether S-pro BNP was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_proBNPNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_proBNPNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_probnpnorm"
+      synonyms:
+        - "S-proBNP within normal value"
+        - "s-probnp within normal value"
+        - "Bl_proBNPNorm"
+        - "bl_probnpnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_TotChol:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Cholesterol, total"
+    definition: "Measured biochemistry value for S-Cholesterol, total."
+    source:
+      schema_element: "bioch:blData/Bl_TotChol"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_TotChol"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_totchol"
+      synonyms:
+        - "S-Cholesterol, total"
+        - "s-cholesterol, total"
+        - "Bl_TotChol"
+        - "bl_totchol"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_TotCholNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Cholesterol, total within normal value"
+    definition: "Indicator of whether S-Cholesterol, total was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_TotCholNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_TotCholNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_totcholnorm"
+      synonyms:
+        - "S-Cholesterol, total within normal value"
+        - "s-cholesterol, total within normal value"
+        - "Bl_TotCholNorm"
+        - "bl_totcholnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_HDL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-HDL"
+    definition: "Measured biochemistry value for S-HDL."
+    source:
+      schema_element: "bioch:blData/Bl_HDL"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_HDL"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_hdl"
+      synonyms:
+        - "S-HDL"
+        - "s-hdl"
+        - "Bl_HDL"
+        - "bl_hdl"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_HDLNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-HDL within normal value"
+    definition: "Indicator of whether S-HDL was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_HDLNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_HDLNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_hdlnorm"
+      synonyms:
+        - "S-HDL within normal value"
+        - "s-hdl within normal value"
+        - "Bl_HDLNorm"
+        - "bl_hdlnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_Triglys:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Triglycerides"
+    definition: "Measured biochemistry value for S-Triglycerides."
+    source:
+      schema_element: "bioch:blData/Bl_Triglys"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_Triglys"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_triglys"
+      synonyms:
+        - "S-Triglycerides"
+        - "s-triglycerides"
+        - "Bl_Triglys"
+        - "bl_triglys"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_TriglysNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Triglycerides within normal value"
+    definition: "Indicator of whether S-Triglycerides was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_TriglysNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_TriglysNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_triglysnorm"
+      synonyms:
+        - "S-Triglycerides within normal value"
+        - "s-triglycerides within normal value"
+        - "Bl_TriglysNorm"
+        - "bl_triglysnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_LDL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-LDL"
+    definition: "Measured biochemistry value for S-LDL."
+    source:
+      schema_element: "bioch:blData/Bl_LDL"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_LDL"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_ldl"
+      synonyms:
+        - "S-LDL"
+        - "s-ldl"
+        - "Bl_LDL"
+        - "bl_ldl"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_LDLNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-LDL within normal value"
+    definition: "Indicator of whether S-LDL was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_LDLNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_LDLNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_ldlnorm"
+      synonyms:
+        - "S-LDL within normal value"
+        - "s-ldl within normal value"
+        - "Bl_LDLNorm"
+        - "bl_ldlnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_Albumin:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Albumin"
+    definition: "Measured biochemistry value for S-Albumin."
+    source:
+      schema_element: "bioch:blData/Bl_Albumin"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_Albumin"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_albumin"
+      synonyms:
+        - "S-Albumin"
+        - "s-albumin"
+        - "Bl_Albumin"
+        - "bl_albumin"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_AlbuminNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Albumin within normal value"
+    definition: "Indicator of whether S-Albumin was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_AlbuminNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_AlbuminNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_albuminnorm"
+      synonyms:
+        - "S-Albumin within normal value"
+        - "s-albumin within normal value"
+        - "Bl_AlbuminNorm"
+        - "bl_albuminnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_fT4:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-fT4"
+    definition: "Measured biochemistry value for S-f T4."
+    source:
+      schema_element: "bioch:blData/Bl_fT4"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_fT4"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_ft4"
+      synonyms:
+        - "S-fT4"
+        - "s-ft4"
+        - "Bl_fT4"
+        - "bl_ft4"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_fT4Norm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-fT4 within normal value"
+    definition: "Indicator of whether S-f T4 was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_fT4Norm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_fT4Norm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_ft4norm"
+      synonyms:
+        - "S-fT4 within normal value"
+        - "s-ft4 within normal value"
+        - "Bl_fT4Norm"
+        - "bl_ft4norm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_TSH:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-TSH"
+    definition: "Measured biochemistry value for S-TSH."
+    source:
+      schema_element: "bioch:blData/Bl_TSH"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_TSH"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_tsh"
+      synonyms:
+        - "S-TSH"
+        - "s-tsh"
+        - "Bl_TSH"
+        - "bl_tsh"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_TSHNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-TSH within normal value"
+    definition: "Indicator of whether S-TSH was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_TSHNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_TSHNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_tshnorm"
+      synonyms:
+        - "S-TSH within normal value"
+        - "s-tsh within normal value"
+        - "Bl_TSHNorm"
+        - "bl_tshnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_VitD:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Vitamin D 25-OH-D"
+    definition: "Measured biochemistry value for S-Vitamin D 25-OH-D."
+    source:
+      schema_element: "bioch:blData/Bl_VitD"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_VitD"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_vitd"
+      synonyms:
+        - "S-Vitamin D 25-OH-D"
+        - "s-vitamin d 25-oh-d"
+        - "Bl_VitD"
+        - "bl_vitd"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_VitDNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Vitamin D 25-OH-D within normal value"
+    definition: "Indicator of whether S-Vitamin D 25-OH-D was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_VitDNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_VitDNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_vitdnorm"
+      synonyms:
+        - "S-Vitamin D 25-OH-D within normal value"
+        - "s-vitamin d 25-oh-d within normal value"
+        - "Bl_VitDNorm"
+        - "bl_vitdnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_VitD1_25:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Vitamin D 1,25-OH2-D"
+    definition: "Measured biochemistry value for S-Vitamin D 1,25-OH2-D."
+    source:
+      schema_element: "bioch:blData/Bl_VitD1_25"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_VitD1_25"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_vitd1_25"
+      synonyms:
+        - "S-Vitamin D 1,25-OH2-D"
+        - "s-vitamin d 1,25-oh2-d"
+        - "Bl_VitD1_25"
+        - "bl_vitd1_25"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_VitD1_25Norm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "S-Vitamin D 1,25-OH2-D within normal value"
+    definition: "Indicator of whether S-Vitamin D 1,25-OH2-D was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_VitD1_25Norm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_VitD1_25Norm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_vitd1_25norm"
+      synonyms:
+        - "S-Vitamin D 1,25-OH2-D within normal value"
+        - "s-vitamin d 1,25-oh2-d within normal value"
+        - "Bl_VitD1_25Norm"
+        - "bl_vitd1_25norm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_CDT:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CDT"
+    definition: "Measured biochemistry value for CDT."
+    source:
+      schema_element: "bioch:blData/Bl_CDT"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_CDT"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_cdt"
+      synonyms:
+        - "CDT"
+        - "cdt"
+        - "Bl_CDT"
+        - "bl_cdt"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_CDTNorm:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CDT within normal value"
+    definition: "Indicator of whether CDT was within the normal reference range."
+    source:
+      schema_element: "bioch:blData/Bl_CDTNorm"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_CDTNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_cdtnorm"
+      synonyms:
+        - "CDT within normal value"
+        - "cdt within normal value"
+        - "Bl_CDTNorm"
+        - "bl_cdtnorm"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Bl_ApoE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "APOE genotype"
+    definition: "Measured biochemistry value for APOE genotype."
+    source:
+      schema_element: "bioch:blData/Bl_ApoE"
+      display_field_elements:
+        Field1: "bioch:blData/Bl_ApoE"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bl_apoe"
+      synonyms:
+        - "B-ApoE-genotype"
+        - "b-apoe-genotype"
+        - "Bl_ApoE"
+        - "bl_apoe"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_x_34_plasma_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma x34 mean (SIMOA)"
+    definition: "Measured biochemistry value for Plasma x34 mean (SIMOA)."
+    source:
+      schema_element: "bioch:blData/simoa_x_34_plasma/mean"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_x_34_plasma/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_x_34_plasma_mean"
+      synonyms:
+        - "simoa_x_34_plasma_mean"
+        - "simoa x 34 plasma mean"
+        - "Simoa X 34 Plasma Mean"
+        - "SIMOA_X_34_PLASMA_MEAN"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_x_34_plasma_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma x34 CV (SIMOA)"
+    definition: "Measured biochemistry value for Plasma x34 CV (SIMOA)."
+    source:
+      schema_element: "bioch:blData/simoa_x_34_plasma/cv"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_x_34_plasma/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_x_34_plasma_cv"
+      synonyms:
+        - "simoa_x_34_plasma_CV"
+        - "simoa_x_34_plasma_cv"
+        - "simoa x 34 plasma CV"
+        - "simoa x 34 plasma cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_x_34_plasma_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma x34 date (SIMOA)"
+    definition: "Date when the Plasma x34 (SIMOA) measurement was obtained."
+    source:
+      schema_element: "bioch:blData/simoa_x_34_plasma/date"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_x_34_plasma/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_x_34_plasma_date"
+      synonyms:
+        - "simoa_x_34_plasma_date"
+        - "simoa x 34 plasma date"
+        - "Simoa X 34 Plasma Date"
+        - "SIMOA_X_34_PLASMA_DATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_x_34_plasma_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma x34 plate (SIMOA)"
+    definition: "Measured biochemistry value for Plasma x34 plate (SIMOA)."
+    source:
+      schema_element: "bioch:blData/simoa_x_34_plasma/plate"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_x_34_plasma/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_x_34_plasma_plate"
+      synonyms:
+        - "simoa_x_34_plasma_plate"
+        - "simoa x 34 plasma plate"
+        - "Simoa X 34 Plasma Plate"
+        - "SIMOA_X_34_PLASMA_PLATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_20_x_plasma_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma x20 mean (SIMOA)"
+    definition: "Measured biochemistry value for Plasma x20 mean (SIMOA)."
+    source:
+      schema_element: "bioch:blData/simoa_20_x_plasma/mean"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_20_x_plasma/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_20_x_plasma_mean"
+      synonyms:
+        - "simoa_20_x_plasma_mean"
+        - "simoa 20 x plasma mean"
+        - "Simoa 20 X Plasma Mean"
+        - "SIMOA_20_X_PLASMA_MEAN"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_20_x_plasma_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma x20 CV (SIMOA)"
+    definition: "Measured biochemistry value for Plasma x20 CV (SIMOA)."
+    source:
+      schema_element: "bioch:blData/simoa_20_x_plasma/cv"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_20_x_plasma/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_20_x_plasma_cv"
+      synonyms:
+        - "simoa_20_x_plasma_CV"
+        - "simoa_20_x_plasma_cv"
+        - "simoa 20 x plasma CV"
+        - "simoa 20 x plasma cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_20_x_plasma_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma x20 date (SIMOA)"
+    definition: "Date when the Plasma x20 (SIMOA) measurement was obtained."
+    source:
+      schema_element: "bioch:blData/simoa_20_x_plasma/date"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_20_x_plasma/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_20_x_plasma_date"
+      synonyms:
+        - "simoa_20_x_plasma_date"
+        - "simoa 20 x plasma date"
+        - "Simoa 20 X Plasma Date"
+        - "SIMOA_20_X_PLASMA_DATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_20_x_plasma_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma x20 plate (SIMOA)"
+    definition: "Measured biochemistry value for Plasma x20 plate (SIMOA)."
+    source:
+      schema_element: "bioch:blData/simoa_20_x_plasma/plate"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_20_x_plasma/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_20_x_plasma_plate"
+      synonyms:
+        - "simoa_20_x_plasma_plate"
+        - "simoa 20 x plasma plate"
+        - "Simoa 20 X Plasma Plate"
+        - "SIMOA_20_X_PLASMA_PLATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_x_40_plasma_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma x40 mean (SIMOA)"
+    definition: "Measured biochemistry value for Plasma x40 mean (SIMOA)."
+    source:
+      schema_element: "bioch:blData/simoa_x_40_plasma/mean"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_x_40_plasma/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_x_40_plasma_mean"
+      synonyms:
+        - "simoa_x_40_plasma_mean"
+        - "simoa x 40 plasma mean"
+        - "Simoa X 40 Plasma Mean"
+        - "SIMOA_X_40_PLASMA_MEAN"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_x_40_plasma_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma x40 CV (SIMOA)"
+    definition: "Measured biochemistry value for Plasma x40 CV (SIMOA)."
+    source:
+      schema_element: "bioch:blData/simoa_x_40_plasma/cv"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_x_40_plasma/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_x_40_plasma_cv"
+      synonyms:
+        - "simoa_x_40_plasma_CV"
+        - "simoa_x_40_plasma_cv"
+        - "simoa x 40 plasma CV"
+        - "simoa x 40 plasma cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_x_40_plasma_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma x40 date (SIMOA)"
+    definition: "Date when the Plasma x40 (SIMOA) measurement was obtained."
+    source:
+      schema_element: "bioch:blData/simoa_x_40_plasma/date"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_x_40_plasma/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_x_40_plasma_date"
+      synonyms:
+        - "simoa_x_40_plasma_date"
+        - "simoa x 40 plasma date"
+        - "Simoa X 40 Plasma Date"
+        - "SIMOA_X_40_PLASMA_DATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_x_40_plasma_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma x40 plate (SIMOA)"
+    definition: "Measured biochemistry value for Plasma x40 plate (SIMOA)."
+    source:
+      schema_element: "bioch:blData/simoa_x_40_plasma/plate"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_x_40_plasma/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_x_40_plasma_plate"
+      synonyms:
+        - "simoa_x_40_plasma_plate"
+        - "simoa x 40 plasma plate"
+        - "Simoa X 40 Plasma Plate"
+        - "SIMOA_X_40_PLASMA_PLATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_nfl_plasma_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma NfL mean (SIMOA)"
+    definition: "Measured biochemistry value for Plasma Nf L mean (SIMOA)."
+    source:
+      schema_element: "bioch:blData/simoa_nfl_plasma/mean"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_nfl_plasma/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_nfl_plasma_mean"
+      synonyms:
+        - "simoa_nfl_plasma_mean"
+        - "simoa nfl plasma mean"
+        - "Simoa Nfl Plasma Mean"
+        - "SIMOA_NFL_PLASMA_MEAN"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_nfl_plasma_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma NfL CV (SIMOA)"
+    definition: "Measured biochemistry value for Plasma Nf L CV (SIMOA)."
+    source:
+      schema_element: "bioch:blData/simoa_nfl_plasma/cv"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_nfl_plasma/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_nfl_plasma_cv"
+      synonyms:
+        - "simoa_nfl_plasma_CV"
+        - "simoa_nfl_plasma_cv"
+        - "simoa nfl plasma CV"
+        - "simoa nfl plasma cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_nfl_plasma_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma NfL date (SIMOA)"
+    definition: "Date when the Plasma NfL (SIMOA) measurement was obtained."
+    source:
+      schema_element: "bioch:blData/simoa_nfl_plasma/date"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_nfl_plasma/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_nfl_plasma_date"
+      synonyms:
+        - "simoa_nfl_plasma_date"
+        - "simoa nfl plasma date"
+        - "Simoa Nfl Plasma Date"
+        - "SIMOA_NFL_PLASMA_DATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_nfl_plasma_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma NfL plate (SIMOA)"
+    definition: "Measured biochemistry value for Plasma Nf L plate (SIMOA)."
+    source:
+      schema_element: "bioch:blData/simoa_nfl_plasma/plate"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_nfl_plasma/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_nfl_plasma_plate"
+      synonyms:
+        - "simoa_nfl_plasma_plate"
+        - "simoa nfl plasma plate"
+        - "Simoa Nfl Plasma Plate"
+        - "SIMOA_NFL_PLASMA_PLATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_pTau181_plasma_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma pTau181 mean (SIMOA)"
+    definition: "Measured biochemistry value for Plasma p Tau181 mean (SIMOA)."
+    source:
+      schema_element: "bioch:blData/simoa_pTau181_plasma/mean"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_pTau181_plasma/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_ptau181_plasma_mean"
+      synonyms:
+        - "simoa_pTau181_plasma_mean"
+        - "simoa_ptau181_plasma_mean"
+        - "simoa pTau181 plasma mean"
+        - "simoa ptau181 plasma mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_pTau181_plasma_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma pTau181 CV (SIMOA)"
+    definition: "Measured biochemistry value for Plasma p Tau181 CV (SIMOA)."
+    source:
+      schema_element: "bioch:blData/simoa_pTau181_plasma/cv"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_pTau181_plasma/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_ptau181_plasma_cv"
+      synonyms:
+        - "simoa_pTau181_plasma_CV"
+        - "simoa_ptau181_plasma_cv"
+        - "simoa pTau181 plasma CV"
+        - "simoa ptau181 plasma cv"
+        - "simoa_pTau181_plasma_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_pTau181_plasma_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma pTau181 date (SIMOA)"
+    definition: "Date when the Plasma pTau181 (SIMOA) measurement was obtained."
+    source:
+      schema_element: "bioch:blData/simoa_pTau181_plasma/date"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_pTau181_plasma/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_ptau181_plasma_date"
+      synonyms:
+        - "simoa_pTau181_plasma_date"
+        - "simoa_ptau181_plasma_date"
+        - "simoa pTau181 plasma date"
+        - "simoa ptau181 plasma date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  simoa_pTau181_plasma_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma pTau181 plate (SIMOA)"
+    definition: "Measured biochemistry value for Plasma p Tau181 plate (SIMOA)."
+    source:
+      schema_element: "bioch:blData/simoa_pTau181_plasma/plate"
+      display_field_elements:
+        Field1: "bioch:blData/simoa_pTau181_plasma/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "simoa_ptau181_plasma_plate"
+      synonyms:
+        - "simoa_pTau181_plasma_plate"
+        - "simoa_ptau181_plasma_plate"
+        - "simoa pTau181 plasma plate"
+        - "simoa ptau181 plasma plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PlGF_plasma_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma PlGF mean"
+    definition: "Measured biochemistry value for Plasma Pl GF mean."
+    source:
+      schema_element: "bioch:blData/PlGF_plasma/mean"
+      display_field_elements:
+        Field1: "bioch:blData/PlGF_plasma/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "plgf_plasma_mean"
+      synonyms:
+        - "PlGF_plasma_mean"
+        - "plgf_plasma_mean"
+        - "PlGF plasma mean"
+        - "plgf plasma mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PlGF_plasma_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma PlGF CV"
+    definition: "Measured biochemistry value for Plasma Pl GF CV."
+    source:
+      schema_element: "bioch:blData/PlGF_plasma/cv"
+      display_field_elements:
+        Field1: "bioch:blData/PlGF_plasma/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "plgf_plasma_cv"
+      synonyms:
+        - "PlGF_plasma_CV"
+        - "plgf_plasma_cv"
+        - "PlGF plasma CV"
+        - "plgf plasma cv"
+        - "PlGF_plasma_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PlGF_plasma_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma PlGF date"
+    definition: "Date when the Plasma PlGF measurement was obtained."
+    source:
+      schema_element: "bioch:blData/PlGF_plasma/date"
+      display_field_elements:
+        Field1: "bioch:blData/PlGF_plasma/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "plgf_plasma_date"
+      synonyms:
+        - "PlGF_plasma_date"
+        - "plgf_plasma_date"
+        - "PlGF plasma date"
+        - "plgf plasma date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PlGF_plasma_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma PlGF plate"
+    definition: "Measured biochemistry value for Plasma Pl GF plate."
+    source:
+      schema_element: "bioch:blData/PlGF_plasma/plate"
+      display_field_elements:
+        Field1: "bioch:blData/PlGF_plasma/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "plgf_plasma_plate"
+      synonyms:
+        - "PlGF_plasma_plate"
+        - "plgf_plasma_plate"
+        - "PlGF plasma plate"
+        - "plgf plasma plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VEGF_C_plasma_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma VEGF-C mean"
+    definition: "Measured biochemistry value for Plasma VEGF-C mean."
+    source:
+      schema_element: "bioch:blData/VEGF_C_plasma/mean"
+      display_field_elements:
+        Field1: "bioch:blData/VEGF_C_plasma/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vegf_c_plasma_mean"
+      synonyms:
+        - "VEGF_C_plasma_mean"
+        - "vegf_c_plasma_mean"
+        - "VEGF C plasma mean"
+        - "vegf c plasma mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VEGF_C_plasma_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma VEGF-C CV"
+    definition: "Measured biochemistry value for Plasma VEGF-C CV."
+    source:
+      schema_element: "bioch:blData/VEGF_C_plasma/cv"
+      display_field_elements:
+        Field1: "bioch:blData/VEGF_C_plasma/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vegf_c_plasma_cv"
+      synonyms:
+        - "VEGF_C_plasma_CV"
+        - "vegf_c_plasma_cv"
+        - "VEGF C plasma CV"
+        - "vegf c plasma cv"
+        - "VEGF_C_plasma_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VEGF_C_plasma_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma VEGF-C date"
+    definition: "Date when the Plasma VEGF-C measurement was obtained."
+    source:
+      schema_element: "bioch:blData/VEGF_C_plasma/date"
+      display_field_elements:
+        Field1: "bioch:blData/VEGF_C_plasma/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vegf_c_plasma_date"
+      synonyms:
+        - "VEGF_C_plasma_date"
+        - "vegf_c_plasma_date"
+        - "VEGF C plasma date"
+        - "vegf c plasma date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VEGF_C_plasma_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma VEGF-C plate"
+    definition: "Measured biochemistry value for Plasma VEGF-C plate."
+    source:
+      schema_element: "bioch:blData/VEGF_C_plasma/plate"
+      display_field_elements:
+        Field1: "bioch:blData/VEGF_C_plasma/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vegf_c_plasma_plate"
+      synonyms:
+        - "VEGF_C_plasma_plate"
+        - "vegf_c_plasma_plate"
+        - "VEGF C plasma plate"
+        - "vegf c plasma plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VEGF_A_plasma_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma VEGF-A mean"
+    definition: "Measured biochemistry value for Plasma VEGF-A mean."
+    source:
+      schema_element: "bioch:blData/VEGF_A_plasma/mean"
+      display_field_elements:
+        Field1: "bioch:blData/VEGF_A_plasma/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vegf_a_plasma_mean"
+      synonyms:
+        - "VEGF_A_plasma_mean"
+        - "vegf_a_plasma_mean"
+        - "VEGF A plasma mean"
+        - "vegf a plasma mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VEGF_A_plasma_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma VEGF-A CV"
+    definition: "Measured biochemistry value for Plasma VEGF-A CV."
+    source:
+      schema_element: "bioch:blData/VEGF_A_plasma/cv"
+      display_field_elements:
+        Field1: "bioch:blData/VEGF_A_plasma/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vegf_a_plasma_cv"
+      synonyms:
+        - "VEGF_A_plasma_CV"
+        - "vegf_a_plasma_cv"
+        - "VEGF A plasma CV"
+        - "vegf a plasma cv"
+        - "VEGF_A_plasma_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VEGF_A_plasma_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma VEGF-A date"
+    definition: "Date when the Plasma VEGF-A measurement was obtained."
+    source:
+      schema_element: "bioch:blData/VEGF_A_plasma/date"
+      display_field_elements:
+        Field1: "bioch:blData/VEGF_A_plasma/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vegf_a_plasma_date"
+      synonyms:
+        - "VEGF_A_plasma_date"
+        - "vegf_a_plasma_date"
+        - "VEGF A plasma date"
+        - "vegf a plasma date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VEGF_A_plasma_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma VEGF-A plate"
+    definition: "Measured biochemistry value for Plasma VEGF-A plate."
+    source:
+      schema_element: "bioch:blData/VEGF_A_plasma/plate"
+      display_field_elements:
+        Field1: "bioch:blData/VEGF_A_plasma/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vegf_a_plasma_plate"
+      synonyms:
+        - "VEGF_A_plasma_plate"
+        - "vegf_a_plasma_plate"
+        - "VEGF A plasma plate"
+        - "vegf a plasma plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  UGOT_p217_plasma_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma p217 mean (UGOT)"
+    definition: "Measured biochemistry value for Plasma p217 mean (UGOT)."
+    source:
+      schema_element: "bioch:blData/UGOT_p217_plasma/mean"
+      display_field_elements:
+        Field1: "bioch:blData/UGOT_p217_plasma/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ugot_p217_plasma_mean"
+      synonyms:
+        - "UGOT_p217_plasma_mean"
+        - "ugot_p217_plasma_mean"
+        - "UGOT p217 plasma mean"
+        - "ugot p217 plasma mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  UGOT_NfL_plasma_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma NfL mean (UGOT)"
+    definition: "Measured biochemistry value for Plasma Nf L mean (UGOT)."
+    source:
+      schema_element: "bioch:blData/UGOT_NfL_plasma/mean"
+      display_field_elements:
+        Field1: "bioch:blData/UGOT_NfL_plasma/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ugot_nfl_plasma_mean"
+      synonyms:
+        - "UGOT_NfL_plasma_mean"
+        - "ugot_nfl_plasma_mean"
+        - "UGOT NfL plasma mean"
+        - "ugot nfl plasma mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  UGOT_BD_Tau_carboxylated_plasma_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma BDTau carboxylated mean (UGOT)"
+    definition: "Measured biochemistry value for Plasma BDTau carboxylated mean (UGOT)."
+    source:
+      schema_element: "bioch:blData/UGOT_BD_Tau_carboxylated_plasma/mean"
+      display_field_elements:
+        Field1: "bioch:blData/UGOT_BD_Tau_carboxylated_plasma/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ugot_bd_tau_carboxylated_plasma_mean"
+      synonyms:
+        - "UGOT_BD_Tau_carboxylated_plasma_mean"
+        - "ugot_bd_tau_carboxylated_plasma_mean"
+        - "UGOT BD Tau carboxylated plasma mean"
+        - "ugot bd tau carboxylated plasma mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  UGOT_BD_Tau_dyed_plasma_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma BDTau dyed mean (UGOT)"
+    definition: "Measured biochemistry value for Plasma BDTau dyed mean (UGOT)."
+    source:
+      schema_element: "bioch:blData/UGOT_BD_Tau_dyed_plasma/mean"
+      display_field_elements:
+        Field1: "bioch:blData/UGOT_BD_Tau_dyed_plasma/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ugot_bd_tau_dyed_plasma_mean"
+      synonyms:
+        - "UGOT_BD_Tau_dyed_plasma_mean"
+        - "ugot_bd_tau_dyed_plasma_mean"
+        - "UGOT BD Tau dyed plasma mean"
+        - "ugot bd tau dyed plasma mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  UGOT_p181_carboxylated_plasma_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma p181 carboxylated mean (UGOT)"
+    definition: "Measured biochemistry value for Plasma p181 carboxylated mean (UGOT)."
+    source:
+      schema_element: "bioch:blData/UGOT_p181_carboxylated_plasma/mean"
+      display_field_elements:
+        Field1: "bioch:blData/UGOT_p181_carboxylated_plasma/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ugot_p181_carboxylated_plasma_mean"
+      synonyms:
+        - "UGOT_p181_carboxylated_plasma_mean"
+        - "ugot_p181_carboxylated_plasma_mean"
+        - "UGOT p181 carboxylated plasma mean"
+        - "ugot p181 carboxylated plasma mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  UGOT_p181_dyed_plasma_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma p181 dyed mean (UGOT)"
+    definition: "Measured biochemistry value for Plasma p181 dyed mean (UGOT)."
+    source:
+      schema_element: "bioch:blData/UGOT_p181_dyed_plasma/mean"
+      display_field_elements:
+        Field1: "bioch:blData/UGOT_p181_dyed_plasma/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ugot_p181_dyed_plasma_mean"
+      synonyms:
+        - "UGOT_p181_dyed_plasma_mean"
+        - "ugot_p181_dyed_plasma_mean"
+        - "UGOT p181 dyed plasma mean"
+        - "ugot p181 dyed plasma mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  UGOT_p231_carboxylated_plasma_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma p231 carboxylated mean (UGOT)"
+    definition: "Measured biochemistry value for Plasma p231 carboxylated mean (UGOT)."
+    source:
+      schema_element: "bioch:blData/UGOT_p231_carboxylated_plasma/mean"
+      display_field_elements:
+        Field1: "bioch:blData/UGOT_p231_carboxylated_plasma/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ugot_p231_carboxylated_plasma_mean"
+      synonyms:
+        - "UGOT_p231_carboxylated_plasma_mean"
+        - "ugot_p231_carboxylated_plasma_mean"
+        - "UGOT p231 carboxylated plasma mean"
+        - "ugot p231 carboxylated plasma mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  UGOT_GFAP_plasma_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Plasma GFAP mean (UGOT)"
+    definition: "Measured biochemistry value for Plasma GFAP mean (UGOT)."
+    source:
+      schema_element: "bioch:blData/UGOT_GFAP_plasma/mean"
+      display_field_elements:
+        Field1: "bioch:blData/UGOT_GFAP_plasma/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "bioch"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ugot_gfap_plasma_mean"
+      synonyms:
+        - "UGOT_GFAP_plasma_mean"
+        - "ugot_gfap_plasma_mean"
+        - "UGOT GFAP plasma mean"
+        - "ugot gfap plasma mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null

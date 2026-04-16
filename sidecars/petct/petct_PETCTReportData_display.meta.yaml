@@ -1,0 +1,214 @@
+display: "petct_PETCTReportData_display.xml"
+description: "FDG-PET-CT report"
+
+display_versions:
+  dump:
+    description: "Fields referenced by DisplayVersion versionName=\"dump\"."
+
+# source_schema_element: petct:PETCTReportData
+
+display_field_annotations:
+  LABEL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Label"
+    definition: "Label identifying the FDG-PET-CT report record."
+    source:
+      schema_element: "petct:PETCTReportData.ID"
+      display_field_elements:
+        Field1: "petct:PETCTReportData.ID"
+        Field2: "petct:PETCTReportData.label"
+    derivation:
+      kind: "sql"
+      input: "COALESCE(@Field2, @Field1)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "petct"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "label"
+      synonyms:
+        - "Label"
+        - "label"
+        - "LABEL"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  DATE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Date"
+    definition: "Date when the FDG-PET-CT session was performed."
+    source:
+      schema_element: "petct:PETCTReportData.date"
+      display_field_elements:
+        Field1: "petct:PETCTReportData.date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "petct"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "date"
+      synonyms:
+        - "Date"
+        - "date"
+        - "DATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AGE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Age"
+    definition: "Participant age at the time of the FDG-PET-CT session."
+    source:
+      schema_element: "petct:PETCTReportData.date"
+      display_field_elements:
+        Field1: "petct:PETCTReportData.date"
+        Field2: "xnat:demographicData.dob"
+        Field3: "xnat:demographicData.yob"
+    derivation:
+      kind: "sql"
+      input: "CAST(COALESCE(FLOOR(CAST((CAST(((@Field1) - (@Field2))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @Field1)) - (@Field3))) AS numeric)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "petct"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "age"
+      synonyms:
+        - "Age"
+        - "age"
+        - "AGE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PETCT_PREV_DATE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Date of previous PET"
+    definition: "Date of the previous PET study used for comparison, if available."
+    source:
+      schema_element: "petct:PETCTReportData/petct_prev_date"
+      display_field_elements:
+        Field1: "petct:PETCTReportData/petct_prev_date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "petct"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "petct_prev_date"
+      synonyms:
+        - "Date of previous PET"
+        - "date of previous pet"
+        - "PETCT_PREV_DATE"
+        - "petct_prev_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PETCT_BLOOD_GLUC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Blood-glucose"
+    definition: "Blood glucose level recorded for the FDG-PET-CT study."
+    source:
+      schema_element: "petct:PETCTReportData/petct_blood_gluc"
+      display_field_elements:
+        Field1: "petct:PETCTReportData/petct_blood_gluc"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "petct"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "petct_blood_gluc"
+      synonyms:
+        - "Blood-glucose"
+        - "blood-glucose"
+        - "PETCT_BLOOD_GLUC"
+        - "petct_blood_gluc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PETCT_STATUS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Status"
+    definition: "Status classification recorded for the FDG-PET-CT report."
+    source:
+      schema_element: "petct:PETCTReportData/petct_status"
+      display_field_elements:
+        Field1: "petct:PETCTReportData/petct_status"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "petct"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "petct_status"
+      synonyms:
+        - "Status"
+        - "status"
+        - "PETCT_STATUS"
+        - "petct_status"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null

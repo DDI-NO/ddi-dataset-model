@@ -1,0 +1,571 @@
+display: "diag_DiagnosisData_display.xml"
+description: "CRF Part IV: Includes Diagnosis staging and etiology"
+
+display_versions:
+  dump:
+    description: "Fields referenced by DisplayVersion versionName=\"dump\"."
+
+# source_schema_element: diag:DiagnosisData
+
+display_field_annotations:
+  LABEL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Label"
+    definition: "Label identifying the diagnosis record."
+    source:
+      schema_element: "diag:DiagnosisData.ID"
+      display_field_elements:
+        Field1: "diag:DiagnosisData.ID"
+        Field2: "diag:DiagnosisData.label"
+    derivation:
+      kind: "sql"
+      input: "COALESCE(@Field2, @Field1)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "diag"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "label"
+      synonyms:
+        - "Label"
+        - "label"
+        - "LABEL"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  DATE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Date"
+    definition: "Date when the diagnostic assessment was performed."
+    source:
+      schema_element: "diag:DiagnosisData.date"
+      display_field_elements:
+        Field1: "diag:DiagnosisData.date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "diag"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "date"
+      synonyms:
+        - "Date"
+        - "date"
+        - "DATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AGE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Age"
+    definition: "Participant age at the time of the diagnostic assessment."
+    source:
+      schema_element: "diag:DiagnosisData.date"
+      display_field_elements:
+        Field1: "diag:DiagnosisData.date"
+        Field2: "xnat:demographicData.dob"
+        Field3: "xnat:demographicData.yob"
+    derivation:
+      kind: "sql"
+      input: "CAST(COALESCE(FLOOR(CAST((CAST(((@Field1) - (@Field2))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @Field1)) - (@Field3))) AS numeric)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "diag"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "age"
+      synonyms:
+        - "Age"
+        - "age"
+        - "AGE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  scd_symptoms:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "SCD symptoms"
+    definition: "Subjective cognitive decline symptoms reported at the diagnostic assessment."
+    source:
+      schema_element: "diag:DiagnosisData/scd_symptoms"
+      display_field_elements:
+        Field1: "diag:DiagnosisData/scd_symptoms"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "diag"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "scd_symptoms"
+      synonyms:
+        - "SCD symptoms"
+        - "scd symptoms"
+        - "scd_symptoms"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  STAG:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Cognitive Staging"
+    definition: "Cognitive stage assigned at the diagnostic assessment."
+    source:
+      schema_element: "diag:DiagnosisData/stag"
+      display_field_elements:
+        Field1: "diag:DiagnosisData/stag"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "diag"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "stag"
+      synonyms:
+        - "Staging"
+        - "staging"
+        - "STAG"
+        - "stag"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  STAG_TEXT:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Cognitive Staging (text)"
+    definition: "Label representation derived from coded values."
+    source:
+      schema_element: "diag:DiagnosisData/stag"
+      display_field_elements:
+        Field1: "diag:DiagnosisData/stag"
+    derivation:
+      kind: "sql_case"
+      input: |-
+        CASE
+            	WHEN @Field1 = 0 THEN 'CN'
+        		WHEN @Field1 = 1 THEN 'NN'
+                WHEN @Field1 = 2 THEN 'SCD'
+                WHEN @Field1 = 3 THEN 'MCI'
+                WHEN @Field1 = 4 THEN 'Dementia'
+              	ELSE NULL
+              END
+      mapping:
+        "@Field1 = 0": "CN"
+        "@Field1 = 1": "NN"
+        "@Field1 = 2": "SCD"
+        "@Field1 = 3": "MCI"
+        "@Field1 = 4": "Dementia"
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "diag"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "stag_text"
+      synonyms:
+        - "Staging text"
+        - "staging text"
+        - "STAG_TEXT"
+        - "stag_text"
+    allowed_values:
+      - "CN"
+      - "NN"
+      - "SCD"
+      - "MCI"
+      - "Dementia"
+    sensitivity: "none"
+    quality:
+      notes: null
+  STAG_WITH_CRITERIA:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Cognitive Staging (with criteria)"
+    definition: "Cognitive stage assigned using explicit diagnostic criteria."
+    source:
+      schema_element: "diag:DiagnosisData/stag_with_criteria"
+      display_field_elements:
+        Field1: "diag:DiagnosisData/stag_with_criteria"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "diag"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "stag_with_criteria"
+      synonyms:
+        - "Staging"
+        - "staging"
+        - "STAG_WITH_CRITERIA"
+        - "stag_with_criteria"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  STAG_WITH_CRITERIA_TEXT:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Cognitive Staging (with criteria text)"
+    definition: "Label representation derived from coded values."
+    source:
+      schema_element: "diag:DiagnosisData/stag_with_criteria"
+      display_field_elements:
+        Field1: "diag:DiagnosisData/stag_with_criteria"
+    derivation:
+      kind: "sql_case"
+      input: |-
+        CASE
+            	WHEN @Field1 = 1 THEN 'NC'
+                WHEN @Field1 = 2 THEN 'NCFD'
+                WHEN @Field1 = 3 THEN 'NC-NN'
+                WHEN @Field1 = 4 THEN 'SCD'
+                WHEN @Field1 = 5 THEN 'SCD-Other'
+                WHEN @Field1 = 6 THEN 'MCI'
+                WHEN @Field1 = 7 THEN 'MCI-Other'
+                WHEN @Field1 = 8 THEN 'Dementia'
+                WHEN @Field1 = 9 THEN 'NCFD-NN'
+                WHEN @Field1 = 10 THEN 'PD-N'
+                WHEN @Field1 = 11 THEN 'PD-NN'
+              	ELSE NULL
+              END
+      mapping:
+        "@Field1 = 1": "NC"
+        "@Field1 = 2": "NCFD"
+        "@Field1 = 3": "NC-NN"
+        "@Field1 = 4": "SCD"
+        "@Field1 = 5": "SCD-Other"
+        "@Field1 = 6": "MCI"
+        "@Field1 = 7": "MCI-Other"
+        "@Field1 = 8": "Dementia"
+        "@Field1 = 9": "NCFD-NN"
+        "@Field1 = 10": "PD-N"
+        "@Field1 = 11": "PD-NN"
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "diag"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "stag_with_criteria_text"
+      synonyms:
+        - "Staging text"
+        - "staging text"
+        - "STAG_WITH_CRITERIA_TEXT"
+        - "stag_with_criteria_text"
+    allowed_values:
+      - "NC"
+      - "NCFD"
+      - "NC-NN"
+      - "SCD"
+      - "SCD-Other"
+      - "MCI"
+      - "MCI-Other"
+      - "Dementia"
+      - "NCFD-NN"
+      - "PD-N"
+      - "PD-NN"
+    sensitivity: "none"
+    quality:
+      notes: null
+  STAG_OTHER_DEF:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Other definition for cognitive staging"
+    definition: "Free-text specification of cognitive staging when \"Other\" is used."
+    source:
+      schema_element: "diag:DiagnosisData/stag_other_def"
+      display_field_elements:
+        Field1: "diag:DiagnosisData/stag_other_def"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "diag"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "stag_other_def"
+      synonyms:
+        - "Other definition for staging"
+        - "other definition for staging"
+        - "STAG_OTHER_DEF"
+        - "stag_other_def"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  DIAG_DATE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Date of diagnosis"
+    definition: "Date when the diagnosis was established."
+    source:
+      schema_element: "diag:DiagnosisData/diag_date"
+      display_field_elements:
+        Field1: "diag:DiagnosisData/diag_date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "diag"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "diag_date"
+      synonyms:
+        - "Date of diagnosis"
+        - "date of diagnosis"
+        - "DIAG_DATE"
+        - "diag_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  DIAG_AGE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Age at diagnosis"
+    definition: "Participant age when the diagnosis was established."
+    source:
+      schema_element: "diag:DiagnosisData/diag_age"
+      display_field_elements:
+        Field1: "diag:DiagnosisData/diag_age"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "diag"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "diag_age"
+      synonyms:
+        - "Age at diagnosis"
+        - "age at diagnosis"
+        - "DIAG_AGE"
+        - "diag_age"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  DIAG:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Etiological Diagnosis"
+    definition: "Etiological diagnosis assigned at the diagnostic assessment."
+    source:
+      schema_element: "diag:DiagnosisData/diag"
+      display_field_elements:
+        Field1: "diag:DiagnosisData/diag"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "diag"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "diag"
+      synonyms:
+        - "Diagnosis"
+        - "diagnosis"
+        - "DIAG"
+        - "diag"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  DIAG_OTHER_DEF:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Diagnosis other definition"
+    definition: "Free-text specification of the diagnosis when \"Other\" is used."
+    source:
+      schema_element: "diag:DiagnosisData/diag_other_def"
+      display_field_elements:
+        Field1: "diag:DiagnosisData/diag_other_def"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "diag"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "diag_other_def"
+      synonyms:
+        - "Diagnosis other definition"
+        - "diagnosis other definition"
+        - "DIAG_OTHER_DEF"
+        - "diag_other_def"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  DIAG_PARK:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Diagnosis of Parkinson's disease"
+    definition: "Indicator of whether Parkinson's disease has been diagnosed."
+    source:
+      schema_element: "diag:DiagnosisData/diag_park"
+      display_field_elements:
+        Field1: "diag:DiagnosisData/diag_park"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "diag"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "diag_park"
+      synonyms:
+        - "Diagnosis of Parkinson's disease"
+        - "diagnosis of parkinson's disease"
+        - "DIAG_PARK"
+        - "diag_park"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  DIAG_PARK_YEARS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Parkinson's diagnosis year"
+    definition: "Year when Parkinson's disease was diagnosed."
+    source:
+      schema_element: "diag:DiagnosisData/diag_park_years"
+      display_field_elements:
+        Field1: "diag:DiagnosisData/diag_park_years"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "diag"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "diag_park_years"
+      synonyms:
+        - "Parkinson's diagnosis year"
+        - "parkinson's diagnosis year"
+        - "DIAG_PARK_YEARS"
+        - "diag_park_years"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null

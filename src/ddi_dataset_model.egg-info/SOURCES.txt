@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+src/ddi_data_model/__init__.py
+src/ddi_data_model/config.py
+src/ddi_data_model/sources.py
+src/ddi_data_model/sidecars/__init__.py
+src/ddi_data_model/sidecars/curate.py
+src/ddi_data_model/sidecars/generate.py
+src/ddi_data_model/sidecars/validate.py
+src/ddi_dataset_model.egg-info/PKG-INFO
+src/ddi_dataset_model.egg-info/SOURCES.txt
+src/ddi_dataset_model.egg-info/dependency_links.txt
+src/ddi_dataset_model.egg-info/top_level.txt

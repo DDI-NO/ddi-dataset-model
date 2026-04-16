@@ -1,0 +1,146 @@
+display: "dat_DaTScanReportData_display.xml"
+description: "DaT scan report"
+
+display_versions:
+  dump:
+    description: "Fields referenced by DisplayVersion versionName=\"dump\"."
+
+# source_schema_element: dat:DaTScanReportData
+
+display_field_annotations:
+  LABEL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Label"
+    definition: "Label identifying the DaT scan report record."
+    source:
+      schema_element: "dat:DaTScanReportData.ID"
+      display_field_elements:
+        Field1: "dat:DaTScanReportData.ID"
+        Field2: "dat:DaTScanReportData.label"
+    derivation:
+      kind: "sql"
+      input: "COALESCE(@Field2, @Field1)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "dat"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "label"
+      synonyms:
+        - "Label"
+        - "label"
+        - "LABEL"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  DATE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Date"
+    definition: "Date when the DaT scan assessment was performed."
+    source:
+      schema_element: "dat:DaTScanReportData.date"
+      display_field_elements:
+        Field1: "dat:DaTScanReportData.date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "dat"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "date"
+      synonyms:
+        - "Date"
+        - "date"
+        - "DATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AGE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Age"
+    definition: "Participant age at the time of the DaT scan assessment."
+    source:
+      schema_element: "dat:DaTScanReportData.date"
+      display_field_elements:
+        Field1: "dat:DaTScanReportData.date"
+        Field2: "xnat:demographicData.dob"
+        Field3: "xnat:demographicData.yob"
+    derivation:
+      kind: "sql"
+      input: "CAST(COALESCE(FLOOR(CAST((CAST(((@Field1) - (@Field2))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @Field1)) - (@Field3))) AS numeric)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "dat"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "age"
+      synonyms:
+        - "Age"
+        - "age"
+        - "AGE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  DAT_CONCLU:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Conclusion"
+    definition: "Overall interpretation of the DaT scan result."
+    source:
+      schema_element: "dat:DaTScanReportData/dat_conclu"
+      display_field_elements:
+        Field1: "dat:DaTScanReportData/dat_conclu"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "dat"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "dat_conclu"
+      synonyms:
+        - "Conclusion"
+        - "conclusion"
+        - "DAT_CONCLU"
+        - "dat_conclu"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null

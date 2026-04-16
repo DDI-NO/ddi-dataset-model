@@ -1,0 +1,6393 @@
+display: "csf_CSFData_display.xml"
+description: "CSF Biochemistry data"
+
+display_versions:
+  dump:
+    description: "Fields referenced by DisplayVersion versionName=\"dump\"."
+
+# source_schema_element: csf:CSFData
+
+display_field_annotations:
+  LABEL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Label"
+    definition: "Label identifying the CSF biochemistry record."
+    source:
+      schema_element: "csf:CSFData.ID"
+      display_field_elements:
+        Field1: "csf:CSFData.ID"
+        Field2: "csf:CSFData.label"
+    derivation:
+      kind: "sql"
+      input: "COALESCE(@Field2, @Field1)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "label"
+      synonyms:
+        - "Label"
+        - "label"
+        - "LABEL"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  DATE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Date"
+    definition: "Date when the CSF assessment was performed."
+    source:
+      schema_element: "csf:CSFData.date"
+      display_field_elements:
+        Field1: "csf:CSFData.date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "date"
+      synonyms:
+        - "Date"
+        - "date"
+        - "DATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AGE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Age"
+    definition: "Participant age at the time of the CSF assessment."
+    source:
+      schema_element: "csf:CSFData.date"
+      display_field_elements:
+        Field1: "csf:CSFData.date"
+        Field2: "xnat:demographicData.dob"
+        Field3: "xnat:demographicData.yob"
+    derivation:
+      kind: "sql"
+      input: "CAST(COALESCE(FLOOR(CAST((CAST(((@Field1) - (@Field2))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @Field1)) - (@Field3))) AS numeric)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "age"
+      synonyms:
+        - "Age"
+        - "age"
+        - "AGE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  tube_type:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Tube Type"
+    definition: "Type of collection tube used for the CSF sample."
+    source:
+      schema_element: "csf:CSFData/tube_type"
+      display_field_elements:
+        Field1: "csf:CSFData/tube_type"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "tube_type"
+      synonyms:
+        - "tube_type"
+        - "tube type"
+        - "Tube Type"
+        - "TUBE_TYPE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  freeze_thaw_cycles:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Freeze/Thaw Cycles"
+    definition: "Number of freeze-thaw cycles undergone by the CSF sample."
+    source:
+      schema_element: "csf:CSFData/freeze_thaw_cycles"
+      display_field_elements:
+        Field1: "csf:CSFData/freeze_thaw_cycles"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "freeze_thaw_cycles"
+      synonyms:
+        - "freeze_thaw_cycles"
+        - "freeze thaw cycles"
+        - "Freeze Thaw Cycles"
+        - "FREEZE_THAW_CYCLES"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_LEUKOC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Leukocytes"
+    definition: "CSF biochemistry measure for Leukocytes."
+    source:
+      schema_element: "csf:CSFData/CSF_Leukoc"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_Leukoc"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_leukoc"
+      synonyms:
+        - "CSF_Leukoc"
+        - "csf_leukoc"
+        - "CSF Leukoc"
+        - "csf leukoc"
+        - "CSF_LEUKOC"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_LEUKOCNORM:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Leukocytes Normal"
+    definition: "Indicator of whether Leukocytes was within the normal reference range."
+    source:
+      schema_element: "csf:CSFData/CSF_LeukocNorm"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_LeukocNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_leukocnorm"
+      synonyms:
+        - "CSF_LeukocNorm"
+        - "csf_leukocnorm"
+        - "CSF LeukocNorm"
+        - "csf leukocnorm"
+        - "CSF_LEUKOCNORM"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_GLU:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Glucose"
+    definition: "CSF biochemistry measure for Glucose."
+    source:
+      schema_element: "csf:CSFData/CSF_Glu"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_Glu"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_glu"
+      synonyms:
+        - "CSF_Glu"
+        - "csf_glu"
+        - "CSF Glu"
+        - "csf glu"
+        - "CSF_GLU"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_GLUNORM:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Glucose Normal"
+    definition: "Indicator of whether Glucose was within the normal reference range."
+    source:
+      schema_element: "csf:CSFData/CSF_GluNorm"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_GluNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_glunorm"
+      synonyms:
+        - "CSF_GluNorm"
+        - "csf_glunorm"
+        - "CSF GluNorm"
+        - "csf glunorm"
+        - "CSF_GLUNORM"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_TOTPROT:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Total Protein"
+    definition: "CSF biochemistry measure for Total Protein."
+    source:
+      schema_element: "csf:CSFData/CSF_TotProt"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_TotProt"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_totprot"
+      synonyms:
+        - "CSF_TotProt"
+        - "csf_totprot"
+        - "CSF TotProt"
+        - "csf totprot"
+        - "CSF_TOTPROT"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_TOTPROTNORM:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Total Protein Normal"
+    definition: "Indicator of whether Total Protein was within the normal reference range."
+    source:
+      schema_element: "csf:CSFData/CSF_TotProtNorm"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_TotProtNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_totprotnorm"
+      synonyms:
+        - "CSF_TotProtNorm"
+        - "csf_totprotnorm"
+        - "CSF TotProtNorm"
+        - "csf totprotnorm"
+        - "CSF_TOTPROTNORM"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_ALBUMIN:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Albumin"
+    definition: "CSF biochemistry measure for Albumin."
+    source:
+      schema_element: "csf:CSFData/CSF_Albumin"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_Albumin"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_albumin"
+      synonyms:
+        - "CSF_Albumin"
+        - "csf_albumin"
+        - "CSF Albumin"
+        - "csf albumin"
+        - "CSF_ALBUMIN"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_ALBUMINNORM:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Albumin Normal"
+    definition: "Indicator of whether Albumin was within the normal reference range."
+    source:
+      schema_element: "csf:CSFData/CSF_AlbuminNorm"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_AlbuminNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_albuminnorm"
+      synonyms:
+        - "CSF_AlbuminNorm"
+        - "csf_albuminnorm"
+        - "CSF AlbuminNorm"
+        - "csf albuminnorm"
+        - "CSF_ALBUMINNORM"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  ALBUMIN_RATIO:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CSF/Plasma Albumin Ratio"
+    definition: "CSF biochemistry measure for CSF/Plasma Albumin Ratio."
+    source:
+      schema_element: "csf:CSFData/albumin_ratio"
+      display_field_elements:
+        Field1: "csf:CSFData/albumin_ratio"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "albumin_ratio"
+      synonyms:
+        - "CSF/Plasma Albumin Ratio"
+        - "csf/plasma albumin ratio"
+        - "ALBUMIN_RATIO"
+        - "albumin_ratio"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_ABETA42:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Aβ42"
+    definition: "CSF biochemistry measure for Aβ42."
+    source:
+      schema_element: "csf:CSFData/CSF_Abeta42"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_Abeta42"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_abeta42"
+      synonyms:
+        - "CSF_Abeta42"
+        - "csf_abeta42"
+        - "CSF Abeta42"
+        - "csf abeta42"
+        - "CSF_ABETA42"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_ABETA42NORM:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Aβ42 Normal"
+    definition: "Indicator of whether Aβ42 was within the normal reference range."
+    source:
+      schema_element: "csf:CSFData/CSF_Abeta42Norm"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_Abeta42Norm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_abeta42norm"
+      synonyms:
+        - "CSF_Abeta42Norm"
+        - "csf_abeta42norm"
+        - "CSF Abeta42Norm"
+        - "csf abeta42norm"
+        - "CSF_ABETA42NORM"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_ABETA40:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Aβ40"
+    definition: "CSF biochemistry measure for Aβ40."
+    source:
+      schema_element: "csf:CSFData/CSF_Abeta40"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_Abeta40"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_abeta40"
+      synonyms:
+        - "CSF_Abeta40"
+        - "csf_abeta40"
+        - "CSF Abeta40"
+        - "csf abeta40"
+        - "CSF_ABETA40"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_ABETA40NORM:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Aβ40 Normal"
+    definition: "Indicator of whether Aβ40 was within the normal reference range."
+    source:
+      schema_element: "csf:CSFData/CSF_Abeta40Norm"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_Abeta40Norm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_abeta40norm"
+      synonyms:
+        - "CSF_Abeta40Norm"
+        - "csf_abeta40norm"
+        - "CSF Abeta40Norm"
+        - "csf abeta40norm"
+        - "CSF_ABETA40NORM"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_ABETA38:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Aβ38"
+    definition: "CSF biochemistry measure for Aβ38."
+    source:
+      schema_element: "csf:CSFData/CSF_Abeta38"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_Abeta38"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_abeta38"
+      synonyms:
+        - "CSF_Abeta38"
+        - "csf_abeta38"
+        - "CSF Abeta38"
+        - "csf abeta38"
+        - "CSF_ABETA38"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_ABETA38NORM:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Aβ38 Normal"
+    definition: "Indicator of whether Aβ38 was within the normal reference range."
+    source:
+      schema_element: "csf:CSFData/CSF_Abeta38Norm"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_Abeta38Norm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_abeta38norm"
+      synonyms:
+        - "CSF_Abeta38Norm"
+        - "csf_abeta38norm"
+        - "CSF Abeta38Norm"
+        - "csf abeta38norm"
+        - "CSF_ABETA38NORM"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_ALPHASYN:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Alphasynuclein"
+    definition: "CSF biochemistry measure for Alphasynuclein."
+    source:
+      schema_element: "csf:CSFData/CSF_Alphasyn"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_Alphasyn"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_alphasyn"
+      synonyms:
+        - "CSF_Alphasyn"
+        - "csf_alphasyn"
+        - "CSF Alphasyn"
+        - "csf alphasyn"
+        - "CSF_ALPHASYN"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_ALPHASYNNORM:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Alphasynuclein Normal"
+    definition: "Indicator of whether Alphasynuclein was within the normal reference range."
+    source:
+      schema_element: "csf:CSFData/CSF_AlphasynNorm"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_AlphasynNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_alphasynnorm"
+      synonyms:
+        - "CSF_AlphasynNorm"
+        - "csf_alphasynnorm"
+        - "CSF AlphasynNorm"
+        - "csf alphasynnorm"
+        - "CSF_ALPHASYNNORM"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_TOTTAU:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Total Tau"
+    definition: "CSF biochemistry measure for Total Tau."
+    source:
+      schema_element: "csf:CSFData/CSF_TotTau"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_TotTau"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_tottau"
+      synonyms:
+        - "CSF_TotTau"
+        - "csf_tottau"
+        - "CSF TotTau"
+        - "csf tottau"
+        - "CSF_TOTTAU"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_TOTTAUNORM:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Total Tau Normal"
+    definition: "Indicator of whether Total Tau was within the normal reference range."
+    source:
+      schema_element: "csf:CSFData/CSF_TotTauNorm"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_TotTauNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_tottaunorm"
+      synonyms:
+        - "CSF_TotTauNorm"
+        - "csf_tottaunorm"
+        - "CSF TotTauNorm"
+        - "csf tottaunorm"
+        - "CSF_TOTTAUNORM"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_PTAU:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Phospho Tau"
+    definition: "CSF biochemistry measure for Phospho Tau."
+    source:
+      schema_element: "csf:CSFData/CSF_Ptau"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_Ptau"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_ptau"
+      synonyms:
+        - "CSF_Ptau"
+        - "csf_ptau"
+        - "CSF Ptau"
+        - "csf ptau"
+        - "CSF_PTAU"
+        - "pTau"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_PTAUNORM:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Phospho Tau Normal"
+    definition: "Indicator of whether Phospho Tau was within the normal reference range."
+    source:
+      schema_element: "csf:CSFData/CSF_PtauNorm"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_PtauNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_ptaunorm"
+      synonyms:
+        - "CSF_PtauNorm"
+        - "csf_ptaunorm"
+        - "CSF PtauNorm"
+        - "csf ptaunorm"
+        - "CSF_PTAUNORM"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_NFL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Neurofilament Light"
+    definition: "ELISA Neurofilament Light (NFL) concentration in CSF. NFL is a marker of axonal damage and neurodegeneration."
+    source:
+      schema_element: "csf:CSFData/CSF_NFL"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_NFL"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "float"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_nfl"
+      synonyms:
+        - "CSF_NFL"
+        - "csf_nfl"
+        - "CSF NFL"
+        - "csf nfl"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CSF_NFLNORM:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Neurofilament Light Normal"
+    definition: "Indicator of whether Neurofilament Light was within the normal reference range."
+    source:
+      schema_element: "csf:CSFData/CSF_NFLNorm"
+      display_field_elements:
+        Field1: "csf:CSFData/CSF_NFLNorm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "csf_nflnorm"
+      synonyms:
+        - "CSF_NFLNorm"
+        - "csf_nflnorm"
+        - "CSF NFLNorm"
+        - "csf nflnorm"
+        - "CSF_NFLNORM"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  clusterin_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Cluesterin mean"
+    definition: "CSF biochemistry measure for Cluesterin mean."
+    source:
+      schema_element: "csf:CSFData/clusterin/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/clusterin/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "clusterin_mean"
+      synonyms:
+        - "Cluesterin mean"
+        - "cluesterin mean"
+        - "clusterin_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Clusterin_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Clusterin CV"
+    definition: "CSF biochemistry measure for Clusterin CV."
+    source:
+      schema_element: "csf:CSFData/Clusterin/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/Clusterin/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "clusterin_cv"
+      synonyms:
+        - "Clusterin CV"
+        - "clusterin cv"
+        - "Clusterin_cv"
+        - "clusterin_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Clusterin_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Clusterin date"
+    definition: "Date when the Clusterin measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/Clusterin/date"
+      display_field_elements:
+        Field1: "csf:CSFData/Clusterin/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "clusterin_date"
+      synonyms:
+        - "Clusterin date"
+        - "clusterin date"
+        - "Clusterin_date"
+        - "clusterin_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Clusterin_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Clusterin plate"
+    definition: "CSF biochemistry measure for Clusterin plate."
+    source:
+      schema_element: "csf:CSFData/Clusterin/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/Clusterin/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "clusterin_plate"
+      synonyms:
+        - "Clusterin plate"
+        - "clusterin plate"
+        - "Clusterin_plate"
+        - "clusterin_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Fractalkin_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Fractalkin mean"
+    definition: "CSF biochemistry measure for Fractalkin mean."
+    source:
+      schema_element: "csf:CSFData/Fractalkin/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/Fractalkin/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "fractalkin_mean"
+      synonyms:
+        - "Fractalkin mean"
+        - "fractalkin mean"
+        - "Fractalkin_mean"
+        - "fractalkin_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Fractalkin_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Fractalkin CV"
+    definition: "CSF biochemistry measure for Fractalkin CV."
+    source:
+      schema_element: "csf:CSFData/Fractalkin/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/Fractalkin/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "fractalkin_cv"
+      synonyms:
+        - "Fractalkin CV"
+        - "fractalkin cv"
+        - "Fractalkin_cv"
+        - "fractalkin_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Fractalkin_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Fractalkin date"
+    definition: "Date when the Fractalkin measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/Fractalkin/date"
+      display_field_elements:
+        Field1: "csf:CSFData/Fractalkin/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "fractalkin_date"
+      synonyms:
+        - "Fractalkin date"
+        - "fractalkin date"
+        - "Fractalkin_date"
+        - "fractalkin_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Fractalkin_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Fractalkin plate"
+    definition: "CSF biochemistry measure for Fractalkin plate."
+    source:
+      schema_element: "csf:CSFData/Fractalkin/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/Fractalkin/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "fractalkin_plate"
+      synonyms:
+        - "Fractalkin plate"
+        - "fractalkin plate"
+        - "Fractalkin_plate"
+        - "fractalkin_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  YKL40_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "YKL40 mean"
+    definition: "CSF biochemistry measure for YKL40 mean."
+    source:
+      schema_element: "csf:CSFData/YKL40/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/YKL40/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ykl40_mean"
+      synonyms:
+        - "YKL40 mean"
+        - "ykl40 mean"
+        - "YKL40_mean"
+        - "ykl40_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  YKL40_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "YKL40 CV"
+    definition: "CSF biochemistry measure for YKL40 CV."
+    source:
+      schema_element: "csf:CSFData/YKL40/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/YKL40/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ykl40_cv"
+      synonyms:
+        - "YKL40 CV"
+        - "ykl40 cv"
+        - "YKL40_cv"
+        - "ykl40_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  YKL40_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "YKL40 date"
+    definition: "Date when the YKL40 measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/YKL40/date"
+      display_field_elements:
+        Field1: "csf:CSFData/YKL40/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ykl40_date"
+      synonyms:
+        - "YKL40 date"
+        - "ykl40 date"
+        - "YKL40_date"
+        - "ykl40_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  YKL40_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "YKL40 plate"
+    definition: "CSF biochemistry measure for YKL40 plate."
+    source:
+      schema_element: "csf:CSFData/YKL40/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/YKL40/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ykl40_plate"
+      synonyms:
+        - "YKL40 plate"
+        - "ykl40 plate"
+        - "YKL40_plate"
+        - "ykl40_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MCP1_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MCP1 mean"
+    definition: "CSF biochemistry measure for MCP1 mean."
+    source:
+      schema_element: "csf:CSFData/MCP1/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/MCP1/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mcp1_mean"
+      synonyms:
+        - "MCP1 mean"
+        - "mcp1 mean"
+        - "MCP1_mean"
+        - "mcp1_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MCP1_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MCP1 CV"
+    definition: "CSF biochemistry measure for MCP1 CV."
+    source:
+      schema_element: "csf:CSFData/MCP1/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/MCP1/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mcp1_cv"
+      synonyms:
+        - "MCP1 CV"
+        - "mcp1 cv"
+        - "MCP1_cv"
+        - "mcp1_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MCP1_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MCP1 date"
+    definition: "Date when the MCP1 measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/MCP1/date"
+      display_field_elements:
+        Field1: "csf:CSFData/MCP1/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mcp1_date"
+      synonyms:
+        - "MCP1 date"
+        - "mcp1 date"
+        - "MCP1_date"
+        - "mcp1_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MCP1_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MCP1 plate"
+    definition: "CSF biochemistry measure for MCP1 plate."
+    source:
+      schema_element: "csf:CSFData/MCP1/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/MCP1/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mcp1_plate"
+      synonyms:
+        - "MCP1 plate"
+        - "mcp1 plate"
+        - "MCP1_plate"
+        - "mcp1_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TNFa_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TNFa mean"
+    definition: "CSF biochemistry measure for TNFa mean."
+    source:
+      schema_element: "csf:CSFData/TNFa/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/TNFa/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "tnfa_mean"
+      synonyms:
+        - "TNFa mean"
+        - "tnfa mean"
+        - "TNFa_mean"
+        - "tnfa_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TNFa_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TNFa CV"
+    definition: "CSF biochemistry measure for TNFa CV."
+    source:
+      schema_element: "csf:CSFData/TNFa/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/TNFa/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "tnfa_cv"
+      synonyms:
+        - "TNFa CV"
+        - "tnfa cv"
+        - "TNFa_cv"
+        - "tnfa_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TNFa_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TNFa date"
+    definition: "Date when the TNFa measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/TNFa/date"
+      display_field_elements:
+        Field1: "csf:CSFData/TNFa/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "tnfa_date"
+      synonyms:
+        - "TNFa date"
+        - "tnfa date"
+        - "TNFa_date"
+        - "tnfa_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TNFa_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TNFa plate"
+    definition: "CSF biochemistry measure for TNFa plate."
+    source:
+      schema_element: "csf:CSFData/TNFa/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/TNFa/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "tnfa_plate"
+      synonyms:
+        - "TNFa plate"
+        - "tnfa plate"
+        - "TNFa_plate"
+        - "tnfa_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IFNb_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IFNb mean"
+    definition: "CSF biochemistry measure for IFNb mean."
+    source:
+      schema_element: "csf:CSFData/IFNb/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/IFNb/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ifnb_mean"
+      synonyms:
+        - "IFNb mean"
+        - "ifnb mean"
+        - "IFNb_mean"
+        - "ifnb_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IFNb_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IFNb CV"
+    definition: "CSF biochemistry measure for IFNb CV."
+    source:
+      schema_element: "csf:CSFData/IFNb/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/IFNb/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ifnb_cv"
+      synonyms:
+        - "IFNb CV"
+        - "ifnb cv"
+        - "IFNb_cv"
+        - "ifnb_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IFNb_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IFNb date"
+    definition: "Date when the IFNb measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/IFNb/date"
+      display_field_elements:
+        Field1: "csf:CSFData/IFNb/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ifnb_date"
+      synonyms:
+        - "IFNb date"
+        - "ifnb date"
+        - "IFNb_date"
+        - "ifnb_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IFNb_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IFNb plate"
+    definition: "CSF biochemistry measure for IFNb plate."
+    source:
+      schema_element: "csf:CSFData/IFNb/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/IFNb/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ifnb_plate"
+      synonyms:
+        - "IFNb plate"
+        - "ifnb plate"
+        - "IFNb_plate"
+        - "ifnb_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IFN_gamma_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IFN gamma mean"
+    definition: "CSF biochemistry measure for IFN gamma mean."
+    source:
+      schema_element: "csf:CSFData/IFN_gamma/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/IFN_gamma/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ifn_gamma_mean"
+      synonyms:
+        - "IFN_gamma mean"
+        - "ifn_gamma mean"
+        - "IFN gamma mean"
+        - "ifn gamma mean"
+        - "IFN_gamma_mean"
+        - "ifn_gamma_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IFN_gamma_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IFN gamma CV"
+    definition: "CSF biochemistry measure for IFN gamma CV."
+    source:
+      schema_element: "csf:CSFData/IFN_gamma/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/IFN_gamma/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ifn_gamma_cv"
+      synonyms:
+        - "IFN_gamma CV"
+        - "ifn_gamma cv"
+        - "IFN gamma CV"
+        - "ifn gamma cv"
+        - "IFN_gamma_cv"
+        - "ifn_gamma_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IFN_gamma_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IFN gamma date"
+    definition: "Date when the IFN gamma measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/IFN_gamma/date"
+      display_field_elements:
+        Field1: "csf:CSFData/IFN_gamma/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ifn_gamma_date"
+      synonyms:
+        - "IFN_gamma date"
+        - "ifn_gamma date"
+        - "IFN gamma date"
+        - "ifn gamma date"
+        - "IFN_gamma_date"
+        - "ifn_gamma_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IFN_gamma_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IFN gamma plate"
+    definition: "CSF biochemistry measure for IFN gamma plate."
+    source:
+      schema_element: "csf:CSFData/IFN_gamma/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/IFN_gamma/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ifn_gamma_plate"
+      synonyms:
+        - "IFN_gamma plate"
+        - "ifn_gamma plate"
+        - "IFN gamma plate"
+        - "ifn gamma plate"
+        - "IFN_gamma_plate"
+        - "ifn_gamma_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL1b_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL1b mean"
+    definition: "CSF biochemistry measure for IL1b mean."
+    source:
+      schema_element: "csf:CSFData/IL1b/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/IL1b/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il1b_mean"
+      synonyms:
+        - "IL1b mean"
+        - "il1b mean"
+        - "IL1b_mean"
+        - "il1b_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL1b_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL1b CV"
+    definition: "CSF biochemistry measure for IL1b CV."
+    source:
+      schema_element: "csf:CSFData/IL1b/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/IL1b/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il1b_cv"
+      synonyms:
+        - "IL1b CV"
+        - "il1b cv"
+        - "IL1b_cv"
+        - "il1b_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL1b_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL1b date"
+    definition: "Date when the IL1b measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/IL1b/date"
+      display_field_elements:
+        Field1: "csf:CSFData/IL1b/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il1b_date"
+      synonyms:
+        - "IL1b date"
+        - "il1b date"
+        - "IL1b_date"
+        - "il1b_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL1b_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL1b plate"
+    definition: "CSF biochemistry measure for IL1b plate."
+    source:
+      schema_element: "csf:CSFData/IL1b/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/IL1b/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il1b_plate"
+      synonyms:
+        - "IL1b plate"
+        - "il1b plate"
+        - "IL1b_plate"
+        - "il1b_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL6_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL6 mean"
+    definition: "CSF biochemistry measure for IL6 mean."
+    source:
+      schema_element: "csf:CSFData/IL6/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/IL6/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il6_mean"
+      synonyms:
+        - "IL6 mean"
+        - "il6 mean"
+        - "IL6_mean"
+        - "il6_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL6_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL6 CV"
+    definition: "CSF biochemistry measure for IL6 CV."
+    source:
+      schema_element: "csf:CSFData/IL6/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/IL6/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il6_cv"
+      synonyms:
+        - "IL6 CV"
+        - "il6 cv"
+        - "IL6_cv"
+        - "il6_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL6_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL6 date"
+    definition: "Date when the IL6 measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/IL6/date"
+      display_field_elements:
+        Field1: "csf:CSFData/IL6/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il6_date"
+      synonyms:
+        - "IL6 date"
+        - "il6 date"
+        - "IL6_date"
+        - "il6_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL6_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL6 plate"
+    definition: "CSF biochemistry measure for IL6 plate."
+    source:
+      schema_element: "csf:CSFData/IL6/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/IL6/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il6_plate"
+      synonyms:
+        - "IL6 plate"
+        - "il6 plate"
+        - "IL6_plate"
+        - "il6_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL10_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL10 mean"
+    definition: "CSF biochemistry measure for IL10 mean."
+    source:
+      schema_element: "csf:CSFData/IL10/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/IL10/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il10_mean"
+      synonyms:
+        - "IL10 mean"
+        - "il10 mean"
+        - "IL10_mean"
+        - "il10_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL10_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL10 CV"
+    definition: "CSF biochemistry measure for IL10 CV."
+    source:
+      schema_element: "csf:CSFData/IL10/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/IL10/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il10_cv"
+      synonyms:
+        - "IL10 CV"
+        - "il10 cv"
+        - "IL10_cv"
+        - "il10_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL10_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL10 date"
+    definition: "Date when the IL10 measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/IL10/date"
+      display_field_elements:
+        Field1: "csf:CSFData/IL10/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il10_date"
+      synonyms:
+        - "IL10 date"
+        - "il10 date"
+        - "IL10_date"
+        - "il10_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL10_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL10 plate"
+    definition: "CSF biochemistry measure for IL10 plate."
+    source:
+      schema_element: "csf:CSFData/IL10/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/IL10/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il10_plate"
+      synonyms:
+        - "IL10 plate"
+        - "il10 plate"
+        - "IL10_plate"
+        - "il10_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL12p70_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL12p70 mean"
+    definition: "CSF biochemistry measure for IL12p70 mean."
+    source:
+      schema_element: "csf:CSFData/IL12p70/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/IL12p70/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il12p70_mean"
+      synonyms:
+        - "IL12p70 mean"
+        - "il12p70 mean"
+        - "IL12p70_mean"
+        - "il12p70_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL12p70_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL12p70 CV"
+    definition: "CSF biochemistry measure for IL12p70 CV."
+    source:
+      schema_element: "csf:CSFData/IL12p70/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/IL12p70/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il12p70_cv"
+      synonyms:
+        - "IL12p70 CV"
+        - "il12p70 cv"
+        - "IL12p70_cv"
+        - "il12p70_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL12p70_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL12p70 date"
+    definition: "Date when the IL12p70 measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/IL12p70/date"
+      display_field_elements:
+        Field1: "csf:CSFData/IL12p70/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il12p70_date"
+      synonyms:
+        - "IL12p70 date"
+        - "il12p70 date"
+        - "IL12p70_date"
+        - "il12p70_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL12p70_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL12p70 plate"
+    definition: "CSF biochemistry measure for IL12p70 plate."
+    source:
+      schema_element: "csf:CSFData/IL12p70/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/IL12p70/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il12p70_plate"
+      synonyms:
+        - "IL12p70 plate"
+        - "il12p70 plate"
+        - "IL12p70_plate"
+        - "il12p70_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL13_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL13 mean"
+    definition: "CSF biochemistry measure for IL13 mean."
+    source:
+      schema_element: "csf:CSFData/IL13/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/IL13/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il13_mean"
+      synonyms:
+        - "IL13 mean"
+        - "il13 mean"
+        - "IL13_mean"
+        - "il13_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL13_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL13 CV"
+    definition: "CSF biochemistry measure for IL13 CV."
+    source:
+      schema_element: "csf:CSFData/IL13/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/IL13/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il13_cv"
+      synonyms:
+        - "IL13 CV"
+        - "il13 cv"
+        - "IL13_cv"
+        - "il13_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL13_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL13 date"
+    definition: "Date when the IL13 measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/IL13/date"
+      display_field_elements:
+        Field1: "csf:CSFData/IL13/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il13_date"
+      synonyms:
+        - "IL13 date"
+        - "il13 date"
+        - "IL13_date"
+        - "il13_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL13_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL13 plate"
+    definition: "CSF biochemistry measure for IL13 plate."
+    source:
+      schema_element: "csf:CSFData/IL13/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/IL13/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il13_plate"
+      synonyms:
+        - "IL13 plate"
+        - "il13 plate"
+        - "IL13_plate"
+        - "il13_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL18_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL18 mean"
+    definition: "CSF biochemistry measure for IL18 mean."
+    source:
+      schema_element: "csf:CSFData/IL18/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/IL18/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il18_mean"
+      synonyms:
+        - "IL18 mean"
+        - "il18 mean"
+        - "IL18_mean"
+        - "il18_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL18_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL18 CV"
+    definition: "CSF biochemistry measure for IL18 CV."
+    source:
+      schema_element: "csf:CSFData/IL18/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/IL18/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il18_cv"
+      synonyms:
+        - "IL18 CV"
+        - "il18 cv"
+        - "IL18_cv"
+        - "il18_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL18_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL18 date"
+    definition: "Date when the IL18 measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/IL18/date"
+      display_field_elements:
+        Field1: "csf:CSFData/IL18/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il18_date"
+      synonyms:
+        - "IL18 date"
+        - "il18 date"
+        - "IL18_date"
+        - "il18_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  IL18_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IL18 plate"
+    definition: "CSF biochemistry measure for IL18 plate."
+    source:
+      schema_element: "csf:CSFData/IL18/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/IL18/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "il18_plate"
+      synonyms:
+        - "IL18 plate"
+        - "il18 plate"
+        - "IL18_plate"
+        - "il18_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TREM2_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TREM2 mean"
+    definition: "CSF biochemistry measure for TREM2 mean."
+    source:
+      schema_element: "csf:CSFData/TREM2/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/TREM2/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trem2_mean"
+      synonyms:
+        - "TREM2 mean"
+        - "trem2 mean"
+        - "TREM2_mean"
+        - "trem2_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TREM2_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TREM2 CV"
+    definition: "CSF biochemistry measure for TREM2 CV."
+    source:
+      schema_element: "csf:CSFData/TREM2/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/TREM2/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trem2_cv"
+      synonyms:
+        - "TREM2 CV"
+        - "trem2 cv"
+        - "TREM2_cv"
+        - "trem2_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TREM2_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TREM2 date"
+    definition: "Date when the TREM2 measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/TREM2/date"
+      display_field_elements:
+        Field1: "csf:CSFData/TREM2/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trem2_date"
+      synonyms:
+        - "TREM2 date"
+        - "trem2 date"
+        - "TREM2_date"
+        - "trem2_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TREM2_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TREM2 plate"
+    definition: "CSF biochemistry measure for TREM2 plate."
+    source:
+      schema_element: "csf:CSFData/TREM2/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/TREM2/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trem2_plate"
+      synonyms:
+        - "TREM2 plate"
+        - "trem2 plate"
+        - "TREM2_plate"
+        - "trem2_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMP9_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMP9 mean"
+    definition: "CSF biochemistry measure for MMP9 mean."
+    source:
+      schema_element: "csf:CSFData/MMP9/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/MMP9/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmp9_mean"
+      synonyms:
+        - "MMP9 mean"
+        - "mmp9 mean"
+        - "MMP9_mean"
+        - "mmp9_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMP9_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMP9 CV"
+    definition: "CSF biochemistry measure for MMP9 CV."
+    source:
+      schema_element: "csf:CSFData/MMP9/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/MMP9/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmp9_cv"
+      synonyms:
+        - "MMP9 CV"
+        - "mmp9 cv"
+        - "MMP9_cv"
+        - "mmp9_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMP9_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMP9 date"
+    definition: "Date when the MMP9 measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/MMP9/date"
+      display_field_elements:
+        Field1: "csf:CSFData/MMP9/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmp9_date"
+      synonyms:
+        - "MMP9 date"
+        - "mmp9 date"
+        - "MMP9_date"
+        - "mmp9_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMP9_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMP9 plate"
+    definition: "CSF biochemistry measure for MMP9 plate."
+    source:
+      schema_element: "csf:CSFData/MMP9/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/MMP9/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmp9_plate"
+      synonyms:
+        - "MMP9 plate"
+        - "mmp9 plate"
+        - "MMP9_plate"
+        - "mmp9_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TIMP1_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TIMP1 mean"
+    definition: "CSF biochemistry measure for TIMP1 mean."
+    source:
+      schema_element: "csf:CSFData/TIMP1/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/TIMP1/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "timp1_mean"
+      synonyms:
+        - "TIMP1 mean"
+        - "timp1 mean"
+        - "TIMP1_mean"
+        - "timp1_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TIMP1_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TIMP1 CV"
+    definition: "CSF biochemistry measure for TIMP1 CV."
+    source:
+      schema_element: "csf:CSFData/TIMP1/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/TIMP1/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "timp1_cv"
+      synonyms:
+        - "TIMP1 CV"
+        - "timp1 cv"
+        - "TIMP1_cv"
+        - "timp1_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TIMP1_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TIMP1 date"
+    definition: "Date when the TIMP1 measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/TIMP1/date"
+      display_field_elements:
+        Field1: "csf:CSFData/TIMP1/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "timp1_date"
+      synonyms:
+        - "TIMP1 date"
+        - "timp1 date"
+        - "TIMP1_date"
+        - "timp1_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TIMP1_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TIMP1 plate"
+    definition: "CSF biochemistry measure for TIMP1 plate."
+    source:
+      schema_element: "csf:CSFData/TIMP1/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/TIMP1/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "timp1_plate"
+      synonyms:
+        - "TIMP1 plate"
+        - "timp1 plate"
+        - "TIMP1_plate"
+        - "timp1_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  BACE_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "BACE mean"
+    definition: "CSF biochemistry measure for BACE mean."
+    source:
+      schema_element: "csf:CSFData/BACE/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/BACE/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bace_mean"
+      synonyms:
+        - "BACE mean"
+        - "bace mean"
+        - "BACE_mean"
+        - "bace_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  BACE_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "BACE CV"
+    definition: "CSF biochemistry measure for BACE CV."
+    source:
+      schema_element: "csf:CSFData/BACE/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/BACE/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bace_cv"
+      synonyms:
+        - "BACE CV"
+        - "bace cv"
+        - "BACE_cv"
+        - "bace_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  BACE_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "BACE date"
+    definition: "Date when the BACE measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/BACE/date"
+      display_field_elements:
+        Field1: "csf:CSFData/BACE/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bace_date"
+      synonyms:
+        - "BACE date"
+        - "bace date"
+        - "BACE_date"
+        - "bace_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  BACE_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "BACE plate"
+    definition: "CSF biochemistry measure for BACE plate."
+    source:
+      schema_element: "csf:CSFData/BACE/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/BACE/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bace_plate"
+      synonyms:
+        - "BACE plate"
+        - "bace plate"
+        - "BACE_plate"
+        - "bace_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  NG_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "NG mean"
+    definition: "CSF biochemistry measure for NG mean."
+    source:
+      schema_element: "csf:CSFData/NG/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/NG/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ng_mean"
+      synonyms:
+        - "NG mean"
+        - "ng mean"
+        - "NG_mean"
+        - "ng_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  NG_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "NG CV"
+    definition: "CSF biochemistry measure for NG CV."
+    source:
+      schema_element: "csf:CSFData/NG/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/NG/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ng_cv"
+      synonyms:
+        - "NG CV"
+        - "ng cv"
+        - "NG_cv"
+        - "ng_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  NG_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "NG date"
+    definition: "Date when the NG measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/NG/date"
+      display_field_elements:
+        Field1: "csf:CSFData/NG/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ng_date"
+      synonyms:
+        - "NG date"
+        - "ng date"
+        - "NG_date"
+        - "ng_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  NG_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "NG plate"
+    definition: "CSF biochemistry measure for NG plate."
+    source:
+      schema_element: "csf:CSFData/NG/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/NG/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ng_plate"
+      synonyms:
+        - "NG plate"
+        - "ng plate"
+        - "NG_plate"
+        - "ng_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_AB_38_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale Aß 38 mean"
+    definition: "CSF biochemistry measure for Mesoscale Aß 38 mean."
+    source:
+      schema_element: "csf:CSFData/MSD_AB_38/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_AB_38/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_ab_38_mean"
+      synonyms:
+        - "MSD_AB_38 mean"
+        - "msd_ab_38 mean"
+        - "MSD AB 38 mean"
+        - "msd ab 38 mean"
+        - "MSD_AB_38_mean"
+        - "msd_ab_38_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_AB_38_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale Aß 38 CV"
+    definition: "CSF biochemistry measure for Mesoscale Aß 38 CV."
+    source:
+      schema_element: "csf:CSFData/MSD_AB_38/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_AB_38/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_ab_38_cv"
+      synonyms:
+        - "MSD_AB_38 CV"
+        - "msd_ab_38 cv"
+        - "MSD AB 38 CV"
+        - "msd ab 38 cv"
+        - "MSD_AB_38_cv"
+        - "msd_ab_38_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_AB_38_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale Aß 38 date"
+    definition: "Date when the Mesoscale Aß 38 measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/MSD_AB_38/date"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_AB_38/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_ab_38_date"
+      synonyms:
+        - "MSD_AB_date CV"
+        - "msd_ab_date cv"
+        - "MSD AB date CV"
+        - "msd ab date cv"
+        - "MSD_AB_38_date"
+        - "msd_ab_38_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_AB_38_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale Aß 38 plate"
+    definition: "CSF biochemistry measure for Mesoscale Aß 38 plate."
+    source:
+      schema_element: "csf:CSFData/MSD_AB_38/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_AB_38/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_ab_38_plate"
+      synonyms:
+        - "MSD_AB_date plate"
+        - "msd_ab_date plate"
+        - "MSD AB date plate"
+        - "msd ab date plate"
+        - "MSD_AB_38_plate"
+        - "msd_ab_38_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_AB_40_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale Aß 40 mean"
+    definition: "CSF biochemistry measure for Mesoscale Aß 40 mean."
+    source:
+      schema_element: "csf:CSFData/MSD_AB_40/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_AB_40/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_ab_40_mean"
+      synonyms:
+        - "MSD_AB_40 mean"
+        - "msd_ab_40 mean"
+        - "MSD AB 40 mean"
+        - "msd ab 40 mean"
+        - "MSD_AB_40_mean"
+        - "msd_ab_40_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_AB_40_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale Aß 40 CV"
+    definition: "CSF biochemistry measure for Mesoscale Aß 40 CV."
+    source:
+      schema_element: "csf:CSFData/MSD_AB_40/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_AB_40/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_ab_40_cv"
+      synonyms:
+        - "MSD_AB_40 CV"
+        - "msd_ab_40 cv"
+        - "MSD AB 40 CV"
+        - "msd ab 40 cv"
+        - "MSD_AB_40_cv"
+        - "msd_ab_40_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_AB_40_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale Aß 40 date"
+    definition: "Date when the Mesoscale Aß 40 measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/MSD_AB_40/date"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_AB_40/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_ab_40_date"
+      synonyms:
+        - "MSD_AB_40 date"
+        - "msd_ab_40 date"
+        - "MSD AB 40 date"
+        - "msd ab 40 date"
+        - "MSD_AB_40_date"
+        - "msd_ab_40_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_AB_40_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale Aß 40 plate"
+    definition: "CSF biochemistry measure for Mesoscale Aß 40 plate."
+    source:
+      schema_element: "csf:CSFData/MSD_AB_40/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_AB_40/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_ab_40_plate"
+      synonyms:
+        - "MSD_AB_40 plate"
+        - "msd_ab_40 plate"
+        - "MSD AB 40 plate"
+        - "msd ab 40 plate"
+        - "MSD_AB_40_plate"
+        - "msd_ab_40_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_AB_42_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale Aß 42 mean"
+    definition: "CSF biochemistry measure for Mesoscale Aß 42 mean."
+    source:
+      schema_element: "csf:CSFData/MSD_AB_42/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_AB_42/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_ab_42_mean"
+      synonyms:
+        - "MSD_AB_42 mean"
+        - "msd_ab_42 mean"
+        - "MSD AB 42 mean"
+        - "msd ab 42 mean"
+        - "MSD_AB_42_mean"
+        - "msd_ab_42_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_AB_42_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale Aß 42 CV"
+    definition: "CSF biochemistry measure for Mesoscale Aß 42 CV."
+    source:
+      schema_element: "csf:CSFData/MSD_AB_42/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_AB_42/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_ab_42_cv"
+      synonyms:
+        - "MSD_AB_42 CV"
+        - "msd_ab_42 cv"
+        - "MSD AB 42 CV"
+        - "msd ab 42 cv"
+        - "MSD_AB_42_cv"
+        - "msd_ab_42_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_AB_42_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale Aß 42 date"
+    definition: "Date when the Mesoscale Aß 42 measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/MSD_AB_42/date"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_AB_42/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_ab_42_date"
+      synonyms:
+        - "MSD_AB_42 date"
+        - "msd_ab_42 date"
+        - "MSD AB 42 date"
+        - "msd ab 42 date"
+        - "MSD_AB_42_date"
+        - "msd_ab_42_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_AB_42_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale Aß 42 plate"
+    definition: "CSF biochemistry measure for Mesoscale Aß 42 plate."
+    source:
+      schema_element: "csf:CSFData/MSD_AB_42/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_AB_42/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_ab_42_plate"
+      synonyms:
+        - "MSD_AB_42 plate"
+        - "msd_ab_42 plate"
+        - "MSD AB 42 plate"
+        - "msd ab 42 plate"
+        - "MSD_AB_42_plate"
+        - "msd_ab_42_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_X_34_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale X_34 mean"
+    definition: "CSF biochemistry measure for Mesoscale X 34 mean."
+    source:
+      schema_element: "csf:CSFData/MSD_X_34/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_X_34/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_x_34_mean"
+      synonyms:
+        - "MSD_X_34 mean"
+        - "msd_x_34 mean"
+        - "MSD X 34 mean"
+        - "msd x 34 mean"
+        - "MSD_X_34_mean"
+        - "msd_x_34_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_X_34_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale X_34 CV"
+    definition: "CSF biochemistry measure for Mesoscale X 34 CV."
+    source:
+      schema_element: "csf:CSFData/MSD_X_34/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_X_34/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_x_34_cv"
+      synonyms:
+        - "MSD_X_34 CV"
+        - "msd_x_34 cv"
+        - "MSD X 34 CV"
+        - "msd x 34 cv"
+        - "MSD_X_34_cv"
+        - "msd_x_34_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_X_34_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale X_34 date"
+    definition: "Date when the Mesoscale X 34 measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/MSD_X_34/date"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_X_34/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_x_34_date"
+      synonyms:
+        - "MSD_X_34 date"
+        - "msd_x_34 date"
+        - "MSD X 34 date"
+        - "msd x 34 date"
+        - "MSD_X_34_date"
+        - "msd_x_34_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_X_34_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale X_34 plate"
+    definition: "CSF biochemistry measure for Mesoscale X 34 plate."
+    source:
+      schema_element: "csf:CSFData/MSD_X_34/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_X_34/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_x_34_plate"
+      synonyms:
+        - "MSD_X_34 plate"
+        - "msd_x_34 plate"
+        - "MSD X 34 plate"
+        - "msd x 34 plate"
+        - "MSD_X_34_plate"
+        - "msd_x_34_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_20_X_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale 20_X mean"
+    definition: "CSF biochemistry measure for Mesoscale 20 X mean."
+    source:
+      schema_element: "csf:CSFData/MSD_20_X/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_20_X/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_20_x_mean"
+      synonyms:
+        - "MSD_20_X mean"
+        - "msd_20_x mean"
+        - "MSD 20 X mean"
+        - "msd 20 x mean"
+        - "MSD_20_X_mean"
+        - "msd_20_x_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_20_X_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale 20_X CV"
+    definition: "CSF biochemistry measure for Mesoscale 20 X CV."
+    source:
+      schema_element: "csf:CSFData/MSD_20_X/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_20_X/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_20_x_cv"
+      synonyms:
+        - "MSD_20_X CV"
+        - "msd_20_x cv"
+        - "MSD 20 X CV"
+        - "msd 20 x cv"
+        - "MSD_20_X_cv"
+        - "msd_20_x_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_20_X_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale 20_X date"
+    definition: "Date when the Mesoscale 20 X measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/MSD_20_X/date"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_20_X/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_20_x_date"
+      synonyms:
+        - "MSD_20_X date"
+        - "msd_20_x date"
+        - "MSD 20 X date"
+        - "msd 20 x date"
+        - "MSD_20_X_date"
+        - "msd_20_x_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_20_X_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale 20_X plate"
+    definition: "CSF biochemistry measure for Mesoscale 20 X plate."
+    source:
+      schema_element: "csf:CSFData/MSD_20_X/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_20_X/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_20_x_plate"
+      synonyms:
+        - "MSD_20_X plate"
+        - "msd_20_x plate"
+        - "MSD 20 X plate"
+        - "msd 20 x plate"
+        - "MSD_20_X_plate"
+        - "msd_20_x_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_X_40_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale X_40 mean"
+    definition: "CSF biochemistry measure for Mesoscale X 40 mean."
+    source:
+      schema_element: "csf:CSFData/MSD_X_40/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_X_40/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_x_40_mean"
+      synonyms:
+        - "MSD_X_40 mean"
+        - "msd_x_40 mean"
+        - "MSD X 40 mean"
+        - "msd x 40 mean"
+        - "MSD_X_40_mean"
+        - "msd_x_40_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_X_40_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale X_40 CV"
+    definition: "CSF biochemistry measure for Mesoscale X 40 CV."
+    source:
+      schema_element: "csf:CSFData/MSD_X_40/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_X_40/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_x_40_cv"
+      synonyms:
+        - "MSD_X_40 CV"
+        - "msd_x_40 cv"
+        - "MSD X 40 CV"
+        - "msd x 40 cv"
+        - "MSD_X_40_cv"
+        - "msd_x_40_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_X_40_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale X_40 date"
+    definition: "Date when the Mesoscale X 40 measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/MSD_X_40/date"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_X_40/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_x_40_date"
+      synonyms:
+        - "MSD_X_40 date"
+        - "msd_x_40 date"
+        - "MSD X 40 date"
+        - "msd x 40 date"
+        - "MSD_X_40_date"
+        - "msd_x_40_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_X_40_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale X_40 plate"
+    definition: "CSF biochemistry measure for Mesoscale X 40 plate."
+    source:
+      schema_element: "csf:CSFData/MSD_X_40/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_X_40/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_x_40_plate"
+      synonyms:
+        - "MSD_X_40 plate"
+        - "msd_x_40 plate"
+        - "MSD X 40 plate"
+        - "msd x 40 plate"
+        - "MSD_X_40_plate"
+        - "msd_x_40_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_NfL_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale NfL mean"
+    definition: "CSF biochemistry measure for Mesoscale Nf L mean."
+    source:
+      schema_element: "csf:CSFData/MSD_NfL/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_NfL/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_nfl_mean"
+      synonyms:
+        - "MSD_NfL mean"
+        - "msd_nfl mean"
+        - "MSD NfL mean"
+        - "msd nfl mean"
+        - "MSD_NfL_mean"
+        - "msd_nfl_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_NfL_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale NfL CV"
+    definition: "CSF biochemistry measure for Mesoscale Nf L CV."
+    source:
+      schema_element: "csf:CSFData/MSD_NfL/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_NfL/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_nfl_cv"
+      synonyms:
+        - "MSD_NfL CV"
+        - "msd_nfl cv"
+        - "MSD NfL CV"
+        - "msd nfl cv"
+        - "MSD_NfL_cv"
+        - "msd_nfl_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_NfL_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale NfL date"
+    definition: "Date when the Mesoscale Nf L measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/MSD_NfL/date"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_NfL/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_nfl_date"
+      synonyms:
+        - "MSD_NfL date"
+        - "msd_nfl date"
+        - "MSD NfL date"
+        - "msd nfl date"
+        - "MSD_NfL_date"
+        - "msd_nfl_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_NfL_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale NfL plate"
+    definition: "CSF biochemistry measure for Mesoscale Nf L plate."
+    source:
+      schema_element: "csf:CSFData/MSD_NfL/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_NfL/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_nfl_plate"
+      synonyms:
+        - "MSD_NfL plate"
+        - "msd_nfl plate"
+        - "MSD NfL plate"
+        - "msd nfl plate"
+        - "MSD_NfL_plate"
+        - "msd_nfl_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_GFAP_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale GFAP mean"
+    definition: "CSF biochemistry measure for Mesoscale GFAP mean."
+    source:
+      schema_element: "csf:CSFData/MSD_GFAP/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_GFAP/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_gfap_mean"
+      synonyms:
+        - "MSD_GFAP_mean"
+        - "msd_gfap_mean"
+        - "MSD GFAP mean"
+        - "msd gfap mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_GFAP_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale GFAP CV"
+    definition: "CSF biochemistry measure for Mesoscale GFAP CV."
+    source:
+      schema_element: "csf:CSFData/MSD_GFAP/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_GFAP/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_gfap_cv"
+      synonyms:
+        - "MSD_NfL CV"
+        - "msd_nfl cv"
+        - "MSD NfL CV"
+        - "msd nfl cv"
+        - "MSD_GFAP_cv"
+        - "msd_gfap_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_GFAP_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale GFAP date"
+    definition: "Date when the Mesoscale GFAP measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/MSD_GFAP/date"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_GFAP/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_gfap_date"
+      synonyms:
+        - "MSD_GFAP date"
+        - "msd_gfap date"
+        - "MSD GFAP date"
+        - "msd gfap date"
+        - "MSD_GFAP_date"
+        - "msd_gfap_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_GFAP_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale GFAP plate"
+    definition: "CSF biochemistry measure for Mesoscale GFAP plate."
+    source:
+      schema_element: "csf:CSFData/MSD_GFAP/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_GFAP/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_gfap_plate"
+      synonyms:
+        - "MSD_GFAP plate"
+        - "msd_gfap plate"
+        - "MSD GFAP plate"
+        - "msd gfap plate"
+        - "MSD_GFAP_plate"
+        - "msd_gfap_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_PDGFRBETA_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale PDGFRBETA mean"
+    definition: "CSF biochemistry measure for Mesoscale PDGFRBETA mean."
+    source:
+      schema_element: "csf:CSFData/MSD_PDGFRBETA/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_PDGFRBETA/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_pdgfrbeta_mean"
+      synonyms:
+        - "MSD_PDGFRBETA_mean"
+        - "msd_pdgfrbeta_mean"
+        - "MSD PDGFRBETA mean"
+        - "msd pdgfrbeta mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_PDGFRBETA_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale PDGFRBETA CV"
+    definition: "CSF biochemistry measure for Mesoscale PDGFRBETA CV."
+    source:
+      schema_element: "csf:CSFData/MSD_PDGFRBETA/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_PDGFRBETA/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_pdgfrbeta_cv"
+      synonyms:
+        - "MSD_NfL CV"
+        - "msd_nfl cv"
+        - "MSD NfL CV"
+        - "msd nfl cv"
+        - "MSD_PDGFRBETA_cv"
+        - "msd_pdgfrbeta_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_PDGFRBETA_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale PDGFRBETA date"
+    definition: "Date when the Mesoscale PDGFRBETA measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/MSD_PDGFRBETA/date"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_PDGFRBETA/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_pdgfrbeta_date"
+      synonyms:
+        - "MSD_PDGFRBETA date"
+        - "msd_pdgfrbeta date"
+        - "MSD PDGFRBETA date"
+        - "msd pdgfrbeta date"
+        - "MSD_PDGFRBETA_date"
+        - "msd_pdgfrbeta_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_PDGFRBETA_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale PDGFRBETA plate"
+    definition: "CSF biochemistry measure for Mesoscale PDGFRBETA plate."
+    source:
+      schema_element: "csf:CSFData/MSD_PDGFRBETA/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_PDGFRBETA/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_pdgfrbeta_plate"
+      synonyms:
+        - "MSD_PDGFRBETA plate"
+        - "msd_pdgfrbeta plate"
+        - "MSD PDGFRBETA plate"
+        - "msd pdgfrbeta plate"
+        - "MSD_PDGFRBETA_plate"
+        - "msd_pdgfrbeta_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_MMP2_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale MMP2 mean"
+    definition: "CSF biochemistry measure for Mesoscale MMP2 mean."
+    source:
+      schema_element: "csf:CSFData/MSD_MMP2/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_MMP2/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_mmp2_mean"
+      synonyms:
+        - "MSD_MMP2_mean"
+        - "msd_mmp2_mean"
+        - "MSD MMP2 mean"
+        - "msd mmp2 mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_MMP2_cv:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale MMP2 CV"
+    definition: "CSF biochemistry measure for Mesoscale MMP2 CV."
+    source:
+      schema_element: "csf:CSFData/MSD_MMP2/cv"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_MMP2/cv"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_mmp2_cv"
+      synonyms:
+        - "MSD_NfL CV"
+        - "msd_nfl cv"
+        - "MSD NfL CV"
+        - "msd nfl cv"
+        - "MSD_MMP2_cv"
+        - "msd_mmp2_cv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_MMP2_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale MMP2 date"
+    definition: "Date when the Mesoscale MMP2 measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/MSD_MMP2/date"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_MMP2/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_mmp2_date"
+      synonyms:
+        - "MSD_MMP2 date"
+        - "msd_mmp2 date"
+        - "MSD MMP2 date"
+        - "msd mmp2 date"
+        - "MSD_MMP2_date"
+        - "msd_mmp2_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MSD_MMP2_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Mesoscale MMP2 plate"
+    definition: "CSF biochemistry measure for Mesoscale MMP2 plate."
+    source:
+      schema_element: "csf:CSFData/MSD_MMP2/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_MMP2/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "msd_mmp2_plate"
+      synonyms:
+        - "MSD_MMP2 plate"
+        - "msd_mmp2 plate"
+        - "MSD MMP2 plate"
+        - "msd mmp2 plate"
+        - "MSD_MMP2_plate"
+        - "msd_mmp2_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VEGF_C_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VEGF_C mean"
+    definition: "CSF biochemistry measure for VEGF C mean."
+    source:
+      schema_element: "csf:CSFData/VEGF_C/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/VEGF_C/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vegf_c_mean"
+      synonyms:
+        - "VEGF_C mean"
+        - "vegf_c mean"
+        - "VEGF C mean"
+        - "vegf c mean"
+        - "VEGF_C_mean"
+        - "vegf_c_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VEGF_C_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VEGF_C date"
+    definition: "Date when the VEGF C measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/VEGF_C/date"
+      display_field_elements:
+        Field1: "csf:CSFData/VEGF_C/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vegf_c_date"
+      synonyms:
+        - "VEGF_C date"
+        - "vegf_c date"
+        - "VEGF C date"
+        - "vegf c date"
+        - "VEGF_C_date"
+        - "vegf_c_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VEGF_C_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VEGF_C plate"
+    definition: "CSF biochemistry measure for VEGF C plate."
+    source:
+      schema_element: "csf:CSFData/VEGF_C/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/VEGF_C/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vegf_c_plate"
+      synonyms:
+        - "VEGF_C plate"
+        - "vegf_c plate"
+        - "VEGF C plate"
+        - "vegf c plate"
+        - "VEGF_C_plate"
+        - "vegf_c_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VEGF_A_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VEGF_A mean"
+    definition: "CSF biochemistry measure for VEGF A mean."
+    source:
+      schema_element: "csf:CSFData/VEGF_A/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/VEGF_A/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vegf_a_mean"
+      synonyms:
+        - "VEGF_A mean"
+        - "vegf_a mean"
+        - "VEGF A mean"
+        - "vegf a mean"
+        - "VEGF_A_mean"
+        - "vegf_a_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VEGF_A_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VEGF_A date"
+    definition: "Date when the VEGF A measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/VEGF_A/date"
+      display_field_elements:
+        Field1: "csf:CSFData/VEGF_A/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vegf_a_date"
+      synonyms:
+        - "VEGF_A date"
+        - "vegf_a date"
+        - "VEGF A date"
+        - "vegf a date"
+        - "VEGF_A_date"
+        - "vegf_a_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VEGF_A_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VEGF_A plate"
+    definition: "CSF biochemistry measure for VEGF A plate."
+    source:
+      schema_element: "csf:CSFData/VEGF_A/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/VEGF_A/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vegf_a_plate"
+      synonyms:
+        - "VEGF_A plate"
+        - "vegf_a plate"
+        - "VEGF A plate"
+        - "vegf a plate"
+        - "VEGF_A_plate"
+        - "vegf_a_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PlGF_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "PlGF mean"
+    definition: "CSF biochemistry measure for Pl GF mean."
+    source:
+      schema_element: "csf:CSFData/PlGF/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/PlGF/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "plgf_mean"
+      synonyms:
+        - "PlGF mean"
+        - "plgf mean"
+        - "PlGF_mean"
+        - "plgf_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PlGF_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "PlGF date"
+    definition: "Date when the Pl GF measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/PlGF/date"
+      display_field_elements:
+        Field1: "csf:CSFData/PlGF/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "plgf_date"
+      synonyms:
+        - "PlGF date"
+        - "plgf date"
+        - "PlGF_date"
+        - "plgf_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PlGF_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "PlGF plate"
+    definition: "CSF biochemistry measure for Pl GF plate."
+    source:
+      schema_element: "csf:CSFData/PlGF/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/PlGF/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "plgf_plate"
+      synonyms:
+        - "PlGF plate"
+        - "plgf plate"
+        - "PlGF_plate"
+        - "plgf_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  alpha2M_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "alpha-2-macroglobulin mean"
+    definition: "CSF biochemistry measure for alpha-2-macroglobulin mean."
+    source:
+      schema_element: "csf:CSFData/alpha2M/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/alpha2M/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "alpha2m_mean"
+      synonyms:
+        - "alpha-2-macroglobulin mean"
+        - "alpha2M_mean"
+        - "alpha2m_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  alpha2M_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "alpha-2-macroglobulin date"
+    definition: "Date when the alpha-2-macroglobulin measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/alpha2M/date"
+      display_field_elements:
+        Field1: "csf:CSFData/alpha2M/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "alpha2m_date"
+      synonyms:
+        - "alpha-2-macroglobulin date"
+        - "alpha2M_date"
+        - "alpha2m_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  alpha2M_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "alpha-2-macroglobulin plate"
+    definition: "CSF biochemistry measure for alpha-2-macroglobulin plate."
+    source:
+      schema_element: "csf:CSFData/alpha2M/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/alpha2M/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "alpha2m_plate"
+      synonyms:
+        - "alpha2M_plate"
+        - "alpha2m_plate"
+        - "alpha2m plate"
+        - "Alpha2M Plate"
+        - "ALPHA2M_PLATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TIMP2_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TIMP-2 mean"
+    definition: "CSF biochemistry measure for TIMP-2 mean."
+    source:
+      schema_element: "csf:CSFData/TIMP2/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/TIMP2/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "timp2_mean"
+      synonyms:
+        - "TIMP-2 mean"
+        - "timp-2 mean"
+        - "TIMP2_mean"
+        - "timp2_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TIMP2_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TIMP-2 date"
+    definition: "Date when the TIMP-2 measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/TIMP2/date"
+      display_field_elements:
+        Field1: "csf:CSFData/TIMP2/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "timp2_date"
+      synonyms:
+        - "TIMP-2 date"
+        - "timp-2 date"
+        - "TIMP2_date"
+        - "timp2_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TIMP2_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TIMP-2 plate"
+    definition: "CSF biochemistry measure for TIMP-2 plate."
+    source:
+      schema_element: "csf:CSFData/TIMP2/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/TIMP2/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "timp2_plate"
+      synonyms:
+        - "TIMP2_plate"
+        - "timp2_plate"
+        - "timp2 plate"
+        - "Timp2 Plate"
+        - "TIMP2_PLATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  tyro3_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Tyro3 mean"
+    definition: "CSF biochemistry measure for Tyro3 mean."
+    source:
+      schema_element: "csf:CSFData/tyro3/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/tyro3/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "tyro3_mean"
+      synonyms:
+        - "Tyro3 mean"
+        - "tyro3 mean"
+        - "tyro3_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  tyro3_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Tyro3 date"
+    definition: "Date when the Tyro3 measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/tyro3/date"
+      display_field_elements:
+        Field1: "csf:CSFData/tyro3/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "tyro3_date"
+      synonyms:
+        - "Tyro3 date"
+        - "tyro3 date"
+        - "tyro3_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  tyro3_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Tyro3 plate"
+    definition: "CSF biochemistry measure for Tyro3 plate."
+    source:
+      schema_element: "csf:CSFData/tyro3/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/tyro3/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "tyro3_plate"
+      synonyms:
+        - "Tyro3 plate"
+        - "tyro3 plate"
+        - "tyro3_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  axl_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Axl mean"
+    definition: "CSF biochemistry measure for Axl mean."
+    source:
+      schema_element: "csf:CSFData/axl/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/axl/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "axl_mean"
+      synonyms:
+        - "Axl mean"
+        - "axl mean"
+        - "axl_mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  axl_date:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Axl date"
+    definition: "Date when the Axl measurement was obtained."
+    source:
+      schema_element: "csf:CSFData/axl/date"
+      display_field_elements:
+        Field1: "csf:CSFData/axl/date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "axl_date"
+      synonyms:
+        - "Axl date"
+        - "axl date"
+        - "axl_date"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  axl_plate:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Axl plate"
+    definition: "CSF biochemistry measure for Axl plate."
+    source:
+      schema_element: "csf:CSFData/axl/plate"
+      display_field_elements:
+        Field1: "csf:CSFData/axl/plate"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "axl_plate"
+      synonyms:
+        - "Axl plate"
+        - "axl plate"
+        - "axl_plate"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  UGOT_BD_Tau_carboxylated_csf_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CSF BDTau carboxylated mean (UGOT)"
+    definition: "CSF biochemistry measure for CSF BDTau carboxylated mean (UGOT)."
+    source:
+      schema_element: "csf:CSFData/UGOT_BD_Tau_carboxylated_csf/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/UGOT_BD_Tau_carboxylated_csf/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ugot_bd_tau_carboxylated_csf_mean"
+      synonyms:
+        - "UGOT_BD_Tau_carboxylated_csf_mean"
+        - "ugot_bd_tau_carboxylated_csf_mean"
+        - "UGOT BD Tau carboxylated csf mean"
+        - "ugot bd tau carboxylated csf mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  UGOT_p181_carboxylated_csf_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CSF p181 carboxylated mean (UGOT)"
+    definition: "CSF biochemistry measure for CSF p181 carboxylated mean (UGOT)."
+    source:
+      schema_element: "csf:CSFData/UGOT_p181_carboxylated_csf/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/UGOT_p181_carboxylated_csf/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ugot_p181_carboxylated_csf_mean"
+      synonyms:
+        - "UGOT_p181_carboxylated_csf_mean"
+        - "ugot_p181_carboxylated_csf_mean"
+        - "UGOT p181 carboxylated csf mean"
+        - "ugot p181 carboxylated csf mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  UGOT_p181_dyed_csf_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CSF p181 dyed mean (UGOT)"
+    definition: "CSF biochemistry measure for CSF p181 dyed mean (UGOT)."
+    source:
+      schema_element: "csf:CSFData/UGOT_p181_dyed_csf/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/UGOT_p181_dyed_csf/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ugot_p181_dyed_csf_mean"
+      synonyms:
+        - "UGOT_p181_dyed_csf_mean"
+        - "ugot_p181_dyed_csf_mean"
+        - "UGOT p181 dyed csf mean"
+        - "ugot p181 dyed csf mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  UGOT_p231_carboxylated_csf_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CSF p231 carboxylated mean (UGOT)"
+    definition: "CSF biochemistry measure for CSF p231 carboxylated mean (UGOT)."
+    source:
+      schema_element: "csf:CSFData/UGOT_p231_carboxylated_csf/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/UGOT_p231_carboxylated_csf/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ugot_p231_carboxylated_csf_mean"
+      synonyms:
+        - "UGOT_p231_carboxylated_csf_mean"
+        - "ugot_p231_carboxylated_csf_mean"
+        - "UGOT p231 carboxylated csf mean"
+        - "ugot p231 carboxylated csf mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  UGOT_p231_dyed_csf_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CSF p231 dyed mean (UGOT)"
+    definition: "CSF biochemistry measure for CSF p231 dyed mean (UGOT)."
+    source:
+      schema_element: "csf:CSFData/UGOT_p231_dyed_csf/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/UGOT_p231_dyed_csf/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ugot_p231_dyed_csf_mean"
+      synonyms:
+        - "UGOT_p231_dyed_csf_mean"
+        - "ugot_p231_dyed_csf_mean"
+        - "UGOT p231 dyed csf mean"
+        - "ugot p231 dyed csf mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  UGOT_p217_csf_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CSF p217 mean (UGOT)"
+    definition: "CSF biochemistry measure for CSF p217 mean (UGOT)."
+    source:
+      schema_element: "csf:CSFData/UGOT_p217_csf/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/UGOT_p217_csf/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ugot_p217_csf_mean"
+      synonyms:
+        - "UGOT_p217_csf_mean"
+        - "ugot_p217_csf_mean"
+        - "UGOT p217 csf mean"
+        - "ugot p217 csf mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  UGOT_GAP43_csf_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CSF GAP43 mean (UGOT)"
+    definition: "CSF biochemistry measure for CSF GAP43 mean (UGOT)."
+    source:
+      schema_element: "csf:CSFData/UGOT_GAP43_csf/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/UGOT_GAP43_csf/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ugot_gap43_csf_mean"
+      synonyms:
+        - "UGOT_GAP43_csf_mean"
+        - "ugot_gap43_csf_mean"
+        - "UGOT GAP43 csf mean"
+        - "ugot gap43 csf mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  UGOT_NPTX1_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CSF NPTX1 mean (UGOT)"
+    definition: "CSF biochemistry measure for CSF NPTX1 mean (UGOT)."
+    source:
+      schema_element: "csf:CSFData/UGOT_NPTX1/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/UGOT_NPTX1/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ugot_nptx1_mean"
+      synonyms:
+        - "UGOT_NPTX1_mean"
+        - "ugot_nptx1_mean"
+        - "UGOT NPTX1 mean"
+        - "ugot nptx1 mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  UGOT_NPTXR_mean:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CSF NPTXR mean (UGOT)"
+    definition: "CSF biochemistry measure for CSF NPTXR mean (UGOT)."
+    source:
+      schema_element: "csf:CSFData/UGOT_NPTXR/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/UGOT_NPTXR/mean"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ugot_nptxr_mean"
+      synonyms:
+        - "UGOT_NPTXR_mean"
+        - "ugot_nptxr_mean"
+        - "UGOT NPTXR mean"
+        - "ugot nptxr mean"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  ratio_42_40:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Ratio 42/40"
+    definition: "CSF biochemistry measure for Ratio 42/40."
+    source:
+      schema_element: "csf:CSFData/MSD_AB_42/mean"
+      display_field_elements:
+        Field1: "csf:CSFData/MSD_AB_42/mean"
+        Field2: "csf:CSFData/MSD_AB_40/mean"
+    derivation:
+      kind: "sql"
+      input: "@Field1/@Field2"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ratio_42_40"
+      synonyms:
+        - "Ratio 42/40"
+        - "ratio 42/40"
+        - "ratio_42_40"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  abeta_cutoff:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Abeta cutoff"
+    definition: "Subject- and date-specific Aβ42 cutoff used for CSF amyloid classification."
+    source:
+      schema_element: "csf:CSFData/date"
+      display_field_elements:
+        expdate: "csf:CSFData/date"
+        subject_label: "xnat:subjectData/label"
+    derivation:
+      kind: "sql"
+      input: "abeta_cutoff(@subject_label, @expdate)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "abeta_cutoff"
+      synonyms:
+        - "Abeta cutoff"
+        - "abeta cutoff"
+        - "abeta_cutoff"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  a_hierarchical:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "A hierarchical"
+    definition: "Derived amyloid classification based on the hierarchical biomarker rule."
+    source:
+      schema_element: "csf:CSFData/MSD_AB_42/mean"
+      display_field_elements:
+        amypet_conclu: "view:AMYPET_CSF.amypet_conclu"
+        msd_ab_42_mean: "csf:CSFData/MSD_AB_42/mean"
+        msd_ab_40_mean: "csf:CSFData/MSD_AB_40/mean"
+        csf_abeta42: "csf:CSFData/CSF_Abeta42"
+        expdate: "csf:CSFData/date"
+        subject_label: "xnat:subjectData/label"
+    derivation:
+      kind: "sql_case"
+      input: |-
+        COALESCE(case when @amypet_conclu = 0 or @amypet_conclu = 1 then @amypet_conclu end,
+        				 case when @msd_ab_42_mean/@msd_ab_40_mean <= 0.0774 then 1 when @msd_ab_42_mean/@msd_ab_40_mean is null then null else 0 end,
+        				 (CASE WHEN @csf_abeta42 < abeta_cutoff(@subject_label, @expdate) then 1  when @csf_abeta42 is null then null else 0 end))
+      mapping:
+        "@amypet_conclu = 0 or @amypet_conclu = 1": "@amypet_conclu"
+        "@msd_ab_42_mean/@msd_ab_40_mean <= 0.0774": "1"
+        "@csf_abeta42 < abeta_cutoff(@subject_label, @expdate)": "1"
+      else: "0"
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "a_hierarchical"
+      synonyms:
+        - "A_hierarchical"
+        - "a_hierarchical"
+        - "A hierarchical"
+        - "a hierarchical"
+    allowed_values:
+      - "@amypet_conclu"
+      - "1"
+      - "0"
+    sensitivity: "none"
+    quality:
+      notes: null
+  a:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "A"
+    definition: "Derived amyloid classification based on the Aβ42/Aβ40 ratio."
+    source:
+      schema_element: "csf:CSFData/MSD_AB_42/mean"
+      display_field_elements:
+        msd_ab_42_mean: "csf:CSFData/MSD_AB_42/mean"
+        msd_ab_40_mean: "csf:CSFData/MSD_AB_40/mean"
+    derivation:
+      kind: "sql_case"
+      input: "case when @msd_ab_42_mean/@msd_ab_40_mean <= 0.0774 then 1 when @msd_ab_42_mean/@msd_ab_40_mean is null then null else 0 END"
+      mapping:
+        "@msd_ab_42_mean/@msd_ab_40_mean <= 0.0774": "1"
+      else: "0"
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "a"
+      synonyms:
+        - "A_ratio"
+        - "a_ratio"
+        - "A ratio"
+        - "a ratio"
+        - "a"
+    allowed_values:
+      - "1"
+      - "0"
+    sensitivity: "none"
+    quality:
+      notes: null
+  a_ratio:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "A ratio"
+    definition: "Derived amyloid classification based on the Aβ42/Aβ40 ratio."
+    source:
+      schema_element: "csf:CSFData/MSD_AB_42/mean"
+      display_field_elements:
+        msd_ab_42_mean: "csf:CSFData/MSD_AB_42/mean"
+        msd_ab_40_mean: "csf:CSFData/MSD_AB_40/mean"
+    derivation:
+      kind: "sql_case"
+      input: "case when @msd_ab_42_mean/@msd_ab_40_mean <= 0.0774 then 1 when @msd_ab_42_mean/@msd_ab_40_mean is null then null else 0 END"
+      mapping:
+        "@msd_ab_42_mean/@msd_ab_40_mean <= 0.0774": "1"
+      else: "0"
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "a_ratio"
+      synonyms:
+        - "A_ratio"
+        - "a_ratio"
+        - "A ratio"
+        - "a ratio"
+    allowed_values:
+      - "1"
+      - "0"
+    sensitivity: "none"
+    quality:
+      notes: null
+  a_inno:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "A innotest"
+    definition: "Derived amyloid classification based on the Innotest Aβ42 cutoff."
+    source:
+      schema_element: "csf:CSFData/CSF_Abeta42"
+      display_field_elements:
+        csf_abeta42: "csf:CSFData/CSF_Abeta42"
+        expdate: "csf:CSFData/date"
+        subject_label: "xnat:subjectData/label"
+    derivation:
+      kind: "sql_case"
+      input: "(CASE WHEN @csf_abeta42 < abeta_cutoff(@subject_label, @expdate) then 1  when @csf_abeta42 is null then null else 0 end)"
+      mapping:
+        "@csf_abeta42 < abeta_cutoff(@subject_label, @expdate)": "1"
+      else: "0"
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "a_inno"
+      synonyms:
+        - "A_innotest"
+        - "a_innotest"
+        - "A innotest"
+        - "a innotest"
+        - "a_inno"
+    allowed_values:
+      - "1"
+      - "0"
+    sensitivity: "none"
+    quality:
+      notes: null
+  t:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "T"
+    definition: "Derived tau classification based on phospho-tau thresholds."
+    source:
+      schema_element: "csf:CSFData/CSF_Ptau"
+      display_field_elements:
+        csf_ptau: "csf:CSFData/CSF_Ptau"
+        expdate: "csf:CSFData/date"
+    derivation:
+      kind: "sql_case"
+      input: |-
+        (CASE WHEN @expdate < '2020-10-01' and @csf_ptau >= 66.5 then 1 
+                    /* New cutoff value from 2020-10-01 */
+                    WHEN @expdate >= '2020-10-01' and @csf_ptau >= 19 then 1 
+                    WHEN  @csf_ptau is null then null 
+                    else 0 end)
+      mapping:
+        "@expdate < '2020-10-01' and @csf_ptau >= 66.5": "1"
+        "@expdate >= '2020-10-01' and @csf_ptau >= 19": "1"
+      else: "0"
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "t"
+      synonyms:
+        - "T"
+        - "t"
+    allowed_values:
+      - "1"
+      - "0"
+    sensitivity: "none"
+    quality:
+      notes: null
+  n:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "N"
+    definition: "Derived neurodegeneration classification based on total tau thresholds."
+    source:
+      schema_element: "csf:CSFData/CSF_TotTau"
+      display_field_elements:
+        csf_tottau: "csf:CSFData/CSF_TotTau"
+        expdate: "csf:CSFData/date"
+    derivation:
+      kind: "sql_case"
+      input: |-
+        CASE WHEN @expdate < '2020-10-01' and @csf_tottau >= 378 then 1
+        				WHEN @expdate >= '2020-10-01' and @csf_tottau > 228 then 1
+        				WHEN @csf_tottau is null then null 
+        				else 0
+        			END
+      mapping:
+        "@expdate < '2020-10-01' and @csf_tottau >= 378": "1"
+        "@expdate >= '2020-10-01' and @csf_tottau > 228": "1"
+      else: "0"
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "n"
+      synonyms:
+        - "N"
+        - "n"
+    allowed_values:
+      - "1"
+      - "0"
+    sensitivity: "none"
+    quality:
+      notes: null
+  atn:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "ATN"
+    definition: "Derived ATN classification based on CSF biomarkers."
+    source:
+      schema_element: "csf:CSFData/MSD_AB_42/mean"
+      display_field_elements:
+        amypet_conclu: "view:AMYPET_CSF.amypet_conclu"
+        msd_ab_42_mean: "csf:CSFData/MSD_AB_42/mean"
+        msd_ab_40_mean: "csf:CSFData/MSD_AB_40/mean"
+        csf_abeta42: "csf:CSFData/CSF_Abeta42"
+        expdate: "csf:CSFData/date"
+        subject_label: "xnat:subjectData/label"
+        csf_ptau: "csf:CSFData/CSF_Ptau"
+        csf_tottau: "csf:CSFData/CSF_TotTau"
+    derivation:
+      kind: "sql_case"
+      input: |-
+        'A' || COALESCE(case when @msd_ab_42_mean/@msd_ab_40_mean <= 0.0774 then '+' when @msd_ab_42_mean/@msd_ab_40_mean is null then null else '-' end, 'u') || 
+        		'T' || (CASE WHEN @expdate < '2020-10-01' and @csf_ptau >= 66.5 then '+' 
+                    /* New cutoff value from 2020-10-01 */
+                    WHEN @expdate >= '2020-10-01' and @csf_ptau >= 19 then '+' 
+                    WHEN  @csf_ptau is null then 'u' 
+                    else '-' end) ||
+        		'N' || CASE WHEN @expdate < '2020-10-01' and @csf_tottau >= 378 then '+'
+        				WHEN @expdate >= '2020-10-01' and @csf_tottau > 228 then '+'
+        				WHEN @csf_tottau is null then 'u' 
+        				else '-'
+        			END
+      mapping:
+        "@msd_ab_42_mean/@msd_ab_40_mean <= 0.0774": "+"
+        "@expdate < '2020-10-01' and @csf_ptau >= 66.5": "+"
+        "@expdate >= '2020-10-01' and @csf_ptau >= 19": "+"
+        "@csf_ptau is null": "u"
+        "@expdate < '2020-10-01' and @csf_tottau >= 378": "+"
+        "@expdate >= '2020-10-01' and @csf_tottau > 228": "+"
+        "@csf_tottau is null": "u"
+      else: "-"
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "atn"
+      synonyms:
+        - "ATN"
+        - "atn"
+        - "Atn"
+    allowed_values:
+      - "+"
+      - "u"
+      - "-"
+    sensitivity: "none"
+    quality:
+      notes: null
+  atn_amypet:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "ATN amypet"
+    definition: "Derived ATN classification combining CSF biomarkers and amyloid PET status."
+    source:
+      schema_element: "csf:CSFData/MSD_AB_42/mean"
+      display_field_elements:
+        amypet_conclu: "view:AMYPET_CSF.amypet_conclu"
+        msd_ab_42_mean: "csf:CSFData/MSD_AB_42/mean"
+        msd_ab_40_mean: "csf:CSFData/MSD_AB_40/mean"
+        csf_abeta42: "csf:CSFData/CSF_Abeta42"
+        expdate: "csf:CSFData/date"
+        subject_label: "xnat:subjectData/label"
+        csf_ptau: "csf:CSFData/CSF_Ptau"
+        csf_tottau: "csf:CSFData/CSF_TotTau"
+    derivation:
+      kind: "sql_case"
+      input: |-
+        'A' || COALESCE(COALESCE(case when @amypet_conclu = 0 then '+' when @amypet_conclu = 1 then '+' when @amypet_conclu is null then null end,
+        				 case when @msd_ab_42_mean/@msd_ab_40_mean <= 0.0774 then '+' when @msd_ab_42_mean/@msd_ab_40_mean is null then null else '-' end,
+        				 (CASE WHEN @csf_abeta42 < abeta_cutoff(@subject_label, @expdate) then '+'  when @csf_abeta42 is null then null else '-' end)), 'u') || 
+        		'T' || (CASE WHEN @expdate < '2020-10-01' and @csf_ptau >= 66.5 then '+' 
+                    /* New cutoff value from 2020-10-01 */
+                    WHEN @expdate >= '2020-10-01' and @csf_ptau >= 19 then '+' 
+                    WHEN  @csf_ptau is null then 'u' 
+                    else '-' end) ||
+        		'N' || CASE WHEN @expdate < '2020-10-01' and @csf_tottau >= 378 then '+'
+        				WHEN @expdate >= '2020-10-01' and @csf_tottau > 228 then '+'
+        				WHEN @csf_tottau is null then 'u' 
+        				else '-'
+        			END
+      mapping:
+        "@amypet_conclu = 0": "+"
+        "@amypet_conclu = 1": "+"
+        "@msd_ab_42_mean/@msd_ab_40_mean <= 0.0774": "+"
+        "@csf_abeta42 < abeta_cutoff(@subject_label, @expdate)": "+"
+        "@expdate < '2020-10-01' and @csf_ptau >= 66.5": "+"
+        "@expdate >= '2020-10-01' and @csf_ptau >= 19": "+"
+        "@csf_ptau is null": "u"
+        "@expdate < '2020-10-01' and @csf_tottau >= 378": "+"
+        "@expdate >= '2020-10-01' and @csf_tottau > 228": "+"
+        "@csf_tottau is null": "u"
+      else: "-"
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "atn_amypet"
+      synonyms:
+        - "ATN_amypet"
+        - "atn_amypet"
+        - "ATN amypet"
+        - "atn amypet"
+    allowed_values:
+      - "+"
+      - "u"
+      - "-"
+    sensitivity: "none"
+    quality:
+      notes: null
+  atn_inno:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "ATN Innotest"
+    definition: "Derived ATN classification based on Innotest amyloid status and CSF tau biomarkers."
+    source:
+      schema_element: "csf:CSFData/CSF_Abeta42"
+      display_field_elements:
+        csf_abeta42: "csf:CSFData/CSF_Abeta42"
+        expdate: "csf:CSFData/date"
+        subject_label: "xnat:subjectData/label"
+        csf_ptau: "csf:CSFData/CSF_Ptau"
+        csf_tottau: "csf:CSFData/CSF_TotTau"
+    derivation:
+      kind: "sql_case"
+      input: |-
+        'A' || COALESCE((CASE WHEN @csf_abeta42 < abeta_cutoff(@subject_label, @expdate) then '+'  when @csf_abeta42 is null then null else '-' end), 'u') || 
+        		'T' || (CASE WHEN @expdate < '2020-10-01' and @csf_ptau >= 66.5 then '+' 
+                    /* New cutoff value from 2020-10-01 */
+                    WHEN @expdate >= '2020-10-01' and @csf_ptau >= 19 then '+' 
+                    WHEN  @csf_ptau is null then 'u' 
+                    else '-' end) ||
+        		'N' || CASE WHEN @expdate < '2020-10-01' and @csf_tottau >= 378 then '+'
+        				WHEN @expdate >= '2020-10-01' and @csf_tottau > 228 then '+'
+        				WHEN @csf_tottau is null then 'u' 
+        				else '-'
+        			END
+      mapping:
+        "@csf_abeta42 < abeta_cutoff(@subject_label, @expdate)": "+"
+        "@expdate < '2020-10-01' and @csf_ptau >= 66.5": "+"
+        "@expdate >= '2020-10-01' and @csf_ptau >= 19": "+"
+        "@csf_ptau is null": "u"
+        "@expdate < '2020-10-01' and @csf_tottau >= 378": "+"
+        "@expdate >= '2020-10-01' and @csf_tottau > 228": "+"
+        "@csf_tottau is null": "u"
+      else: "-"
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "csf"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "atn_inno"
+      synonyms:
+        - "ATN Innotest"
+        - "atn innotest"
+        - "atn_inno"
+    allowed_values:
+      - "+"
+      - "u"
+      - "-"
+    sensitivity: "none"
+    quality:
+      notes: null

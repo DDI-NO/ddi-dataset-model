@@ -1,0 +1,22 @@
+# Local filesystem sources containing XNAT schema + display XML inputs.
+#
+# This file is intentionally kept simple so it can be parsed without YAML
+# dependencies. Supported structure:
+#
+# sources:
+#   - name: <identifier>
+#     path: <path to repo root>
+#     schemas_dir: <path within repo to the schemas root>
+#
+# Example for this workspace:
+#   path: ../xnat-plugins/xnat-apgem-plugin
+#   schemas_dir: src/main/resources/schemas
+
+sources:
+  - name: xnat-apgem-plugin
+    path: ../../xnat-plugins/xnat-apgem-plugin
+    schemas_dir: src/main/resources/schemas
+
+  - name: ASHS-plugin
+    path: ../../xnat-plugins/ASHS-plugin
+    schemas_dir: src/main/resources/schemas

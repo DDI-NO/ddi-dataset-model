@@ -1,0 +1,6197 @@
+display: "cs_cogScrData_display.xml"
+description: "CRF Part III: Includes MMSE, CERAD word list, Clock drawing test, Trail making test, COWAT (FAS), VOSP Silhouettes and Clinical dementia rating"
+
+display_versions:
+  dump:
+    description: "Fields referenced by DisplayVersion versionName=\"dump\"."
+
+# source_schema_element: cs:cogScrData
+
+display_field_annotations:
+  LABEL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Label"
+    definition: "Label identifying the cognitive screening record."
+    source:
+      schema_element: "cs:cogScrData.ID"
+      display_field_elements:
+        Field1: "cs:cogScrData.ID"
+        Field2: "cs:cogScrData.label"
+    derivation:
+      kind: "sql"
+      input: "COALESCE(@Field2, @Field1)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "label"
+      synonyms:
+        - "Label"
+        - "label"
+        - "LABEL"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  DATE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Date"
+    definition: "Date when the cognitive screening assessment was performed."
+    source:
+      schema_element: "cs:cogScrData.date"
+      display_field_elements:
+        Field1: "cs:cogScrData.date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "date"
+      synonyms:
+        - "Date"
+        - "date"
+        - "DATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AGE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Age"
+    definition: "Participant age at the time of the cognitive screening assessment."
+    source:
+      schema_element: "cs:cogScrData.date"
+      display_field_elements:
+        Field1: "cs:cogScrData.date"
+        Field2: "xnat:demographicData.dob"
+        Field3: "xnat:demographicData.yob"
+    derivation:
+      kind: "sql"
+      input: "CAST(COALESCE(FLOOR(CAST((CAST(((@Field1) - (@Field2))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @Field1)) - (@Field3))) AS numeric)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "age"
+      synonyms:
+        - "Age"
+        - "age"
+        - "AGE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_1:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE year"
+    definition: "MMSE item score for year."
+    source:
+      schema_element: "cs:mmseData/MMSE_1"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_1"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_1"
+      synonyms:
+        - "MMSE year"
+        - "mmse year"
+        - "MMSE_1"
+        - "mmse_1"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_2:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE season"
+    definition: "MMSE item score for season."
+    source:
+      schema_element: "cs:mmseData/MMSE_2"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_2"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_2"
+      synonyms:
+        - "MMSE season"
+        - "mmse season"
+        - "MMSE_2"
+        - "mmse_2"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_3:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE month"
+    definition: "MMSE item score for month."
+    source:
+      schema_element: "cs:mmseData/MMSE_3"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_3"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_3"
+      synonyms:
+        - "MMSE month"
+        - "mmse month"
+        - "MMSE_3"
+        - "mmse_3"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_version:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE version"
+    definition: "MMSE version."
+    source:
+      schema_element: "cs:mmseData/MMSE_version"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_version"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_version"
+      synonyms:
+        - "MMSE version"
+        - "mmse version"
+        - "MMSE_version"
+        - "mmse_version"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_4:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE date"
+    definition: "MMSE item score for date."
+    source:
+      schema_element: "cs:mmseData/MMSE_4"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_4"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_4"
+      synonyms:
+        - "MMSE date"
+        - "mmse date"
+        - "MMSE_4"
+        - "mmse_4"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_5:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE week"
+    definition: "MMSE item score for week."
+    source:
+      schema_element: "cs:mmseData/MMSE_5"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_5"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_5"
+      synonyms:
+        - "MMSE week"
+        - "mmse week"
+        - "MMSE_5"
+        - "mmse_5"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_6:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE country"
+    definition: "MMSE item score for country."
+    source:
+      schema_element: "cs:mmseData/MMSE_6"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_6"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_6"
+      synonyms:
+        - "MMSE country"
+        - "mmse country"
+        - "MMSE_6"
+        - "mmse_6"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_7:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE county"
+    definition: "MMSE item score for county."
+    source:
+      schema_element: "cs:mmseData/MMSE_7"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_7"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_7"
+      synonyms:
+        - "MMSE county"
+        - "mmse county"
+        - "MMSE_7"
+        - "mmse_7"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_8:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE municipality"
+    definition: "MMSE item score for municipality."
+    source:
+      schema_element: "cs:mmseData/MMSE_8"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_8"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_8"
+      synonyms:
+        - "MMSE municipality"
+        - "mmse municipality"
+        - "MMSE_8"
+        - "mmse_8"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_9:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE building"
+    definition: "MMSE item score for building."
+    source:
+      schema_element: "cs:mmseData/MMSE_9"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_9"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_9"
+      synonyms:
+        - "MMSE building"
+        - "mmse building"
+        - "MMSE_9"
+        - "mmse_9"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_10:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE floor"
+    definition: "MMSE item score for floor."
+    source:
+      schema_element: "cs:mmseData/MMSE_10"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_10"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_10"
+      synonyms:
+        - "MMSE floor"
+        - "mmse floor"
+        - "MMSE_10"
+        - "mmse_10"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_11_num:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE 3 words number of repetitions"
+    definition: "MMSE item score for 3 words number of repetitions."
+    source:
+      schema_element: "cs:mmseData/MMSE_11_num"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_11_num"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_11_num"
+      synonyms:
+        - "MMSE 3 words number of repetitions"
+        - "mmse 3 words number of repetitions"
+        - "MMSE_11_num"
+        - "mmse_11_num"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_12:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE Calculation"
+    definition: "MMSE item score for Calculation."
+    source:
+      schema_element: "cs:mmseData/MMSE_12"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_12"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_12"
+      synonyms:
+        - "MMSE Calculation"
+        - "mmse calculation"
+        - "MMSE_12"
+        - "mmse_12"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_13:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE Recall of 3 words"
+    definition: "MMSE item score for Recall of 3 words."
+    source:
+      schema_element: "cs:mmseData/MMSE_13"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_13"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_13"
+      synonyms:
+        - "MMSE Recall of 3 words"
+        - "mmse recall of 3 words"
+        - "MMSE_13"
+        - "mmse_13"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_14:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE Naming of pensil"
+    definition: "MMSE item score for Naming of pensil."
+    source:
+      schema_element: "cs:mmseData/MMSE_14"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_14"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_14"
+      synonyms:
+        - "MMSE Naming of pensil"
+        - "mmse naming of pensil"
+        - "MMSE_14"
+        - "mmse_14"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_15:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE Naming of wristwatch"
+    definition: "MMSE item score for Naming of wristwatch."
+    source:
+      schema_element: "cs:mmseData/MMSE_15"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_15"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_15"
+      synonyms:
+        - "MMSE Naming of wristwatch"
+        - "mmse naming of wristwatch"
+        - "MMSE_15"
+        - "mmse_15"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_16_num:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE number of phrase repetitions"
+    definition: "MMSE item score for number of phrase repetitions."
+    source:
+      schema_element: "cs:mmseData/MMSE_16_num"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_16_num"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_16_num"
+      synonyms:
+        - "MMSE number of phrase repetitions"
+        - "mmse number of phrase repetitions"
+        - "MMSE_16_num"
+        - "mmse_16_num"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_17:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE Follow three-step command"
+    definition: "MMSE item score for Follow three-step command."
+    source:
+      schema_element: "cs:mmseData/MMSE_17"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_17"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_17"
+      synonyms:
+        - "MMSE Follow three-step command"
+        - "mmse follow three-step command"
+        - "MMSE_17"
+        - "mmse_17"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_18:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE Written command"
+    definition: "MMSE item score for Written command."
+    source:
+      schema_element: "cs:mmseData/MMSE_18"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_18"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_18"
+      synonyms:
+        - "MMSE Written command"
+        - "mmse written command"
+        - "MMSE_18"
+        - "mmse_18"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_19:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE Written sentence"
+    definition: "MMSE item score for Written sentence."
+    source:
+      schema_element: "cs:mmseData/MMSE_19"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_19"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_19"
+      synonyms:
+        - "MMSE Written sentence"
+        - "mmse written sentence"
+        - "MMSE_19"
+        - "mmse_19"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_20:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE Figure copy"
+    definition: "MMSE item score for Figure copy."
+    source:
+      schema_element: "cs:mmseData/MMSE_20"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_20"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_20"
+      synonyms:
+        - "MMSE Figure copy"
+        - "mmse figure copy"
+        - "MMSE_20"
+        - "mmse_20"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MMSE_Total:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MMSE Total Score"
+    definition: "Total score for MMSE."
+    source:
+      schema_element: "cs:mmseData/MMSE_Total"
+      display_field_elements:
+        Field1: "cs:mmseData/MMSE_Total"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mmse_total"
+      synonyms:
+        - "MMSE Total Score"
+        - "mmse total score"
+        - "MMSE_Total"
+        - "mmse_total"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial1_w1:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Cerad Trial 1 word 1"
+    definition: "Cognitive screening measure for Cerad Trial 1 word 1."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial1_w1"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial1_w1"
+      synonyms:
+        - "Cerad Trial 1 word 1"
+        - "cerad trial 1 word 1"
+        - "Trial1_w1"
+        - "trial1_w1"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial1_w2:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Cerad Trial 1 word 2"
+    definition: "Cognitive screening measure for Cerad Trial 1 word 2."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial1_w2"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial1_w2"
+      synonyms:
+        - "Cerad Trial 1 word 2"
+        - "cerad trial 1 word 2"
+        - "Trial1_w2"
+        - "trial1_w2"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial1_w3:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Cerad Trial 1 word 3"
+    definition: "Cognitive screening measure for Cerad Trial 1 word 3."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial1_w3"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial1_w3"
+      synonyms:
+        - "Cerad Trial 1 word 3"
+        - "cerad trial 1 word 3"
+        - "Trial1_w3"
+        - "trial1_w3"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial1_w4:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Cerad Trial 1 word 4"
+    definition: "Cognitive screening measure for Cerad Trial 1 word 4."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial1_w4"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial1_w4"
+      synonyms:
+        - "Cerad Trial 1 word 4"
+        - "cerad trial 1 word 4"
+        - "Trial1_w4"
+        - "trial1_w4"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial1_w5:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Cerad Trial 1 word 5"
+    definition: "Cognitive screening measure for Cerad Trial 1 word 5."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial1_w5"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial1_w5"
+      synonyms:
+        - "Cerad Trial 1 word 5"
+        - "cerad trial 1 word 5"
+        - "Trial1_w5"
+        - "trial1_w5"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial1_w6:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Cerad Trial 1 word 6"
+    definition: "Cognitive screening measure for Cerad Trial 1 word 6."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial1_w6"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial1_w6"
+      synonyms:
+        - "Cerad Trial 1 word 6"
+        - "cerad trial 1 word 6"
+        - "Trial1_w6"
+        - "trial1_w6"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial1_w7:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Cerad Trial 1 word 7"
+    definition: "Cognitive screening measure for Cerad Trial 1 word 7."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial1_w7"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial1_w7"
+      synonyms:
+        - "Cerad Trial 1 word 7"
+        - "cerad trial 1 word 7"
+        - "Trial1_w7"
+        - "trial1_w7"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial1_w8:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Cerad Trial 1 word 8"
+    definition: "Cognitive screening measure for Cerad Trial 1 word 8."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial1_w8"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial1_w8"
+      synonyms:
+        - "Cerad Trial 1 word 8"
+        - "cerad trial 1 word 8"
+        - "Trial1_w8"
+        - "trial1_w8"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial1_w9:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Cerad Trial 1 word 9"
+    definition: "Cognitive screening measure for Cerad Trial 1 word 9."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial1_w9"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial1_w9"
+      synonyms:
+        - "Cerad Trial 1 word 9"
+        - "cerad trial 1 word 9"
+        - "Trial1_w9"
+        - "trial1_w9"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial1_w10:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Cerad Trial 1 word 10"
+    definition: "Cognitive screening measure for Cerad Trial 1 word 10."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial1_w10"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial1_w10"
+      synonyms:
+        - "Cerad Trial 1 word 10"
+        - "cerad trial 1 word 10"
+        - "Trial1_w10"
+        - "trial1_w10"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CERAD_Trial1:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 1 total"
+    definition: "Cognitive screening measure for CERAD Trial 1 total."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.cerad_trial1"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cerad_trial1"
+      synonyms:
+        - "CERAD Trial 1 total"
+        - "cerad trial 1 total"
+        - "CERAD_Trial1"
+        - "cerad_trial1"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial2_w1:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 2 word 1"
+    definition: "Cognitive screening measure for CERAD Trial 2 word 1."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial2_w1"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial2_w1"
+      synonyms:
+        - "CERAD Trial 2 word 1"
+        - "cerad trial 2 word 1"
+        - "Trial2_w1"
+        - "trial2_w1"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial2_w2:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 2 word 2"
+    definition: "Cognitive screening measure for CERAD Trial 2 word 2."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial2_w2"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial2_w2"
+      synonyms:
+        - "CERAD Trial 2 word 2"
+        - "cerad trial 2 word 2"
+        - "Trial2_w2"
+        - "trial2_w2"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial2_w3:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 2 word 3"
+    definition: "Cognitive screening measure for CERAD Trial 2 word 3."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial2_w3"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial2_w3"
+      synonyms:
+        - "CERAD Trial 2 word 3"
+        - "cerad trial 2 word 3"
+        - "Trial2_w3"
+        - "trial2_w3"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial2_w4:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 2 word 4"
+    definition: "Cognitive screening measure for CERAD Trial 2 word 4."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial2_w4"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial2_w4"
+      synonyms:
+        - "CERAD Trial 2 word 4"
+        - "cerad trial 2 word 4"
+        - "Trial2_w4"
+        - "trial2_w4"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial2_w5:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 2 word 5"
+    definition: "Cognitive screening measure for CERAD Trial 2 word 5."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial2_w5"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial2_w5"
+      synonyms:
+        - "CERAD Trial 2 word 5"
+        - "cerad trial 2 word 5"
+        - "Trial2_w5"
+        - "trial2_w5"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial2_w6:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 2 word 6"
+    definition: "Cognitive screening measure for CERAD Trial 2 word 6."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial2_w6"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial2_w6"
+      synonyms:
+        - "CERAD Trial 2 word 6"
+        - "cerad trial 2 word 6"
+        - "Trial2_w6"
+        - "trial2_w6"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial2_w7:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 2 word 7"
+    definition: "Cognitive screening measure for CERAD Trial 2 word 7."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial2_w7"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial2_w7"
+      synonyms:
+        - "CERAD Trial 2 word 7"
+        - "cerad trial 2 word 7"
+        - "Trial2_w7"
+        - "trial2_w7"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial2_w8:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 2 word 8"
+    definition: "Cognitive screening measure for CERAD Trial 2 word 8."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial2_w8"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial2_w8"
+      synonyms:
+        - "CERAD Trial 2 word 8"
+        - "cerad trial 2 word 8"
+        - "Trial2_w8"
+        - "trial2_w8"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial2_w9:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 2 word 9"
+    definition: "Cognitive screening measure for CERAD Trial 2 word 9."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial2_w9"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial2_w9"
+      synonyms:
+        - "CERAD Trial 2 word 9"
+        - "cerad trial 2 word 9"
+        - "Trial2_w9"
+        - "trial2_w9"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial2_w10:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 2 word 10"
+    definition: "Cognitive screening measure for CERAD Trial 2 word 10."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial2_w10"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial2_w10"
+      synonyms:
+        - "CERAD Trial 2 word 10"
+        - "cerad trial 2 word 10"
+        - "Trial2_w10"
+        - "trial2_w10"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CERAD_Trial2:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 2 total"
+    definition: "Cognitive screening measure for CERAD Trial 2 total."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.cerad_trial2"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cerad_trial2"
+      synonyms:
+        - "CERAD Trial 2 total"
+        - "cerad trial 2 total"
+        - "CERAD_Trial2"
+        - "cerad_trial2"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial3_w1:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 3 word 1"
+    definition: "Cognitive screening measure for CERAD Trial 3 word 1."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial3_w1"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial3_w1"
+      synonyms:
+        - "CERAD Trial 3 word 1"
+        - "cerad trial 3 word 1"
+        - "Trial3_w1"
+        - "trial3_w1"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial3_w2:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 3 word 2"
+    definition: "Cognitive screening measure for CERAD Trial 3 word 2."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial3_w2"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial3_w2"
+      synonyms:
+        - "CERAD Trial 3 word 2"
+        - "cerad trial 3 word 2"
+        - "Trial3_w2"
+        - "trial3_w2"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial3_w3:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 3 word 3"
+    definition: "Cognitive screening measure for CERAD Trial 3 word 3."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial3_w3"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial3_w3"
+      synonyms:
+        - "CERAD Trial 3 word 3"
+        - "cerad trial 3 word 3"
+        - "Trial3_w3"
+        - "trial3_w3"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial3_w4:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 3 word 4"
+    definition: "Cognitive screening measure for CERAD Trial 3 word 4."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial3_w4"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial3_w4"
+      synonyms:
+        - "CERAD Trial 3 word 4"
+        - "cerad trial 3 word 4"
+        - "Trial3_w4"
+        - "trial3_w4"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial3_w5:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 3 word 5"
+    definition: "Cognitive screening measure for CERAD Trial 3 word 5."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial3_w5"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial3_w5"
+      synonyms:
+        - "CERAD Trial 3 word 5"
+        - "cerad trial 3 word 5"
+        - "Trial3_w5"
+        - "trial3_w5"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial3_w6:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 3 word 6"
+    definition: "Cognitive screening measure for CERAD Trial 3 word 6."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial3_w6"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial3_w6"
+      synonyms:
+        - "CERAD Trial 3 word 6"
+        - "cerad trial 3 word 6"
+        - "Trial3_w6"
+        - "trial3_w6"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial3_w7:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 3 word 7"
+    definition: "Cognitive screening measure for CERAD Trial 3 word 7."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial3_w7"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial3_w7"
+      synonyms:
+        - "CERAD Trial 3 word 7"
+        - "cerad trial 3 word 7"
+        - "Trial3_w7"
+        - "trial3_w7"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial3_w8:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 3 word 8"
+    definition: "Cognitive screening measure for CERAD Trial 3 word 8."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial3_w8"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial3_w8"
+      synonyms:
+        - "CERAD Trial 3 word 8"
+        - "cerad trial 3 word 8"
+        - "Trial3_w8"
+        - "trial3_w8"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial3_w9:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 3 word 9"
+    definition: "Cognitive screening measure for CERAD Trial 3 word 9."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial3_w9"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial3_w9"
+      synonyms:
+        - "CERAD Trial 3 word 9"
+        - "cerad trial 3 word 9"
+        - "Trial3_w9"
+        - "trial3_w9"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Trial3_w10:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 3 word 10"
+    definition: "Cognitive screening measure for CERAD Trial 3 word 10."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Trial3_w10"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "trial3_w10"
+      synonyms:
+        - "CERAD Trial 3 word 10"
+        - "cerad trial 3 word 10"
+        - "Trial3_w10"
+        - "trial3_w10"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CERAD_Trial3:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Trial 3 total"
+    definition: "Cognitive screening measure for CERAD Trial 3 total."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.cerad_trial3"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cerad_trial3"
+      synonyms:
+        - "CERAD Trial 3 total"
+        - "cerad trial 3 total"
+        - "CERAD_Trial3"
+        - "cerad_trial3"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CERAD_Learning:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Learning"
+    definition: "Cognitive screening measure for CERAD Learning."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.CERAD_Learning"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cerad_learning"
+      synonyms:
+        - "CERAD Learning"
+        - "cerad learning"
+        - "CERAD_Learning"
+        - "cerad_learning"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CERAD_Learning_regr_t_score:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Learning Regression T-score"
+    definition: "Regression-adjusted T-score for CERAD Learning."
+    source:
+      schema_element: "cs:cogScrData.date"
+      display_field_elements:
+        cerad_learning: "view:CS_COGSCRDATA_CERAD.CERAD_Learning"
+        cs_date: "cs:cogScrData.date"
+        dob: "xnat:demographicData.dob"
+        yob: "xnat:demographicData.yob"
+        gender: "view:CS_DEMOGRAPHICS.gender"
+        edu_years: "view:CS_DEMOGRAPHICS.edu_years"
+        Field5: "cs:cogScrData.date"
+    derivation:
+      kind: "sql_case"
+      input: |-
+        cerad_learning_regr_t_score(@cerad_learning::int, CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int, CASE @gender
+        					WHEN 'male'::text THEN 'M'::text
+        					WHEN 'female'::text THEN 'F'::text
+        					ELSE 'U'::text
+        					END , @edu_years )
+      mapping:
+        "'male'::text": "M"
+        "'female'::text": "F"
+      else: "U"
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cerad_learning_regr_t_score"
+      synonyms:
+        - "CERAD Learning Regression T-score"
+        - "cerad learning regression t-score"
+        - "CERAD_Learning_regr_t_score"
+        - "cerad_learning_regr_t_score"
+    allowed_values:
+      - "M"
+      - "F"
+      - "U"
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recall_w1:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recall word 1"
+    definition: "Cognitive screening measure for CERAD Recall word 1."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recall_w1"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recall_w1"
+      synonyms:
+        - "CERAD Recall word 1"
+        - "cerad recall word 1"
+        - "Recall_w1"
+        - "recall_w1"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recall_w2:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recall word 2"
+    definition: "Cognitive screening measure for CERAD Recall word 2."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recall_w2"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recall_w2"
+      synonyms:
+        - "CERAD Recall word 2"
+        - "cerad recall word 2"
+        - "Recall_w2"
+        - "recall_w2"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recall_w3:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recall word 3"
+    definition: "Cognitive screening measure for CERAD Recall word 3."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recall_w3"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recall_w3"
+      synonyms:
+        - "CERAD Recall word 3"
+        - "cerad recall word 3"
+        - "Recall_w3"
+        - "recall_w3"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recall_w4:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recall word 4"
+    definition: "Cognitive screening measure for CERAD Recall word 4."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recall_w4"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recall_w4"
+      synonyms:
+        - "CERAD Recall word 4"
+        - "cerad recall word 4"
+        - "Recall_w4"
+        - "recall_w4"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recall_w5:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recall word 5"
+    definition: "Cognitive screening measure for CERAD Recall word 5."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recall_w5"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recall_w5"
+      synonyms:
+        - "CERAD Recall word 5"
+        - "cerad recall word 5"
+        - "Recall_w5"
+        - "recall_w5"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recall_w6:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recall word 6"
+    definition: "Cognitive screening measure for CERAD Recall word 6."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recall_w6"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recall_w6"
+      synonyms:
+        - "CERAD Recall word 6"
+        - "cerad recall word 6"
+        - "Recall_w6"
+        - "recall_w6"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recall_w7:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recall word 7"
+    definition: "Cognitive screening measure for CERAD Recall word 7."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recall_w7"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recall_w7"
+      synonyms:
+        - "CERAD Recall word 7"
+        - "cerad recall word 7"
+        - "Recall_w7"
+        - "recall_w7"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recall_w8:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recall word 8"
+    definition: "Cognitive screening measure for CERAD Recall word 8."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recall_w8"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recall_w8"
+      synonyms:
+        - "CERAD Recall word 8"
+        - "cerad recall word 8"
+        - "Recall_w8"
+        - "recall_w8"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recall_w9:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recall word 9"
+    definition: "Cognitive screening measure for CERAD Recall word 9."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recall_w9"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recall_w9"
+      synonyms:
+        - "CERAD Recall word 9"
+        - "cerad recall word 9"
+        - "Recall_w9"
+        - "recall_w9"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recall_w10:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recall word 10"
+    definition: "Cognitive screening measure for CERAD Recall word 10."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recall_w10"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recall_w10"
+      synonyms:
+        - "CERAD Recall word 10"
+        - "cerad recall word 10"
+        - "Recall_w10"
+        - "recall_w10"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CERAD_Recall:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recall total"
+    definition: "Cognitive screening measure for CERAD Recall total."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.CERAD_Recall"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cerad_recall"
+      synonyms:
+        - "CERAD Recall total"
+        - "cerad recall total"
+        - "CERAD_Recall"
+        - "cerad_recall"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CERAD_recall_regr_t_score:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recall Regression T-score"
+    definition: "Regression-adjusted T-score for CERAD Recall."
+    source:
+      schema_element: "cs:cogScrData.date"
+      display_field_elements:
+        cerad_recall: "view:CS_COGSCRDATA_CERAD.CERAD_Recall"
+        cs_date: "cs:cogScrData.date"
+        dob: "xnat:demographicData.dob"
+        yob: "xnat:demographicData.yob"
+        gender: "view:CS_DEMOGRAPHICS.gender"
+        edu_years: "view:CS_DEMOGRAPHICS.edu_years"
+    derivation:
+      kind: "sql"
+      input: "cerad_recall_regr_t_score(@cerad_recall::int, CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int, @gender, @edu_years )"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cerad_recall_regr_t_score"
+      synonyms:
+        - "CERAD Recall Regression T-score"
+        - "cerad recall regression t-score"
+        - "CERAD_recall_regr_t_score"
+        - "cerad_recall_regr_t_score"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w1:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 1"
+    definition: "Cognitive screening measure for CERAD Recognition word 1."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w1"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w1"
+      synonyms:
+        - "CERAD Recognition word 1"
+        - "cerad recognition word 1"
+        - "Recog_w1"
+        - "recog_w1"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w2:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 2"
+    definition: "Cognitive screening measure for CERAD Recognition word 2."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w2"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w2"
+      synonyms:
+        - "CERAD Recognition word 2"
+        - "cerad recognition word 2"
+        - "Recog_w2"
+        - "recog_w2"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w3:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 3"
+    definition: "Cognitive screening measure for CERAD Recognition word 3."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w3"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w3"
+      synonyms:
+        - "CERAD Recognition word 3"
+        - "cerad recognition word 3"
+        - "Recog_w3"
+        - "recog_w3"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w4:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 4"
+    definition: "Cognitive screening measure for CERAD Recognition word 4."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w4"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w4"
+      synonyms:
+        - "CERAD Recognition word 4"
+        - "cerad recognition word 4"
+        - "Recog_w4"
+        - "recog_w4"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w5:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 5"
+    definition: "Cognitive screening measure for CERAD Recognition word 5."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w5"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w5"
+      synonyms:
+        - "CERAD Recognition word 5"
+        - "cerad recognition word 5"
+        - "Recog_w5"
+        - "recog_w5"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w6:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 6"
+    definition: "Cognitive screening measure for CERAD Recognition word 6."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w6"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w6"
+      synonyms:
+        - "CERAD Recognition word 6"
+        - "cerad recognition word 6"
+        - "Recog_w6"
+        - "recog_w6"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w7:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 7"
+    definition: "Cognitive screening measure for CERAD Recognition word 7."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w7"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w7"
+      synonyms:
+        - "CERAD Recognition word 7"
+        - "cerad recognition word 7"
+        - "Recog_w7"
+        - "recog_w7"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w8:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 8"
+    definition: "Cognitive screening measure for CERAD Recognition word 8."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w8"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w8"
+      synonyms:
+        - "CERAD Recognition word 8"
+        - "cerad recognition word 8"
+        - "Recog_w8"
+        - "recog_w8"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w9:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 9"
+    definition: "Cognitive screening measure for CERAD Recognition word 9."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w9"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w9"
+      synonyms:
+        - "CERAD Recognition word 9"
+        - "cerad recognition word 9"
+        - "Recog_w9"
+        - "recog_w9"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w10:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 10"
+    definition: "Cognitive screening measure for CERAD Recognition word 10."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w10"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w10"
+      synonyms:
+        - "CERAD Recognition word 10"
+        - "cerad recognition word 10"
+        - "Recog_w10"
+        - "recog_w10"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w11:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 11"
+    definition: "Cognitive screening measure for CERAD Recognition word 11."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w11"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w11"
+      synonyms:
+        - "CERAD Recognition word 11"
+        - "cerad recognition word 11"
+        - "Recog_w11"
+        - "recog_w11"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w12:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 12"
+    definition: "Cognitive screening measure for CERAD Recognition word 12."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w12"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w12"
+      synonyms:
+        - "CERAD Recognition word 12"
+        - "cerad recognition word 12"
+        - "Recog_w12"
+        - "recog_w12"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w13:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 13"
+    definition: "Cognitive screening measure for CERAD Recognition word 13."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w13"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w13"
+      synonyms:
+        - "CERAD Recognition word 13"
+        - "cerad recognition word 13"
+        - "Recog_w13"
+        - "recog_w13"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w14:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 14"
+    definition: "Cognitive screening measure for CERAD Recognition word 14."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w14"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w14"
+      synonyms:
+        - "CERAD Recognition word 14"
+        - "cerad recognition word 14"
+        - "Recog_w14"
+        - "recog_w14"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w15:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 15"
+    definition: "Cognitive screening measure for CERAD Recognition word 15."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w15"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w15"
+      synonyms:
+        - "CERAD Recognition word 15"
+        - "cerad recognition word 15"
+        - "Recog_w15"
+        - "recog_w15"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w16:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 16"
+    definition: "Cognitive screening measure for CERAD Recognition word 16."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w16"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w16"
+      synonyms:
+        - "CERAD Recognition word 16"
+        - "cerad recognition word 16"
+        - "Recog_w16"
+        - "recog_w16"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w17:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 17"
+    definition: "Cognitive screening measure for CERAD Recognition word 17."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w17"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w17"
+      synonyms:
+        - "CERAD Recognition word 17"
+        - "cerad recognition word 17"
+        - "Recog_w17"
+        - "recog_w17"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w18:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 18"
+    definition: "Cognitive screening measure for CERAD Recognition word 18."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w18"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w18"
+      synonyms:
+        - "CERAD Recognition word 18"
+        - "cerad recognition word 18"
+        - "Recog_w18"
+        - "recog_w18"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w19:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 19"
+    definition: "Cognitive screening measure for CERAD Recognition word 19."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w19"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w19"
+      synonyms:
+        - "CERAD Recognition word 19"
+        - "cerad recognition word 19"
+        - "Recog_w19"
+        - "recog_w19"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Recog_w20:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition word 20"
+    definition: "Cognitive screening measure for CERAD Recognition word 20."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.Recog_w20"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "recog_w20"
+      synonyms:
+        - "CERAD Recognition word 20"
+        - "cerad recognition word 20"
+        - "Recog_w20"
+        - "recog_w20"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CERAD_Recog:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition total"
+    definition: "Cognitive screening measure for CERAD Recognition total."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.CERAD_Recog"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cerad_recog"
+      synonyms:
+        - "CERAD Recognition total"
+        - "cerad recognition total"
+        - "CERAD_Recog"
+        - "cerad_recog"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CERAD_recog_DDI_percentile:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CERAD Recognition DDI percentile"
+    definition: "Percentile score for CERAD Recognition DDI."
+    source:
+      schema_element: "cs:cogScrData.date"
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.CERAD_Recog"
+        cs_date: "cs:cogScrData.date"
+        dob: "xnat:demographicData.dob"
+        yob: "xnat:demographicData.yob"
+        Field3: "view:CS_DEMOGRAPHICS.gender"
+        Field4: "view:CS_DEMOGRAPHICS.edu_years"
+        Field5: "cs:cogScrData.date"
+    derivation:
+      kind: "sql_case"
+      input: |-
+        cerad_recog_ddi_percentile(@Field1::int, CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int, CASE @Field3
+        					WHEN 'male'::text THEN 'M'::text
+        					WHEN 'female'::text THEN 'F'::text
+        					ELSE 'U'::text
+        					END)
+      mapping:
+        "'male'::text": "M"
+        "'female'::text": "F"
+      else: "U"
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cerad_recog_ddi_percentile"
+      synonyms:
+        - "CERAD Recognition DDI percentile"
+        - "cerad recognition ddi percentile"
+        - "CERAD_recog_DDI_percentile"
+        - "cerad_recog_ddi_percentile"
+    allowed_values:
+      - "M"
+      - "F"
+      - "U"
+    sensitivity: "none"
+    quality:
+      notes: null
+  Clock_score:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CDT score"
+    definition: "Score for CDT."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CDT.Clock_score"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "clock_score"
+      synonyms:
+        - "CDT score"
+        - "cdt score"
+        - "Clock_score"
+        - "clock_score"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TMTA_Sec:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TMT-A Seconds"
+    definition: "Cognitive screening measure for TMT-A Seconds."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_TMT.TMTA_Sec"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "tmta_sec"
+      synonyms:
+        - "TMTA Seconds"
+        - "tmta seconds"
+        - "TMTA_Sec"
+        - "tmta_sec"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TMTA_Mistake:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TMT-A Mistakes"
+    definition: "Cognitive screening measure for TMT-A Mistakes."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_TMT.TMTA_Mistake"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "tmta_mistake"
+      synonyms:
+        - "TMTA Mistakes"
+        - "tmta mistakes"
+        - "TMTA_Mistake"
+        - "tmta_mistake"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TMTA_Failed:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TMT-A Failed"
+    definition: "Cognitive screening measure for TMT-A Failed."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_TMT.TMTA_Failed"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "tmta_failed"
+      synonyms:
+        - "TMTA Failed"
+        - "tmta failed"
+        - "TMTA_Failed"
+        - "tmta_failed"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TMTB_Sec:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TMT-B Seconds"
+    definition: "Cognitive screening measure for TMT-B Seconds."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_TMT.TMTB_Sec"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "tmtb_sec"
+      synonyms:
+        - "TMTB Seconds"
+        - "tmtb seconds"
+        - "TMTB_Sec"
+        - "tmtb_sec"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TMTB_Mistake:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TMT-B Mistakes"
+    definition: "Cognitive screening measure for TMT-B Mistakes."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_TMT.TMTB_Mistake"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "tmtb_mistake"
+      synonyms:
+        - "TMTB Mistakes"
+        - "tmtb mistakes"
+        - "TMTB_Mistake"
+        - "tmtb_mistake"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TMTB_Failed:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TMT-B Failed"
+    definition: "Cognitive screening measure for TMT-B Failed."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_TMT.TMTB_Failed"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "tmtb_failed"
+      synonyms:
+        - "TMTB Failed"
+        - "tmtb failed"
+        - "TMTB_Failed"
+        - "tmtb_failed"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  tmt_a_regr_t_score:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TMT-A regression T-Score"
+    definition: "Regression-adjusted T-score for TMT-A."
+    source:
+      schema_element: "xnat:demographicData.dob"
+      display_field_elements:
+        raw: "view:CS_COGSCRDATA_TMT.TMTA_Sec"
+        Field2: "xnat:demographicData.dob"
+        cs_date: "cs:cogScrData.date"
+        dob: "xnat:demographicData.dob"
+        yob: "xnat:demographicData.yob"
+        failed_a: "view:CS_COGSCRDATA_TMT.TMTA_Failed"
+        failed_b: "view:CS_COGSCRDATA_TMT.TMTB_Failed"
+    derivation:
+      kind: "sql"
+      input: "tmt_a_regr_t_score(@raw,  CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int, @failed_a)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "tmt_a_regr_t_score"
+      synonyms:
+        - "TMT-A regression T-Score"
+        - "tmt-a regression t-score"
+        - "tmt_a_regr_t_score"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  tmt_b_regr_t_score:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "TMT-B regression T-Score"
+    definition: "Regression-adjusted T-score for TMT-B."
+    source:
+      schema_element: "cs:cogScrData.date"
+      display_field_elements:
+        raw: "view:CS_COGSCRDATA_TMT.TMTB_Sec"
+        edu: "view:CS_DEMOGRAPHICS.edu_years"
+        cs_date: "cs:cogScrData.date"
+        dob: "xnat:demographicData.dob"
+        yob: "xnat:demographicData.yob"
+        failed_a: "view:CS_COGSCRDATA_TMT.TMTA_Failed"
+        failed_b: "view:CS_COGSCRDATA_TMT.TMTB_Failed"
+    derivation:
+      kind: "sql"
+      input: "tmt_b_regr_t_score(@raw,  CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int, @edu, @failed_b)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "tmt_b_regr_t_score"
+      synonyms:
+        - "TMT-B regression T-Score"
+        - "tmt-b regression t-score"
+        - "tmt_b_regr_t_score"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  COWAT_1Let:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "COWAT Letter 1 number of correct words"
+    definition: "Cognitive screening measure for COWAT Letter 1 number of correct words."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_COWAT.COWAT_1Let"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cowat_1let"
+      synonyms:
+        - "COWAT Letter 1 number of correct words"
+        - "cowat letter 1 number of correct words"
+        - "COWAT_1Let"
+        - "cowat_1let"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  COWAT_2Let:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "COWAT Letter 2 number of correct words"
+    definition: "Cognitive screening measure for COWAT Letter 2 number of correct words."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_COWAT.COWAT_2Let"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cowat_2let"
+      synonyms:
+        - "COWAT Letter 2 number of correct words"
+        - "cowat letter 2 number of correct words"
+        - "COWAT_2Let"
+        - "cowat_2let"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  COWAT_3Let:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "COWAT Letter 3 number of correct words"
+    definition: "Cognitive screening measure for COWAT Letter 3 number of correct words."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_COWAT.COWAT_3Let"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cowat_3let"
+      synonyms:
+        - "COWAT Letter 3 number of correct words"
+        - "cowat letter 3 number of correct words"
+        - "COWAT_3Let"
+        - "cowat_3let"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  COWAT_Total:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "COWAT Total of correct words"
+    definition: "Cognitive screening measure for COWAT Total of correct words."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_COWAT.COWAT_Total"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cowat_total"
+      synonyms:
+        - "COWAT Total of correct words"
+        - "cowat total of correct words"
+        - "COWAT_Total"
+        - "cowat_total"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  cowat_regr_t_score:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "COWAT Regression T-score"
+    definition: "Regression-adjusted T-score for COWAT."
+    source:
+      schema_element: null
+      display_field_elements:
+        raw: "view:CS_COGSCRDATA_COWAT.COWAT_Total"
+        edu: "view:CS_DEMOGRAPHICS.edu_years"
+    derivation:
+      kind: "sql"
+      input: "cowat_regr_t_score(@raw, @edu)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cowat_regr_t_score"
+      synonyms:
+        - "COWAT Regression T-score"
+        - "cowat regression t-score"
+        - "cowat_regr_t_score"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_1_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 1 answer"
+    definition: "Cognitive screening measure for VOSP Picture 1 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_1_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_1_ans"
+      synonyms:
+        - "VOSP Picture 1 answer"
+        - "vosp picture 1 answer"
+        - "VOSP_1_ans"
+        - "vosp_1_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_1:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 1 correct"
+    definition: "Cognitive screening measure for VOSP Picture 1 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_1"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_1"
+      synonyms:
+        - "VOSP Picture 1 correct"
+        - "vosp picture 1 correct"
+        - "VOSP_1"
+        - "vosp_1"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_2_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 2 answer"
+    definition: "Cognitive screening measure for VOSP Picture 2 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_2_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_2_ans"
+      synonyms:
+        - "VOSP Picture 2 answer"
+        - "vosp picture 2 answer"
+        - "VOSP_2_ans"
+        - "vosp_2_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_2:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 2 correct"
+    definition: "Cognitive screening measure for VOSP Picture 2 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_2"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_2"
+      synonyms:
+        - "VOSP Picture 2 correct"
+        - "vosp picture 2 correct"
+        - "VOSP_2"
+        - "vosp_2"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_3_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 3 answer"
+    definition: "Cognitive screening measure for VOSP Picture 3 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_3_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_3_ans"
+      synonyms:
+        - "VOSP Picture 3 answer"
+        - "vosp picture 3 answer"
+        - "VOSP_3_ans"
+        - "vosp_3_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_3:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 3 correct"
+    definition: "Cognitive screening measure for VOSP Picture 3 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_3"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_3"
+      synonyms:
+        - "VOSP Picture 3 correct"
+        - "vosp picture 3 correct"
+        - "VOSP_3"
+        - "vosp_3"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_4_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 4 answer"
+    definition: "Cognitive screening measure for VOSP Picture 4 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_4_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_4_ans"
+      synonyms:
+        - "VOSP Picture 4 answer"
+        - "vosp picture 4 answer"
+        - "VOSP_4_ans"
+        - "vosp_4_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_4:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 4 correct"
+    definition: "Cognitive screening measure for VOSP Picture 4 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_4"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_4"
+      synonyms:
+        - "VOSP Picture 4 correct"
+        - "vosp picture 4 correct"
+        - "VOSP_4"
+        - "vosp_4"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_5_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 5 answer"
+    definition: "Cognitive screening measure for VOSP Picture 5 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_5_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_5_ans"
+      synonyms:
+        - "VOSP Picture 5 answer"
+        - "vosp picture 5 answer"
+        - "VOSP_5_ans"
+        - "vosp_5_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_5:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 5 correct"
+    definition: "Cognitive screening measure for VOSP Picture 5 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_5"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_5"
+      synonyms:
+        - "VOSP Picture 5 correct"
+        - "vosp picture 5 correct"
+        - "VOSP_5"
+        - "vosp_5"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_6_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 6 answer"
+    definition: "Cognitive screening measure for VOSP Picture 6 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_6_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_6_ans"
+      synonyms:
+        - "VOSP Picture 6 answer"
+        - "vosp picture 6 answer"
+        - "VOSP_6_ans"
+        - "vosp_6_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_6:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 6 correct"
+    definition: "Cognitive screening measure for VOSP Picture 6 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_6"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_6"
+      synonyms:
+        - "VOSP Picture 6 correct"
+        - "vosp picture 6 correct"
+        - "VOSP_6"
+        - "vosp_6"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_7_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 7 answer"
+    definition: "Cognitive screening measure for VOSP Picture 7 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_7_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_7_ans"
+      synonyms:
+        - "VOSP Picture 7 answer"
+        - "vosp picture 7 answer"
+        - "VOSP_7_ans"
+        - "vosp_7_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_7:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 7 correct"
+    definition: "Cognitive screening measure for VOSP Picture 7 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_7"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_7"
+      synonyms:
+        - "VOSP Picture 7 correct"
+        - "vosp picture 7 correct"
+        - "VOSP_7"
+        - "vosp_7"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_8_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 8 answer"
+    definition: "Cognitive screening measure for VOSP Picture 8 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_8_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_8_ans"
+      synonyms:
+        - "VOSP Picture 8 answer"
+        - "vosp picture 8 answer"
+        - "VOSP_8_ans"
+        - "vosp_8_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_8:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 8 correct"
+    definition: "Cognitive screening measure for VOSP Picture 8 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_8"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_8"
+      synonyms:
+        - "VOSP Picture 8 correct"
+        - "vosp picture 8 correct"
+        - "VOSP_8"
+        - "vosp_8"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_9_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 9 answer"
+    definition: "Cognitive screening measure for VOSP Picture 9 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_9_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_9_ans"
+      synonyms:
+        - "VOSP Picture 9 answer"
+        - "vosp picture 9 answer"
+        - "VOSP_9_ans"
+        - "vosp_9_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_9:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 9 correct"
+    definition: "Cognitive screening measure for VOSP Picture 9 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_9"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_9"
+      synonyms:
+        - "VOSP Picture 9 correct"
+        - "vosp picture 9 correct"
+        - "VOSP_9"
+        - "vosp_9"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_10_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 10 answer"
+    definition: "Cognitive screening measure for VOSP Picture 10 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_10_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_10_ans"
+      synonyms:
+        - "VOSP Picture 10 answer"
+        - "vosp picture 10 answer"
+        - "VOSP_10_ans"
+        - "vosp_10_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_10:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 10 correct"
+    definition: "Cognitive screening measure for VOSP Picture 10 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_10"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_10"
+      synonyms:
+        - "VOSP Picture 10 correct"
+        - "vosp picture 10 correct"
+        - "VOSP_10"
+        - "vosp_10"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_11_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 11 answer"
+    definition: "Cognitive screening measure for VOSP Picture 11 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_11_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_11_ans"
+      synonyms:
+        - "VOSP Picture 11 answer"
+        - "vosp picture 11 answer"
+        - "VOSP_11_ans"
+        - "vosp_11_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_11:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 11 correct"
+    definition: "Cognitive screening measure for VOSP Picture 11 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_11"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_11"
+      synonyms:
+        - "VOSP Picture 11 correct"
+        - "vosp picture 11 correct"
+        - "VOSP_11"
+        - "vosp_11"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_12_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 12 answer"
+    definition: "Cognitive screening measure for VOSP Picture 12 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_12_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_12_ans"
+      synonyms:
+        - "VOSP Picture 12 answer"
+        - "vosp picture 12 answer"
+        - "VOSP_12_ans"
+        - "vosp_12_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_12:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 12 correct"
+    definition: "Cognitive screening measure for VOSP Picture 12 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_12"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_12"
+      synonyms:
+        - "VOSP Picture 12 correct"
+        - "vosp picture 12 correct"
+        - "VOSP_12"
+        - "vosp_12"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_13_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 13 answer"
+    definition: "Cognitive screening measure for VOSP Picture 13 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_13_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_13_ans"
+      synonyms:
+        - "VOSP Picture 13 answer"
+        - "vosp picture 13 answer"
+        - "VOSP_13_ans"
+        - "vosp_13_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_13:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 13 correct"
+    definition: "Cognitive screening measure for VOSP Picture 13 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_13"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_13"
+      synonyms:
+        - "VOSP Picture 13 correct"
+        - "vosp picture 13 correct"
+        - "VOSP_13"
+        - "vosp_13"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_14_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 14 answer"
+    definition: "Cognitive screening measure for VOSP Picture 14 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_14_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_14_ans"
+      synonyms:
+        - "VOSP Picture 14 answer"
+        - "vosp picture 14 answer"
+        - "VOSP_14_ans"
+        - "vosp_14_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_14:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 14 correct"
+    definition: "Cognitive screening measure for VOSP Picture 14 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_14"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_14"
+      synonyms:
+        - "VOSP Picture 14 correct"
+        - "vosp picture 14 correct"
+        - "VOSP_14"
+        - "vosp_14"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_15_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 15 answer"
+    definition: "Cognitive screening measure for VOSP Picture 15 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_15_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_15_ans"
+      synonyms:
+        - "VOSP Picture 15 answer"
+        - "vosp picture 15 answer"
+        - "VOSP_15_ans"
+        - "vosp_15_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_15:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 15 correct"
+    definition: "Cognitive screening measure for VOSP Picture 15 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_15"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_15"
+      synonyms:
+        - "VOSP Picture 15 correct"
+        - "vosp picture 15 correct"
+        - "VOSP_15"
+        - "vosp_15"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_16_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 16 answer"
+    definition: "Cognitive screening measure for VOSP Picture 16 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_16_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_16_ans"
+      synonyms:
+        - "VOSP Picture 16 answer"
+        - "vosp picture 16 answer"
+        - "VOSP_16_ans"
+        - "vosp_16_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_16:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 16 correct"
+    definition: "Cognitive screening measure for VOSP Picture 16 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_16"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_16"
+      synonyms:
+        - "VOSP Picture 16 correct"
+        - "vosp picture 16 correct"
+        - "VOSP_16"
+        - "vosp_16"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_17_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 17 answer"
+    definition: "Cognitive screening measure for VOSP Picture 17 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_17_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_17_ans"
+      synonyms:
+        - "VOSP Picture 17 answer"
+        - "vosp picture 17 answer"
+        - "VOSP_17_ans"
+        - "vosp_17_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_17:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 17 correct"
+    definition: "Cognitive screening measure for VOSP Picture 17 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_17"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_17"
+      synonyms:
+        - "VOSP Picture 17 correct"
+        - "vosp picture 17 correct"
+        - "VOSP_17"
+        - "vosp_17"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_18_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 18 answer"
+    definition: "Cognitive screening measure for VOSP Picture 18 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_18_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_18_ans"
+      synonyms:
+        - "VOSP Picture 18 answer"
+        - "vosp picture 18 answer"
+        - "VOSP_18_ans"
+        - "vosp_18_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_18:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 18 correct"
+    definition: "Cognitive screening measure for VOSP Picture 18 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_18"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_18"
+      synonyms:
+        - "VOSP Picture 18 correct"
+        - "vosp picture 18 correct"
+        - "VOSP_18"
+        - "vosp_18"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_19_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 19 answer"
+    definition: "Cognitive screening measure for VOSP Picture 19 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_19_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_19_ans"
+      synonyms:
+        - "VOSP Picture 19 answer"
+        - "vosp picture 19 answer"
+        - "VOSP_19_ans"
+        - "vosp_19_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_19:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 19 correct"
+    definition: "Cognitive screening measure for VOSP Picture 19 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_19"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_19"
+      synonyms:
+        - "VOSP Picture 19 correct"
+        - "vosp picture 19 correct"
+        - "VOSP_19"
+        - "vosp_19"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_20_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 20 answer"
+    definition: "Cognitive screening measure for VOSP Picture 20 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_20_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_20_ans"
+      synonyms:
+        - "VOSP Picture 20 answer"
+        - "vosp picture 20 answer"
+        - "VOSP_20_ans"
+        - "vosp_20_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_20:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 20 correct"
+    definition: "Cognitive screening measure for VOSP Picture 20 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_20"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_20"
+      synonyms:
+        - "VOSP Picture 20 correct"
+        - "vosp picture 20 correct"
+        - "VOSP_20"
+        - "vosp_20"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_21_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 21 answer"
+    definition: "Cognitive screening measure for VOSP Picture 21 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_21_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_21_ans"
+      synonyms:
+        - "VOSP Picture 21 answer"
+        - "vosp picture 21 answer"
+        - "VOSP_21_ans"
+        - "vosp_21_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_21:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 21 correct"
+    definition: "Cognitive screening measure for VOSP Picture 21 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_21"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_21"
+      synonyms:
+        - "VOSP Picture 21 correct"
+        - "vosp picture 21 correct"
+        - "VOSP_21"
+        - "vosp_21"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_22_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 22 answer"
+    definition: "Cognitive screening measure for VOSP Picture 22 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_22_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_22_ans"
+      synonyms:
+        - "VOSP Picture 22 answer"
+        - "vosp picture 22 answer"
+        - "VOSP_22_ans"
+        - "vosp_22_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_22:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 22 correct"
+    definition: "Cognitive screening measure for VOSP Picture 22 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_22"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_22"
+      synonyms:
+        - "VOSP Picture 22 correct"
+        - "vosp picture 22 correct"
+        - "VOSP_22"
+        - "vosp_22"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_23_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 23 answer"
+    definition: "Cognitive screening measure for VOSP Picture 23 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_23_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_23_ans"
+      synonyms:
+        - "VOSP Picture 23 answer"
+        - "vosp picture 23 answer"
+        - "VOSP_23_ans"
+        - "vosp_23_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_23:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 23 correct"
+    definition: "Cognitive screening measure for VOSP Picture 23 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_23"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_23"
+      synonyms:
+        - "VOSP Picture 23 correct"
+        - "vosp picture 23 correct"
+        - "VOSP_23"
+        - "vosp_23"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_24_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 24 answer"
+    definition: "Cognitive screening measure for VOSP Picture 24 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_24_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_24_ans"
+      synonyms:
+        - "VOSP Picture 24 answer"
+        - "vosp picture 24 answer"
+        - "VOSP_24_ans"
+        - "vosp_24_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_24:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 24 correct"
+    definition: "Cognitive screening measure for VOSP Picture 24 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_24"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_24"
+      synonyms:
+        - "VOSP Picture 24 correct"
+        - "vosp picture 24 correct"
+        - "VOSP_24"
+        - "vosp_24"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_25_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 25 answer"
+    definition: "Cognitive screening measure for VOSP Picture 25 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_25_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_25_ans"
+      synonyms:
+        - "VOSP Picture 25 answer"
+        - "vosp picture 25 answer"
+        - "VOSP_25_ans"
+        - "vosp_25_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_25:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 25 correct"
+    definition: "Cognitive screening measure for VOSP Picture 25 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_25"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_25"
+      synonyms:
+        - "VOSP Picture 25 correct"
+        - "vosp picture 25 correct"
+        - "VOSP_25"
+        - "vosp_25"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_26_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 26 answer"
+    definition: "Cognitive screening measure for VOSP Picture 26 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_26_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_26_ans"
+      synonyms:
+        - "VOSP Picture 26 answer"
+        - "vosp picture 26 answer"
+        - "VOSP_26_ans"
+        - "vosp_26_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_26:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 26 correct"
+    definition: "Cognitive screening measure for VOSP Picture 26 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_26"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_26"
+      synonyms:
+        - "VOSP Picture 26 correct"
+        - "vosp picture 26 correct"
+        - "VOSP_26"
+        - "vosp_26"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_27_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 27 answer"
+    definition: "Cognitive screening measure for VOSP Picture 27 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_27_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_27_ans"
+      synonyms:
+        - "VOSP Picture 27 answer"
+        - "vosp picture 27 answer"
+        - "VOSP_27_ans"
+        - "vosp_27_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_27:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 27 correct"
+    definition: "Cognitive screening measure for VOSP Picture 27 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_27"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_27"
+      synonyms:
+        - "VOSP Picture 27 correct"
+        - "vosp picture 27 correct"
+        - "VOSP_27"
+        - "vosp_27"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_28_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 28 answer"
+    definition: "Cognitive screening measure for VOSP Picture 28 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_28_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_28_ans"
+      synonyms:
+        - "VOSP Picture 28 answer"
+        - "vosp picture 28 answer"
+        - "VOSP_28_ans"
+        - "vosp_28_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_28:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 28 correct"
+    definition: "Cognitive screening measure for VOSP Picture 28 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_28"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_28"
+      synonyms:
+        - "VOSP Picture 28 correct"
+        - "vosp picture 28 correct"
+        - "VOSP_28"
+        - "vosp_28"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_29_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 29 answer"
+    definition: "Cognitive screening measure for VOSP Picture 29 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_29_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_29_ans"
+      synonyms:
+        - "VOSP Picture 29 answer"
+        - "vosp picture 29 answer"
+        - "VOSP_29_ans"
+        - "vosp_29_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_29:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 29 correct"
+    definition: "Cognitive screening measure for VOSP Picture 29 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_29"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_29"
+      synonyms:
+        - "VOSP Picture 29 correct"
+        - "vosp picture 29 correct"
+        - "VOSP_29"
+        - "vosp_29"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_30_ans:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 30 answer"
+    definition: "Cognitive screening measure for VOSP Picture 30 answer."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_30_ans"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_30_ans"
+      synonyms:
+        - "VOSP Picture 30 answer"
+        - "vosp picture 30 answer"
+        - "VOSP_30_ans"
+        - "vosp_30_ans"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_30:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Picture 30 correct"
+    definition: "Cognitive screening measure for VOSP Picture 30 correct."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_30"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_30"
+      synonyms:
+        - "VOSP Picture 30 correct"
+        - "vosp picture 30 correct"
+        - "VOSP_30"
+        - "vosp_30"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VOSP_Total:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP Total Score"
+    definition: "Total score for VOSP."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_VOSP.VOSP_Total"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_total"
+      synonyms:
+        - "VOSP Total Score"
+        - "vosp total score"
+        - "VOSP_Total"
+        - "vosp_total"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  vosp_regr_t_score:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "VOSP regression T-Score"
+    definition: "Regression-adjusted T-score for VOSP."
+    source:
+      schema_element: "cs:cogScrData.date"
+      display_field_elements:
+        raw: "view:CS_COGSCRDATA_VOSP.VOSP_Total"
+        cs_date: "cs:cogScrData.date"
+        dob: "xnat:demographicData.dob"
+        yob: "xnat:demographicData.yob"
+    derivation:
+      kind: "sql"
+      input: "vosp_regr_t_score(@raw::int, CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vosp_regr_t_score"
+      synonyms:
+        - "VOSP regression T-Score"
+        - "vosp regression t-score"
+        - "vosp_regr_t_score"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CDR_Mem:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CDR Memory"
+    definition: "Cognitive screening measure for CDR Memory."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CDR.CDR_Mem"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cdr_mem"
+      synonyms:
+        - "CDR Memory"
+        - "cdr memory"
+        - "CDR_Mem"
+        - "cdr_mem"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CDR_Orien:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CDR Orientation"
+    definition: "Cognitive screening measure for CDR Orientation."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CDR.CDR_Orien"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cdr_orien"
+      synonyms:
+        - "CDR Orientation"
+        - "cdr orientation"
+        - "CDR_Orien"
+        - "cdr_orien"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CDR_Judg:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CDR Judgement"
+    definition: "Cognitive screening measure for CDR Judgement."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CDR.CDR_Judg"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cdr_judg"
+      synonyms:
+        - "CDR Judgement"
+        - "cdr judgement"
+        - "CDR_Judg"
+        - "cdr_judg"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CDR_Commun:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CDR Community Affairs"
+    definition: "Cognitive screening measure for CDR Community Affairs."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CDR.CDR_Commun"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cdr_commun"
+      synonyms:
+        - "CDR Community Affairs"
+        - "cdr community affairs"
+        - "CDR_Commun"
+        - "cdr_commun"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CDR_Home:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CDR Home and Hobbies"
+    definition: "Cognitive screening measure for CDR Home and Hobbies."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CDR.CDR_Home"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cdr_home"
+      synonyms:
+        - "CDR Home and Hobbies"
+        - "cdr home and hobbies"
+        - "CDR_Home"
+        - "cdr_home"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CDR_PC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CDR Personal Care"
+    definition: "Cognitive screening measure for CDR Personal Care."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CDR.CDR_PC"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cdr_pc"
+      synonyms:
+        - "CDR Personal Care"
+        - "cdr personal care"
+        - "CDR_PC"
+        - "cdr_pc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CDR_Total:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "CDR Score"
+    definition: "Score for CDR."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CDR.CDR_Total"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cdr_total"
+      synonyms:
+        - "CDR Score"
+        - "cdr score"
+        - "CDR_Total"
+        - "cdr_total"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  Sum_Boxes:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Sum of points"
+    definition: "Cognitive screening measure for Sum of points."
+    source:
+      schema_element: null
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CDR.Sum_Boxes"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "sum_boxes"
+      synonyms:
+        - "Sum of points"
+        - "sum of points"
+        - "Sum_Boxes"
+        - "sum_boxes"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  moca_total:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "MOCA total"
+    definition: "Cognitive screening measure for MOCA total."
+    source:
+      schema_element: "cs:cogScrData/moca_total"
+      display_field_elements:
+        Field1: "cs:cogScrData/moca_total"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "moca_total"
+      synonyms:
+        - "MOCA total"
+        - "moca total"
+        - "moca_total"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  cs_status:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Cognitive Screening status"
+    definition: "Status classification for Cognitive Screening."
+    source:
+      schema_element: "cs:cogScrData.date"
+      display_field_elements:
+        Field1: "view:CS_COGSCRDATA_CERAD.CERAD_Recall"
+        cs_date: "cs:cogScrData.date"
+        dob: "xnat:demographicData.dob"
+        yob: "xnat:demographicData.yob"
+        Field3: "view:CS_DEMOGRAPHICS.gender"
+        edu: "view:CS_DEMOGRAPHICS.edu_years"
+        tmtb: "view:CS_TSCORES.TMTB_Tscore"
+        raw: "view:CS_COGSCRDATA_TMT.TMTB_Sec"
+        vosp: "view:CS_COGSCRDATA_VOSP.VOSP_Total"
+        cowat: "view:CS_COGSCRDATA_COWAT.COWAT_Total"
+        failed_b: "view:CS_COGSCRDATA_TMT.TMTB_Failed"
+    derivation:
+      kind: "sql_case"
+      input: |-
+        CASE WHEN cerad_recall_regr_t_score(@Field1::int,CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int, @Field3, @edu ) < 36 or tmt_b_regr_t_score(@raw, CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int, @edu, @failed_b) < 36
+        					or cowat_regr_t_score(@cowat, @edu) < 36 or vosp_regr_t_score(@vosp::int,CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int) < 36 THEN 0
+        
+        					WHEN cerad_recall_regr_t_score(@Field1::int,CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int, @Field3, @edu ) > 35 or tmt_b_regr_t_score(@raw, CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int, @edu, @failed_b) > 35
+        					or cowat_regr_t_score(@cowat, @edu) > 35 or vosp_regr_t_score(@vosp::int,CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int) > 35 THEN 1 
+        					
+        					ELSE NULL END
+      mapping:
+        "cerad_recall_regr_t_score(@Field1::int,CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int, @Field3, @edu ) < 36 or tmt_b_regr_t_score(@raw, CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int, @edu, @failed_b) < 36
+					or cowat_regr_t_score(@cowat, @edu) < 36 or vosp_regr_t_score(@vosp::int,CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int) < 36": "0"
+        "cerad_recall_regr_t_score(@Field1::int,CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int, @Field3, @edu ) > 35 or tmt_b_regr_t_score(@raw, CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int, @edu, @failed_b) > 35
+					or cowat_regr_t_score(@cowat, @edu) > 35 or vosp_regr_t_score(@vosp::int,CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int) > 35": "1"
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "cs"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cs_status"
+      synonyms:
+        - "Normal Cognitive Screening"
+        - "normal cognitive screening"
+        - "cs_status"
+    allowed_values:
+      - "0"
+      - "1"
+    sensitivity: "none"
+    quality:
+      notes: null

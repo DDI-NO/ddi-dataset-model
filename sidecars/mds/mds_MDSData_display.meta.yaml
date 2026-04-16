@@ -1,0 +1,345 @@
+display: "mds_MDSData_display.xml"
+description: "MDS clinical diagnostic criteria for PD"
+
+display_versions:
+  dump:
+    description: "Fields referenced by DisplayVersion versionName=\"dump\"."
+
+# source_schema_element: mds:MDSData
+
+display_field_annotations:
+  LABEL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Label"
+    definition: "Label identifying the MDS assessment record."
+    source:
+      schema_element: "mds:MDSData.ID"
+      display_field_elements:
+        Field1: "mds:MDSData.ID"
+        Field2: "mds:MDSData.label"
+    derivation:
+      kind: "sql"
+      input: "COALESCE(@Field2, @Field1)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mds"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "label"
+      synonyms:
+        - "Label"
+        - "label"
+        - "LABEL"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  DATE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Date"
+    definition: "Date when the MDS diagnostic assessment was performed."
+    source:
+      schema_element: "mds:MDSData.date"
+      display_field_elements:
+        Field1: "mds:MDSData.date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mds"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "date"
+      synonyms:
+        - "Date"
+        - "date"
+        - "DATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AGE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Age"
+    definition: "Participant age at the time of the MDS diagnostic assessment."
+    source:
+      schema_element: "mds:MDSData.date"
+      display_field_elements:
+        Field1: "mds:MDSData.date"
+        Field2: "xnat:demographicData.dob"
+        Field3: "xnat:demographicData.yob"
+    derivation:
+      kind: "sql"
+      input: |-
+        CAST(COALESCE(FLOOR(CAST((CAST(((@Field1) - (@Field2))AS FLOAT4)/365) AS
+                    numeric)),FLOOR((EXTRACT(YEAR FROM @Field1)) - (@Field3))) AS numeric)
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mds"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "age"
+      synonyms:
+        - "Age"
+        - "age"
+        - "AGE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MDS_PARK:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "mds_park"
+    definition: "Indicator of whether parkinsonism is present according to the MDS diagnostic assessment."
+    source:
+      schema_element: "mds:MDSData/mds_park"
+      display_field_elements:
+        Field1: "mds:MDSData/mds_park"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mds"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mds_park"
+      synonyms:
+        - "mds_park"
+        - "mds park"
+        - "MDS_PARK"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MDS_ABS_EXCL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "mds_abs_excl"
+    definition: "Indicator of whether absolute exclusion criteria are present in the MDS diagnostic assessment."
+    source:
+      schema_element: "mds:MDSData/mds_abs_excl"
+      display_field_elements:
+        Field1: "mds:MDSData/mds_abs_excl"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mds"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mds_abs_excl"
+      synonyms:
+        - "mds_abs_excl"
+        - "mds abs excl"
+        - "MDS_ABS_EXCL"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MDS_N_REDFLAGS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "mds_n_redflags"
+    definition: "Number of red flags identified in the MDS diagnostic assessment."
+    source:
+      schema_element: "mds:MDSData/mds_n_redflags"
+      display_field_elements:
+        Field1: "mds:MDSData/mds_n_redflags"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mds"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mds_n_redflags"
+      synonyms:
+        - "mds_n_redflags"
+        - "mds n redflags"
+        - "MDS_N_REDFLAGS"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MDS_N_SUPPORTIVE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "mds_n_supportive"
+    definition: "Number of supportive criteria identified in the MDS diagnostic assessment."
+    source:
+      schema_element: "mds:MDSData/mds_n_supportive"
+      display_field_elements:
+        Field1: "mds:MDSData/mds_n_supportive"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mds"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mds_n_supportive"
+      synonyms:
+        - "mds_n_supportive"
+        - "mds n supportive"
+        - "MDS_N_SUPPORTIVE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MDS_2_SUPPORTIVE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "mds_2_supportive"
+    definition: "Indicator of whether at least two supportive criteria are present."
+    source:
+      schema_element: "mds:MDSData/mds_2_supportive"
+      display_field_elements:
+        Field1: "mds:MDSData/mds_2_supportive"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mds"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mds_2_supportive"
+      synonyms:
+        - "mds_2_supportive"
+        - "mds 2 supportive"
+        - "MDS_2_SUPPORTIVE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MDS_2_REDFLAGS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "mds_2_redflags"
+    definition: "Indicator of whether at least two red flags are present."
+    source:
+      schema_element: "mds:MDSData/mds_2_redflags"
+      display_field_elements:
+        Field1: "mds:MDSData/mds_2_redflags"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mds"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mds_2_redflags"
+      synonyms:
+        - "mds_2_redflags"
+        - "mds 2 redflags"
+        - "MDS_2_REDFLAGS"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MDS_REDFLAGS_EQLESS_SUPPORTIVE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "mds_redflags_eqless_supportive"
+    definition: "Indicator of whether the number of red flags is less than or equal to the number of supportive criteria."
+    source:
+      schema_element: "mds:MDSData/mds_redflags_eqless_supportive"
+      display_field_elements:
+        Field1: "mds:MDSData/mds_redflags_eqless_supportive"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "mds"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mds_redflags_eqless_supportive"
+      synonyms:
+        - "mds_redflags_eqless_supportive"
+        - "mds redflags eqless supportive"
+        - "MDS_REDFLAGS_EQLESS_SUPPORTIVE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null

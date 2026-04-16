@@ -1,0 +1,2391 @@
+display: "phyex_phyExamData_display.xml"
+description: "CRF Part II: Includes General somatic examination, Neurological examination and UPDRS"
+
+display_versions:
+  dump:
+    description: "Fields referenced by DisplayVersion versionName=\"dump\"."
+
+# source_schema_element: phyex:phyExamData
+
+display_field_annotations:
+  LABEL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Label"
+    definition: "Label identifying the physical examination record."
+    source:
+      schema_element: "phyex:phyExamData.ID"
+      display_field_elements:
+        Field1: "phyex:phyExamData.ID"
+        Field2: "phyex:phyExamData.label"
+    derivation:
+      kind: "sql"
+      input: "COALESCE(@Field2, @Field1)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "label"
+      synonyms:
+        - "Label"
+        - "label"
+        - "LABEL"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  DATE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Date"
+    definition: "Date when the physical examination was performed."
+    source:
+      schema_element: "phyex:phyExamData.date"
+      display_field_elements:
+        Field1: "phyex:phyExamData.date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "date"
+      synonyms:
+        - "Date"
+        - "date"
+        - "DATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AGE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Age"
+    definition: "Participant age at the time of the physical examination."
+    source:
+      schema_element: "phyex:phyExamData.date"
+      display_field_elements:
+        Field1: "phyex:phyExamData.date"
+        Field2: "xnat:demographicData.dob"
+        Field3: "xnat:demographicData.yob"
+    derivation:
+      kind: "sql"
+      input: "CAST(COALESCE(FLOOR(CAST((CAST(((@Field1) - (@Field2))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @Field1)) - (@Field3))) AS numeric)"
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "age"
+      synonyms:
+        - "Age"
+        - "age"
+        - "AGE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AUS_HEAR:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Auscultation of the heart"
+    definition: "Finding from auscultation of the heart during the physical examination."
+    source:
+      schema_element: "phyex:phyExamData/aus_hear"
+      display_field_elements:
+        Field1: "phyex:phyExamData/aus_hear"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "aus_hear"
+      synonyms:
+        - "aus_hear"
+        - "aus hear"
+        - "AUS_HEAR"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AUS_PULM:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Auscultation of the lungs"
+    definition: "Finding from auscultation of the lungs during the physical examination."
+    source:
+      schema_element: "phyex:phyExamData/aus_pulm"
+      display_field_elements:
+        Field1: "phyex:phyExamData/aus_pulm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "aus_pulm"
+      synonyms:
+        - "aus_pulm"
+        - "aus pulm"
+        - "AUS_PULM"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  AUS_CAROT:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Auscultation of the carotid arteries"
+    definition: "Finding from auscultation of the carotid arteries during the physical examination."
+    source:
+      schema_element: "phyex:phyExamData/aus_carot"
+      display_field_elements:
+        Field1: "phyex:phyExamData/aus_carot"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "aus_carot"
+      synonyms:
+        - "aus_carot"
+        - "aus carot"
+        - "AUS_CAROT"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PALP_ABD:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Palpation of the abdomen (CRF versions < 3.0)"
+    definition: "Finding from palpation of the abdomen (CRF versions < 3.0) during the physical examination."
+    source:
+      schema_element: "phyex:phyExamData/palp_abd"
+      display_field_elements:
+        Field1: "phyex:phyExamData/palp_abd"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "palp_abd"
+      synonyms:
+        - "palp_abd"
+        - "palp abd"
+        - "PALP_ABD"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  BP_RECUM_SYS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Recumbent more than 1 min - BP - Systolic"
+    definition: "Systolic blood pressure measured recumbent more than 1 min."
+    source:
+      schema_element: "phyex:phyExamData/bp_recum_sys"
+      display_field_elements:
+        Field1: "phyex:phyExamData/bp_recum_sys"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bp_recum_sys"
+      synonyms:
+        - "bp_recum_sys"
+        - "bp recum sys"
+        - "BP_RECUM_SYS"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  BP_RECUM_DIAS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Recumbent more than 1 min - BP - Diastolic"
+    definition: "Diastolic blood pressure measured recumbent more than 1 min."
+    source:
+      schema_element: "phyex:phyExamData/bp_recum_dias"
+      display_field_elements:
+        Field1: "phyex:phyExamData/bp_recum_dias"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bp_recum_dias"
+      synonyms:
+        - "bp_recum_dias"
+        - "bp recum dias"
+        - "BP_RECUM_DIAS"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  BP_0m_SYS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Immediately after standing up - BP - Systolic"
+    definition: "Systolic blood pressure measured immediately after standing up."
+    source:
+      schema_element: "phyex:phyExamData/bp_0m_sys"
+      display_field_elements:
+        Field1: "phyex:phyExamData/bp_0m_sys"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bp_0m_sys"
+      synonyms:
+        - "bp_0m_sys"
+        - "bp 0m sys"
+        - "BP_0m_SYS"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  BP_0m_DIAS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Immediately after standing up - BP - Diastolic"
+    definition: "Diastolic blood pressure measured immediately after standing up."
+    source:
+      schema_element: "phyex:phyExamData/bp_0m_dias"
+      display_field_elements:
+        Field1: "phyex:phyExamData/bp_0m_dias"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bp_0m_dias"
+      synonyms:
+        - "bp_0m_dias"
+        - "bp 0m dias"
+        - "BP_0m_DIAS"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  BP_1M_SYS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "1 min after standing up - BP - Systolic"
+    definition: "Systolic blood pressure measured 1 min after standing up."
+    source:
+      schema_element: "phyex:phyExamData/bp_1m_sys"
+      display_field_elements:
+        Field1: "phyex:phyExamData/bp_1m_sys"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bp_1m_sys"
+      synonyms:
+        - "bp_1m_sys"
+        - "bp 1m sys"
+        - "BP_1M_SYS"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  BP_1M_DIAS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "1 min after standing up - BP - Diastolic"
+    definition: "Diastolic blood pressure measured 1 min after standing up."
+    source:
+      schema_element: "phyex:phyExamData/bp_1m_dias"
+      display_field_elements:
+        Field1: "phyex:phyExamData/bp_1m_dias"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bp_1m_dias"
+      synonyms:
+        - "bp_1m_dias"
+        - "bp 1m dias"
+        - "BP_1M_DIAS"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  BP_3M_SYS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "3 min after standing up - BP - Systolic"
+    definition: "Systolic blood pressure measured 3 min after standing up."
+    source:
+      schema_element: "phyex:phyExamData/bp_3m_sys"
+      display_field_elements:
+        Field1: "phyex:phyExamData/bp_3m_sys"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bp_3m_sys"
+      synonyms:
+        - "bp_3m_sys"
+        - "bp 3m sys"
+        - "BP_3M_SYS"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  BP_3M_DIAS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "3 min after standing up - BP - Diastolic"
+    definition: "Diastolic blood pressure measured 3 min after standing up."
+    source:
+      schema_element: "phyex:phyExamData/bp_3m_dias"
+      display_field_elements:
+        Field1: "phyex:phyExamData/bp_3m_dias"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bp_3m_dias"
+      synonyms:
+        - "bp_3m_dias"
+        - "bp 3m dias"
+        - "BP_3M_DIAS"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PULSE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "pulse"
+    definition: "Pulse measured during the physical examination."
+    source:
+      schema_element: "phyex:phyExamData/pulse"
+      display_field_elements:
+        Field1: "phyex:phyExamData/pulse"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "pulse"
+      synonyms:
+        - "pulse"
+        - "PULSE"
+        - "Pulse"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PULSE_recum:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Recumbent more than 1 min - Pulse"
+    definition: "Pulse measured recumbent more than 1 min."
+    source:
+      schema_element: "phyex:phyExamData/pulse_recum"
+      display_field_elements:
+        Field1: "phyex:phyExamData/pulse_recum"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "pulse_recum"
+      synonyms:
+        - "pulse_recum"
+        - "pulse recum"
+        - "PULSE_recum"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PULSE_0m:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Immediately after standing up - Pulse"
+    definition: "Pulse measured immediately after standing up."
+    source:
+      schema_element: "phyex:phyExamData/pulse_0m"
+      display_field_elements:
+        Field1: "phyex:phyExamData/pulse_0m"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "pulse_0m"
+      synonyms:
+        - "pulse_0m"
+        - "pulse 0m"
+        - "PULSE_0m"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PULSE_1m:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "1 min after standing up - Pulse"
+    definition: "Pulse measured 1 min after standing up."
+    source:
+      schema_element: "phyex:phyExamData/pulse_1m"
+      display_field_elements:
+        Field1: "phyex:phyExamData/pulse_1m"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "pulse_1m"
+      synonyms:
+        - "pulse_1m"
+        - "pulse 1m"
+        - "PULSE_1m"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PULSE_3m:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "3 min after standing up - Pulse"
+    definition: "Pulse measured 3 min after standing up."
+    source:
+      schema_element: "phyex:phyExamData/pulse_3m"
+      display_field_elements:
+        Field1: "phyex:phyExamData/pulse_3m"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "pulse_3m"
+      synonyms:
+        - "pulse_3m"
+        - "pulse 3m"
+        - "PULSE_3m"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PULSE_REG:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Regular pulse rate"
+    definition: "Physical examination variable for Regular pulse rate."
+    source:
+      schema_element: "phyex:phyExamData/pulse_reg"
+      display_field_elements:
+        Field1: "phyex:phyExamData/pulse_reg"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "pulse_reg"
+      synonyms:
+        - "pulse_reg"
+        - "pulse reg"
+        - "PULSE_REG"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  ortho_hypotension:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Orthostatic Hypotension"
+    definition: "Physical examination variable for Orthostatic Hypotension."
+    source:
+      schema_element: "phyex:phyExamData/ortho_hypotension"
+      display_field_elements:
+        Field1: "phyex:phyExamData/ortho_hypotension"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ortho_hypotension"
+      synonyms:
+        - "ortho_hypotension"
+        - "ortho hypotension"
+        - "Ortho Hypotension"
+        - "ORTHO_HYPOTENSION"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  bradycardia:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Bradycardia"
+    definition: "Physical examination variable for Bradycardia."
+    source:
+      schema_element: "phyex:phyExamData/bradycardia"
+      display_field_elements:
+        Field1: "phyex:phyExamData/bradycardia"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bradycardia"
+      synonyms:
+        - "bradycardia"
+        - "Bradycardia"
+        - "BRADYCARDIA"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  SMELL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Sense of smell"
+    definition: "Physical examination variable for Sense of smell."
+    source:
+      schema_element: "phyex:phyExamData/smell"
+      display_field_elements:
+        Field1: "phyex:phyExamData/smell"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "smell"
+      synonyms:
+        - "smell"
+        - "SMELL"
+        - "Smell"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  VISION:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Vision (CRF versions < 3.0)"
+    definition: "Physical examination variable for Vision (CRF versions < 3.0)."
+    source:
+      schema_element: "phyex:phyExamData/vision"
+      display_field_elements:
+        Field1: "phyex:phyExamData/vision"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "vision"
+      synonyms:
+        - "vision"
+        - "VISION"
+        - "Vision"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  HEAR:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Hearing (CRF versions < 3.0)"
+    definition: "Physical examination variable for Hearing (CRF versions < 3.0)."
+    source:
+      schema_element: "phyex:phyExamData/hear"
+      display_field_elements:
+        Field1: "phyex:phyExamData/hear"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "hear"
+      synonyms:
+        - "hear"
+        - "HEAR"
+        - "Hear"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  HEIGHT:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Height (cm)"
+    definition: "Physical examination variable for Height (cm)."
+    source:
+      schema_element: "phyex:phyExamData/height"
+      display_field_elements:
+        Field1: "phyex:phyExamData/height"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "height"
+      synonyms:
+        - "height"
+        - "HEIGHT"
+        - "Height"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  WEIGHT:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Weight (Kg)"
+    definition: "Physical examination variable for Weight (Kg)."
+    source:
+      schema_element: "phyex:phyExamData/weight"
+      display_field_elements:
+        Field1: "phyex:phyExamData/weight"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "weight"
+      synonyms:
+        - "weight"
+        - "WEIGHT"
+        - "Weight"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  BMI:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "BMI (kg/m^2)"
+    definition: "Physical examination variable for BMI (kg/m^2)."
+    source:
+      schema_element: "phyex:phyExamData/bmi"
+      display_field_elements:
+        Field1: "phyex:phyExamData/bmi"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "bmi"
+      synonyms:
+        - "bmi"
+        - "BMI"
+        - "Bmi"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  weightloss:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Weightloss (Kg)"
+    definition: "Physical examination variable for Weightloss (Kg)."
+    source:
+      schema_element: "phyex:phyExamData/weightloss"
+      display_field_elements:
+        Field1: "phyex:phyExamData/weightloss"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "weightloss"
+      synonyms:
+        - "weightloss"
+        - "Weightloss"
+        - "WEIGHTLOSS"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  lost_kg:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Weightloss (Kg)"
+    definition: "Physical examination variable for Weightloss (Kg)."
+    source:
+      schema_element: "phyex:phyExamData/lost_kg"
+      display_field_elements:
+        Field1: "phyex:phyExamData/lost_kg"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "lost_kg"
+      synonyms:
+        - "lost_kg"
+        - "lost kg"
+        - "Lost Kg"
+        - "LOST_KG"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  SIGN_CNSDISEASE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Signs of focal or diffuse CNS-disease"
+    definition: "Physical examination variable for Signs of focal or diffuse CNS-disease."
+    source:
+      schema_element: "phyex:phyExamData/sign_cnsdisease"
+      display_field_elements:
+        Field1: "phyex:phyExamData/sign_cnsdisease"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "sign_cnsdisease"
+      synonyms:
+        - "sign_cnsdisease"
+        - "sign cnsdisease"
+        - "SIGN_CNSDISEASE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  SIGNS_PERIPHNEURO:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Signs of peripheral neurological disorder"
+    definition: "Physical examination variable for Signs of peripheral neurological disorder."
+    source:
+      schema_element: "phyex:phyExamData/signs_periphneuro"
+      display_field_elements:
+        Field1: "phyex:phyExamData/signs_periphneuro"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "signs_periphneuro"
+      synonyms:
+        - "signs_periphneuro"
+        - "signs periphneuro"
+        - "SIGNS_PERIPHNEURO"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  CRANIAL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Examination of Cranial nerves"
+    definition: "Physical examination variable for Examination of Cranial nerves."
+    source:
+      schema_element: "phyex:phyExamData/cranial"
+      display_field_elements:
+        Field1: "phyex:phyExamData/cranial"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "cranial"
+      synonyms:
+        - "cranial"
+        - "CRANIAL"
+        - "Cranial"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  COORDINA:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Examination of Coordination/ataxia"
+    definition: "Physical examination variable for Examination of Coordination/ataxia."
+    source:
+      schema_element: "phyex:phyExamData/coordina"
+      display_field_elements:
+        Field1: "phyex:phyExamData/coordina"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "coordina"
+      synonyms:
+        - "coordina"
+        - "COORDINA"
+        - "Coordina"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MOTOR:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Examination of Strength, fine movements, speed"
+    definition: "Physical examination variable for Examination of Strength, fine movements, speed."
+    source:
+      schema_element: "phyex:phyExamData/motor"
+      display_field_elements:
+        Field1: "phyex:phyExamData/motor"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "motor"
+      synonyms:
+        - "motor"
+        - "MOTOR"
+        - "Motor"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  REFLEX:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Examination of Reflexes (tendon, deep)"
+    definition: "Physical examination variable for Examination of Reflexes (tendon, deep)."
+    source:
+      schema_element: "phyex:phyExamData/reflex"
+      display_field_elements:
+        Field1: "phyex:phyExamData/reflex"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "reflex"
+      synonyms:
+        - "reflex"
+        - "REFLEX"
+        - "Reflex"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TONUS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Examination of Tonus"
+    definition: "Physical examination variable for Examination of Tonus."
+    source:
+      schema_element: "phyex:phyExamData/tonus"
+      display_field_elements:
+        Field1: "phyex:phyExamData/tonus"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "tonus"
+      synonyms:
+        - "tonus"
+        - "TONUS"
+        - "Tonus"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  SENSOR:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Examination of Sensory"
+    definition: "Physical examination variable for Examination of Sensory."
+    source:
+      schema_element: "phyex:phyExamData/sensor"
+      display_field_elements:
+        Field1: "phyex:phyExamData/sensor"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "sensor"
+      synonyms:
+        - "sensor"
+        - "SENSOR"
+        - "Sensor"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PRIMITIVE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Examination of Primitive reflexes"
+    definition: "Physical examination variable for Examination of Primitive reflexes."
+    source:
+      schema_element: "phyex:phyExamData/primitive"
+      display_field_elements:
+        Field1: "phyex:phyExamData/primitive"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "primitive"
+      synonyms:
+        - "primitive"
+        - "PRIMITIVE"
+        - "Primitive"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  POSTURE_GAIT:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Examination of Posture/gait"
+    definition: "Physical examination variable for Examination of Posture/gait."
+    source:
+      schema_element: "phyex:phyExamData/posture_gait"
+      display_field_elements:
+        Field1: "phyex:phyExamData/posture_gait"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "posture_gait"
+      synonyms:
+        - "posture_gait"
+        - "posture gait"
+        - "POSTURE_GAIT"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  TIMEDUP:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Timed up and go, mean of two runs (seconds)"
+    definition: "Physical examination variable for Timed up and go, mean of two runs (seconds)."
+    source:
+      schema_element: "phyex:phyExamData/timedup"
+      display_field_elements:
+        Field1: "phyex:phyExamData/timedup"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "timedup"
+      synonyms:
+        - "timedup"
+        - "TIMEDUP"
+        - "Timedup"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_SPEECH:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Speech"
+    definition: "Physical examination variable for UPDRS - Speech."
+    source:
+      schema_element: "phyex:phyExamData/u_speech"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_speech"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_speech"
+      synonyms:
+        - "u_speech"
+        - "u speech"
+        - "U_SPEECH"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_FACIAL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Facial expression"
+    definition: "Physical examination variable for UPDRS - Facial expression."
+    source:
+      schema_element: "phyex:phyExamData/u_facial"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_facial"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_facial"
+      synonyms:
+        - "u_facial"
+        - "u facial"
+        - "U_FACIAL"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_RESTT_FACE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Tremor at rest (Face, lips, chin)"
+    definition: "Physical examination variable for UPDRS - Tremor at rest (Face, lips, chin)."
+    source:
+      schema_element: "phyex:phyExamData/u_restt_face"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_restt_face"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_restt_face"
+      synonyms:
+        - "u_restt_face"
+        - "u restt face"
+        - "U_RESTT_FACE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_RESTT_RHAND:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Tremor at rest (Right hand)"
+    definition: "Physical examination variable for UPDRS - Tremor at rest (Right hand)."
+    source:
+      schema_element: "phyex:phyExamData/u_restt_rhand"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_restt_rhand"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_restt_rhand"
+      synonyms:
+        - "u_restt_rhand"
+        - "u restt rhand"
+        - "U_RESTT_RHAND"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_RESTT_LHAND:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Tremor at rest (Left hand)"
+    definition: "Physical examination variable for UPDRS - Tremor at rest (Left hand)."
+    source:
+      schema_element: "phyex:phyExamData/u_restt_lhand"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_restt_lhand"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_restt_lhand"
+      synonyms:
+        - "u_restt_lhand"
+        - "u restt lhand"
+        - "U_RESTT_LHAND"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_RESTT_RFOOT:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Tremor at rest (Right foot)"
+    definition: "Physical examination variable for UPDRS - Tremor at rest (Right foot)."
+    source:
+      schema_element: "phyex:phyExamData/u_restt_rfoot"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_restt_rfoot"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_restt_rfoot"
+      synonyms:
+        - "u_restt_rfoot"
+        - "u restt rfoot"
+        - "U_RESTT_RFOOT"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_RESTT_LFOOT:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Tremor at rest (Left foot)"
+    definition: "Physical examination variable for UPDRS - Tremor at rest (Left foot)."
+    source:
+      schema_element: "phyex:phyExamData/u_restt_lfoot"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_restt_lfoot"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_restt_lfoot"
+      synonyms:
+        - "u_restt_lfoot"
+        - "u restt lfoot"
+        - "U_RESTT_LFOOT"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_ACTIONT_RHAND:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Action or postural tremor of hands (Right hand)"
+    definition: "Physical examination variable for UPDRS - Action or postural tremor of hands (Right hand)."
+    source:
+      schema_element: "phyex:phyExamData/u_actiont_rhand"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_actiont_rhand"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_actiont_rhand"
+      synonyms:
+        - "u_actiont_rhand"
+        - "u actiont rhand"
+        - "U_ACTIONT_RHAND"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_ACTIONT_LHAND:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Action or postural tremor of hands (Left hand)"
+    definition: "Physical examination variable for UPDRS - Action or postural tremor of hands (Left hand)."
+    source:
+      schema_element: "phyex:phyExamData/u_actiont_lhand"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_actiont_lhand"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_actiont_lhand"
+      synonyms:
+        - "u_actiont_lhand"
+        - "u actiont lhand"
+        - "U_ACTIONT_LHAND"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_RIGID_NECK:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Rigidity (neck)"
+    definition: "Physical examination variable for UPDRS - Rigidity (neck)."
+    source:
+      schema_element: "phyex:phyExamData/u_rigid_neck"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_rigid_neck"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_rigid_neck"
+      synonyms:
+        - "u_rigid_neck"
+        - "u rigid neck"
+        - "U_RIGID_NECK"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_RIGID_RARM:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Rigidity (Right upper ext.)"
+    definition: "Physical examination variable for UPDRS - Rigidity (Right upper ext.)."
+    source:
+      schema_element: "phyex:phyExamData/u_rigid_rarm"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_rigid_rarm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_rigid_rarm"
+      synonyms:
+        - "u_rigid_rarm"
+        - "u rigid rarm"
+        - "U_RIGID_RARM"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_RIGID_LARM:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Rigidity (Left upper ext.)"
+    definition: "Physical examination variable for UPDRS - Rigidity (Left upper ext.)."
+    source:
+      schema_element: "phyex:phyExamData/u_rigid_larm"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_rigid_larm"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_rigid_larm"
+      synonyms:
+        - "u_rigid_larm"
+        - "u rigid larm"
+        - "U_RIGID_LARM"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_RIGID_RLEG:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Rigidity (Right lower ext.)"
+    definition: "Physical examination variable for UPDRS - Rigidity (Right lower ext.)."
+    source:
+      schema_element: "phyex:phyExamData/u_rigid_rleg"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_rigid_rleg"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_rigid_rleg"
+      synonyms:
+        - "u_rigid_rleg"
+        - "u rigid rleg"
+        - "U_RIGID_RLEG"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_RIGID_LLEG:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Rigidity (Left lower ext.)"
+    definition: "Physical examination variable for UPDRS - Rigidity (Left lower ext.)."
+    source:
+      schema_element: "phyex:phyExamData/u_rigid_lleg"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_rigid_lleg"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_rigid_lleg"
+      synonyms:
+        - "u_rigid_lleg"
+        - "u rigid lleg"
+        - "U_RIGID_LLEG"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_FINGERTAP_R:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Finger taps (right)"
+    definition: "Physical examination variable for UPDRS - Finger taps (right)."
+    source:
+      schema_element: "phyex:phyExamData/u_fingertap_r"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_fingertap_r"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_fingertap_r"
+      synonyms:
+        - "u_fingertap_r"
+        - "u fingertap r"
+        - "U_FINGERTAP_R"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_FINGERTAP_L:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Finger taps (left)"
+    definition: "Physical examination variable for UPDRS - Finger taps (left)."
+    source:
+      schema_element: "phyex:phyExamData/u_fingertap_l"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_fingertap_l"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_fingertap_l"
+      synonyms:
+        - "u_fingertap_l"
+        - "u fingertap l"
+        - "U_FINGERTAP_L"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_HANDMOV_R:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Hand movements (right)"
+    definition: "Physical examination variable for UPDRS - Hand movements (right)."
+    source:
+      schema_element: "phyex:phyExamData/u_handmov_r"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_handmov_r"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_handmov_r"
+      synonyms:
+        - "u_handmov_r"
+        - "u handmov r"
+        - "U_HANDMOV_R"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_HANDMOV_L:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Hand movements (left)"
+    definition: "Physical examination variable for UPDRS - Hand movements (left)."
+    source:
+      schema_element: "phyex:phyExamData/u_handmov_l"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_handmov_l"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_handmov_l"
+      synonyms:
+        - "u_handmov_l"
+        - "u handmov l"
+        - "U_HANDMOV_L"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_ALTHAND_R:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Rapid alternating movements of hands (right)"
+    definition: "Physical examination variable for UPDRS - Rapid alternating movements of hands (right)."
+    source:
+      schema_element: "phyex:phyExamData/u_althand_r"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_althand_r"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_althand_r"
+      synonyms:
+        - "u_althand_r"
+        - "u althand r"
+        - "U_ALTHAND_R"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_ALTHAND_L:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Rapid alternating movements of hands (left)"
+    definition: "Physical examination variable for UPDRS - Rapid alternating movements of hands (left)."
+    source:
+      schema_element: "phyex:phyExamData/u_althand_l"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_althand_l"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_althand_l"
+      synonyms:
+        - "u_althand_l"
+        - "u althand l"
+        - "U_ALTHAND_L"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_LEG_R:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Leg agility (right)"
+    definition: "Physical examination variable for UPDRS - Leg agility (right)."
+    source:
+      schema_element: "phyex:phyExamData/u_leg_r"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_leg_r"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_leg_r"
+      synonyms:
+        - "u_leg_r"
+        - "u leg r"
+        - "U_LEG_R"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_LEG_L:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Leg agility (left)"
+    definition: "Physical examination variable for UPDRS - Leg agility (left)."
+    source:
+      schema_element: "phyex:phyExamData/u_leg_l"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_leg_l"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_leg_l"
+      synonyms:
+        - "u_leg_l"
+        - "u leg l"
+        - "U_LEG_L"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_ARISING:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Arising from chair"
+    definition: "Physical examination variable for UPDRS - Arising from chair."
+    source:
+      schema_element: "phyex:phyExamData/u_arising"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_arising"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_arising"
+      synonyms:
+        - "u_arising"
+        - "u arising"
+        - "U_ARISING"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_POSTURE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Posture"
+    definition: "Physical examination variable for UPDRS - Posture."
+    source:
+      schema_element: "phyex:phyExamData/u_posture"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_posture"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_posture"
+      synonyms:
+        - "u_posture"
+        - "u posture"
+        - "U_POSTURE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_GAIT:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Gait"
+    definition: "Physical examination variable for UPDRS - Gait."
+    source:
+      schema_element: "phyex:phyExamData/u_gait"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_gait"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_gait"
+      synonyms:
+        - "u_gait"
+        - "u gait"
+        - "U_GAIT"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_PULL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Postural instability"
+    definition: "Physical examination variable for UPDRS - Postural instability."
+    source:
+      schema_element: "phyex:phyExamData/u_pull"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_pull"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_pull"
+      synonyms:
+        - "u_pull"
+        - "u pull"
+        - "U_PULL"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  U_BRADYK:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Body bradykinesia"
+    definition: "Physical examination variable for UPDRS - Body bradykinesia."
+    source:
+      schema_element: "phyex:phyExamData/u_bradyk"
+      display_field_elements:
+        Field1: "phyex:phyExamData/u_bradyk"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "u_bradyk"
+      synonyms:
+        - "u_bradyk"
+        - "u bradyk"
+        - "U_BRADYK"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  UPDRS_TOT:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - Total Score"
+    definition: "Total score for UPDRS -."
+    source:
+      schema_element: "phyex:phyExamData/updrs_tot"
+      display_field_elements:
+        Field1: "phyex:phyExamData/updrs_tot"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "updrs_tot"
+      synonyms:
+        - "updrs_tot"
+        - "updrs tot"
+        - "UPDRS_TOT"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  MOD_UPDRS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "mod_updrs"
+    definition: "Physical examination variable for mod updrs."
+    source:
+      schema_element: "phyex:phyExamData/mod_updrs"
+      display_field_elements:
+        Field1: "phyex:phyExamData/mod_updrs"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "mod_updrs"
+      synonyms:
+        - "mod_updrs"
+        - "mod updrs"
+        - "MOD_UPDRS"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  PARK_MED_HOURS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "UPDRS - If on antiparkinsonian drugs, hours since last dose"
+    definition: "Physical examination variable for UPDRS - If on antiparkinsonian drugs, hours since last dose."
+    source:
+      schema_element: "phyex:phyExamData/park_med_hours"
+      display_field_elements:
+        Field1: "phyex:phyExamData/park_med_hours"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "phyex"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "park_med_hours"
+      synonyms:
+        - "park_med_hours"
+        - "park med hours"
+        - "PARK_MED_HOURS"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
