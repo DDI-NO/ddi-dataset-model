@@ -37,6 +37,9 @@ display_field_annotations:
         - "Label"
         - "label"
         - "LABEL"
+        - "record label"
+        - "biochemistry label"
+        - "biochemistry record label"
     allowed_values:
       []
     sensitivity: "none"
@@ -70,6 +73,9 @@ display_field_annotations:
         - "Date"
         - "date"
         - "DATE"
+        - "biochemistry date"
+        - "blood biochemistry date"
+        - "assessment date"
     allowed_values:
       []
     sensitivity: "none"
@@ -107,6 +113,9 @@ display_field_annotations:
         - "Age"
         - "age"
         - "AGE"
+        - "participant age"
+        - "subject age"
+        - "age at biochemistry assessment"
     allowed_values:
       []
     sensitivity: "none"
@@ -141,6 +150,9 @@ display_field_annotations:
         - "b-hemoglobin g/dl"
         - "Bl_Hb"
         - "bl_hb"
+        - "hemoglobin"
+        - "blood hemoglobin"
+        - "Hb"
     allowed_values:
       []
     sensitivity: "none"
@@ -175,6 +187,9 @@ display_field_annotations:
         - "b-hemoglobin within normal value"
         - "Bl_HbNorm"
         - "bl_hbnorm"
+        - "hemoglobin within normal range"
+        - "hemoglobin normal range"
+        - "hemoglobin reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -209,6 +224,9 @@ display_field_annotations:
         - "b-hematocrit"
         - "Bl_Hct"
         - "bl_hct"
+        - "hematocrit"
+        - "blood hematocrit"
+        - "packed cell volume"
     allowed_values:
       []
     sensitivity: "none"
@@ -243,6 +261,9 @@ display_field_annotations:
         - "b-hematocrit within normal value"
         - "Bl_HctNorm"
         - "bl_hctnorm"
+        - "hematocrit within normal range"
+        - "hematocrit normal range"
+        - "hematocrit reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -277,6 +298,9 @@ display_field_annotations:
         - "b-sr mm/hour"
         - "Bl_SR"
         - "bl_sr"
+        - "sedimentation rate"
+        - "erythrocyte sedimentation rate"
+        - "ESR"
     allowed_values:
       []
     sensitivity: "none"
@@ -311,6 +335,9 @@ display_field_annotations:
         - "b-sr mm/hour within normal value"
         - "Bl_SRNorm"
         - "bl_srnorm"
+        - "sedimentation rate within normal range"
+        - "sedimentation rate normal range"
+        - "sedimentation rate reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -345,6 +372,9 @@ display_field_annotations:
         - "b-leukocytes"
         - "Bl_Leukoc"
         - "bl_leukoc"
+        - "leukocytes"
+        - "white blood cell count"
+        - "WBC"
     allowed_values:
       []
     sensitivity: "none"
@@ -379,6 +409,9 @@ display_field_annotations:
         - "b-leukocytes within normal value"
         - "Bl_LeukocNorm"
         - "bl_leukocnorm"
+        - "leukocytes within normal range"
+        - "leukocytes normal range"
+        - "leukocytes reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -413,6 +446,9 @@ display_field_annotations:
         - "b-diff.count within normal value"
         - "Bl_DiffNorm"
         - "bl_diffnorm"
+        - "differential count within normal range"
+        - "differential count normal range"
+        - "differential count reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -447,6 +483,9 @@ display_field_annotations:
         - "s-ferritin"
         - "Bl_Ferritin"
         - "bl_ferritin"
+        - "ferritin"
+        - "serum ferritin"
+        - "iron stores"
     allowed_values:
       []
     sensitivity: "none"
@@ -481,6 +520,9 @@ display_field_annotations:
         - "s-ferritin within normal value"
         - "Bl_FerritinNorm"
         - "bl_ferritinnorm"
+        - "ferritin within normal range"
+        - "ferritin normal range"
+        - "ferritin reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -515,6 +557,9 @@ display_field_annotations:
         - "s-crp (mg/l)"
         - "Bl_CRP"
         - "bl_crp"
+        - "C-reactive protein"
+        - "CRP"
+        - "serum CRP"
     allowed_values:
       []
     sensitivity: "none"
@@ -549,6 +594,9 @@ display_field_annotations:
         - "s-crp (mg/l) within normal value"
         - "Bl_CRPNorm"
         - "bl_crpnorm"
+        - "C-reactive protein within normal range"
+        - "C-reactive protein normal range"
+        - "C-reactive protein reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -583,6 +631,9 @@ display_field_annotations:
         - "s-vitamin b12 (pmol/l)"
         - "Bl_VitB12"
         - "bl_vitb12"
+        - "vitamin B12"
+        - "serum vitamin B12"
+        - "cobalamin"
     allowed_values:
       []
     sensitivity: "none"
@@ -617,6 +668,9 @@ display_field_annotations:
         - "s-vitamin b12 (pmol/l) within normal value"
         - "Bl_VitB12Norm"
         - "bl_vitb12norm"
+        - "vitamin B12 within normal range"
+        - "vitamin B12 normal range"
+        - "vitamin B12 reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -651,6 +705,9 @@ display_field_annotations:
         - "s-folat nmol/l"
         - "Bl_Folat"
         - "bl_folat"
+        - "folate"
+        - "serum folate"
+        - "folic acid"
     allowed_values:
       []
     sensitivity: "none"
@@ -685,6 +742,9 @@ display_field_annotations:
         - "s-folat nmol/l within normal value"
         - "Bl_FolatNorm"
         - "bl_folatnorm"
+        - "folate within normal range"
+        - "folate normal range"
+        - "folate reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -719,6 +779,9 @@ display_field_annotations:
         - "s-homocystein"
         - "Bl_Homocyst"
         - "bl_homocyst"
+        - "homocysteine"
+        - "serum homocysteine"
+        - "homocystein"
     allowed_values:
       []
     sensitivity: "none"
@@ -753,6 +816,9 @@ display_field_annotations:
         - "s-homocystein within normal value"
         - "Bl_HomocystNorm"
         - "bl_homocystnorm"
+        - "homocysteine within normal range"
+        - "homocysteine normal range"
+        - "homocysteine reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -787,6 +853,9 @@ display_field_annotations:
         - "s-mma"
         - "Bl_MMA"
         - "bl_mma"
+        - "methylmalonic acid"
+        - "MMA"
+        - "serum MMA"
     allowed_values:
       []
     sensitivity: "none"
@@ -821,6 +890,9 @@ display_field_annotations:
         - "s-mma within normal value"
         - "Bl_MMANorm"
         - "bl_mmanorm"
+        - "methylmalonic acid within normal range"
+        - "methylmalonic acid normal range"
+        - "methylmalonic acid reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -855,6 +927,9 @@ display_field_annotations:
         - "s-glucose mmol/l"
         - "Bl_Glu"
         - "bl_glu"
+        - "glucose"
+        - "serum glucose"
+        - "blood glucose"
     allowed_values:
       []
     sensitivity: "none"
@@ -889,6 +964,9 @@ display_field_annotations:
         - "s-glucose mmol/l within normal value"
         - "Bl_GluNorm"
         - "bl_glunorm"
+        - "glucose within normal range"
+        - "glucose normal range"
+        - "glucose reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -923,6 +1001,9 @@ display_field_annotations:
         - "b-hba1c percentage"
         - "Bl_HbA1c"
         - "bl_hba1c"
+        - "HbA1c"
+        - "glycated hemoglobin"
+        - "hemoglobin A1c"
     allowed_values:
       []
     sensitivity: "none"
@@ -957,6 +1038,9 @@ display_field_annotations:
         - "b-hba1c within normal value"
         - "Bl_HbA1cNorm"
         - "bl_hba1cnorm"
+        - "HbA1c within normal range"
+        - "HbA1c normal range"
+        - "HbA1c reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -991,6 +1075,9 @@ display_field_annotations:
         - "s-na"
         - "Bl_Na"
         - "bl_na"
+        - "sodium"
+        - "serum sodium"
+        - "Na"
     allowed_values:
       []
     sensitivity: "none"
@@ -1025,6 +1112,9 @@ display_field_annotations:
         - "s-na within normal value"
         - "Bl_NaNorm"
         - "bl_nanorm"
+        - "sodium within normal range"
+        - "sodium normal range"
+        - "sodium reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -1059,6 +1149,9 @@ display_field_annotations:
         - "s-k"
         - "Bl_K"
         - "bl_k"
+        - "potassium"
+        - "serum potassium"
+        - "K"
     allowed_values:
       []
     sensitivity: "none"
@@ -1093,6 +1186,9 @@ display_field_annotations:
         - "s-k within normal value"
         - "Bl_KNorm"
         - "bl_knorm"
+        - "potassium within normal range"
+        - "potassium normal range"
+        - "potassium reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -1127,6 +1223,9 @@ display_field_annotations:
         - "s-ca, total"
         - "Bl_TotalCa"
         - "bl_totalca"
+        - "total calcium"
+        - "serum calcium"
+        - "calcium total"
     allowed_values:
       []
     sensitivity: "none"
@@ -1161,6 +1260,9 @@ display_field_annotations:
         - "s-ca, total within normal value"
         - "Bl_TotalCaNorm"
         - "bl_totalcanorm"
+        - "total calcium within normal range"
+        - "total calcium normal range"
+        - "total calcium reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -1195,6 +1297,9 @@ display_field_annotations:
         - "s-ca, albumin corrected"
         - "Bl_AlbcorrCa"
         - "bl_albcorrca"
+        - "albumin corrected calcium"
+        - "corrected calcium"
+        - "corrected serum calcium"
     allowed_values:
       []
     sensitivity: "none"
@@ -1229,6 +1334,9 @@ display_field_annotations:
         - "s-ca, albumin corrected within normal value"
         - "Bl_AlbcorrCaNorm"
         - "bl_albcorrcanorm"
+        - "albumin corrected calcium within normal range"
+        - "albumin corrected calcium normal range"
+        - "albumin corrected calcium reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -1263,6 +1371,9 @@ display_field_annotations:
         - "s-kreatinin"
         - "Bl_Kreatinin"
         - "bl_kreatinin"
+        - "creatinine"
+        - "serum creatinine"
+        - "kreatinin"
     allowed_values:
       []
     sensitivity: "none"
@@ -1297,6 +1408,9 @@ display_field_annotations:
         - "s-kreatinin within normal value"
         - "Bl_KreatininNorm"
         - "bl_kreatininnorm"
+        - "creatinine within normal range"
+        - "creatinine normal range"
+        - "creatinine reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -1331,6 +1445,9 @@ display_field_annotations:
         - "gfr"
         - "Bl_GFR"
         - "bl_gfr"
+        - "glomerular filtration rate"
+        - "estimated GFR"
+        - "eGFR"
     allowed_values:
       []
     sensitivity: "none"
@@ -1365,6 +1482,9 @@ display_field_annotations:
         - "gfr within normal value"
         - "Bl_GFRNorm"
         - "bl_gfrnorm"
+        - "GFR within normal range"
+        - "GFR normal range"
+        - "GFR reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -1399,6 +1519,9 @@ display_field_annotations:
         - "s-alat"
         - "Bl_ALAT"
         - "bl_alat"
+        - "alanine aminotransferase"
+        - "ALT"
+        - "serum ALAT"
     allowed_values:
       []
     sensitivity: "none"
@@ -1433,6 +1556,9 @@ display_field_annotations:
         - "s-alat within normal value"
         - "Bl_ALATNorm"
         - "bl_alatnorm"
+        - "ALAT within normal range"
+        - "ALAT normal range"
+        - "ALAT reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -1467,6 +1593,9 @@ display_field_annotations:
         - "s-alp"
         - "Bl_ALP"
         - "bl_alp"
+        - "alkaline phosphatase"
+        - "ALP"
+        - "serum ALP"
     allowed_values:
       []
     sensitivity: "none"
@@ -1501,6 +1630,9 @@ display_field_annotations:
         - "s-alp within normal value"
         - "Bl_ALPNorm"
         - "bl_alpnorm"
+        - "ALP within normal range"
+        - "ALP normal range"
+        - "ALP reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -1535,6 +1667,9 @@ display_field_annotations:
         - "s-probnp"
         - "Bl_proBNP"
         - "bl_probnp"
+        - "proBNP"
+        - "pro-BNP"
+        - "serum proBNP"
     allowed_values:
       []
     sensitivity: "none"
@@ -1569,6 +1704,9 @@ display_field_annotations:
         - "s-probnp within normal value"
         - "Bl_proBNPNorm"
         - "bl_probnpnorm"
+        - "proBNP within normal range"
+        - "proBNP normal range"
+        - "proBNP reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -1603,6 +1741,9 @@ display_field_annotations:
         - "s-cholesterol, total"
         - "Bl_TotChol"
         - "bl_totchol"
+        - "total cholesterol"
+        - "serum cholesterol"
+        - "cholesterol total"
     allowed_values:
       []
     sensitivity: "none"
@@ -1637,6 +1778,9 @@ display_field_annotations:
         - "s-cholesterol, total within normal value"
         - "Bl_TotCholNorm"
         - "bl_totcholnorm"
+        - "total cholesterol within normal range"
+        - "total cholesterol normal range"
+        - "total cholesterol reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -1671,6 +1815,9 @@ display_field_annotations:
         - "s-hdl"
         - "Bl_HDL"
         - "bl_hdl"
+        - "HDL cholesterol"
+        - "high-density lipoprotein"
+        - "HDL"
     allowed_values:
       []
     sensitivity: "none"
@@ -1705,6 +1852,9 @@ display_field_annotations:
         - "s-hdl within normal value"
         - "Bl_HDLNorm"
         - "bl_hdlnorm"
+        - "HDL cholesterol within normal range"
+        - "HDL cholesterol normal range"
+        - "HDL cholesterol reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -1739,6 +1889,9 @@ display_field_annotations:
         - "s-triglycerides"
         - "Bl_Triglys"
         - "bl_triglys"
+        - "triglycerides"
+        - "serum triglycerides"
+        - "triglyceride level"
     allowed_values:
       []
     sensitivity: "none"
@@ -1773,6 +1926,9 @@ display_field_annotations:
         - "s-triglycerides within normal value"
         - "Bl_TriglysNorm"
         - "bl_triglysnorm"
+        - "triglycerides within normal range"
+        - "triglycerides normal range"
+        - "triglycerides reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -1807,6 +1963,9 @@ display_field_annotations:
         - "s-ldl"
         - "Bl_LDL"
         - "bl_ldl"
+        - "LDL cholesterol"
+        - "low-density lipoprotein"
+        - "LDL"
     allowed_values:
       []
     sensitivity: "none"
@@ -1841,6 +2000,9 @@ display_field_annotations:
         - "s-ldl within normal value"
         - "Bl_LDLNorm"
         - "bl_ldlnorm"
+        - "LDL cholesterol within normal range"
+        - "LDL cholesterol normal range"
+        - "LDL cholesterol reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -1875,6 +2037,9 @@ display_field_annotations:
         - "s-albumin"
         - "Bl_Albumin"
         - "bl_albumin"
+        - "albumin"
+        - "serum albumin"
+        - "blood albumin"
     allowed_values:
       []
     sensitivity: "none"
@@ -1909,6 +2074,9 @@ display_field_annotations:
         - "s-albumin within normal value"
         - "Bl_AlbuminNorm"
         - "bl_albuminnorm"
+        - "albumin within normal range"
+        - "albumin normal range"
+        - "albumin reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -1943,6 +2111,9 @@ display_field_annotations:
         - "s-ft4"
         - "Bl_fT4"
         - "bl_ft4"
+        - "free T4"
+        - "thyroxine free T4"
+        - "fT4"
     allowed_values:
       []
     sensitivity: "none"
@@ -1977,6 +2148,9 @@ display_field_annotations:
         - "s-ft4 within normal value"
         - "Bl_fT4Norm"
         - "bl_ft4norm"
+        - "free T4 within normal range"
+        - "free T4 normal range"
+        - "free T4 reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -2011,6 +2185,9 @@ display_field_annotations:
         - "s-tsh"
         - "Bl_TSH"
         - "bl_tsh"
+        - "thyroid-stimulating hormone"
+        - "thyrotropin"
+        - "TSH"
     allowed_values:
       []
     sensitivity: "none"
@@ -2045,6 +2222,9 @@ display_field_annotations:
         - "s-tsh within normal value"
         - "Bl_TSHNorm"
         - "bl_tshnorm"
+        - "TSH within normal range"
+        - "TSH normal range"
+        - "TSH reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -2079,6 +2259,9 @@ display_field_annotations:
         - "s-vitamin d 25-oh-d"
         - "Bl_VitD"
         - "bl_vitd"
+        - "25-hydroxyvitamin D"
+        - "vitamin D 25-OH"
+        - "serum vitamin D"
     allowed_values:
       []
     sensitivity: "none"
@@ -2113,6 +2296,9 @@ display_field_annotations:
         - "s-vitamin d 25-oh-d within normal value"
         - "Bl_VitDNorm"
         - "bl_vitdnorm"
+        - "25-hydroxyvitamin D within normal range"
+        - "25-hydroxyvitamin D normal range"
+        - "25-hydroxyvitamin D reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -2147,6 +2333,9 @@ display_field_annotations:
         - "s-vitamin d 1,25-oh2-d"
         - "Bl_VitD1_25"
         - "bl_vitd1_25"
+        - "1,25-dihydroxyvitamin D"
+        - "calcitriol"
+        - "vitamin D 1,25-OH2"
     allowed_values:
       []
     sensitivity: "none"
@@ -2181,6 +2370,9 @@ display_field_annotations:
         - "s-vitamin d 1,25-oh2-d within normal value"
         - "Bl_VitD1_25Norm"
         - "bl_vitd1_25norm"
+        - "1,25-dihydroxyvitamin D within normal range"
+        - "1,25-dihydroxyvitamin D normal range"
+        - "1,25-dihydroxyvitamin D reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -2215,6 +2407,8 @@ display_field_annotations:
         - "cdt"
         - "Bl_CDT"
         - "bl_cdt"
+        - "carbohydrate-deficient transferrin"
+        - "transferrin glycoform"
     allowed_values:
       []
     sensitivity: "none"
@@ -2249,6 +2443,9 @@ display_field_annotations:
         - "cdt within normal value"
         - "Bl_CDTNorm"
         - "bl_cdtnorm"
+        - "CDT within normal range"
+        - "CDT normal range"
+        - "CDT reference range"
     allowed_values:
       []
     sensitivity: "none"
@@ -2283,6 +2480,9 @@ display_field_annotations:
         - "b-apoe-genotype"
         - "Bl_ApoE"
         - "bl_apoe"
+        - "APOE"
+        - "apolipoprotein E genotype"
+        - "ApoE genotype"
     allowed_values:
       []
     sensitivity: "none"
@@ -2317,6 +2517,9 @@ display_field_annotations:
         - "simoa x 34 plasma mean"
         - "Simoa X 34 Plasma Mean"
         - "SIMOA_X_34_PLASMA_MEAN"
+        - "SIMOA x34 plasma mean"
+        - "x34 plasma concentration"
+        - "x34 plasma average"
     allowed_values:
       []
     sensitivity: "none"
@@ -2351,6 +2554,9 @@ display_field_annotations:
         - "simoa_x_34_plasma_cv"
         - "simoa x 34 plasma CV"
         - "simoa x 34 plasma cv"
+        - "SIMOA x34 plasma coefficient of variation"
+        - "x34 plasma CV"
+        - "x34 plasma assay CV"
     allowed_values:
       []
     sensitivity: "none"
@@ -2385,6 +2591,9 @@ display_field_annotations:
         - "simoa x 34 plasma date"
         - "Simoa X 34 Plasma Date"
         - "SIMOA_X_34_PLASMA_DATE"
+        - "SIMOA x34 plasma analysis date"
+        - "x34 plasma date analyzed"
+        - "x34 plasma assay date"
     allowed_values:
       []
     sensitivity: "none"
@@ -2419,6 +2628,9 @@ display_field_annotations:
         - "simoa x 34 plasma plate"
         - "Simoa X 34 Plasma Plate"
         - "SIMOA_X_34_PLASMA_PLATE"
+        - "SIMOA x34 plasma assay plate"
+        - "x34 plasma plate number"
+        - "x34 plasma plate"
     allowed_values:
       []
     sensitivity: "none"
@@ -2453,6 +2665,9 @@ display_field_annotations:
         - "simoa 20 x plasma mean"
         - "Simoa 20 X Plasma Mean"
         - "SIMOA_20_X_PLASMA_MEAN"
+        - "SIMOA x20 plasma mean"
+        - "x20 plasma concentration"
+        - "x20 plasma average"
     allowed_values:
       []
     sensitivity: "none"
@@ -2487,6 +2702,9 @@ display_field_annotations:
         - "simoa_20_x_plasma_cv"
         - "simoa 20 x plasma CV"
         - "simoa 20 x plasma cv"
+        - "SIMOA x20 plasma coefficient of variation"
+        - "x20 plasma CV"
+        - "x20 plasma assay CV"
     allowed_values:
       []
     sensitivity: "none"
@@ -2521,6 +2739,9 @@ display_field_annotations:
         - "simoa 20 x plasma date"
         - "Simoa 20 X Plasma Date"
         - "SIMOA_20_X_PLASMA_DATE"
+        - "SIMOA x20 plasma analysis date"
+        - "x20 plasma date analyzed"
+        - "x20 plasma assay date"
     allowed_values:
       []
     sensitivity: "none"
@@ -2555,6 +2776,9 @@ display_field_annotations:
         - "simoa 20 x plasma plate"
         - "Simoa 20 X Plasma Plate"
         - "SIMOA_20_X_PLASMA_PLATE"
+        - "SIMOA x20 plasma assay plate"
+        - "x20 plasma plate number"
+        - "x20 plasma plate"
     allowed_values:
       []
     sensitivity: "none"
@@ -2589,6 +2813,9 @@ display_field_annotations:
         - "simoa x 40 plasma mean"
         - "Simoa X 40 Plasma Mean"
         - "SIMOA_X_40_PLASMA_MEAN"
+        - "SIMOA x40 plasma mean"
+        - "x40 plasma concentration"
+        - "x40 plasma average"
     allowed_values:
       []
     sensitivity: "none"
@@ -2623,6 +2850,9 @@ display_field_annotations:
         - "simoa_x_40_plasma_cv"
         - "simoa x 40 plasma CV"
         - "simoa x 40 plasma cv"
+        - "SIMOA x40 plasma coefficient of variation"
+        - "x40 plasma CV"
+        - "x40 plasma assay CV"
     allowed_values:
       []
     sensitivity: "none"
@@ -2657,6 +2887,9 @@ display_field_annotations:
         - "simoa x 40 plasma date"
         - "Simoa X 40 Plasma Date"
         - "SIMOA_X_40_PLASMA_DATE"
+        - "SIMOA x40 plasma analysis date"
+        - "x40 plasma date analyzed"
+        - "x40 plasma assay date"
     allowed_values:
       []
     sensitivity: "none"
@@ -2691,6 +2924,9 @@ display_field_annotations:
         - "simoa x 40 plasma plate"
         - "Simoa X 40 Plasma Plate"
         - "SIMOA_X_40_PLASMA_PLATE"
+        - "SIMOA x40 plasma assay plate"
+        - "x40 plasma plate number"
+        - "x40 plasma plate"
     allowed_values:
       []
     sensitivity: "none"
@@ -2725,6 +2961,8 @@ display_field_annotations:
         - "simoa nfl plasma mean"
         - "Simoa Nfl Plasma Mean"
         - "SIMOA_NFL_PLASMA_MEAN"
+        - "NfL plasma concentration"
+        - "NfL plasma average"
     allowed_values:
       []
     sensitivity: "none"
@@ -2759,6 +2997,9 @@ display_field_annotations:
         - "simoa_nfl_plasma_cv"
         - "simoa nfl plasma CV"
         - "simoa nfl plasma cv"
+        - "SIMOA NfL plasma coefficient of variation"
+        - "NfL plasma CV"
+        - "NfL plasma assay CV"
     allowed_values:
       []
     sensitivity: "none"
@@ -2793,6 +3034,9 @@ display_field_annotations:
         - "simoa nfl plasma date"
         - "Simoa Nfl Plasma Date"
         - "SIMOA_NFL_PLASMA_DATE"
+        - "SIMOA NfL plasma analysis date"
+        - "NfL plasma date analyzed"
+        - "NfL plasma assay date"
     allowed_values:
       []
     sensitivity: "none"
@@ -2827,6 +3071,9 @@ display_field_annotations:
         - "simoa nfl plasma plate"
         - "Simoa Nfl Plasma Plate"
         - "SIMOA_NFL_PLASMA_PLATE"
+        - "SIMOA NfL plasma assay plate"
+        - "NfL plasma plate number"
+        - "NfL plasma plate"
     allowed_values:
       []
     sensitivity: "none"
@@ -2861,6 +3108,8 @@ display_field_annotations:
         - "simoa_ptau181_plasma_mean"
         - "simoa pTau181 plasma mean"
         - "simoa ptau181 plasma mean"
+        - "pTau181 plasma concentration"
+        - "pTau181 plasma average"
     allowed_values:
       []
     sensitivity: "none"
@@ -2896,6 +3145,9 @@ display_field_annotations:
         - "simoa pTau181 plasma CV"
         - "simoa ptau181 plasma cv"
         - "simoa_pTau181_plasma_cv"
+        - "SIMOA pTau181 plasma coefficient of variation"
+        - "pTau181 plasma CV"
+        - "pTau181 plasma assay CV"
     allowed_values:
       []
     sensitivity: "none"
@@ -2930,6 +3182,9 @@ display_field_annotations:
         - "simoa_ptau181_plasma_date"
         - "simoa pTau181 plasma date"
         - "simoa ptau181 plasma date"
+        - "SIMOA pTau181 plasma analysis date"
+        - "pTau181 plasma date analyzed"
+        - "pTau181 plasma assay date"
     allowed_values:
       []
     sensitivity: "none"
@@ -2964,6 +3219,9 @@ display_field_annotations:
         - "simoa_ptau181_plasma_plate"
         - "simoa pTau181 plasma plate"
         - "simoa ptau181 plasma plate"
+        - "SIMOA pTau181 plasma assay plate"
+        - "pTau181 plasma plate number"
+        - "pTau181 plasma plate"
     allowed_values:
       []
     sensitivity: "none"
@@ -2998,6 +3256,8 @@ display_field_annotations:
         - "plgf_plasma_mean"
         - "PlGF plasma mean"
         - "plgf plasma mean"
+        - "placental growth factor plasma concentration"
+        - "placental growth factor plasma average"
     allowed_values:
       []
     sensitivity: "none"
@@ -3033,6 +3293,9 @@ display_field_annotations:
         - "PlGF plasma CV"
         - "plgf plasma cv"
         - "PlGF_plasma_cv"
+        - "PlGF plasma coefficient of variation"
+        - "placental growth factor plasma CV"
+        - "placental growth factor plasma assay CV"
     allowed_values:
       []
     sensitivity: "none"
@@ -3067,6 +3330,9 @@ display_field_annotations:
         - "plgf_plasma_date"
         - "PlGF plasma date"
         - "plgf plasma date"
+        - "PlGF plasma analysis date"
+        - "placental growth factor plasma date analyzed"
+        - "placental growth factor plasma assay date"
     allowed_values:
       []
     sensitivity: "none"
@@ -3101,6 +3367,9 @@ display_field_annotations:
         - "plgf_plasma_plate"
         - "PlGF plasma plate"
         - "plgf plasma plate"
+        - "PlGF plasma assay plate"
+        - "placental growth factor plasma plate number"
+        - "placental growth factor plasma plate"
     allowed_values:
       []
     sensitivity: "none"
@@ -3135,6 +3404,9 @@ display_field_annotations:
         - "vegf_c_plasma_mean"
         - "VEGF C plasma mean"
         - "vegf c plasma mean"
+        - "VEGF-C plasma mean"
+        - "vascular endothelial growth factor C plasma concentration"
+        - "vascular endothelial growth factor C plasma average"
     allowed_values:
       []
     sensitivity: "none"
@@ -3170,6 +3442,9 @@ display_field_annotations:
         - "VEGF C plasma CV"
         - "vegf c plasma cv"
         - "VEGF_C_plasma_cv"
+        - "VEGF-C plasma coefficient of variation"
+        - "vascular endothelial growth factor C plasma CV"
+        - "vascular endothelial growth factor C plasma assay CV"
     allowed_values:
       []
     sensitivity: "none"
@@ -3204,6 +3479,9 @@ display_field_annotations:
         - "vegf_c_plasma_date"
         - "VEGF C plasma date"
         - "vegf c plasma date"
+        - "VEGF-C plasma analysis date"
+        - "vascular endothelial growth factor C plasma date analyzed"
+        - "vascular endothelial growth factor C plasma assay date"
     allowed_values:
       []
     sensitivity: "none"
@@ -3238,6 +3516,9 @@ display_field_annotations:
         - "vegf_c_plasma_plate"
         - "VEGF C plasma plate"
         - "vegf c plasma plate"
+        - "VEGF-C plasma assay plate"
+        - "vascular endothelial growth factor C plasma plate number"
+        - "vascular endothelial growth factor C plasma plate"
     allowed_values:
       []
     sensitivity: "none"
@@ -3272,6 +3553,9 @@ display_field_annotations:
         - "vegf_a_plasma_mean"
         - "VEGF A plasma mean"
         - "vegf a plasma mean"
+        - "VEGF-A plasma mean"
+        - "vascular endothelial growth factor A plasma concentration"
+        - "vascular endothelial growth factor A plasma average"
     allowed_values:
       []
     sensitivity: "none"
@@ -3307,6 +3591,9 @@ display_field_annotations:
         - "VEGF A plasma CV"
         - "vegf a plasma cv"
         - "VEGF_A_plasma_cv"
+        - "VEGF-A plasma coefficient of variation"
+        - "vascular endothelial growth factor A plasma CV"
+        - "vascular endothelial growth factor A plasma assay CV"
     allowed_values:
       []
     sensitivity: "none"
@@ -3341,6 +3628,9 @@ display_field_annotations:
         - "vegf_a_plasma_date"
         - "VEGF A plasma date"
         - "vegf a plasma date"
+        - "VEGF-A plasma analysis date"
+        - "vascular endothelial growth factor A plasma date analyzed"
+        - "vascular endothelial growth factor A plasma assay date"
     allowed_values:
       []
     sensitivity: "none"
@@ -3375,6 +3665,9 @@ display_field_annotations:
         - "vegf_a_plasma_plate"
         - "VEGF A plasma plate"
         - "vegf a plasma plate"
+        - "VEGF-A plasma assay plate"
+        - "vascular endothelial growth factor A plasma plate number"
+        - "vascular endothelial growth factor A plasma plate"
     allowed_values:
       []
     sensitivity: "none"
@@ -3409,6 +3702,8 @@ display_field_annotations:
         - "ugot_p217_plasma_mean"
         - "UGOT p217 plasma mean"
         - "ugot p217 plasma mean"
+        - "p217 plasma concentration"
+        - "p217 plasma average"
     allowed_values:
       []
     sensitivity: "none"
@@ -3443,6 +3738,8 @@ display_field_annotations:
         - "ugot_nfl_plasma_mean"
         - "UGOT NfL plasma mean"
         - "ugot nfl plasma mean"
+        - "NfL plasma concentration"
+        - "NfL plasma average"
     allowed_values:
       []
     sensitivity: "none"
@@ -3477,6 +3774,9 @@ display_field_annotations:
         - "ugot_bd_tau_carboxylated_plasma_mean"
         - "UGOT BD Tau carboxylated plasma mean"
         - "ugot bd tau carboxylated plasma mean"
+        - "UGOT BD-Tau carboxylated plasma mean"
+        - "BD-Tau carboxylated plasma concentration"
+        - "BD-Tau carboxylated plasma average"
     allowed_values:
       []
     sensitivity: "none"
@@ -3511,6 +3811,9 @@ display_field_annotations:
         - "ugot_bd_tau_dyed_plasma_mean"
         - "UGOT BD Tau dyed plasma mean"
         - "ugot bd tau dyed plasma mean"
+        - "UGOT BD-Tau dyed plasma mean"
+        - "BD-Tau dyed plasma concentration"
+        - "BD-Tau dyed plasma average"
     allowed_values:
       []
     sensitivity: "none"
@@ -3545,6 +3848,10 @@ display_field_annotations:
         - "ugot_p181_carboxylated_plasma_mean"
         - "UGOT p181 carboxylated plasma mean"
         - "ugot p181 carboxylated plasma mean"
+        - "p181 carboxylated plasma concentration"
+        - "ptau 181 carboxylated plasma concentration"
+        - "p-tau 181 carboxylated plasma concentration"
+        - "p181 carboxylated plasma average"
     allowed_values:
       []
     sensitivity: "none"
@@ -3575,10 +3882,14 @@ display_field_annotations:
     resolution:
       canonical_name: "ugot_p181_dyed_plasma_mean"
       synonyms:
+        - "Plasma ptau 181 dyed mean (UGOT)"
+        - "Plasma p-tau 181 dyed mean (UGOT)"
         - "UGOT_p181_dyed_plasma_mean"
         - "ugot_p181_dyed_plasma_mean"
         - "UGOT p181 dyed plasma mean"
         - "ugot p181 dyed plasma mean"
+        - "p181 dyed plasma concentration"
+        - "p181 dyed plasma average"
     allowed_values:
       []
     sensitivity: "none"
@@ -3589,7 +3900,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Plasma p231 carboxylated mean (UGOT)"
-    definition: "Measured biochemistry value for Plasma p231 carboxylated mean (UGOT)."
+    definition: "Plasma p-tau-231 carboxylated mean (UGOT)."
     source:
       schema_element: "bioch:blData/UGOT_p231_carboxylated_plasma/mean"
       display_field_elements:
@@ -3613,6 +3924,9 @@ display_field_annotations:
         - "ugot_p231_carboxylated_plasma_mean"
         - "UGOT p231 carboxylated plasma mean"
         - "ugot p231 carboxylated plasma mean"
+        - "p231 carboxylated plasma concentration"
+        - "p231 carboxylated plasma average"
+        - "Plasma p-tau 231 carboxylated mean (UGOT)"
     allowed_values:
       []
     sensitivity: "none"
@@ -3623,7 +3937,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Plasma GFAP mean (UGOT)"
-    definition: "Measured biochemistry value for Plasma GFAP mean (UGOT)."
+    definition: "Mean Plasma Growth Glial fibrillary acidic protein (GFAP) (UGOT)."
     source:
       schema_element: "bioch:blData/UGOT_GFAP_plasma/mean"
       display_field_elements:
@@ -3647,6 +3961,10 @@ display_field_annotations:
         - "ugot_gfap_plasma_mean"
         - "UGOT GFAP plasma mean"
         - "ugot gfap plasma mean"
+        - "GFAP plasma concentration"
+        - "Growth Glial fibrillary acidic protein plasma concentration"
+        - "GFAP plasma average"
+        - "Growth Glial fibrillary acidic protein plasma average"
     allowed_values:
       []
     sensitivity: "none"
