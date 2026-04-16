@@ -1,2 +1,14 @@
-.venv
-.vscode
+.venv/
+.vscode/
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+
+# Packaging/build artifacts
+*.egg-info/
+build/
+dist/
+
+# macOS metadata
+.DS_Store
