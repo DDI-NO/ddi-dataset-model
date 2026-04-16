@@ -36,6 +36,10 @@ display_field_annotations:
         - "Date"
         - "date"
         - "DATE"
+        - "Date Amyloid-PET"
+        - "Amyloid-PET date"
+        - "Amyloid PET date"
+        - "assessment date"
     allowed_values:
       []
     sensitivity: "none"
@@ -71,6 +75,10 @@ display_field_annotations:
         - "Age"
         - "age"
         - "AGE"
+        - "participant age"
+        - "subject age"
+        - "age at Amyloid-PET"
+        - "age at assessment"
     allowed_values:
       []
     sensitivity: "none"
@@ -105,6 +113,10 @@ display_field_annotations:
         - "tracer"
         - "AMYPET_TRACER"
         - "amypet_tracer"
+        - "radiotracer"
+        - "PET tracer"
+        - "Amyloid-PET tracer"
+        - "amyloid tracer"
     allowed_values:
       []
     sensitivity: "none"
@@ -139,6 +151,10 @@ display_field_annotations:
         - "tracer other"
         - "AMYPET_TRACER_OTHER"
         - "amypet_tracer_other"
+        - "Tracer (other)"
+        - "other tracer"
+        - "other radiotracer"
+        - "specify other tracer"
     allowed_values:
       []
     sensitivity: "none"
@@ -173,6 +189,10 @@ display_field_annotations:
         - "previous date"
         - "AMYPET_PREV_DATE"
         - "amypet_prev_date"
+        - "date of previous PET used for comparison"
+        - "previous PET date"
+        - "prior PET date"
+        - "comparison PET date"
     allowed_values:
       []
     sensitivity: "none"
@@ -207,6 +227,10 @@ display_field_annotations:
         - "conclusion"
         - "AMYPET_CONCLU"
         - "amypet_conclu"
+        - "overall interpretation"
+        - "Amyloid-PET interpretation"
+        - "Amyloid PET result"
+        - "amyloid status"
     allowed_values:
       []
     sensitivity: "none"
