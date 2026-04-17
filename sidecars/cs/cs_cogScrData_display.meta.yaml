@@ -1985,7 +1985,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "CERAD Learning"
-    definition: "Cognitive screening measure for CERAD Learning."
+    definition: "CERAD Learning Total."
     source:
       schema_element: null
       display_field_elements:
@@ -2057,9 +2057,7 @@ display_field_annotations:
         - "CERAD_Learning_regr_t_score"
         - "cerad_learning_regr_t_score"
     allowed_values:
-      - "M"
-      - "F"
-      - "U"
+      []
     sensitivity: "none"
     quality:
       notes: null
@@ -3195,7 +3193,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "CERAD Recognition DDI percentile"
-    definition: "Percentile score for CERAD Recognition DDI."
+    definition: "Percentile score for CERAD Recognition in the DDI cohort."
     source:
       schema_element: "cs:cogScrData.date"
       display_field_elements:
@@ -3233,9 +3231,7 @@ display_field_annotations:
         - "CERAD_recog_DDI_percentile"
         - "cerad_recog_ddi_percentile"
     allowed_values:
-      - "M"
-      - "F"
-      - "U"
+      []
     sensitivity: "none"
     quality:
       notes: null
@@ -3244,7 +3240,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "CDT score"
-    definition: "Score for CDT."
+    definition: "Score for Clock Drawing Test (CDT)."
     source:
       schema_element: null
       display_field_elements:
@@ -3258,7 +3254,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "numeric"
+      value_type: "integer"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -3278,7 +3274,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "TMT-A Seconds"
-    definition: "Cognitive screening measure for TMT-A Seconds."
+    definition: "Recorded seconds for completing TMT-A."
     source:
       schema_element: null
       display_field_elements:
@@ -3292,13 +3288,15 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
-      units: null
+      value_type: "numeric"
+      units: "seconds"
       preferred_representation: "raw"
     resolution:
       canonical_name: "tmta_sec"
       synonyms:
+        - "TMT-A Seconds"
         - "TMTA Seconds"
+        - "tmt-a seconds"
         - "tmta seconds"
         - "TMTA_Sec"
         - "tmta_sec"
@@ -3312,7 +3310,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "TMT-A Mistakes"
-    definition: "Cognitive screening measure for TMT-A Mistakes."
+    definition: "Number of mistakes made during TMT-A."
     source:
       schema_element: null
       display_field_elements:
@@ -3326,12 +3324,13 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "integer"
       units: null
       preferred_representation: "raw"
     resolution:
       canonical_name: "tmta_mistake"
       synonyms:
+        - "TMT-A Mistakes"
         - "TMTA Mistakes"
         - "tmta mistakes"
         - "TMTA_Mistake"
@@ -3346,7 +3345,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "TMT-A Failed"
-    definition: "Cognitive screening measure for TMT-A Failed."
+    definition: "Flag indicating if the patient was not able to complete TMT-A."
     source:
       schema_element: null
       display_field_elements:
@@ -3360,14 +3359,16 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "integer"
       units: null
       preferred_representation: "raw"
     resolution:
       canonical_name: "tmta_failed"
       synonyms:
         - "TMTA Failed"
+        - "TMT-A Failed"
         - "tmta failed"
+        - "tmt-a failed"
         - "TMTA_Failed"
         - "tmta_failed"
     allowed_values:
@@ -3380,7 +3381,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "TMT-B Seconds"
-    definition: "Cognitive screening measure for TMT-B Seconds."
+    definition: "Recorded seconds for completing TMT-B."
     source:
       schema_element: null
       display_field_elements:
@@ -3394,14 +3395,14 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
-      units: null
+      value_type: "numeric"
+      units: "seconds"
       preferred_representation: "raw"
     resolution:
       canonical_name: "tmtb_sec"
       synonyms:
         - "TMTB Seconds"
-        - "tmtb seconds"
+        - "tmt-b seconds"
         - "TMTB_Sec"
         - "tmtb_sec"
     allowed_values:
@@ -3414,7 +3415,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "TMT-B Mistakes"
-    definition: "Cognitive screening measure for TMT-B Mistakes."
+    definition: "Number of mistakes made during TMT-B."
     source:
       schema_element: null
       display_field_elements:
@@ -3428,13 +3429,15 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
       canonical_name: "tmtb_mistake"
       synonyms:
         - "TMTB Mistakes"
+        - "TMT-B Mistakes"
+        - "tmt-b mistakes"
         - "tmtb mistakes"
         - "TMTB_Mistake"
         - "tmtb_mistake"
@@ -3448,7 +3451,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "TMT-B Failed"
-    definition: "Cognitive screening measure for TMT-B Failed."
+    definition: "Flag indicating if the patient was not able to complete TMT-B."
     source:
       schema_element: null
       display_field_elements:
@@ -3462,7 +3465,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -3778,7 +3781,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -3846,7 +3849,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -3914,7 +3917,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -3982,7 +3985,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -4050,7 +4053,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -4118,7 +4121,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -4186,7 +4189,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -4254,7 +4257,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -4322,7 +4325,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -4390,7 +4393,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -4458,7 +4461,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -4526,7 +4529,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -4594,7 +4597,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -4662,7 +4665,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -4730,7 +4733,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -4798,7 +4801,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -4866,7 +4869,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -4934,7 +4937,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -5002,7 +5005,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -5070,7 +5073,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -5138,7 +5141,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -5206,7 +5209,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -5274,7 +5277,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -5342,7 +5345,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -5410,7 +5413,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -5478,7 +5481,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -5546,7 +5549,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -5614,7 +5617,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -5682,7 +5685,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -5750,7 +5753,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "cs"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -5840,7 +5843,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "CDR Memory"
-    definition: "Cognitive screening measure for CDR Memory."
+    definition: "CDR Memory."
     source:
       schema_element: null
       display_field_elements:
@@ -5874,7 +5877,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "CDR Orientation"
-    definition: "Cognitive screening measure for CDR Orientation."
+    definition: "CDR Orientation."
     source:
       schema_element: null
       display_field_elements:
@@ -5908,7 +5911,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "CDR Judgement"
-    definition: "Cognitive screening measure for CDR Judgement."
+    definition: "CDR Judgement."
     source:
       schema_element: null
       display_field_elements:
@@ -5942,7 +5945,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "CDR Community Affairs"
-    definition: "Cognitive screening measure for CDR Community Affairs."
+    definition: "CDR Community Affairs."
     source:
       schema_element: null
       display_field_elements:
@@ -5976,7 +5979,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "CDR Home and Hobbies"
-    definition: "Cognitive screening measure for CDR Home and Hobbies."
+    definition: "CDR Home and Hobbies."
     source:
       schema_element: null
       display_field_elements:
@@ -6010,7 +6013,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "CDR Personal Care"
-    definition: "Cognitive screening measure for CDR Personal Care."
+    definition: "CDR Personal Care."
     source:
       schema_element: null
       display_field_elements:
@@ -6078,7 +6081,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Sum of points"
-    definition: "Cognitive screening measure for Sum of points."
+    definition: "Sum of points."
     source:
       schema_element: null
       display_field_elements:
@@ -6112,7 +6115,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "MOCA total"
-    definition: "Cognitive screening measure for MOCA total."
+    definition: "MOCA total."
     source:
       schema_element: "cs:cogScrData/moca_total"
       display_field_elements:
@@ -6145,7 +6148,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Cognitive Screening status"
-    definition: "Status classification for Cognitive Screening."
+    definition: "Indicates the cognitive screening status of the participant based on regression-adjusted T-scores for CERAD Recall, TMTB, COWAT, and VOSP Total. A value of 0 indicates impaired cognitive screening status (T-score < 36), a value of 1 indicates normal cognitive screening status (T-score > 35), and a value of NULL indicates indeterminate cognitive screening status."
     source:
       schema_element: "cs:cogScrData.date"
       display_field_elements:
