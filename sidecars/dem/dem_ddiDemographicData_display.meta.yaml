@@ -27,7 +27,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "dem"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -47,7 +47,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Subject group text"
-    definition: "Label representation derived from coded values."
+    definition: "Label representation of group classification assigned to the participant, derived from coded values."
     source:
       schema_element: "dem:ddiDemographicData/subj_group"
       display_field_elements:
@@ -110,7 +110,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Nation"
-    definition: "Nation recorded for the participant."
+    definition: "Nation recorded for the participant. Integer coded."
     source:
       schema_element: "dem:ddiDemographicData/nation"
       display_field_elements:
@@ -124,7 +124,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "dem"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -177,7 +177,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Language"
-    definition: "Primary language recorded for the participant."
+    definition: "Primary language recorded for the participant. Integer coded."
     source:
       schema_element: "dem:ddiDemographicData/language"
       display_field_elements:
@@ -244,7 +244,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Recruitment"
-    definition: "Recruitment source or pathway recorded for the participant."
+    definition: "Recruitment source or pathway recorded for the participant. Integer coded."
     source:
       schema_element: "dem:ddiDemographicData/recruit"
       display_field_elements:
@@ -258,7 +258,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "dem"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -278,7 +278,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Recruitment Text"
-    definition: "Label representation derived from coded values."
+    definition: "Label representation of recruitment source derived from coded values."
     source:
       schema_element: "dem:ddiDemographicData/recruit"
       display_field_elements:

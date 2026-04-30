@@ -183,7 +183,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Leukocytes"
-    definition: "CSF biochemistry measure for Leukocytes."
+    definition: "Leukocyte count in CSF."
     source:
       schema_element: "csf:CSFData/CSF_Leukoc"
       display_field_elements:
@@ -253,7 +253,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Glucose"
-    definition: "CSF biochemistry measure for Glucose."
+    definition: "Glucose level in CSF."
     source:
       schema_element: "csf:CSFData/CSF_Glu"
       display_field_elements:
@@ -267,13 +267,14 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "csf"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
       canonical_name: "csf_glu"
       synonyms:
         - "CSF_Glu"
+        - "CSF Glucose"
         - "csf_glu"
         - "CSF Glu"
         - "csf glu"
@@ -302,13 +303,14 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "csf"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
       canonical_name: "csf_glunorm"
       synonyms:
         - "CSF_GluNorm"
+        - "CSF Glucose Normal"
         - "csf_glunorm"
         - "CSF GluNorm"
         - "csf glunorm"
@@ -323,7 +325,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Total Protein"
-    definition: "CSF biochemistry measure for Total Protein."
+    definition: "Total Protein level in CSF."
     source:
       schema_element: "csf:CSFData/CSF_TotProt"
       display_field_elements:
@@ -337,13 +339,14 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "csf"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
       canonical_name: "csf_totprot"
       synonyms:
         - "CSF_TotProt"
+        - "CSF Total Protein"
         - "csf_totprot"
         - "CSF TotProt"
         - "csf totprot"
@@ -372,7 +375,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "csf"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -393,7 +396,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Albumin"
-    definition: "CSF biochemistry measure for Albumin."
+    definition: "Albumin level in CSF."
     source:
       schema_element: "csf:CSFData/CSF_Albumin"
       display_field_elements:
@@ -407,13 +410,14 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "csf"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
       canonical_name: "csf_albumin"
       synonyms:
         - "CSF_Albumin"
+        - "CSF Albumin"
         - "csf_albumin"
         - "CSF Albumin"
         - "csf albumin"
@@ -442,13 +446,14 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "csf"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
       canonical_name: "csf_albuminnorm"
       synonyms:
         - "CSF_AlbuminNorm"
+        - "CSF Albumin Normal"
         - "csf_albuminnorm"
         - "CSF AlbuminNorm"
         - "csf albuminnorm"
@@ -463,7 +468,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "CSF/Plasma Albumin Ratio"
-    definition: "CSF biochemistry measure for CSF/Plasma Albumin Ratio."
+    definition: "CSF/Plasma Albumin Ratio."
     source:
       schema_element: "csf:CSFData/albumin_ratio"
       display_field_elements:
@@ -497,7 +502,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Aβ42"
-    definition: "CSF biochemistry measure for Aβ42."
+    definition: "CSF Aβ42 level, ELISA assay."
     source:
       schema_element: "csf:CSFData/CSF_Abeta42"
       display_field_elements:
@@ -511,13 +516,16 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "csf"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
       canonical_name: "csf_abeta42"
       synonyms:
         - "CSF_Abeta42"
+        - "CSF Abeta42"
+        - "ELISA Aβ42"
+        - "ELISA CSF AB42"
         - "csf_abeta42"
         - "CSF Abeta42"
         - "csf abeta42"
@@ -546,7 +554,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "csf"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -567,7 +575,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Aβ40"
-    definition: "CSF biochemistry measure for Aβ40."
+    definition: "CSF Aβ40 level, ELISA assay."
     source:
       schema_element: "csf:CSFData/CSF_Abeta40"
       display_field_elements:
@@ -581,13 +589,15 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "csf"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
       canonical_name: "csf_abeta40"
       synonyms:
         - "CSF_Abeta40"
+        - "ELISA Aβ40"
+        - "ELISA CSF AB40"
         - "csf_abeta40"
         - "CSF Abeta40"
         - "csf abeta40"
@@ -637,7 +647,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Aβ38"
-    definition: "CSF biochemistry measure for Aβ38."
+    definition: "CSF Aβ38 level, ELISA assay."
     source:
       schema_element: "csf:CSFData/CSF_Abeta38"
       display_field_elements:
@@ -651,13 +661,15 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "csf"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
       canonical_name: "csf_abeta38"
       synonyms:
         - "CSF_Abeta38"
+        - "ELISA Aβ38"
+        - "ELISA CSF AB38"
         - "csf_abeta38"
         - "CSF Abeta38"
         - "csf abeta38"
@@ -686,7 +698,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "csf"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -707,7 +719,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Alphasynuclein"
-    definition: "CSF biochemistry measure for Alphasynuclein."
+    definition: "CSF Alphasynuclein level. "
     source:
       schema_element: "csf:CSFData/CSF_Alphasyn"
       display_field_elements:
@@ -721,13 +733,14 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "csf"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
       canonical_name: "csf_alphasyn"
       synonyms:
         - "CSF_Alphasyn"
+        - "CSF Alphasynuclein"
         - "csf_alphasyn"
         - "CSF Alphasyn"
         - "csf alphasyn"
@@ -756,7 +769,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "csf"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -777,7 +790,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Total Tau"
-    definition: "CSF biochemistry measure for Total Tau."
+    definition: "CSF Total Tau level."
     source:
       schema_element: "csf:CSFData/CSF_TotTau"
       display_field_elements:
@@ -791,13 +804,14 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "csf"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
       canonical_name: "csf_tottau"
       synonyms:
         - "CSF_TotTau"
+        - "CSF Total Tau"
         - "csf_tottau"
         - "CSF TotTau"
         - "csf tottau"
@@ -826,7 +840,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "csf"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -847,7 +861,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Phospho Tau"
-    definition: "CSF biochemistry measure for Phospho Tau."
+    definition: "CSF Phospho Tau level."
     source:
       schema_element: "csf:CSFData/CSF_Ptau"
       display_field_elements:
@@ -861,13 +875,14 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "csf"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
       canonical_name: "csf_ptau"
       synonyms:
         - "CSF_Ptau"
+        - "CSF Phospho Tau"
         - "csf_ptau"
         - "CSF Ptau"
         - "csf ptau"
@@ -897,7 +912,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "csf"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -918,7 +933,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Neurofilament Light"
-    definition: "ELISA Neurofilament Light (NFL) concentration in CSF. NFL is a marker of axonal damage and neurodegeneration."
+    definition: "ELISA Neurofilament Light (NFL) concentration in CSF."
     source:
       schema_element: "csf:CSFData/CSF_NFL"
       display_field_elements:
@@ -939,6 +954,9 @@ display_field_annotations:
       canonical_name: "csf_nfl"
       synonyms:
         - "CSF_NFL"
+        - "ELISA NFL"
+        - "ELISA CSF NFL"
+        - "ELISA Neurofilament Light"
         - "csf_nfl"
         - "CSF NFL"
         - "csf nfl"
@@ -966,7 +984,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "csf"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -987,7 +1005,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Cluesterin mean"
-    definition: "CSF biochemistry measure for Cluesterin mean."
+    definition: "Mean Clusterin concentration in CSF."
     source:
       schema_element: "csf:CSFData/clusterin/mean"
       display_field_elements:
@@ -1020,7 +1038,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Clusterin CV"
-    definition: "CSF biochemistry measure for Clusterin CV."
+    definition: "Coefficient of variation for Clusterin concentration in CSF."
     source:
       schema_element: "csf:CSFData/Clusterin/cv"
       display_field_elements:
@@ -1088,7 +1106,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Clusterin plate"
-    definition: "CSF biochemistry measure for Clusterin plate."
+    definition: "Plate number of the assay run for Clusterin"
     source:
       schema_element: "csf:CSFData/Clusterin/plate"
       display_field_elements:
@@ -1121,8 +1139,8 @@ display_field_annotations:
     export:
       column: null
       included_via_display_version: "dump"
-    label: "Fractalkin mean"
-    definition: "CSF biochemistry measure for Fractalkin mean."
+    label: "Fractalkine mean"
+    definition: "Mean Fractalkine concentration in CSF."
     source:
       schema_element: "csf:CSFData/Fractalkin/mean"
       display_field_elements:
@@ -1155,8 +1173,8 @@ display_field_annotations:
     export:
       column: null
       included_via_display_version: "dump"
-    label: "Fractalkin CV"
-    definition: "CSF biochemistry measure for Fractalkin CV."
+    label: "Fractalkine CV"
+    definition: "Coefficient of variation for Fractalkine concentration in CSF."
     source:
       schema_element: "csf:CSFData/Fractalkin/cv"
       display_field_elements:
@@ -1189,8 +1207,8 @@ display_field_annotations:
     export:
       column: null
       included_via_display_version: "dump"
-    label: "Fractalkin date"
-    definition: "Date when the Fractalkin measurement was obtained."
+    label: "Fractalkine date"
+    definition: "Date when the Fractalkine measurement was obtained."
     source:
       schema_element: "csf:CSFData/Fractalkin/date"
       display_field_elements:
@@ -1210,7 +1228,7 @@ display_field_annotations:
     resolution:
       canonical_name: "fractalkin_date"
       synonyms:
-        - "Fractalkin date"
+        - "Fractalkine date"
         - "fractalkin date"
         - "Fractalkin_date"
         - "fractalkin_date"
@@ -1223,8 +1241,8 @@ display_field_annotations:
     export:
       column: null
       included_via_display_version: "dump"
-    label: "Fractalkin plate"
-    definition: "CSF biochemistry measure for Fractalkin plate."
+    label: "Fractalkine plate"
+    definition: "Plate number of the assay run for Fractalkine"
     source:
       schema_element: "csf:CSFData/Fractalkin/plate"
       display_field_elements:
@@ -1244,8 +1262,8 @@ display_field_annotations:
     resolution:
       canonical_name: "fractalkin_plate"
       synonyms:
-        - "Fractalkin plate"
-        - "fractalkin plate"
+        - "Fractalkine plate"
+        - "Fractalkine plate"
         - "Fractalkin_plate"
         - "fractalkin_plate"
     allowed_values:
@@ -1257,8 +1275,8 @@ display_field_annotations:
     export:
       column: null
       included_via_display_version: "dump"
-    label: "YKL40 mean"
-    definition: "CSF biochemistry measure for YKL40 mean."
+    label: "YKL-40 mean"
+    definition: "Mean YKL-40 concentration in CSF."
     source:
       schema_element: "csf:CSFData/YKL40/mean"
       display_field_elements:
@@ -1279,6 +1297,7 @@ display_field_annotations:
       canonical_name: "ykl40_mean"
       synonyms:
         - "YKL40 mean"
+        - "YKL-40 mean"
         - "ykl40 mean"
         - "YKL40_mean"
         - "ykl40_mean"
@@ -1291,8 +1310,8 @@ display_field_annotations:
     export:
       column: null
       included_via_display_version: "dump"
-    label: "YKL40 CV"
-    definition: "CSF biochemistry measure for YKL40 CV."
+    label: "YKL-40 CV"
+    definition: "Coefficient of variation for YKL-40 concentration in CSF."
     source:
       schema_element: "csf:CSFData/YKL40/cv"
       display_field_elements:
@@ -1313,6 +1332,7 @@ display_field_annotations:
       canonical_name: "ykl40_cv"
       synonyms:
         - "YKL40 CV"
+        - "YKL-40 CV"
         - "ykl40 cv"
         - "YKL40_cv"
         - "ykl40_cv"
@@ -1325,8 +1345,8 @@ display_field_annotations:
     export:
       column: null
       included_via_display_version: "dump"
-    label: "YKL40 date"
-    definition: "Date when the YKL40 measurement was obtained."
+    label: "YKL-40 date"
+    definition: "Date when the YKL-40 measurement was obtained."
     source:
       schema_element: "csf:CSFData/YKL40/date"
       display_field_elements:
@@ -1347,6 +1367,7 @@ display_field_annotations:
       canonical_name: "ykl40_date"
       synonyms:
         - "YKL40 date"
+        - "YKL-40 date"
         - "ykl40 date"
         - "YKL40_date"
         - "ykl40_date"
@@ -1359,8 +1380,8 @@ display_field_annotations:
     export:
       column: null
       included_via_display_version: "dump"
-    label: "YKL40 plate"
-    definition: "CSF biochemistry measure for YKL40 plate."
+    label: "YKL-40 plate"
+    definition: "Plate number of the assay run for YKL-40"
     source:
       schema_element: "csf:CSFData/YKL40/plate"
       display_field_elements:
@@ -1381,6 +1402,7 @@ display_field_annotations:
       canonical_name: "ykl40_plate"
       synonyms:
         - "YKL40 plate"
+        - "YKL-40 plate"
         - "ykl40 plate"
         - "YKL40_plate"
         - "ykl40_plate"
@@ -1394,7 +1416,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "MCP1 mean"
-    definition: "CSF biochemistry measure for MCP1 mean."
+    definition: "Mean MCP1 concentration in CSF."
     source:
       schema_element: "csf:CSFData/MCP1/mean"
       display_field_elements:
@@ -1415,6 +1437,7 @@ display_field_annotations:
       canonical_name: "mcp1_mean"
       synonyms:
         - "MCP1 mean"
+        - "Monocyte chemoattractant protein-1 mean"
         - "mcp1 mean"
         - "MCP1_mean"
         - "mcp1_mean"
@@ -1428,7 +1451,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "MCP1 CV"
-    definition: "CSF biochemistry measure for MCP1 CV."
+    definition: "Coefficient of variation for MCP1 concentration in CSF."
     source:
       schema_element: "csf:CSFData/MCP1/cv"
       display_field_elements:
@@ -1449,6 +1472,7 @@ display_field_annotations:
       canonical_name: "mcp1_cv"
       synonyms:
         - "MCP1 CV"
+        - "Monocyte chemoattractant protein-1 CV"
         - "mcp1 cv"
         - "MCP1_cv"
         - "mcp1_cv"
@@ -1483,7 +1507,7 @@ display_field_annotations:
       canonical_name: "mcp1_date"
       synonyms:
         - "MCP1 date"
-        - "mcp1 date"
+        - "Monocyte chemoattractant protein-1 date"
         - "MCP1_date"
         - "mcp1_date"
     allowed_values:
@@ -1496,7 +1520,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "MCP1 plate"
-    definition: "CSF biochemistry measure for MCP1 plate."
+    definition: "Plate number of the assay run for MCP1"
     source:
       schema_element: "csf:CSFData/MCP1/plate"
       display_field_elements:
@@ -1517,6 +1541,7 @@ display_field_annotations:
       canonical_name: "mcp1_plate"
       synonyms:
         - "MCP1 plate"
+        - "Monocyte chemoattractant protein-1 plate"
         - "mcp1 plate"
         - "MCP1_plate"
         - "mcp1_plate"
@@ -1530,7 +1555,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "TNFa mean"
-    definition: "CSF biochemistry measure for TNFa mean."
+    definition: "Mean TNFa concentration in CSF."
     source:
       schema_element: "csf:CSFData/TNFa/mean"
       display_field_elements:
@@ -1551,6 +1576,8 @@ display_field_annotations:
       canonical_name: "tnfa_mean"
       synonyms:
         - "TNFa mean"
+        - "Tumor necrosis factor alpha mean"
+        - "TNF-α"
         - "tnfa mean"
         - "TNFa_mean"
         - "tnfa_mean"
@@ -1564,7 +1591,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "TNFa CV"
-    definition: "CSF biochemistry measure for TNFa CV."
+    definition: "Coefficient of variation for TNFa concentration in CSF."
     source:
       schema_element: "csf:CSFData/TNFa/cv"
       display_field_elements:
@@ -1585,6 +1612,7 @@ display_field_annotations:
       canonical_name: "tnfa_cv"
       synonyms:
         - "TNFa CV"
+        - "Tumor necrosis factor alpha CV"
         - "tnfa cv"
         - "TNFa_cv"
         - "tnfa_cv"
@@ -1632,7 +1660,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "TNFa plate"
-    definition: "CSF biochemistry measure for TNFa plate."
+    definition: "Plate number of the assay run for TNFa"
     source:
       schema_element: "csf:CSFData/TNFa/plate"
       display_field_elements:
@@ -1666,7 +1694,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IFNb mean"
-    definition: "CSF biochemistry measure for IFNb mean."
+    definition: "Mean IFNb concentration in CSF."
     source:
       schema_element: "csf:CSFData/IFNb/mean"
       display_field_elements:
@@ -1687,6 +1715,8 @@ display_field_annotations:
       canonical_name: "ifnb_mean"
       synonyms:
         - "IFNb mean"
+        - "Interferon beta mean"
+        - "IFN-β"
         - "ifnb mean"
         - "IFNb_mean"
         - "ifnb_mean"
@@ -1700,7 +1730,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IFNb CV"
-    definition: "CSF biochemistry measure for IFNb CV."
+    definition: "Coefficient of variation for IFNb concentration in CSF."
     source:
       schema_element: "csf:CSFData/IFNb/cv"
       display_field_elements:
@@ -1768,7 +1798,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IFNb plate"
-    definition: "CSF biochemistry measure for IFNb plate."
+    definition: "Plate number of the assay run for IFNb"
     source:
       schema_element: "csf:CSFData/IFNb/plate"
       display_field_elements:
@@ -1802,7 +1832,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IFN gamma mean"
-    definition: "CSF biochemistry measure for IFN gamma mean."
+    definition: "Mean IFN gamma concentration in CSF."
     source:
       schema_element: "csf:CSFData/IFN_gamma/mean"
       display_field_elements:
@@ -1838,7 +1868,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IFN gamma CV"
-    definition: "CSF biochemistry measure for IFN gamma CV."
+    definition: "Coefficient of variation for IFN gamma concentration in CSF."
     source:
       schema_element: "csf:CSFData/IFN_gamma/cv"
       display_field_elements:
@@ -1910,7 +1940,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IFN gamma plate"
-    definition: "CSF biochemistry measure for IFN gamma plate."
+    definition: "Plate number of the assay run for IFN gamma"
     source:
       schema_element: "csf:CSFData/IFN_gamma/plate"
       display_field_elements:
@@ -1946,7 +1976,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IL1b mean"
-    definition: "CSF biochemistry measure for IL1b mean."
+    definition: "Mean IL1b concentration in CSF."
     source:
       schema_element: "csf:CSFData/IL1b/mean"
       display_field_elements:
@@ -1967,6 +1997,8 @@ display_field_annotations:
       canonical_name: "il1b_mean"
       synonyms:
         - "IL1b mean"
+        - "Interleukin-1 beta"
+        - "IL-1β"
         - "il1b mean"
         - "IL1b_mean"
         - "il1b_mean"
@@ -1980,7 +2012,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IL1b CV"
-    definition: "CSF biochemistry measure for IL1b CV."
+    definition: "Coefficient of variation for IL1b concentration in CSF."
     source:
       schema_element: "csf:CSFData/IL1b/cv"
       display_field_elements:
@@ -2048,7 +2080,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IL1b plate"
-    definition: "CSF biochemistry measure for IL1b plate."
+    definition: "Plate number of the assay run for IL1b"
     source:
       schema_element: "csf:CSFData/IL1b/plate"
       display_field_elements:
@@ -2082,7 +2114,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IL6 mean"
-    definition: "CSF biochemistry measure for IL6 mean."
+    definition: "Mean IL6 concentration in CSF."
     source:
       schema_element: "csf:CSFData/IL6/mean"
       display_field_elements:
@@ -2103,6 +2135,8 @@ display_field_annotations:
       canonical_name: "il6_mean"
       synonyms:
         - "IL6 mean"
+        - "Interleukin-6 mean"
+        - "IL-6"
         - "il6 mean"
         - "IL6_mean"
         - "il6_mean"
@@ -2116,7 +2150,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IL6 CV"
-    definition: "CSF biochemistry measure for IL6 CV."
+    definition: "Coefficient of variation for IL6 concentration in CSF."
     source:
       schema_element: "csf:CSFData/IL6/cv"
       display_field_elements:
@@ -2184,7 +2218,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IL6 plate"
-    definition: "CSF biochemistry measure for IL6 plate."
+    definition: "Plate number of the assay run for IL6"
     source:
       schema_element: "csf:CSFData/IL6/plate"
       display_field_elements:
@@ -2218,7 +2252,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IL10 mean"
-    definition: "CSF biochemistry measure for IL10 mean."
+    definition: "Mean IL10 concentration in CSF."
     source:
       schema_element: "csf:CSFData/IL10/mean"
       display_field_elements:
@@ -2239,6 +2273,8 @@ display_field_annotations:
       canonical_name: "il10_mean"
       synonyms:
         - "IL10 mean"
+        - "Interleukin-10 mean"
+        - "IL-10"
         - "il10 mean"
         - "IL10_mean"
         - "il10_mean"
@@ -2252,7 +2288,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IL10 CV"
-    definition: "CSF biochemistry measure for IL10 CV."
+    definition: "Coefficient of variation for IL10 concentration in CSF."
     source:
       schema_element: "csf:CSFData/IL10/cv"
       display_field_elements:
@@ -2320,7 +2356,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IL10 plate"
-    definition: "CSF biochemistry measure for IL10 plate."
+    definition: "Plate number of the assay run for IL10"
     source:
       schema_element: "csf:CSFData/IL10/plate"
       display_field_elements:
@@ -2354,7 +2390,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IL12p70 mean"
-    definition: "CSF biochemistry measure for IL12p70 mean."
+    definition: "Mean IL12p70 concentration in CSF."
     source:
       schema_element: "csf:CSFData/IL12p70/mean"
       display_field_elements:
@@ -2375,6 +2411,8 @@ display_field_annotations:
       canonical_name: "il12p70_mean"
       synonyms:
         - "IL12p70 mean"
+        - "Interleukin-12 p70 mean"
+        - "IL-12p70"
         - "il12p70 mean"
         - "IL12p70_mean"
         - "il12p70_mean"
@@ -2388,7 +2426,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IL12p70 CV"
-    definition: "CSF biochemistry measure for IL12p70 CV."
+    definition: "Coefficient of variation for IL12p70 concentration in CSF."
     source:
       schema_element: "csf:CSFData/IL12p70/cv"
       display_field_elements:
@@ -2456,7 +2494,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IL12p70 plate"
-    definition: "CSF biochemistry measure for IL12p70 plate."
+    definition: "Plate number of the assay run for IL12p70"
     source:
       schema_element: "csf:CSFData/IL12p70/plate"
       display_field_elements:
@@ -2490,7 +2528,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IL13 mean"
-    definition: "CSF biochemistry measure for IL13 mean."
+    definition: "Mean IL13 concentration in CSF."
     source:
       schema_element: "csf:CSFData/IL13/mean"
       display_field_elements:
@@ -2512,6 +2550,8 @@ display_field_annotations:
       synonyms:
         - "IL13 mean"
         - "il13 mean"
+        - "Interleukin-13 mean"
+        - "IL-13"
         - "IL13_mean"
         - "il13_mean"
     allowed_values:
@@ -2524,7 +2564,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IL13 CV"
-    definition: "CSF biochemistry measure for IL13 CV."
+    definition: "Coefficient of variation for IL13 concentration in CSF."
     source:
       schema_element: "csf:CSFData/IL13/cv"
       display_field_elements:
@@ -2592,7 +2632,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IL13 plate"
-    definition: "CSF biochemistry measure for IL13 plate."
+    definition: "Plate number of the assay run for IL13"
     source:
       schema_element: "csf:CSFData/IL13/plate"
       display_field_elements:
@@ -2626,7 +2666,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IL18 mean"
-    definition: "CSF biochemistry measure for IL18 mean."
+    definition: "Mean IL18 concentration in CSF."
     source:
       schema_element: "csf:CSFData/IL18/mean"
       display_field_elements:
@@ -2648,6 +2688,8 @@ display_field_annotations:
       synonyms:
         - "IL18 mean"
         - "il18 mean"
+        - "Interleukin-18 mean"
+        - "IL-18"
         - "IL18_mean"
         - "il18_mean"
     allowed_values:
@@ -2660,7 +2702,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IL18 CV"
-    definition: "CSF biochemistry measure for IL18 CV."
+    definition: "Coefficient of variation for IL18 concentration in CSF."
     source:
       schema_element: "csf:CSFData/IL18/cv"
       display_field_elements:
@@ -2728,7 +2770,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "IL18 plate"
-    definition: "CSF biochemistry measure for IL18 plate."
+    definition: "Plate number of the assay run for IL18"
     source:
       schema_element: "csf:CSFData/IL18/plate"
       display_field_elements:
@@ -2762,7 +2804,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "TREM2 mean"
-    definition: "CSF biochemistry measure for TREM2 mean."
+    definition: "Mean TREM2 concentration in CSF."
     source:
       schema_element: "csf:CSFData/TREM2/mean"
       display_field_elements:
@@ -2783,6 +2825,8 @@ display_field_annotations:
       canonical_name: "trem2_mean"
       synonyms:
         - "TREM2 mean"
+        - "Triggering receptor expressed on myeloid cells 2 mean"
+        - "sTREM2"
         - "trem2 mean"
         - "TREM2_mean"
         - "trem2_mean"
@@ -2796,7 +2840,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "TREM2 CV"
-    definition: "CSF biochemistry measure for TREM2 CV."
+    definition: "Coefficient of variation for TREM2 concentration in CSF."
     source:
       schema_element: "csf:CSFData/TREM2/cv"
       display_field_elements:
@@ -2864,7 +2908,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "TREM2 plate"
-    definition: "CSF biochemistry measure for TREM2 plate."
+    definition: "Plate number of the assay run for TREM2"
     source:
       schema_element: "csf:CSFData/TREM2/plate"
       display_field_elements:
@@ -2898,7 +2942,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "MMP9 mean"
-    definition: "CSF biochemistry measure for MMP9 mean."
+    definition: "Mean MMP9 concentration in CSF."
     source:
       schema_element: "csf:CSFData/MMP9/mean"
       display_field_elements:
@@ -2919,6 +2963,7 @@ display_field_annotations:
       canonical_name: "mmp9_mean"
       synonyms:
         - "MMP9 mean"
+        - "Matrix metallopeptidase 9 mean"
         - "mmp9 mean"
         - "MMP9_mean"
         - "mmp9_mean"
@@ -2932,7 +2977,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "MMP9 CV"
-    definition: "CSF biochemistry measure for MMP9 CV."
+    definition: "Coefficient of variation for MMP9 concentration in CSF."
     source:
       schema_element: "csf:CSFData/MMP9/cv"
       display_field_elements:
@@ -3000,7 +3045,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "MMP9 plate"
-    definition: "CSF biochemistry measure for MMP9 plate."
+    definition: "Plate number of the assay run for MMP9"
     source:
       schema_element: "csf:CSFData/MMP9/plate"
       display_field_elements:
@@ -3034,7 +3079,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "TIMP1 mean"
-    definition: "CSF biochemistry measure for TIMP1 mean."
+    definition: "Mean TIMP1 concentration in CSF."
     source:
       schema_element: "csf:CSFData/TIMP1/mean"
       display_field_elements:
@@ -3055,6 +3100,8 @@ display_field_annotations:
       canonical_name: "timp1_mean"
       synonyms:
         - "TIMP1 mean"
+        - "Tissue inhibitor of metalloproteinases 1 mean"
+        - "TIMP-1"
         - "timp1 mean"
         - "TIMP1_mean"
         - "timp1_mean"
@@ -3068,7 +3115,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "TIMP1 CV"
-    definition: "CSF biochemistry measure for TIMP1 CV."
+    definition: "Coefficient of variation for TIMP1 concentration in CSF."
     source:
       schema_element: "csf:CSFData/TIMP1/cv"
       display_field_elements:
@@ -3136,7 +3183,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "TIMP1 plate"
-    definition: "CSF biochemistry measure for TIMP1 plate."
+    definition: "Plate number of the assay run for TIMP1"
     source:
       schema_element: "csf:CSFData/TIMP1/plate"
       display_field_elements:
@@ -3170,7 +3217,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "BACE mean"
-    definition: "CSF biochemistry measure for BACE mean."
+    definition: "Mean BACE concentration in CSF."
     source:
       schema_element: "csf:CSFData/BACE/mean"
       display_field_elements:
@@ -3191,6 +3238,9 @@ display_field_annotations:
       canonical_name: "bace_mean"
       synonyms:
         - "BACE mean"
+        - "Beta-site APP cleaving enzyme 1 mean"
+        - "Beta-secretase 1 mean"
+        - "BACE1"
         - "bace mean"
         - "BACE_mean"
         - "bace_mean"
@@ -3204,7 +3254,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "BACE CV"
-    definition: "CSF biochemistry measure for BACE CV."
+    definition: "Coefficient of variation for BACE concentration in CSF."
     source:
       schema_element: "csf:CSFData/BACE/cv"
       display_field_elements:
@@ -3272,7 +3322,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "BACE plate"
-    definition: "CSF biochemistry measure for BACE plate."
+    definition: "Plate number of the assay run for BACE"
     source:
       schema_element: "csf:CSFData/BACE/plate"
       display_field_elements:
@@ -3306,7 +3356,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "NG mean"
-    definition: "CSF biochemistry measure for NG mean."
+    definition: "Mean NG concentration in CSF."
     source:
       schema_element: "csf:CSFData/NG/mean"
       display_field_elements:
@@ -3327,6 +3377,8 @@ display_field_annotations:
       canonical_name: "ng_mean"
       synonyms:
         - "NG mean"
+        - "Neurogranin mean"
+        - "NGRN"
         - "ng mean"
         - "NG_mean"
         - "ng_mean"
@@ -3340,7 +3392,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "NG CV"
-    definition: "CSF biochemistry measure for NG CV."
+    definition: "Coefficient of variation for NG concentration in CSF."
     source:
       schema_element: "csf:CSFData/NG/cv"
       display_field_elements:
@@ -3408,7 +3460,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "NG plate"
-    definition: "CSF biochemistry measure for NG plate."
+    definition: "Plate number of the assay run for NG"
     source:
       schema_element: "csf:CSFData/NG/plate"
       display_field_elements:
@@ -3442,7 +3494,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale Aß 38 mean"
-    definition: "CSF biochemistry measure for Mesoscale Aß 38 mean."
+    definition: "Mean Mesoscale Aß 38 concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_AB_38/mean"
       display_field_elements:
@@ -3478,7 +3530,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale Aß 38 CV"
-    definition: "CSF biochemistry measure for Mesoscale Aß 38 CV."
+    definition: "Coefficient of variation for Mesoscale Aß 38 concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_AB_38/cv"
       display_field_elements:
@@ -3550,7 +3602,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale Aß 38 plate"
-    definition: "CSF biochemistry measure for Mesoscale Aß 38 plate."
+    definition: "Plate number of the assay run for Mesoscale Aß 38"
     source:
       schema_element: "csf:CSFData/MSD_AB_38/plate"
       display_field_elements:
@@ -3586,7 +3638,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale Aß 40 mean"
-    definition: "CSF biochemistry measure for Mesoscale Aß 40 mean."
+    definition: "Mean Mesoscale Aß 40 concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_AB_40/mean"
       display_field_elements:
@@ -3622,7 +3674,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale Aß 40 CV"
-    definition: "CSF biochemistry measure for Mesoscale Aß 40 CV."
+    definition: "Coefficient of variation for Mesoscale Aß 40 concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_AB_40/cv"
       display_field_elements:
@@ -3694,7 +3746,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale Aß 40 plate"
-    definition: "CSF biochemistry measure for Mesoscale Aß 40 plate."
+    definition: "Plate number of the assay run for Mesoscale Aß 40"
     source:
       schema_element: "csf:CSFData/MSD_AB_40/plate"
       display_field_elements:
@@ -3730,7 +3782,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale Aß 42 mean"
-    definition: "CSF biochemistry measure for Mesoscale Aß 42 mean."
+    definition: "Mean Mesoscale Aß 42 concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_AB_42/mean"
       display_field_elements:
@@ -3766,7 +3818,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale Aß 42 CV"
-    definition: "CSF biochemistry measure for Mesoscale Aß 42 CV."
+    definition: "Coefficient of variation for Mesoscale Aß 42 concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_AB_42/cv"
       display_field_elements:
@@ -3838,7 +3890,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale Aß 42 plate"
-    definition: "CSF biochemistry measure for Mesoscale Aß 42 plate."
+    definition: "Plate number of the assay run for Mesoscale Aß 42"
     source:
       schema_element: "csf:CSFData/MSD_AB_42/plate"
       display_field_elements:
@@ -3874,7 +3926,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale X_34 mean"
-    definition: "CSF biochemistry measure for Mesoscale X 34 mean."
+    definition: "Mean Mesoscale X 34 concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_X_34/mean"
       display_field_elements:
@@ -3910,7 +3962,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale X_34 CV"
-    definition: "CSF biochemistry measure for Mesoscale X 34 CV."
+    definition: "Coefficient of variation for Mesoscale X 34 concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_X_34/cv"
       display_field_elements:
@@ -3982,7 +4034,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale X_34 plate"
-    definition: "CSF biochemistry measure for Mesoscale X 34 plate."
+    definition: "Plate number of the assay run for Mesoscale X 34"
     source:
       schema_element: "csf:CSFData/MSD_X_34/plate"
       display_field_elements:
@@ -4018,7 +4070,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale 20_X mean"
-    definition: "CSF biochemistry measure for Mesoscale 20 X mean."
+    definition: "Mean Mesoscale 20 X concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_20_X/mean"
       display_field_elements:
@@ -4054,7 +4106,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale 20_X CV"
-    definition: "CSF biochemistry measure for Mesoscale 20 X CV."
+    definition: "Coefficient of variation for Mesoscale 20 X concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_20_X/cv"
       display_field_elements:
@@ -4126,7 +4178,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale 20_X plate"
-    definition: "CSF biochemistry measure for Mesoscale 20 X plate."
+    definition: "Plate number of the assay run for Mesoscale 20 X"
     source:
       schema_element: "csf:CSFData/MSD_20_X/plate"
       display_field_elements:
@@ -4162,7 +4214,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale X_40 mean"
-    definition: "CSF biochemistry measure for Mesoscale X 40 mean."
+    definition: "Mean Mesoscale X 40 concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_X_40/mean"
       display_field_elements:
@@ -4198,7 +4250,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale X_40 CV"
-    definition: "CSF biochemistry measure for Mesoscale X 40 CV."
+    definition: "Coefficient of variation for Mesoscale X 40 concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_X_40/cv"
       display_field_elements:
@@ -4270,7 +4322,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale X_40 plate"
-    definition: "CSF biochemistry measure for Mesoscale X 40 plate."
+    definition: "Plate number of the assay run for Mesoscale X 40"
     source:
       schema_element: "csf:CSFData/MSD_X_40/plate"
       display_field_elements:
@@ -4306,7 +4358,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale NfL mean"
-    definition: "CSF biochemistry measure for Mesoscale Nf L mean."
+    definition: "Mean Mesoscale Nf L concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_NfL/mean"
       display_field_elements:
@@ -4327,6 +4379,8 @@ display_field_annotations:
       canonical_name: "msd_nfl_mean"
       synonyms:
         - "MSD_NfL mean"
+        - "Mesoscale NfL mean"
+        - "Neurofilament light chain mean"
         - "msd_nfl mean"
         - "MSD NfL mean"
         - "msd nfl mean"
@@ -4342,7 +4396,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale NfL CV"
-    definition: "CSF biochemistry measure for Mesoscale Nf L CV."
+    definition: "Coefficient of variation for Mesoscale Nf L concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_NfL/cv"
       display_field_elements:
@@ -4414,7 +4468,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale NfL plate"
-    definition: "CSF biochemistry measure for Mesoscale Nf L plate."
+    definition: "Plate number of the assay run for Mesoscale Nf L"
     source:
       schema_element: "csf:CSFData/MSD_NfL/plate"
       display_field_elements:
@@ -4450,7 +4504,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale GFAP mean"
-    definition: "CSF biochemistry measure for Mesoscale GFAP mean."
+    definition: "Mean Mesoscale GFAP concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_GFAP/mean"
       display_field_elements:
@@ -4471,6 +4525,8 @@ display_field_annotations:
       canonical_name: "msd_gfap_mean"
       synonyms:
         - "MSD_GFAP_mean"
+        - "Glial fibrillary acidic protein"
+        - "Mesoscale GFAP mean"
         - "msd_gfap_mean"
         - "MSD GFAP mean"
         - "msd gfap mean"
@@ -4484,7 +4540,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale GFAP CV"
-    definition: "CSF biochemistry measure for Mesoscale GFAP CV."
+    definition: "Coefficient of variation for Mesoscale GFAP concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_GFAP/cv"
       display_field_elements:
@@ -4556,7 +4612,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale GFAP plate"
-    definition: "CSF biochemistry measure for Mesoscale GFAP plate."
+    definition: "Plate number of the assay run for Mesoscale GFAP"
     source:
       schema_element: "csf:CSFData/MSD_GFAP/plate"
       display_field_elements:
@@ -4592,7 +4648,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale PDGFRBETA mean"
-    definition: "CSF biochemistry measure for Mesoscale PDGFRBETA mean."
+    definition: "Mean Mesoscale PDGFRBETA concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_PDGFRBETA/mean"
       display_field_elements:
@@ -4613,6 +4669,9 @@ display_field_annotations:
       canonical_name: "msd_pdgfrbeta_mean"
       synonyms:
         - "MSD_PDGFRBETA_mean"
+        - "Mesoscale PDGFRBETA mean"
+        - "PDGFR-beta"
+        - "Platelet-derived growth factor receptor beta mean"
         - "msd_pdgfrbeta_mean"
         - "MSD PDGFRBETA mean"
         - "msd pdgfrbeta mean"
@@ -4626,7 +4685,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale PDGFRBETA CV"
-    definition: "CSF biochemistry measure for Mesoscale PDGFRBETA CV."
+    definition: "Coefficient of variation for Mesoscale PDGFRBETA concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_PDGFRBETA/cv"
       display_field_elements:
@@ -4698,7 +4757,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale PDGFRBETA plate"
-    definition: "CSF biochemistry measure for Mesoscale PDGFRBETA plate."
+    definition: "Plate number of the assay run for Mesoscale PDGFRBETA"
     source:
       schema_element: "csf:CSFData/MSD_PDGFRBETA/plate"
       display_field_elements:
@@ -4734,7 +4793,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale MMP2 mean"
-    definition: "CSF biochemistry measure for Mesoscale MMP2 mean."
+    definition: "Mean Mesoscale MMP2 concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_MMP2/mean"
       display_field_elements:
@@ -4755,6 +4814,7 @@ display_field_annotations:
       canonical_name: "msd_mmp2_mean"
       synonyms:
         - "MSD_MMP2_mean"
+        - "Matrix metalloproteinase-2 mean"
         - "msd_mmp2_mean"
         - "MSD MMP2 mean"
         - "msd mmp2 mean"
@@ -4768,7 +4828,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale MMP2 CV"
-    definition: "CSF biochemistry measure for Mesoscale MMP2 CV."
+    definition: "Coefficient of variation for Mesoscale MMP2 concentration in CSF."
     source:
       schema_element: "csf:CSFData/MSD_MMP2/cv"
       display_field_elements:
@@ -4840,7 +4900,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Mesoscale MMP2 plate"
-    definition: "CSF biochemistry measure for Mesoscale MMP2 plate."
+    definition: "Plate number of the assay run for Mesoscale MMP2"
     source:
       schema_element: "csf:CSFData/MSD_MMP2/plate"
       display_field_elements:
@@ -4876,7 +4936,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "VEGF_C mean"
-    definition: "CSF biochemistry measure for VEGF C mean."
+    definition: "Mean VEGF C concentration in CSF."
     source:
       schema_element: "csf:CSFData/VEGF_C/mean"
       display_field_elements:
@@ -4897,6 +4957,8 @@ display_field_annotations:
       canonical_name: "vegf_c_mean"
       synonyms:
         - "VEGF_C mean"
+        - "Vascular endothelial growth factor C mean"
+        - "VEGF-C"
         - "vegf_c mean"
         - "VEGF C mean"
         - "vegf c mean"
@@ -4948,7 +5010,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "VEGF_C plate"
-    definition: "CSF biochemistry measure for VEGF C plate."
+    definition: "Plate number of the assay run for VEGF C"
     source:
       schema_element: "csf:CSFData/VEGF_C/plate"
       display_field_elements:
@@ -4984,7 +5046,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "VEGF_A mean"
-    definition: "CSF biochemistry measure for VEGF A mean."
+    definition: "Mean VEGF-A concentration in CSF."
     source:
       schema_element: "csf:CSFData/VEGF_A/mean"
       display_field_elements:
@@ -5005,6 +5067,8 @@ display_field_annotations:
       canonical_name: "vegf_a_mean"
       synonyms:
         - "VEGF_A mean"
+        - "Vascular endothelial growth factor A mean"
+        - "VEGF-A"
         - "vegf_a mean"
         - "VEGF A mean"
         - "vegf a mean"
@@ -5056,7 +5120,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "VEGF_A plate"
-    definition: "CSF biochemistry measure for VEGF A plate."
+    definition: "Plate number of the assay run for VEGF A"
     source:
       schema_element: "csf:CSFData/VEGF_A/plate"
       display_field_elements:
@@ -5092,7 +5156,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "PlGF mean"
-    definition: "CSF biochemistry measure for Pl GF mean."
+    definition: "Mean PlGF concentration in CSF."
     source:
       schema_element: "csf:CSFData/PlGF/mean"
       display_field_elements:
@@ -5113,6 +5177,7 @@ display_field_annotations:
       canonical_name: "plgf_mean"
       synonyms:
         - "PlGF mean"
+        - "Placental growth factor mean"
         - "plgf mean"
         - "PlGF_mean"
         - "plgf_mean"
@@ -5160,7 +5225,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "PlGF plate"
-    definition: "CSF biochemistry measure for Pl GF plate."
+    definition: "Plate number of the assay run for Pl GF"
     source:
       schema_element: "csf:CSFData/PlGF/plate"
       display_field_elements:
@@ -5194,7 +5259,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "alpha-2-macroglobulin mean"
-    definition: "CSF biochemistry measure for alpha-2-macroglobulin mean."
+    definition: "Mean alpha-2-macroglobulin concentration in CSF."
     source:
       schema_element: "csf:CSFData/alpha2M/mean"
       display_field_elements:
@@ -5215,6 +5280,9 @@ display_field_annotations:
       canonical_name: "alpha2m_mean"
       synonyms:
         - "alpha-2-macroglobulin mean"
+        - "alpha2M mean"
+        - "α2M"
+        - "A2M"
         - "alpha2M_mean"
         - "alpha2m_mean"
     allowed_values:
@@ -5260,7 +5328,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "alpha-2-macroglobulin plate"
-    definition: "CSF biochemistry measure for alpha-2-macroglobulin plate."
+    definition: "Plate number of the assay run for alpha-2-macroglobulin"
     source:
       schema_element: "csf:CSFData/alpha2M/plate"
       display_field_elements:
@@ -5295,7 +5363,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "TIMP-2 mean"
-    definition: "CSF biochemistry measure for TIMP-2 mean."
+    definition: "Mean TIMP-2 concentration in CSF."
     source:
       schema_element: "csf:CSFData/TIMP2/mean"
       display_field_elements:
@@ -5316,6 +5384,7 @@ display_field_annotations:
       canonical_name: "timp2_mean"
       synonyms:
         - "TIMP-2 mean"
+        - "Tissue inhibitor of metalloproteinases-2 mean"
         - "timp-2 mean"
         - "TIMP2_mean"
         - "timp2_mean"
@@ -5363,7 +5432,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "TIMP-2 plate"
-    definition: "CSF biochemistry measure for TIMP-2 plate."
+    definition: "Plate number of the assay run for TIMP-2"
     source:
       schema_element: "csf:CSFData/TIMP2/plate"
       display_field_elements:
@@ -5398,7 +5467,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Tyro3 mean"
-    definition: "CSF biochemistry measure for Tyro3 mean."
+    definition: "Mean Tyro3 concentration in CSF."
     source:
       schema_element: "csf:CSFData/tyro3/mean"
       display_field_elements:
@@ -5419,6 +5488,7 @@ display_field_annotations:
       canonical_name: "tyro3_mean"
       synonyms:
         - "Tyro3 mean"
+        - "Tyrosine-protein kinase receptor mean"
         - "tyro3 mean"
         - "tyro3_mean"
     allowed_values:
@@ -5464,7 +5534,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Tyro3 plate"
-    definition: "CSF biochemistry measure for Tyro3 plate."
+    definition: "Plate number of the assay run for Tyro3"
     source:
       schema_element: "csf:CSFData/tyro3/plate"
       display_field_elements:
@@ -5497,7 +5567,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Axl mean"
-    definition: "CSF biochemistry measure for Axl mean."
+    definition: "Mean Axl concentration in CSF."
     source:
       schema_element: "csf:CSFData/axl/mean"
       display_field_elements:
@@ -5563,7 +5633,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Axl plate"
-    definition: "CSF biochemistry measure for Axl plate."
+    definition: "Plate number of the assay run for Axl"
     source:
       schema_element: "csf:CSFData/axl/plate"
       display_field_elements:
@@ -5595,8 +5665,8 @@ display_field_annotations:
     export:
       column: null
       included_via_display_version: "dump"
-    label: "CSF BDTau carboxylated mean (UGOT)"
-    definition: "CSF biochemistry measure for CSF BDTau carboxylated mean (UGOT)."
+    label: "CSF BD-Tau carboxylated mean (UGOT)"
+    definition: "Mean CSF BD-Tau carboxylated concentration (UGOT assay)."
     source:
       schema_element: "csf:CSFData/UGOT_BD_Tau_carboxylated_csf/mean"
       display_field_elements:
@@ -5618,7 +5688,7 @@ display_field_annotations:
       synonyms:
         - "UGOT_BD_Tau_carboxylated_csf_mean"
         - "ugot_bd_tau_carboxylated_csf_mean"
-        - "UGOT BD Tau carboxylated csf mean"
+        - "UGOT BD-Tau carboxylated csf mean"
         - "ugot bd tau carboxylated csf mean"
     allowed_values:
       []
@@ -5901,8 +5971,8 @@ display_field_annotations:
     export:
       column: null
       included_via_display_version: "dump"
-    label: "Ratio 42/40"
-    definition: "CSF biochemistry measure for Ratio 42/40."
+    label: "Abeta 42/40 Ratio"
+    definition: "Ratio of Mesoscale Aβ42/Aβ40."
     source:
       schema_element: "csf:CSFData/MSD_AB_42/mean"
       display_field_elements:
@@ -5923,9 +5993,9 @@ display_field_annotations:
     resolution:
       canonical_name: "ratio_42_40"
       synonyms:
-        - "Ratio 42/40"
-        - "ratio 42/40"
-        - "ratio_42_40"
+        - "Abeta 42/40 Ratio"
+        - "abeta 42/40 ratio"
+        - "abeta_42_40_ratio"
     allowed_values:
       []
     sensitivity: "none"
@@ -5970,7 +6040,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "A hierarchical"
-    definition: "Derived amyloid classification based on the hierarchical biomarker rule."
+    definition: "Derived amyloid classification based on availability of different amyloid status variables and using the following hierarchy: 1) Amyloid-PET, 2) Mesoscale Aβ42/Aβ40 ratio (if available, with cutoff point of 0.0774), 3) CSF Aβ42 (if available, with subject- and date-specific cutoff)."
     source:
       schema_element: "csf:CSFData/MSD_AB_42/mean"
       display_field_elements:
@@ -6017,7 +6087,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "A"
-    definition: "Derived amyloid classification based on the Aβ42/Aβ40 ratio."
+    definition: "Amyloid status based on the Aβ42/Aβ40 ratio. Cutoff point of 0.0774. It is the main variable for amyloid status classification in the CSF domain."
     source:
       schema_element: "csf:CSFData/MSD_AB_42/mean"
       display_field_elements:
@@ -6055,7 +6125,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "A ratio"
-    definition: "Derived amyloid classification based on the Aβ42/Aβ40 ratio."
+    definition: "Amyloid status based on the Aβ42/Aβ40 ratio. Cutoff point of 0.0774. This variable is specified for distinction from other amyloid status variables, but it has the same value as variable 'a'."
     source:
       schema_element: "csf:CSFData/MSD_AB_42/mean"
       display_field_elements:
@@ -6079,7 +6149,7 @@ display_field_annotations:
       synonyms:
         - "A_ratio"
         - "a_ratio"
-        - "A ratio"
+        - "Amyloid status based on Abeta ratio"
         - "a ratio"
     allowed_values:
       - "1"
@@ -6092,7 +6162,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "A innotest"
-    definition: "Derived amyloid classification based on the Innotest Aβ42 cutoff."
+    definition: "Amyloid status based on the Innotest Aβ42 assay. Cutoff is subject- and date-specific, calculated using the abeta_cutoff variable."
     source:
       schema_element: "csf:CSFData/CSF_Abeta42"
       display_field_elements:
@@ -6131,7 +6201,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "T"
-    definition: "Derived tau classification based on phospho-tau thresholds."
+    definition: "Derived tau classification based on phospho-tau thresholds from Innotest. Cutoff values are subject- and date-specific, with a change in cutoff values implemented from 2020-10-01 onwards. For dates before 2020-10-01, the cutoff is 66.5 pg/mL; for dates on or after 2020-10-01, the cutoff is 19 pg/mL."
     source:
       schema_element: "csf:CSFData/CSF_Ptau"
       display_field_elements:
@@ -6172,7 +6242,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "N"
-    definition: "Derived neurodegeneration classification based on total tau thresholds."
+    definition: "Derived neurodegeneration classification based on total tau thresholds. Cutoff values are subject- and date-specific, with a change in cutoff values implemented from 2020-10-01 onwards. For dates before 2020-10-01, the cutoff is 378 pg/mL; for dates on or after 2020-10-01, the cutoff is 228 pg/mL."
     source:
       schema_element: "csf:CSFData/CSF_TotTau"
       display_field_elements:
@@ -6213,7 +6283,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "ATN"
-    definition: "Derived ATN classification based on CSF biomarkers."
+    definition: "ATN classification based on CSF biomarkers. Amyloid status is based on Mesoscale Aβ42/Aβ40 ratio. The variable combines the three ATN components into a single classification string, with the format 'A{+/-}T{+/-}N{+/-}', where '+' indicates positive biomarker status, '-' indicates negative biomarker status, and 'u' indicates unknown biomarker status (i.e., when the relevant biomarker measurement is not available to determine positivity/negativity)."
     source:
       schema_element: "csf:CSFData/MSD_AB_42/mean"
       display_field_elements:
@@ -6273,7 +6343,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "ATN amypet"
-    definition: "Derived ATN classification combining CSF biomarkers and amyloid PET status."
+    definition: "Derived ATN classification combining CSF biomarkers. Amyloid status is determined by a hierarchy of amyloid status variables, with amyloid PET status taking precedence over CSF biomarkers. The variable combines the three ATN components into a single classification string, with the format 'A{+/-}T{+/-}N{+/-}', where '+' indicates positive biomarker status, '-' indicates negative biomarker status, and 'u' indicates unknown biomarker status (i.e., when the relevant biomarker measurement is not available to determine positivity/negativity)."
     source:
       schema_element: "csf:CSFData/MSD_AB_42/mean"
       display_field_elements:
@@ -6339,7 +6409,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "ATN Innotest"
-    definition: "Derived ATN classification based on Innotest amyloid status and CSF tau biomarkers."
+    definition: "Derived ATN classification based on Innotest amyloid status and CSF tau biomarkers. Amyloid status is determined by Innotest Aβ42 levels, with cutoff values subject- and date-specific. The variable combines the three ATN components into a single classification string, with the format 'A{+/-}T{+/-}N{+/-}', where '+' indicates positive biomarker status, '-' indicates negative biomarker status, and 'u' indicates unknown biomarker status (i.e., when the relevant biomarker measurement is not available to determine positivity/negativity)."
     source:
       schema_element: "csf:CSFData/CSF_Abeta42"
       display_field_elements:
