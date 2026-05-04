@@ -80,7 +80,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Age"
-    definition: "Participant age at the time of the diagnostic assessment."
+    definition: "Participant age at the time of the diagnostic/staging assessment."
     source:
       schema_element: "diag:DiagnosisData.date"
       display_field_elements:
@@ -115,7 +115,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "SCD symptoms"
-    definition: "Subjective cognitive decline symptoms reported at the diagnostic assessment."
+    definition: "Subjective cognitive decline symptoms reported at the diagnostic/staging assessment."
     source:
       schema_element: "diag:DiagnosisData/scd_symptoms"
       display_field_elements:
@@ -129,12 +129,13 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "diag"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
       canonical_name: "scd_symptoms"
       synonyms:
+        - "Subjective cognitive decline"
         - "SCD symptoms"
         - "scd symptoms"
         - "scd_symptoms"
@@ -148,7 +149,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Cognitive Staging"
-    definition: "Cognitive stage assigned at the diagnostic assessment."
+    definition: "Cognitive stage assigned at the diagnostic assessment. Integer coded."
     source:
       schema_element: "diag:DiagnosisData/stag"
       display_field_elements:
@@ -162,18 +163,25 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "diag"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
       canonical_name: "stag"
       synonyms:
+        - "Cognitive Stage"
+        - "cognitive stage"
+        - "Cognitive staging"
         - "Staging"
         - "staging"
         - "STAG"
         - "stag"
     allowed_values:
-      []
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
     sensitivity: "none"
     quality:
       notes: null
@@ -182,7 +190,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Cognitive Staging (text)"
-    definition: "Label representation derived from coded values."
+    definition: "Label representation of cognitive staging, derived from coded values."
     source:
       schema_element: "diag:DiagnosisData/stag"
       display_field_elements:
@@ -232,8 +240,8 @@ display_field_annotations:
     export:
       column: null
       included_via_display_version: "dump"
-    label: "Cognitive Staging (with criteria)"
-    definition: "Cognitive stage assigned using explicit diagnostic criteria."
+    label: "Cognitive Staging (with legacy criteria)"
+    definition: "Legacy Cognitive stage variable, which includes recruiting source in the categorical staging variable. Integer coded."
     source:
       schema_element: "diag:DiagnosisData/stag_with_criteria"
       display_field_elements:
@@ -247,14 +255,14 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "diag"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
       canonical_name: "stag_with_criteria"
       synonyms:
-        - "Staging"
-        - "staging"
+        - "Legacy Staging"
+        - "legacy staging"
         - "STAG_WITH_CRITERIA"
         - "stag_with_criteria"
     allowed_values:
@@ -266,8 +274,8 @@ display_field_annotations:
     export:
       column: null
       included_via_display_version: "dump"
-    label: "Cognitive Staging (with criteria text)"
-    definition: "Label representation derived from coded values."
+    label: "Cognitive Staging (with legacy criteria text)"
+    definition: "Label representation of legacy cognitive staging, derived from coded values."
     source:
       schema_element: "diag:DiagnosisData/stag_with_criteria"
       display_field_elements:
@@ -370,7 +378,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Date of diagnosis"
-    definition: "Date when the diagnosis was established."
+    definition: "Date when the etiological diagnosis was established."
     source:
       schema_element: "diag:DiagnosisData/diag_date"
       display_field_elements:
@@ -404,7 +412,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Age at diagnosis"
-    definition: "Participant age when the diagnosis was established."
+    definition: "Participant age when the etiological diagnosis was established."
     source:
       schema_element: "diag:DiagnosisData/diag_age"
       display_field_elements:
@@ -419,7 +427,7 @@ display_field_annotations:
       level: "visit"
       domain: "diag"
       value_type: "numeric"
-      units: null
+      units: "years"
       preferred_representation: "raw"
     resolution:
       canonical_name: "diag_age"
@@ -472,7 +480,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Diagnosis other definition"
-    definition: "Free-text specification of the diagnosis when \"Other\" is used."
+    definition: "Free-text specification of the etiological diagnosis when \"Other\" is used."
     source:
       schema_element: "diag:DiagnosisData/diag_other_def"
       display_field_elements:
@@ -520,7 +528,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "diag"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -531,7 +539,8 @@ display_field_annotations:
         - "DIAG_PARK"
         - "diag_park"
     allowed_values:
-      []
+      - 0
+      - 1
     sensitivity: "none"
     quality:
       notes: null
