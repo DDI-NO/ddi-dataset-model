@@ -327,7 +327,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "mh"
-      value_type: "numeric"
+      value_type: "text"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -361,7 +361,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "mh"
-      value_type: "numeric"
+      value_type: "text"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -394,7 +394,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "mh"
-      value_type: "numeric"
+      value_type: "text"
       units: "percent"
       preferred_representation: "raw"
     resolution:
@@ -461,7 +461,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "mh"
-      value_type: "numeric"
+      value_type: "text"
       units: null
       preferred_representation: "raw"
     resolution:

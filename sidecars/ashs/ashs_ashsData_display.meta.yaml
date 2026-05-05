@@ -1,0 +1,1755 @@
+display: "ashs_ashsData_display.xml"
+description: "TODO: Add datatype description."
+
+display_versions:
+  dump:
+    description: "Fields referenced by DisplayVersion versionName=\"dump\"."
+
+# source_schema_element: ashs:ashsData
+
+display_field_annotations:
+  DATE:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Date"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: "ashs:ashsData.date"
+      display_field_elements:
+        Field1: "ashs:ashsData.date"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "date"
+      synonyms:
+        - "Date"
+        - "date"
+        - "DATE"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  T1:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Included_T1"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: "ashs:ashsData/T1"
+      display_field_elements:
+        Field1: "ashs:ashsData/T1"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "t1"
+      synonyms:
+        - "Included_T1"
+        - "included_t1"
+        - "Included T1"
+        - "included t1"
+        - "T1"
+        - "t1"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  T2:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Included_T2"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: "ashs:ashsData/T2"
+      display_field_elements:
+        Field1: "ashs:ashsData/T2"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "t2"
+      synonyms:
+        - "Included_T2"
+        - "included_t2"
+        - "Included T2"
+        - "included t2"
+        - "T2"
+        - "t2"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  ATLAS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "atlas"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: "ashs:ashsData/atlas"
+      display_field_elements:
+        Field1: "ashs:ashsData/atlas"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "atlas"
+      synonyms:
+        - "atlas"
+        - "ATLAS"
+        - "Atlas"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  QC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "QC"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: "ashs:ashsData/QC"
+      display_field_elements:
+        Field1: "ashs:ashsData/QC"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "qc"
+      synonyms:
+        - "QC"
+        - "qc"
+        - "Qc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  ASHS_ICV:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "IntraCranialVol"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: "ashs:ashsData/ICV"
+      display_field_elements:
+        Field1: "ashs:ashsData/ICV"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "ashs_icv"
+      synonyms:
+        - "IntraCranialVol"
+        - "intracranialvol"
+        - "ASHS_ICV"
+        - "ashs_icv"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTRAWANTERIORHIPPOCAMPUS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Raw Anterior hippocampus volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTRAWANTERIORHIPPOCAMPUS_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftrawanteriorhippocampus"
+      synonyms:
+        - "Left Raw Anterior hippocampus volume"
+        - "left raw anterior hippocampus volume"
+        - "_LEFTRAWANTERIORHIPPOCAMPUS"
+        - "_leftrawanteriorhippocampus"
+        - "leftrawanteriorhippocampus"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTRAWPOSTERIORHIPPOCAMPUS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Raw Posterior hippocampus volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTRAWPOSTERIORHIPPOCAMPUS_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftrawposteriorhippocampus"
+      synonyms:
+        - "Left Raw Posterior hippocampus volume"
+        - "left raw posterior hippocampus volume"
+        - "_LEFTRAWPOSTERIORHIPPOCAMPUS"
+        - "_leftrawposteriorhippocampus"
+        - "leftrawposteriorhippocampus"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTRAWMISC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Raw Misc volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTRAWMISC_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftrawmisc"
+      synonyms:
+        - "Left Raw Misc volume"
+        - "left raw misc volume"
+        - "_LEFTRAWMISC"
+        - "_leftrawmisc"
+        - "leftrawmisc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTRAWMENINGESPHC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Raw Meninges PHC volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTRAWMENINGESPHC_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftrawmeningesphc"
+      synonyms:
+        - "Left Raw Meninges PHC volume"
+        - "left raw meninges phc volume"
+        - "_LEFTRAWMENINGESPHC"
+        - "_leftrawmeningesphc"
+        - "leftrawmeningesphc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTRAWERC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Raw ERC volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTRAWERC_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftrawerc"
+      synonyms:
+        - "Left Raw ERC volume"
+        - "left raw erc volume"
+        - "_LEFTRAWERC"
+        - "_leftrawerc"
+        - "leftrawerc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTRAWBR35:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Raw Br35 volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTRAWBR35_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftrawbr35"
+      synonyms:
+        - "Left Raw Br35 volume"
+        - "left raw br35 volume"
+        - "_LEFTRAWBR35"
+        - "_leftrawbr35"
+        - "leftrawbr35"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTRAWBR36:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Raw Br36 volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTRAWBR36_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftrawbr36"
+      synonyms:
+        - "Left Raw Br36 volume"
+        - "left raw br36 volume"
+        - "_LEFTRAWBR36"
+        - "_leftrawbr36"
+        - "leftrawbr36"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTRAWPHC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Raw PHC volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTRAWPHC_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftrawphc"
+      synonyms:
+        - "Left Raw PHC volume"
+        - "left raw phc volume"
+        - "_LEFTRAWPHC"
+        - "_leftrawphc"
+        - "leftrawphc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTRAWCOLSUL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Raw ColSul volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTRAWCOLSUL_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftrawcolsul"
+      synonyms:
+        - "Left Raw ColSul volume"
+        - "left raw colsul volume"
+        - "_LEFTRAWCOLSUL"
+        - "_leftrawcolsul"
+        - "leftrawcolsul"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTRAWOTSUL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Raw OTSul volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTRAWOTSUL_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftrawotsul"
+      synonyms:
+        - "Left Raw OTSul volume"
+        - "left raw otsul volume"
+        - "_LEFTRAWOTSUL"
+        - "_leftrawotsul"
+        - "leftrawotsul"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTRAWMENINGES:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Raw Meninges volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTRAWMENINGES_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftrawmeninges"
+      synonyms:
+        - "Left Raw Meninges volume"
+        - "left raw meninges volume"
+        - "_LEFTRAWMENINGES"
+        - "_leftrawmeninges"
+        - "leftrawmeninges"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTRAWANTERIORHIPPOCAMPUS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Raw Anterior hippocampus volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTRAWANTERIORHIPPOCAMPUS_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightrawanteriorhippocampus"
+      synonyms:
+        - "Right Raw Anterior hippocampus volume"
+        - "right raw anterior hippocampus volume"
+        - "_RIGHTRAWANTERIORHIPPOCAMPUS"
+        - "_rightrawanteriorhippocampus"
+        - "rightrawanteriorhippocampus"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTRAWPOSTERIORHIPPOCAMPUS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Raw Posterior hippocampus volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTRAWPOSTERIORHIPPOCAMPUS_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightrawposteriorhippocampus"
+      synonyms:
+        - "Right Raw Posterior hippocampus volume"
+        - "right raw posterior hippocampus volume"
+        - "_RIGHTRAWPOSTERIORHIPPOCAMPUS"
+        - "_rightrawposteriorhippocampus"
+        - "rightrawposteriorhippocampus"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTRAWMISC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Raw Misc volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTRAWMISC_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightrawmisc"
+      synonyms:
+        - "Right Raw Misc volume"
+        - "right raw misc volume"
+        - "_RIGHTRAWMISC"
+        - "_rightrawmisc"
+        - "rightrawmisc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTRAWMENINGESPHC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Raw Meninges PHC volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTRAWMENINGESPHC_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightrawmeningesphc"
+      synonyms:
+        - "Right Raw Meninges PHC volume"
+        - "right raw meninges phc volume"
+        - "_RIGHTRAWMENINGESPHC"
+        - "_rightrawmeningesphc"
+        - "rightrawmeningesphc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTRAWERC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Raw ERC volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTRAWERC_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightrawerc"
+      synonyms:
+        - "Right Raw ERC volume"
+        - "right raw erc volume"
+        - "_RIGHTRAWERC"
+        - "_rightrawerc"
+        - "rightrawerc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTRAWBR35:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Raw Br35 volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTRAWBR35_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightrawbr35"
+      synonyms:
+        - "Right Raw Br35 volume"
+        - "right raw br35 volume"
+        - "_RIGHTRAWBR35"
+        - "_rightrawbr35"
+        - "rightrawbr35"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTRAWBR36:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Raw Br36 volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTRAWBR36_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightrawbr36"
+      synonyms:
+        - "Right Raw Br36 volume"
+        - "right raw br36 volume"
+        - "_RIGHTRAWBR36"
+        - "_rightrawbr36"
+        - "rightrawbr36"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTRAWPHC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Raw PHC volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTRAWPHC_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightrawphc"
+      synonyms:
+        - "Right Raw PHC volume"
+        - "right raw phc volume"
+        - "_RIGHTRAWPHC"
+        - "_rightrawphc"
+        - "rightrawphc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTRAWCOLSUL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Raw ColSul volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTRAWCOLSUL_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightrawcolsul"
+      synonyms:
+        - "Right Raw ColSul volume"
+        - "right raw colsul volume"
+        - "_RIGHTRAWCOLSUL"
+        - "_rightrawcolsul"
+        - "rightrawcolsul"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTRAWOTSUL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Raw OTSul volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTRAWOTSUL_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightrawotsul"
+      synonyms:
+        - "Right Raw OTSul volume"
+        - "right raw otsul volume"
+        - "_RIGHTRAWOTSUL"
+        - "_rightrawotsul"
+        - "rightrawotsul"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTRAWMENINGES:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Raw Meninges volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTRAWMENINGES_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightrawmeninges"
+      synonyms:
+        - "Right Raw Meninges volume"
+        - "right raw meninges volume"
+        - "_RIGHTRAWMENINGES"
+        - "_rightrawmeninges"
+        - "rightrawmeninges"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTHEURANTERIORHIPPOCAMPUS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Heur Anterior Hippocampus volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTHEURANTERIORHIPPOCAMPUS_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftheuranteriorhippocampus"
+      synonyms:
+        - "Left Heur Anterior Hippocampus volume"
+        - "left heur anterior hippocampus volume"
+        - "_LEFTHEURANTERIORHIPPOCAMPUS"
+        - "_leftheuranteriorhippocampus"
+        - "leftheuranteriorhippocampus"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTHEURPOSTERIORHIPPOCAMPUS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Heur Posterior Hippocampus volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTHEURPOSTERIORHIPPOCAMPUS_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftheurposteriorhippocampus"
+      synonyms:
+        - "Left Heur Posterior Hippocampus volume"
+        - "left heur posterior hippocampus volume"
+        - "_LEFTHEURPOSTERIORHIPPOCAMPUS"
+        - "_leftheurposteriorhippocampus"
+        - "leftheurposteriorhippocampus"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTHEURMISC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Heur Misc volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTHEURMISC_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftheurmisc"
+      synonyms:
+        - "Left Heur Misc volume"
+        - "left heur misc volume"
+        - "_LEFTHEURMISC"
+        - "_leftheurmisc"
+        - "leftheurmisc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTHEURMENINGESPHC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Heur Meninges PHC volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTHEURMENINGESPHC_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftheurmeningesphc"
+      synonyms:
+        - "Left Heur Meninges PHC volume"
+        - "left heur meninges phc volume"
+        - "_LEFTHEURMENINGESPHC"
+        - "_leftheurmeningesphc"
+        - "leftheurmeningesphc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTHEURERC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Heur ERC volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTHEURERC_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftheurerc"
+      synonyms:
+        - "Left Heur ERC volume"
+        - "left heur erc volume"
+        - "_LEFTHEURERC"
+        - "_leftheurerc"
+        - "leftheurerc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTHEURBR35:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Heur Br35 volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTHEURBR35_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftheurbr35"
+      synonyms:
+        - "Left Heur Br35 volume"
+        - "left heur br35 volume"
+        - "_LEFTHEURBR35"
+        - "_leftheurbr35"
+        - "leftheurbr35"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTHEURBR36:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Heur Br36 volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTHEURBR36_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftheurbr36"
+      synonyms:
+        - "Left Heur Br36 volume"
+        - "left heur br36 volume"
+        - "_LEFTHEURBR36"
+        - "_leftheurbr36"
+        - "leftheurbr36"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTHEURPHC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Heur PHC volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTHEURPHC_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftheurphc"
+      synonyms:
+        - "Left Heur PHC volume"
+        - "left heur phc volume"
+        - "_LEFTHEURPHC"
+        - "_leftheurphc"
+        - "leftheurphc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTHEURCOLSUL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Heur ColSul volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTHEURCOLSUL_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftheurcolsul"
+      synonyms:
+        - "Left Heur ColSul volume"
+        - "left heur colsul volume"
+        - "_LEFTHEURCOLSUL"
+        - "_leftheurcolsul"
+        - "leftheurcolsul"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTHEUROTSUL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Heur OTSul volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTHEUROTSUL_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftheurotsul"
+      synonyms:
+        - "Left Heur OTSul volume"
+        - "left heur otsul volume"
+        - "_LEFTHEUROTSUL"
+        - "_leftheurotsul"
+        - "leftheurotsul"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _LEFTHEURMENINGES:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Left Heur Meninges volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._LEFTHEURMENINGES_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "leftheurmeninges"
+      synonyms:
+        - "Left Heur Meninges volume"
+        - "left heur meninges volume"
+        - "_LEFTHEURMENINGES"
+        - "_leftheurmeninges"
+        - "leftheurmeninges"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTHEURANTERIORHIPPOCAMPUS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Heur Anterior hippocampus volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTHEURANTERIORHIPPOCAMPUS_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightheuranteriorhippocampus"
+      synonyms:
+        - "Right Heur Anterior hippocampus volume"
+        - "right heur anterior hippocampus volume"
+        - "_RIGHTHEURANTERIORHIPPOCAMPUS"
+        - "_rightheuranteriorhippocampus"
+        - "rightheuranteriorhippocampus"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTHEURPOSTERIORHIPPOCAMPUS:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Heur Posterior hippocampus volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTHEURPOSTERIORHIPPOCAMPUS_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightheurposteriorhippocampus"
+      synonyms:
+        - "Right Heur Posterior hippocampus volume"
+        - "right heur posterior hippocampus volume"
+        - "_RIGHTHEURPOSTERIORHIPPOCAMPUS"
+        - "_rightheurposteriorhippocampus"
+        - "rightheurposteriorhippocampus"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTHEURMISC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Heur Misc volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTHEURMISC_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightheurmisc"
+      synonyms:
+        - "Right Heur Misc volume"
+        - "right heur misc volume"
+        - "_RIGHTHEURMISC"
+        - "_rightheurmisc"
+        - "rightheurmisc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTHEURMENINGESPHC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Heur Meninges PHC volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTHEURMENINGESPHC_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightheurmeningesphc"
+      synonyms:
+        - "Right Heur Meninges PHC volume"
+        - "right heur meninges phc volume"
+        - "_RIGHTHEURMENINGESPHC"
+        - "_rightheurmeningesphc"
+        - "rightheurmeningesphc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTHEURERC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Heur ERC volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTHEURERC_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightheurerc"
+      synonyms:
+        - "Right Heur ERC volume"
+        - "right heur erc volume"
+        - "_RIGHTHEURERC"
+        - "_rightheurerc"
+        - "rightheurerc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTHEURBR35:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Heur Br35 volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTHEURBR35_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightheurbr35"
+      synonyms:
+        - "Right Heur Br35 volume"
+        - "right heur br35 volume"
+        - "_RIGHTHEURBR35"
+        - "_rightheurbr35"
+        - "rightheurbr35"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTHEURBR36:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Heur Br36 volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTHEURBR36_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightheurbr36"
+      synonyms:
+        - "Right Heur Br36 volume"
+        - "right heur br36 volume"
+        - "_RIGHTHEURBR36"
+        - "_rightheurbr36"
+        - "rightheurbr36"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTHEURPHC:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Heur PHC volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTHEURPHC_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightheurphc"
+      synonyms:
+        - "Right Heur PHC volume"
+        - "right heur phc volume"
+        - "_RIGHTHEURPHC"
+        - "_rightheurphc"
+        - "rightheurphc"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTHEURCOLSUL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Heur ColSul volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTHEURCOLSUL_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightheurcolsul"
+      synonyms:
+        - "Right Heur ColSul volume"
+        - "right heur colsul volume"
+        - "_RIGHTHEURCOLSUL"
+        - "_rightheurcolsul"
+        - "rightheurcolsul"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTHEUROTSUL:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Heur OTSul volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTHEUROTSUL_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightheurotsul"
+      synonyms:
+        - "Right Heur OTSul volume"
+        - "right heur otsul volume"
+        - "_RIGHTHEUROTSUL"
+        - "_rightheurotsul"
+        - "rightheurotsul"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null
+  _RIGHTHEURMENINGES:
+    export:
+      column: null
+      included_via_display_version: "dump"
+    label: "Right Heur Meninges volume"
+    definition: "TODO: Define semantic meaning."
+    source:
+      schema_element: null
+      display_field_elements:
+        COL1: "view:ASHS_ASHSDATA_FULL_VALUES._RIGHTHEURMENINGES_VOLUME"
+    derivation:
+      kind: "none"
+      input: null
+      mapping: {}
+      else: null
+      depends_on_display_fields: []
+    semantics:
+      level: "visit"
+      domain: "ashs"
+      value_type: "numeric"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "rightheurmeninges"
+      synonyms:
+        - "Right Heur Meninges volume"
+        - "right heur meninges volume"
+        - "_RIGHTHEURMENINGES"
+        - "_rightheurmeninges"
+        - "rightheurmeninges"
+    allowed_values:
+      []
+    sensitivity: "none"
+    quality:
+      notes: null

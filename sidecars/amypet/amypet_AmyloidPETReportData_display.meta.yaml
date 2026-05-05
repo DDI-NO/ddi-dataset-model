@@ -217,7 +217,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "amypet"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:

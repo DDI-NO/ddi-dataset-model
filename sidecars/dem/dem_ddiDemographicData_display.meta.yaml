@@ -224,7 +224,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "dem"
-      value_type: "numeric"
+      value_type: "text"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -411,7 +411,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "dem"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
