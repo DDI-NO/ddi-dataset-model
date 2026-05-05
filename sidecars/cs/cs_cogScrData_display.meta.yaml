@@ -140,7 +140,8 @@ display_field_annotations:
         - "MMSE_1"
         - "mmse_1"
     allowed_values:
-      []
+      - "0"
+      - "1"
     sensitivity: "none"
     quality:
       notes: null
@@ -174,7 +175,8 @@ display_field_annotations:
         - "MMSE_2"
         - "mmse_2"
     allowed_values:
-      []
+      - "0"
+      - "1"
     sensitivity: "none"
     quality:
       notes: null
@@ -208,7 +210,8 @@ display_field_annotations:
         - "MMSE_3"
         - "mmse_3"
     allowed_values:
-      []
+      - "0"
+      - "1"
     sensitivity: "none"
     quality:
       notes: null
@@ -242,7 +245,8 @@ display_field_annotations:
         - "MMSE_version"
         - "mmse_version"
     allowed_values:
-      []
+      - "MMSE-NR"
+      - "MMSE-NR3"
     sensitivity: "none"
     quality:
       notes: null
@@ -276,7 +280,8 @@ display_field_annotations:
         - "MMSE_4"
         - "mmse_4"
     allowed_values:
-      []
+      - "0"
+      - "1"
     sensitivity: "none"
     quality:
       notes: null
@@ -310,7 +315,8 @@ display_field_annotations:
         - "MMSE_5"
         - "mmse_5"
     allowed_values:
-      []
+      - "0"
+      - "1"
     sensitivity: "none"
     quality:
       notes: null
@@ -344,7 +350,8 @@ display_field_annotations:
         - "MMSE_6"
         - "mmse_6"
     allowed_values:
-      []
+      - "0"
+      - "1"
     sensitivity: "none"
     quality:
       notes: null
@@ -378,7 +385,8 @@ display_field_annotations:
         - "MMSE_7"
         - "mmse_7"
     allowed_values:
-      []
+      - "0"
+      - "1"
     sensitivity: "none"
     quality:
       notes: null
@@ -412,7 +420,8 @@ display_field_annotations:
         - "MMSE_8"
         - "mmse_8"
     allowed_values:
-      []
+      - "0"
+      - "1"
     sensitivity: "none"
     quality:
       notes: null
@@ -446,7 +455,8 @@ display_field_annotations:
         - "MMSE_9"
         - "mmse_9"
     allowed_values:
-      []
+      - "0"
+      - "1"
     sensitivity: "none"
     quality:
       notes: null
@@ -480,7 +490,8 @@ display_field_annotations:
         - "MMSE_10"
         - "mmse_10"
     allowed_values:
-      []
+      - "0"
+      - "1"
     sensitivity: "none"
     quality:
       notes: null
@@ -514,7 +525,9 @@ display_field_annotations:
         - "MMSE_11_num"
         - "mmse_11_num"
     allowed_values:
-      []
+      - "1"
+      - "2"
+      - "3"
     sensitivity: "none"
     quality:
       notes: null
@@ -548,7 +561,12 @@ display_field_annotations:
         - "MMSE_12"
         - "mmse_12"
     allowed_values:
-      []
+      - "0"
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
     sensitivity: "none"
     quality:
       notes: null
@@ -582,7 +600,10 @@ display_field_annotations:
         - "MMSE_13"
         - "mmse_13"
     allowed_values:
-      []
+      - "0"
+      - "1"
+      - "2"
+      - "3"
     sensitivity: "none"
     quality:
       notes: null
@@ -616,7 +637,8 @@ display_field_annotations:
         - "MMSE_14"
         - "mmse_14"
     allowed_values:
-      []
+      - "0"
+      - "1"
     sensitivity: "none"
     quality:
       notes: null
@@ -650,7 +672,8 @@ display_field_annotations:
         - "MMSE_15"
         - "mmse_15"
     allowed_values:
-      []
+      - "0"
+      - "1"
     sensitivity: "none"
     quality:
       notes: null
@@ -684,7 +707,9 @@ display_field_annotations:
         - "MMSE_16_num"
         - "mmse_16_num"
     allowed_values:
-      []
+      - "1"
+      - "2"
+      - "3"
     sensitivity: "none"
     quality:
       notes: null
@@ -718,7 +743,10 @@ display_field_annotations:
         - "MMSE_17"
         - "mmse_17"
     allowed_values:
-      []
+      - "0"
+      - "1"
+      - "2"
+      - "3"
     sensitivity: "none"
     quality:
       notes: null
@@ -752,7 +780,8 @@ display_field_annotations:
         - "MMSE_18"
         - "mmse_18"
     allowed_values:
-      []
+      - "0"
+      - "1"
     sensitivity: "none"
     quality:
       notes: null
@@ -786,7 +815,8 @@ display_field_annotations:
         - "MMSE_19"
         - "mmse_19"
     allowed_values:
-      []
+      - "0"
+      - "1"
     sensitivity: "none"
     quality:
       notes: null
@@ -820,7 +850,8 @@ display_field_annotations:
         - "MMSE_20"
         - "mmse_20"
     allowed_values:
-      []
+      - "0"
+      - "1"
     sensitivity: "none"
     quality:
       notes: null
@@ -6177,11 +6208,7 @@ display_field_annotations:
         					or cowat_regr_t_score(@cowat, @edu) > 35 or vosp_regr_t_score(@vosp::int,CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int) > 35 THEN 1 
         					
         					ELSE NULL END
-      mapping:
-        "cerad_recall_regr_t_score(@Field1::int,CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int, @Field3, @edu ) < 36 or tmt_b_regr_t_score(@raw, CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int, @edu, @failed_b) < 36
-					or cowat_regr_t_score(@cowat, @edu) < 36 or vosp_regr_t_score(@vosp::int,CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int) < 36": "0"
-        "cerad_recall_regr_t_score(@Field1::int,CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int, @Field3, @edu ) > 35 or tmt_b_regr_t_score(@raw, CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int, @edu, @failed_b) > 35
-					or cowat_regr_t_score(@cowat, @edu) > 35 or vosp_regr_t_score(@vosp::int,CAST(COALESCE(FLOOR(CAST((CAST(((@cs_date) - (@dob))AS FLOAT4)/365) AS numeric)),FLOOR((EXTRACT(YEAR FROM @cs_date)) - (@yob))) AS numeric)::int) > 35": "1"
+      mapping: {}
       else: null
       depends_on_display_fields: []
     semantics:
