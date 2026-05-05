@@ -34,6 +34,7 @@ display_field_annotations:
       canonical_name: "date"
       synonyms:
         - "Date"
+        - "MH date"
         - "date"
         - "DATE"
     allowed_values:
@@ -46,7 +47,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Leader"
-    definition: "Leader recorded for the assessment or visit."
+    definition: "Leader or physician in charge of the assessment or visit."
     source:
       schema_element: "mh:MedHistData/t_leader"
       display_field_elements:
@@ -67,6 +68,8 @@ display_field_annotations:
       canonical_name: "t_leader"
       synonyms:
         - "Leader"
+        - "Test leader"
+        - "Assessment leader"
         - "leader"
         - "t_leader"
     allowed_values:
@@ -243,8 +246,8 @@ display_field_annotations:
     export:
       column: null
       included_via_display_version: "dump"
-    label: "Driving car"
-    definition: "Indicator of whether the participant drives a car."
+    label: "Participant currently drives"
+    definition: "Indicator of whether the participant drives."
     source:
       schema_element: "mh:siData/driving"
       display_field_elements:
@@ -264,8 +267,8 @@ display_field_annotations:
     resolution:
       canonical_name: "driving"
       synonyms:
-        - "Driving car"
-        - "driving car"
+        - "Participant currently drives"
+        - "participant currently drives"
         - "driving"
     allowed_values:
       []
@@ -324,7 +327,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "mh"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -358,7 +361,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "mh"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:
@@ -391,8 +394,8 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "mh"
-      value_type: "text"
-      units: null
+      value_type: "numeric"
+      units: "percent"
       preferred_representation: "raw"
     resolution:
       canonical_name: "disabperc"
@@ -444,7 +447,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Assistance from the municipality"
-    definition: "Medical or social history variable for Assistance from the municipality."
+    definition: "Indicator of whether the participant receives assistance from the municipality."
     source:
       schema_element: "mh:siData/assistance"
       display_field_elements:
@@ -458,7 +461,7 @@ display_field_annotations:
     semantics:
       level: "visit"
       domain: "mh"
-      value_type: "text"
+      value_type: "numeric"
       units: null
       preferred_representation: "raw"
     resolution:

@@ -387,7 +387,7 @@ display_field_annotations:
       column: null
       included_via_display_version: "dump"
     label: "Status"
-    definition: "Status classification recorded for the MRI report."
+    definition: "Status classification recorded for the MRI report. Categorical normal/abnormal classification based on the overall interpretation of the MRI report."
     source:
       schema_element: "mrrep:MRIReportData/mri_status"
       display_field_elements:
@@ -407,7 +407,7 @@ display_field_annotations:
     resolution:
       canonical_name: "mri_status"
       synonyms:
-        - "Status"
+        - "MRI Status"
         - "status"
         - "MRI_STATUS"
         - "mri_status"
@@ -441,8 +441,9 @@ display_field_annotations:
     resolution:
       canonical_name: "koedam_pa_score"
       synonyms:
-        - "Status"
-        - "status"
+        - "Koedam PA Score"
+        - "koedam pa score"
+        - "Koedam_PA_Score"
         - "koedam_pa_score"
     allowed_values:
       []
