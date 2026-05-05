@@ -61,6 +61,7 @@ class ExistingSidecarEdits:
     field_definitions: dict[str, str]
     field_synonyms: dict[str, list[str]]
     field_units: dict[str, str]
+    field_allowed_values: dict[str, list[str]]
 
 
 def _strip_xmlns(tag: str) -> str:
@@ -315,11 +316,46 @@ def _extract_existing_units(block_lines: list[str]) -> str | None:
     return None
 
 
+def _extract_existing_allowed_values(block_lines: list[str]) -> list[str] | None:
+    for i, line in enumerate(block_lines):
+        if line.strip() != "allowed_values:":
+            continue
+
+        indent = len(line) - len(line.lstrip(" "))
+        list_indent = indent + 2
+        out: list[str] = []
+        j = i + 1
+        while j < len(block_lines):
+            nxt = block_lines[j]
+            if len(nxt) - len(nxt.lstrip(" ")) < list_indent:
+                break
+
+            stripped = nxt.strip()
+            if stripped == "[]":
+                return []
+            if stripped.startswith("-"):
+                token = stripped.split("-", 1)[1].strip()
+                if token != "null":
+                    out.append(_yaml_unquote_scalar(token))
+                j += 1
+                continue
+            break
+
+        return out
+    return None
+
+
 def load_existing_sidecar_edits(path: Path) -> ExistingSidecarEdits:
     try:
         lines = path.read_text(encoding="utf-8").splitlines()
     except Exception:
-        return ExistingSidecarEdits(description=None, field_definitions={}, field_synonyms={}, field_units={})
+        return ExistingSidecarEdits(
+            description=None,
+            field_definitions={},
+            field_synonyms={},
+            field_units={},
+            field_allowed_values={},
+        )
 
     description = _extract_existing_description(lines)
     blocks = _parse_field_blocks(lines)
@@ -327,6 +363,7 @@ def load_existing_sidecar_edits(path: Path) -> ExistingSidecarEdits:
     definitions: dict[str, str] = {}
     synonyms: dict[str, list[str]] = {}
     units: dict[str, str] = {}
+    allowed_values: dict[str, list[str]] = {}
     for fid, (s, e) in blocks.items():
         block = lines[s:e]
         d = _extract_existing_definition(block)
@@ -338,12 +375,16 @@ def load_existing_sidecar_edits(path: Path) -> ExistingSidecarEdits:
         u = _extract_existing_units(block)
         if u is not None:
             units[fid] = u
+        av = _extract_existing_allowed_values(block)
+        if av:
+            allowed_values[fid] = _dedupe_preserve_order(av)
 
     return ExistingSidecarEdits(
         description=description,
         field_definitions=definitions,
         field_synonyms=synonyms,
         field_units=units,
+        field_allowed_values=allowed_values,
     )
 
 
@@ -573,6 +614,7 @@ def _yaml_lines_for_field(
     existing_definition: str | None = None,
     existing_synonyms: list[str] | None = None,
     existing_units: str | None = None,
+    existing_allowed_values: list[str] | None = None,
 ) -> list[str]:
     header = field.header if field else None
     canonical = _canonical_name_from_id(field_id)
@@ -621,6 +663,8 @@ def _yaml_lines_for_field(
     allowed_values: list[str] = []
     if deriv_kind == "sql_case" and mapping:
         allowed_values = _dedupe_preserve_order(list(mapping.values()) + ([else_val] if else_val is not None else []))
+    if not allowed_values and existing_allowed_values:
+        allowed_values = _dedupe_preserve_order(list(existing_allowed_values))
 
     lines: list[str] = []
     lines.append(f"  {field_id}:")
@@ -769,6 +813,7 @@ def generate_sidecar_text_for_xml(
             existing_definition = existing.field_definitions.get(fid) if existing is not None else None
             existing_synonyms = existing.field_synonyms.get(fid) if existing is not None else None
             existing_units = existing.field_units.get(fid) if existing is not None else None
+            existing_allowed_values = existing.field_allowed_values.get(fid) if existing is not None else None
             out_lines.extend(
                 _yaml_lines_for_field(
                     fid,
@@ -779,6 +824,7 @@ def generate_sidecar_text_for_xml(
                     existing_definition=existing_definition,
                     existing_synonyms=existing_synonyms,
                     existing_units=existing_units,
+                    existing_allowed_values=existing_allowed_values,
                 )
             )
 
