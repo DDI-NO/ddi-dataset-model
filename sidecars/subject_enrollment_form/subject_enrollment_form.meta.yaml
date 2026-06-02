@@ -1,0 +1,246 @@
+display: "subject_enrollment_form.json"
+description: "Subject enrollment form for APGEM project, based on XNAT's subject enrollment form schema."
+
+display_versions:
+  dump:
+    description: ""
+
+display_field_annotations:
+  enrollment_date:
+    export:
+      column: "enrollment_date"
+      included_via_display_version: "dump"
+    label: "Enrollment Date"
+    definition: "Calendar date when the subject was enrolled into the APGEM study cohort. The value is expected in ISO-like YYYY-MM-DD format as entered in the enrollment form."
+    source:
+      schema_element: null
+      display_field_elements: { }
+    derivation:
+      kind: "none"
+      input: null
+      mapping: { }
+      else: null
+      depends_on_display_fields: [ ]
+    semantics:
+      level: "subject"
+      domain: "subject_status"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "subject_enrollment_date"
+      synonyms: [ ]
+    allowed_values: [ ]
+    sensitivity: "clinical"
+    quality:
+      notes: "Input mask in form enforces YYYY-MM-DD shape but does not itself guarantee a valid calendar date."
+
+  consent:
+    export:
+      column: "consent"
+      included_via_display_version: "dump"
+    label: "Signed Informed Consent"
+    definition: "Indicates whether signed informed consent was obtained from the subject for study participation."
+    source:
+      schema_element: null
+      display_field_elements: { }
+    derivation:
+      kind: "none"
+      input: null
+      mapping: { }
+      else: null
+      depends_on_display_fields: [ ]
+    semantics:
+      level: "subject"
+      domain: "subject_status"
+      value_type: "boolean"
+      units: null
+      preferred_representation: "code"
+    resolution:
+      canonical_name: "consent"
+      synonyms: ["signed_consent"]
+    allowed_values: [true, false]
+    sensitivity: "clinical"
+    quality:
+      notes: "Default value in form is false."
+
+  included:
+    export:
+      column: "included"
+      included_via_display_version: "dump"
+    label: "Fulfilled Inclusion Criteria"
+    definition: "Indicates whether the subject met study inclusion criteria at enrollment."
+    source:
+      schema_element: null
+      display_field_elements: { }
+    derivation:
+      kind: "none"
+      input: null
+      mapping: { }
+      else: null
+      depends_on_display_fields: [ ]
+    semantics:
+      level: "subject"
+      domain: "subject_status"
+      value_type: "boolean"
+      units: null
+      preferred_representation: "code"
+    resolution:
+      canonical_name: "inclusion"
+      synonyms: 
+        - "Included"
+        - "Fullfilled Inclusion Criteria"
+        - "Met Inclusion Criteria"
+    allowed_values: [true, false]
+    sensitivity: "clinical"
+    quality:
+      notes: "Drives conditional visibility of status field in the custom form."
+
+  status:
+    export:
+      column: "status"
+      included_via_display_version: "dump"
+    label: "Status"
+    definition: "Current enrollment lifecycle status of the subject in the study, including active participation, withdrawal, exclusion, endpoint, completion, or other non-standard outcomes."
+    source:
+      schema_element: null
+      display_field_elements: { }
+    derivation:
+      kind: "none"
+      input: null
+      mapping: { }
+      else: null
+      depends_on_display_fields: [ ]
+    semantics:
+      level: "subject"
+      domain: "subject_status"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "code"
+    resolution:
+      canonical_name: "status"
+      synonyms: 
+        - "subject_status"
+        - "Subject Status"
+        - "enrollment_status"
+        - "Enrollment Status"
+    allowed_values: ["active", "excluded", "withdraw", "deceased", "endpoint", "complete", "other"]
+    sensitivity: "clinical"
+    quality:
+      notes: "Form condition shows this field when included is true; default value is active."
+
+  withdrawal_reason:
+    export:
+      column: "withdrawal_reason"
+      included_via_display_version: "dump"
+    label: "Withdrawal Reason"
+    definition: "Reason for study withdrawal when subject status is withdraw, captured as predefined coded categories."
+    source:
+      schema_element: null
+      display_field_elements: { }
+    derivation:
+      kind: "none"
+      input: null
+      mapping: { }
+      else: null
+      depends_on_display_fields: [ ]
+    semantics:
+      level: "subject"
+      domain: "subject_status"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "code"
+    resolution:
+      canonical_name: "withdrawal_reason"
+      synonyms: [ ]
+    allowed_values: ["Unknown", "Moving_out", "Disease", "Not_interested", "Difficulties_performing_tests", "Does_not_want_procedures", "other_reason"]
+    sensitivity: "clinical"
+    quality:
+      notes: "Visible only when status equals withdraw in the form logic."
+
+  withdraw_cognitive_related:
+    export:
+      column: "withdraw_cognitive_related"
+      included_via_display_version: "dump"
+    label: "How likely is that withdrawal is related to cognitive worsening or psychiatric/motor symptoms?"
+    definition: "Investigator assessment of whether withdrawal may be related to cognitive worsening or psychiatric or motor symptom burden."
+    source:
+      schema_element: null
+      display_field_elements: { }
+    derivation:
+      kind: "none"
+      input: null
+      mapping: { }
+      else: null
+      depends_on_display_fields: [ ]
+    semantics:
+      level: "subject"
+      domain: "cognition"
+      value_type: "categorical"
+      units: null
+      preferred_representation: "code"
+    resolution:
+      canonical_name: "withdraw_cognitive_related"
+      synonyms: [ ]
+    allowed_values: ["Likely", "Possible", "Unlikely"]
+    sensitivity: "clinical"
+    quality:
+      notes: "Visible only when status equals withdraw in the form logic; form default is unknown although unknown is not among configured values."
+
+  finish_date:
+    export:
+      column: "finish_date"
+      included_via_display_version: "dump"
+    label: "Finish Date"
+    definition: "Calendar date marking the end of active study participation for non-active subject statuses."
+    source:
+      schema_element: null
+      display_field_elements: { }
+    derivation:
+      kind: "none"
+      input: null
+      mapping: { }
+      else: null
+      depends_on_display_fields: [ ]
+    semantics:
+      level: "subject"
+      domain: "subject_status"
+      value_type: "date"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "finish_date"
+      synonyms: ["end_of_participation_date"]
+    allowed_values: [ ]
+    sensitivity: "clinical"
+    quality:
+      notes: "Displayed when status is not active; input mask expects YYYY-MM-DD format."
+
+  subject_status_comments:
+    export:
+      column: "subject_status_comments"
+      included_via_display_version: "dump"
+    label: "Subject Status Comments"
+    definition: "Free-text comments providing additional context for subject enrollment or status changes."
+    source:
+      schema_element: null
+      display_field_elements: { }
+    derivation:
+      kind: "none"
+      input: null
+      mapping: { }
+      else: null
+      depends_on_display_fields: [ ]
+    semantics:
+      level: "subject"
+      domain: "subject_status"
+      value_type: "text"
+      units: null
+      preferred_representation: "raw"
+    resolution:
+      canonical_name: "subject_status_comments"
+      synonyms: ["status_comment"]
+    allowed_values: [ ]
+    sensitivity: "clinical"
+    quality:
+      notes: "Unstructured narrative field; may contain reasons and contextual details not represented in coded fields."

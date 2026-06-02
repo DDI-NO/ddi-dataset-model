@@ -177,11 +177,11 @@ display_field_annotations:
         - "STAG"
         - "stag"
     allowed_values:
-      - 0
-      - 1
-      - 2
-      - 3
-      - 4
+      - "0"
+      - "1"
+      - "2"
+      - "3"
+      - "4"
     sensitivity: "none"
     quality:
       notes: null
@@ -539,8 +539,8 @@ display_field_annotations:
         - "DIAG_PARK"
         - "diag_park"
     allowed_values:
-      - 0
-      - 1
+      - "0"
+      - "1"
     sensitivity: "none"
     quality:
       notes: null

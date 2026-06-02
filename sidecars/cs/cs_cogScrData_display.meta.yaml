@@ -2088,9 +2088,7 @@ display_field_annotations:
         - "CERAD_Learning_regr_t_score"
         - "cerad_learning_regr_t_score"
     allowed_values:
-      - "M"
-      - "F"
-      - "U"
+      []
     sensitivity: "none"
     quality:
       notes: null
